@@ -3,6 +3,7 @@ bikemapcode
 
 mobile-friendly bicycle maps with open-source code, designed for cycling groups to customize and host on their own sites
 
+<<<<<<< HEAD
 demo at http://jackdougherty.github.io/bikemapcode
 
 ##Legend
@@ -46,3 +47,14 @@ To do list:
 - Weather radar layer
 
 Code contributions welcome!
+=======
+and more text
+and
+more text
+and
+more text
+and
+
+## key
+here's the key 
+>>>>>>> FETCH_HEAD
