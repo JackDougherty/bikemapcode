@@ -55,14 +55,17 @@
 	"OpenStreetMap": osm
 	};
 
+	// position layer control and zoom control in topleft, with margins in CSS custom
 	layerControl = L.control.layers(overlayMaps, baseMaps, {position: 'topleft'});
 	layerControl.addTo(map);
+	new L.Control.Zoom({ position: 'topleft' }).addTo(map);
+
 
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 
 		L.marker(e.latlng).addTo(map)
-			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+			.bindPopup("Location: within " + radius + " meters").openPopup();
 			L.circle(e.latlng, radius).addTo(map);
 		}
 
