@@ -31,8 +31,9 @@ html, body, #map {
 .leaflet-top .leaflet-control {
 	margin-top: 45px; 
 	} 
-.leaflet-top .leaflet-control-zoom {
-}
+.leaflet.control.zoom {
+	position: 'bottomleft';
+	}
 	</style>
 	<script type="text/javascript" src="src/leaflet-openweathermap.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/>
@@ -82,7 +83,6 @@ html, body, #map {
 	};
 
 	L.control.layers(overlayMaps, baseMaps).addTo(map);
-	map.addControl( L.control.zoom({position: 'bottomleft'}) )
 
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
