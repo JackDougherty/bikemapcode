@@ -38,8 +38,8 @@ demo at http://jackdougherty.github.io/bikemapcode
 - display ArcGIS shapefile with http://esri.github.io/esri-leaflet/
 
 #compare
--[Bikemap.net](http://bikemap.net/en)
--[East Coast Greenway, Wikimapping tool by Steve Spindler & John Zeng](http://map.greenway.org/)
+- [Bikemap.net](http://bikemap.net/en)
+- [East Coast Greenway, Wikimapping tool by Steve Spindler & John Zeng](http://map.greenway.org/)
 
 #feedback
 bikemapcode is an amateur as-is project. Code contributions welcome! Email feedback to jack.dougherty@trincoll.edu
