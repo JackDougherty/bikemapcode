@@ -58,6 +58,8 @@
 
 	layerControl = L.control.layers(overlayMaps, baseMaps, {position: 'topleft'});
 	layerControl.addTo(map);
+	
+	new L.Control.Zoom({ position: 'topleft' }).addTo(map);
 
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
