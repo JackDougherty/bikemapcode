@@ -8,11 +8,11 @@
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/custom.css"/>
-	<script type="text/javascript" src="src/leaflet-openweathermap.js"></script>
-	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/>
-	<script src="layer/vector/GPX.js"></script>
-	    <!-- Load Esri Leaflet -->
-    <script src="lib/esri-leaflet/esri-leaflet.js"></script>
+	<!-- <script type="text/javascript" src="src/leaflet-openweathermap.js"></script> 
+	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/> 
+	<script src="layer/tile/Google.js"></script>-->
+	<script src="layer/vector/GPX.js"></script> 
+	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
 </head>
 <body>
 <div id="map"></div>
@@ -31,6 +31,8 @@
 	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
 	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
 	esriStreets = L.esri.basemapLayer("Streets"),
+	// ggl = new L.Google(),
+	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
 	sampleRide = new L.GPX("examples/sample.gpx", {async: true, display_wpt:false}),
@@ -44,6 +46,14 @@
 	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
+	var baseMaps = {
+	"OpenCycleMap": ocm,
+	"OpenStreetMap": osm,
+	// "Google Terrain": ggl2,
+	// "Google Satellite": ggl,
+	"ESRI StreetMap": esriStreets
+	};
+
 	var overlayMaps = {
 	"sample ride (GPX)": sampleRide,
 	"sample lanes (ArcGIS Hartford)": arcHartford,
@@ -53,14 +63,8 @@
 	//"Precip Forecast": precipitation
 	};
 
-	var baseMaps = {
-	"OpenCycleMap": ocm,
-	"OpenStreetMap": osm,
-	"ESRI StreetMap": esriStreets
-	};
-
 	// position layer control and zoom control in topleft, with margins in CSS custom
-	layerControl = L.control.layers(overlayMaps, baseMaps, {position: 'topleft'});
+	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
 	new L.Control.Zoom({ position: 'topleft' }).addTo(map);
 
