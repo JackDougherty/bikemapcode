@@ -63,7 +63,7 @@ html, body, #map {
 
 	var map = L.map('map', {
 	center: [41.75, -72.70],
-	zoomControl: false,
+	zoom: 14,
 	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
@@ -81,7 +81,6 @@ html, body, #map {
 	};
 
 	L.control.layers(overlayMaps, baseMaps).addTo(map);
-	map.addControl(L.control.zoom({position:'bottomleft', zoom:14}))
 
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
