@@ -1,0 +1,46 @@
+body {
+	padding: 0;
+	margin: 0;
+	}
+html, body, #map {
+	height: 100%;
+	}
+#header {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 13px;
+	text-align: center;
+	line-height: 12px;
+	padding: 3px;
+	background-color: #ffffff;
+}
+	
+/* lowers layer control below logo */
+.leaflet-top .leaflet-control {
+	margin-top: 50px; 
+	} 
+.leaflet-top .leaflet-control-zoom {
+	margin-top: 5px;
+}
+
+/*.alignleft {
+	top: 0;
+	left: 0;
+	float: left;
+	text-align:left;
+	width: 30%;
+	background-color: #ffffff; 
+	}
+.alignright {
+	top: 0;
+	right: 0;
+	 float: left;
+	 text-align:right;
+	 width: 30%;
+	background-color: #ffffff; 
+	}
+	
+{ color: #4B58A6; }
+a:hover { color: #4B58A6; }*/
