@@ -19,8 +19,8 @@
 <div id="header">
 	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
 	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<span style="font-size: 9px">beta 2014-06-14</span><br>
-	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 11px">legend</a>
+	<span style="font-size: 9px">beta 2014-06-15</span><br>
+	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
 </div>
 	<script>
 	var ocmUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
@@ -30,9 +30,10 @@
 
 	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
 	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
-	precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
-	current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	track = new L.GPX("examples/sample.gpx", {async: true, display_wpt:false}),
+	esriStreets = L.esri.basemapLayer("Streets"),
+	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
+	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
+	sampleRide = new L.GPX("examples/sample.gpx", {async: true, display_wpt:false}),
 	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
 	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
 
@@ -44,16 +45,18 @@
 	});
 
 	var overlayMaps = {
-	"sample ride (uploaded GPX)": track,
-	"sample routes (ArcGIS Trinity)": arcTrinity,
-	"sample lanes (ArcGIS Hartford)": arcHartford
+	"sample ride (GPX)": sampleRide,
+	"sample lanes (ArcGIS Hartford)": arcHartford,
+	"sample routes (ArcGIS Trinity)": arcTrinity
+
 	// "Current Weather": current,
 	//"Precip Forecast": precipitation
 	};
 
 	var baseMaps = {
 	"OpenCycleMap": ocm,
-	"OpenStreetMap": osm
+	"OpenStreetMap": osm,
+	"ESRI StreetMap": esriStreets
 	};
 
 	// position layer control and zoom control in topleft, with margins in CSS custom
