@@ -83,9 +83,9 @@ html, body, #map {
 	"OpenStreetMap": osm
 	};
 
-	L.control.layers(overlayMaps, baseMaps).addTo(map); 
-	/* L.control.layers(overlayMaps, baseMaps, {position:'topleft'}).addTo(map); */
-
+	layerControl = L.control.layers(overlayMaps, baseMaps, {position: 'topleft'});
+	layerControl.addTo(map);
+	/* L.control.layers(overlayMaps, baseMaps).addTo(map); */
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 
