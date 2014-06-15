@@ -6,7 +6,7 @@ mobile-friendly bicycle maps with open-source code, designed for cycling groups 
 demo at http://jackdougherty.github.io/bikemapcode
 
 #legend
-![legend](https://github.com/jackdougherty/raw/master/images/legend.png "legend")
+![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/images/legend.png "legend")
 
 #layers
 more to come
