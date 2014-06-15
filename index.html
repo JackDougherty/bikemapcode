@@ -31,9 +31,9 @@
 	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
 	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
 	esriStreets = L.esri.basemapLayer("Streets"),
-	precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
-	current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	track = new L.GPX("examples/sample.gpx", {async: true, display_wpt:false}),
+	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
+	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
+	sampleRide = new L.GPX("examples/sample.gpx", {async: true, display_wpt:false}),
 	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
 	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
 
@@ -45,9 +45,10 @@
 	});
 
 	var overlayMaps = {
-	"sample ride (uploaded GPX)": track,
-	"sample routes (ArcGIS Trinity)": arcTrinity,
-	"sample lanes (ArcGIS Hartford)": arcHartford
+	"sample ride (GPX)": sampleRide,
+	"sample lanes (ArcGIS Hartford)": arcHartford,
+	"sample routes (ArcGIS Trinity)": arcTrinity
+
 	// "Current Weather": current,
 	//"Precip Forecast": precipitation
 	};
