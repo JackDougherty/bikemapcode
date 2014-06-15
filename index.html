@@ -9,9 +9,9 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="css/custom.css"/>
 	<!-- <script type="text/javascript" src="src/leaflet-openweathermap.js"></script> 
-	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/> -->
+	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/> 
+	<script src="layer/tile/Google.js"></script>-->
 	<script src="layer/vector/GPX.js"></script> 
-	<script src="layer/tile/Google.js"></script>
 	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
 </head>
 <body>
@@ -31,8 +31,8 @@
 	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
 	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
 	esriStreets = L.esri.basemapLayer("Streets"),
-	ggl = new L.Google(),
-	ggl2 = new L.Google('TERRAIN'),
+	// ggl = new L.Google(),
+	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
 	sampleRide = new L.GPX("examples/sample.gpx", {async: true, display_wpt:false}),
@@ -49,9 +49,9 @@
 	var baseMaps = {
 	"OpenCycleMap": ocm,
 	"OpenStreetMap": osm,
-	"ESRI StreetMap": esriStreets,
-	"Google Terrain": ggl2,
-	"Google Satellite": ggl
+	// "Google Terrain": ggl2,
+	// "Google Satellite": ggl,
+	"ESRI StreetMap": esriStreets
 	};
 
 	var overlayMaps = {
