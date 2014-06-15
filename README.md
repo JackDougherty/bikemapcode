@@ -5,10 +5,10 @@ mobile-friendly bicycle maps with open-source code, designed for cycling groups 
 
 demo at http://jackdougherty.github.io/bikemapcode
 
-##Legend
+#Legend
 more to come
 
-##Layers
+#Layers
 more to come
 
 Leaflet, Google, OpenStreetMap, OpenCycleMap, etc. Bicycle organizations are welcome to fork or download a copy and customize to match their needs.
