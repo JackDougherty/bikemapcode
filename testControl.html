@@ -7,35 +7,7 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<style>
-body {
-	padding: 0;
-	margin: 0;
-	}
-html, body, #map {
-	height: 100%;
-	}
-#header {
-	z-index: 1;
-	position: absolute;
-	top: 0;
-	left: 0;
-	font-size: 13px;
-	text-align: center;
-	line-height: 12px;
-	padding: 3px;
-	background-color: #ffffff;
-}
-
-/* lowers layer control below logo */
-.leaflet-top .leaflet-control {
-	margin-top: -100px; 
-	} 
-.leaflet-top .leaflet-control-zoom {
-	margin-top: 100px;
-}
-
-	</style>
+	<link rel="stylesheet" href="css/custom.css"/>
 	<script type="text/javascript" src="src/leaflet-openweathermap.js"></script>
 	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/>
 	<script src="layer/vector/GPX.js"></script>
@@ -85,7 +57,7 @@ html, body, #map {
 
 	layerControl = L.control.layers(overlayMaps, baseMaps, {position: 'topleft'});
 	layerControl.addTo(map);
-	/* L.control.layers(overlayMaps, baseMaps).addTo(map); */
+
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 
