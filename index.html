@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<title>BikeMap</title>
+	<title>bikemapcode</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -32,7 +32,7 @@
 	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
 	precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	track = new L.GPX("examples/jack.gpx", {async: true, display_wpt:false}),
+	track = new L.GPX("examples/sample.gpx", {async: true, display_wpt:false}),
 	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
 	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
 
