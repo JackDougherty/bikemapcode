@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>BikeMaps</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/custom.css"/>
+	<script type="text/javascript" src="js/leaflet-openweathermap.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/>
+	<script src="http://jackdougherty.github.io/bikemaps/layer/vector/GPX.js"></script> <!-- To do: Add relative path-->
+	<script src="http://jackdougherty.github.io/bikemaps/layer/tile/Google.js"></script> <!-- To do: Add relative path-->
+</head>
+<body>
+	<!-- <p class="alignleft"><b>BikeMaps</b> (beta 2014-06-08)</p>
+	<p class="alignright"><a href="https://github.com/JackDougherty/bikemaps">Read me</a></p>
+<div style="clear: both;"></div> -->
+<div id="map"></div>
+	<script>
+		var ocmUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
+			ocmAttr = 'Map data &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			osmAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
+
+	    var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
+	    	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
+		precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
+		current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
+		track = new L.GPX("http://jackdougherty.github.io/bikemaps/examples/jack.gpx", {async: true, display_wpt:false}),
+		ggl = L.Google(),
+		ggl2 = L.Google('TERRAIN');
+
+		 var map = L.map('map', {
+			center: [41.75, -72.70],
+			zoom: 14,
+			layers: [ocm, track]
+		});
+
+	    var baseMaps = {
+	    	"OpenCycleMap": ocm,
+	    	"OpenStreetMap": osm,
+	    	"Google Satellite": ggl,
+	    	"Google Terrain": ggl2
+	    };
+
+	    var overlayMaps = {
+	    	"a GPX track": track,
+	    	"Current Weather": current,
+		"Precip Forecast": precipitation
+	    };
+
+		L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+		function onLocationFound(e) {
+			var radius = e.accuracy / 2;
+
+			L.marker(e.latlng).addTo(map)
+				.bindPopup("You are within " + radius + " meters from this point").openPopup();
+			L.circle(e.latlng, radius).addTo(map);
+		}
+
+		function onLocationError(e) {
+			alert(e.message);
+		}
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
+
+		map.locate({setView: true, maxZoom: 14});
+	</script>
+</body>
+</html>
