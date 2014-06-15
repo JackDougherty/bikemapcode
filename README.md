@@ -3,7 +3,7 @@ bikemapcode
 
 mobile-friendly bicycle maps using free open-source code, designed for cycling groups to fork or download, customize, and host on their own web sites. Code contributions welcome!
 
-demo at http://jackdougherty.github.io/bikemapcode
+demo at [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
 
 #legend
 ![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/images/legend.png "legend")
