@@ -22,7 +22,7 @@ html, body, #map {
 	margin-top: 50px; 
 	} 
 .leaflet-top .leaflet-control-zoom {
-	margin-top: 100px;
+	margin-top: 25px;
 }
 
 /*.alignleft {
