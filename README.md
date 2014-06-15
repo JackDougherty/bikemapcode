@@ -6,7 +6,7 @@ mobile-friendly bicycle maps with open-source code, designed for cycling groups 
 demo at http://jackdougherty.github.io/bikemapcode
 
 #legend
-more to come
+
 
 #layers
 more to come
