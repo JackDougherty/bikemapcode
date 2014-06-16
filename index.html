@@ -7,12 +7,14 @@
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<script src="src/Control.Geocoder.js"></script>
+	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
+	<script src="layer/vector/GPX.js"></script> 
+	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
 	<link rel="stylesheet" href="css/custom.css"/>
 	<!-- <script type="text/javascript" src="src/leaflet-openweathermap.js"></script> 
 	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/> 
 	<script src="layer/tile/Google.js"></script>-->
-	<script src="layer/vector/GPX.js"></script> 
-	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
 </head>
 <body>
 <div id="map"></div>
@@ -66,7 +68,8 @@
 	// position layer control and zoom control in topleft, with margins in CSS custom
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
-	new L.Control.Zoom({ position: 'topleft' }).addTo(map);
+	new L.Control.Zoom({position: 'topleft'}).addTo(map);
+	L.Control.geocoder({position: 'topleft'}).addTo(map);
 
 
 	function onLocationFound(e) {
