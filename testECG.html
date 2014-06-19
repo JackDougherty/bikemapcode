@@ -1,19 +1,16 @@
 <html>
 <head>
 	<title>Leaflet</title>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
 	<script src="layer/vector/KML.js"></script>
 </head>
 <body>
 	<!-- define a DIV into which the map will appear. Make it take up the whole window -->
 	<div style="width:100%; height:100%" id="map"></div>
 <script type='text/javascript'>
-var map = new L.Map('map', {center: new L.LatLng(41.76, -72.67), zoom: 11}),
-ocmURL = 'http://{s}.tile.opencyclemap.org/{z}/{x}/{y}.png',
-ocmAttr = 'Map data &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-
-var ocm   = new L.tileLayer(ocmUrl, {attribution: ocmAttr}),
+var map = new L.Map('map', {center: new L.LatLng(41.76, -72.69), zoom: 11});
+var ocm = new L.TileLayer('http://{s}.tile.opencyclemap.org/{z}/{x}/{y}.png');
 
 var track = new L.KML("examples/CT-ECG-201406.kml", {async: true});
 track.on("loaded", function(e) { map.fitBounds(e.target.getBounds()); });
@@ -22,6 +19,6 @@ map.addLayer(track);
 map.addLayer(ocm);
 map.addControl(new L.Control.Layers({}, {'Track':track}));
 </script>
-
+ 
 </body>
 </html>
