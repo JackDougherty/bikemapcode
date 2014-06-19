@@ -17,7 +17,7 @@ track.on("loaded", function(e) { map.fitBounds(e.target.getBounds()); });
 
 map.addLayer(track);
 map.addLayer(ocm);
-map.addControl(new L.Control.Layers({}, {'track':CT ECG}));
+map.addControl(new L.Control.Layers({}, {'track':track}));
 </script>
  
 </body>
