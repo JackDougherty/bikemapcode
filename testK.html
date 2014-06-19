@@ -22,7 +22,7 @@
 <div id="header">
 	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
 	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<span style="font-size: 9px">beta 2014-06-15</span><br>
+	<span style="font-size: 9px">beta 2014-06-19</span><br>
 	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
 </div>
 	<script>
@@ -44,7 +44,7 @@
 	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
 
 	var map = L.map('map', {
-	center: [41.75, -72.70],
+	center: [41.77, -72.69],
 	zoom: 14,
 	zoomControl: false,  // add new zoom control below after layer control
 	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
@@ -60,7 +60,7 @@
 
 	var overlayMaps = {
 	"sample ride (GPX)": sampleRide,
-	"ECGreenwayCT (KML)": ECGreenway,
+	"EC Greenway CT (KML)": ECGreenway,
 	"sample lanes (ArcGIS Hartford)": arcHartford,
 	"sample routes (ArcGIS Trinity)": arcTrinity
 
