@@ -5,20 +5,20 @@ mobile-friendly bicycle maps using free open-source code, designed for cycling g
 
 demo at [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
 
-#legend
+##legend
 ![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/images/legend.png "legend")
 
-#layers
-##basemaps:
+##layers
+###basemaps:
 - [OpenCycleMap](http://www.opencyclemap.org/) - draws data from OpenStreetMap, which anyone can edit to add bike lanes, bike shops, etc.
 - [OpenStreetMap](http://www.openstreetmap.org/) - the "Wikipedia of maps" that anyone can edit
 - ESRI street map, and more to come - see [Google map test](http://jackdougherty.github.io/bikemapcode/testG.html)
 
-##overlay maps:
+###overlay maps:
 - display any ride with a GPX layer, such as this [sample Hartford-to-Barkhamstead from bikemap.net](http://www.bikemap.net/en/route/545627-hilly-loop-from-hartford-to-barkhamsted-reservoir)
 - display any network of routes ArcGIS server shapefiles, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [routes hosted by Cameron Douglass at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer)
 
-#to do list:
+##to do list:
 - add screenshot and YouTube video on how to add bike-related content to OCM/OSM
 - add Google Maps layer and bicycling layer
 - ESRI-leaflet library to Symbolize Line Features http://jackdougherty.github.io/bikemapcode/testE3.html
