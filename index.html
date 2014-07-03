@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<script src="src/Control.Geocoder.js"></script>
 	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
+	<script src="src/Control.Coordinates.js"></script>
+	<link rel="stylesheet" href="css/Control.Coordinates.css"/>
 	<script src="layer/vector/GPX.js"></script>
 	<script src="layer/vector/KML.js"></script>
 	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
@@ -22,7 +24,7 @@
 <div id="header">
 	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
 	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<span style="font-size: 9px">beta 2014-06-28</span><br>
+	<span style="font-size: 9px">beta 2014-07-03</span><br>
 	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
 </div>
 	<script>
@@ -74,7 +76,14 @@
 	new L.Control.Zoom({position: 'topleft'}).addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
 
+	// settings in Control.Coordinates.js
+	var coord = new L.Control.Coordinates();
+	coord.addTo(map);
 
+	map.on('click',function(e) {
+		coord.setCoordinates(e);
+	});
+	
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 
