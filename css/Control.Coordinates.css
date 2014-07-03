@@ -13,3 +13,6 @@
 .leaflet-control-coordinates-lng {
 	padding-left: 5px;
 }
+.leaflet-bottom .leaflet-control {
+margin-bottom: 30px;
+}
