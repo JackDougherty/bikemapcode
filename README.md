@@ -1,11 +1,9 @@
 bikemapcode
 ===========
 
-Cycling groups and individuals can freely use this open-source, mobile-friendly code to display bicycle routes and facilities on their own web sites. Riders with smartphones can automatically find their locations and view different map layers. Anyone can edit the default OpenCycleMap/OpenStreetMap basemap. 
+Cycling groups and individuals can freely use this mobile-friendly code to display bicycle routes and facilities on their own web sites. Riders with smartphones can automatically find their locations and view different map layers. Anyone can edit the default OpenCycleMap/OpenStreetMap basemap, and this tool can be modified to display overlay routes in KML, GPX, and ArcGIS formats. This open-source Leaflet code is freely distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Code contributions welcome on GitHub or email feedback to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
-Demo at [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
-
-bikemapcode is distributed as-is with no warranty. Code contributions welcome! Submit issues on GitHub or email feedback to jack.dougherty@trincoll.edu
+###Demo at [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
 
 ##legend
 ![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/images/legend.png "legend")
@@ -25,26 +23,27 @@ bikemapcode is distributed as-is with no warranty. Code contributions welcome! S
 - Customize the index.html page to meet your needs (may require HTML, CSS, JavaScript skills) 
 - Host on a live website, such as GitHub Pages (like the demo), or your own domain (more details and example to come)
 
-##to do list - code contributions welcome!
-- add screenshot and YouTube video on how to add bike-related content to OpenStreetMap (which takes a few days to appear on OpenCycleMap)
-- change auto-locate to locate button https://github.com/domoritz/leaflet-locatecontrol so that view resizes to fit routes
-- Flickr and/or Instagram geotagged photos layer -- see Leaflet-Instagram demo https://github.com/turban/Leaflet.Instagram
-- add Google Maps bicycling layer - see [Google map test](http://jackdougherty.github.io/bikemapcode/testG.html)
-- add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
-- ESRI-leaflet library to Symbolize Line Features http://jackdougherty.github.io/bikemapcode/testE3.html; or Style line features http://esri.github.io/esri-leaflet/examples/styling-feature-layer-polylines.html
-- share map link
-- Leaflet-OpenWeatherMap https://github.com/buche/leaflet-openweathermap
-- possibly add SeeClickFix bike-related hazards layer - see API http://help.seeclickfix.com/kb/api/api-overview
-- Wikipedia points of interest layer
-- Weather radar layer
-
-##compare
-- [Bikemap.net](http://bikemap.net/en)
-- [East Coast Greenway, Wikimapping tool by Steve Spindler & John Zeng](http://map.greenway.org/)
-
 ##credits
 - Leaflet tutorials http://leafletjs.com/examples.html
 - display GPX with http://psha.org.ru/b/leaflet-plugins.html
 - display ArcGIS shapefile with http://esri.github.io/esri-leaflet/
 - search for location with https://github.com/perliedman/leaflet-control-geocoder
 - click map to view coordinates with https://github.com/zimmicz/Leaflet-Coordinates-Control (MIT license)
+
+##compare with related tools
+- [Bikemap.net](http://bikemap.net/en)
+- [East Coast Greenway, Wikimapping tool by Steve Spindler & John Zeng](http://map.greenway.org/)
+
+##to do list - code contributions welcome!
+- add screenshot and YouTube video on how to add bike-related content to OpenStreetMap (which takes a few days to appear on OpenCycleMap)
+- change auto-locate to locate button https://github.com/domoritz/leaflet-locatecontrol so that view resizes to fit routes
+- Flickr and/or Instagram geotagged photos layer -- see Leaflet-Instagram demo https://github.com/turban/Leaflet.Instagram
+- add Google Maps bicycling layer - see [Google map test](http://jackdougherty.github.io/bikemapcode/testG.html)
+- add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
+- ESRI-leaflet library to Symbolize Line Features http://jackdougherty.github.io/bikemapcode/testE3.html
+- share map link
+- Leaflet-OpenWeatherMap https://github.com/buche/leaflet-openweathermap
+- possibly add SeeClickFix bike-related hazards layer - see API http://help.seeclickfix.com/kb/api/api-overview
+- Wikipedia points of interest layer
+- Weather radar layer
+
