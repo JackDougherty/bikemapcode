@@ -4,7 +4,6 @@
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
 	cursor: pointer;
 	padding: 2px 5px;
-	margin-bottom: 30px;  /* added to display within smartphone screen*/
 }
 
 .leaflet-control-coordinates.hidden {
