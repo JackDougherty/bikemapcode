@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Schema id="schema0" name="">
+  <SimpleField name="id" type="int">
+  </SimpleField>
+  <SimpleField name="user_id" type="int">
+  </SimpleField>
+  <SimpleField name="layer_id" type="int">
+  </SimpleField>
+  <SimpleField name="created" type="string">
+  </SimpleField>
+  <SimpleField name="sub_id" type="int">
+  </SimpleField>
+  <SimpleField name="like_dislike_net" type="string">
+  </SimpleField>
+  <SimpleField name="survey" type="string">
+  </SimpleField>
+</Schema>
+    <Style id="line_style_1027_T24tUm9hZCAoc3ViLXN0YW5kYXJkKQ">
+      <LineStyle>
+        <color>ffff0000</color>
+        <width>3</width>
+      </LineStyle>
+    </Style>    <Style id="line_style_1026_T24tcm9hZCBSb3V0aW5n">
+      <LineStyle>
+        <color>ffff0000</color>
+        <width>3</width>
+      </LineStyle>
+    </Style>    <Style id="line_style_1025_VHJhaWw">
+      <LineStyle>
+        <color>ff00bf00</color>
+        <width>3</width>
+      </LineStyle>
+    </Style>    <Style id="line_style_2467_VHJhaWwsIHVucGF2ZWQ">
+      <LineStyle>
+        <color>ff00bf00</color>
+        <width>3</width>
+      </LineStyle>
+    </Style>    <Style id="line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ">
+      <LineStyle>
+        <color>ff00ffff</color>
+        <width>3</width>
+      </LineStyle>
+    </Style>    <Style id="point_style_1681_QWNjZXNzIHBvaW50">
+      <IconStyle>
+        <Icon>
+          <href>http://wikimapping.com/wikimap/admin/icons/yellow-note156.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>    <Style id="point_style_2588_YmlrZSBzaG9w">
+      <IconStyle>
+        <Icon>
+          <href>http://wikimapping.com/wikimap/admin/icons/j-bikeshop.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>    <Style id="point_style_1764_RGluaW5n">
+      <IconStyle>
+        <Icon>
+          <href>http://wikimapping.com/wikimap/admin/icons/yellow-dining88.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>    <Style id="point_style_1269_RUNHLUludGVyc2VjdGlvbg">
+      <IconStyle>
+        <Icon>
+          <href>http://wikimapping.com/wikimap/admin/icons/Start39.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>    <Style id="point_style_1818_TmF2aWdhdGlvbiBOb3Rl">
+      <IconStyle>
+        <Icon>
+          <href>http://wikimapping.com/wikimap/admin/icons/navigationnote.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>    <Style id="point_style_2430_UGhvdG8">
+      <IconStyle>
+        <Icon>
+          <href>http://wikimapping.com/wikimap/admin/icons/camera34.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>    <Style id="point_style_1763_UHVibGljIFJlc3Ryb29t">
+      <IconStyle>
+        <Icon>
+          <href>http://wikimapping.com/wikimap/admin/icons/yellow-restroom30.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>    <Style id="point_style_1296_UXVlc3Rpb25z">
+      <IconStyle>
+        <Icon>
+          <href>http://wikimapping.com/wikimap/admin/icons/question.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>		<Placemark id="687482">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">687482</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-02-09 21:01:52</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="687482">
+        <coordinates>
+        -81.466370,30.672541,0
+-81.467228,30.674018,0
+-81.467485,30.675789,0
+-81.466370,30.678373,0
+-81.460705,30.687378,0
+-81.460705,30.689814,0
+-81.461992,30.692397,0
+-81.465340,30.697342,0
+-81.482334,30.716382,0
+-81.488857,30.720957,0
+-81.494780,30.722359,0
+-81.500101,30.722359,0
+-81.506710,30.721694,0
+-81.515379,30.720735,0
+-81.522245,30.720957,0
+-81.527052,30.721916,0
+-81.529713,30.722506,0
+-81.531429,30.722506,0
+-81.532631,30.720735,0
+-81.532288,30.712618,0
+-81.533403,30.709667,0
+-81.536579,30.708191,0
+-81.540871,30.708338,0
+-81.543703,30.710331,0
+-81.546192,30.713799,0
+-81.549368,30.717636,0
+-81.550312,30.720034,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="780312">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">780312</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-04-19 10:15:44</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="780312">
+        <coordinates>
+        -76.101090,39.553680,0
+-76.100360,39.554690,0
+-76.100360,39.554690,0
+-76.099850,39.555330,0
+-76.099249,39.555933,0
+-76.098379,39.556620,0
+-76.097370,39.557216,0
+-76.096330,39.557696,0
+-76.093261,39.559118,0
+-76.087414,39.561757,0
+-76.081738,39.564329,0
+-76.075720,39.567075,0
+-76.070677,39.569279,0
+-76.070480,39.569121,0
+-76.071063,39.563506,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="771441">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">771441</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-03-28 11:44:58</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="771441">
+        <coordinates>
+        -77.992695,33.935172,0
+-77.992480,33.935250,0
+-77.991880,33.935200,0
+-77.991100,33.934630,0
+-77.990330,33.933870,0
+-77.989190,33.933020,0
+-77.988540,33.932810,0
+-77.987740,33.932740,0
+-77.986960,33.932710,0
+-77.986180,33.932720,0
+-77.985300,33.932890,0
+-77.984400,33.933190,0
+-77.981790,33.933910,0
+-77.980840,33.934320,0
+-77.979890,33.934920,0
+-77.968110,33.944090,0
+-77.968110,33.944090,0
+-77.945510,33.961680,0
+-77.944040,33.962060,0
+-77.943140,33.962100,0
+-77.942090,33.962070,0
+-77.940930,33.961910,0
+-77.940380,33.961810,0
+-77.940080,33.961690,0
+-77.939930,33.961542,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="687453">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">687453</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-02-08 07:47:21</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="687453">
+        <coordinates>
+        -81.436281,30.395157,0
+-81.435676,30.394874,0
+-81.435451,30.394848,0
+-81.431145,30.396110,0
+-81.430664,30.396041,0
+-81.429881,30.395652,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="656788">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">656788</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2013-11-03 22:37:20</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[County Rd 644]]></description>
+      <LineString id="656788">
+        <coordinates>
+        -74.012224,40.713085,0
+-74.032832,40.716709,0
+-74.035967,40.717244,0
+-74.038466,40.717957,0
+-74.041069,40.718906,0
+-74.042948,40.719602,0
+-74.045530,40.720379,0
+-74.052580,40.722577,0
+-74.054342,40.723242,0
+-74.056579,40.726683,0
+-74.058618,40.728602,0
+-74.061607,40.731058,0
+-74.064226,40.733318,0
+-74.066784,40.735239,0
+-74.069345,40.736422,0
+-74.086223,40.741017,0
+-74.088074,40.741226,0
+-74.101113,40.741653,0
+-74.106279,40.741948,0
+-74.116043,40.742898,0
+-74.120575,40.743207,0
+-74.126901,40.743332,0
+-74.133486,40.742704,0
+-74.138269,40.742182,0
+-74.151570,40.741302,0
+-74.153210,40.740833,0
+-74.155926,40.739224,0
+-74.163907,40.734457,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="780313">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">780313</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-04-19 10:18:28</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="780313">
+        <coordinates>
+        -76.071085,39.569391,0
+-76.073991,39.568022,0
+-76.075290,39.567373,0
+-76.079652,39.565408,0
+-76.084087,39.563354,0
+-76.088776,39.561253,0
+-76.093728,39.559007,0
+-76.097027,39.557509,0
+-76.097682,39.557170,0
+-76.098250,39.556815,0
+-76.098776,39.556459,0
+-76.099296,39.556037,0
+-76.099790,39.555582,0
+-76.100246,39.555106,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="782008">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">782008</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-05-08 15:06:17</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="782008">
+        <coordinates>
+        -74.033025,40.713850,0
+-74.032123,40.713761,0
+-74.032144,40.714000,0
+-74.032150,40.714000,0
+-74.032080,40.714270,0
+-74.031990,40.714420,0
+-74.031900,40.714500,0
+-74.031670,40.714590,0
+-74.031500,40.714620,0
+-74.031130,40.714640,0
+-74.029760,40.714510,0
+-74.024680,40.713950,0
+-74.023780,40.713860,0
+-74.023490,40.713870,0
+-74.023200,40.713940,0
+-74.023150,40.713960,0
+-74.023150,40.713960,0
+-74.022870,40.714080,0
+-74.022590,40.714260,0
+-74.022330,40.714510,0
+-74.022120,40.714880,0
+-74.021960,40.715170,0
+-74.021780,40.715310,0
+-74.021610,40.715390,0
+-74.021460,40.715420,0
+-74.020820,40.715420,0
+-74.020190,40.715370,0
+-74.020190,40.715370,0
+-74.018360,40.715220,0
+-74.017670,40.715190,0
+-74.017347,40.715139,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="780575">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">780575</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-04-22 14:31:11</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="780575">
+        <coordinates>
+        -70.249422,43.657184,0
+-70.246947,43.655376,0
+-70.243932,43.655181,0
+-70.237516,43.655469,0
+-70.236604,43.654723,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="784232">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">784232</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-05-30 14:35:18</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="784232">
+        <coordinates>
+        -70.181117,42.049404,0
+-70.181130,42.049400,0
+-70.181080,42.049340,0
+-70.181000,42.048570,0
+-70.181010,42.048230,0
+-70.181160,42.047870,0
+-70.181710,42.047160,0
+-70.182030,42.046750,0
+-70.182250,42.046280,0
+-70.182380,42.045790,0
+-70.181970,42.045340,0
+-70.181000,42.044890,0
+-70.157330,42.036590,0
+-70.156830,42.035790,0
+-70.156670,42.035020,0
+-70.156740,42.033970,0
+-70.162390,42.021980,0
+-70.171520,42.018370,0
+-70.182790,42.014390,0
+-70.193100,42.014890,0
+-70.214210,42.019020,0
+-70.216120,42.019630,0
+-70.216120,42.019630,0
+-70.233510,42.025150,0
+-70.290300,42.051450,0
+-70.494250,42.145880,0
+-70.858250,42.314410,0
+-70.859590,42.314710,0
+-70.862140,42.315090,0
+-70.862140,42.315090,0
+-70.878080,42.317480,0
+-70.880610,42.317670,0
+-70.884210,42.317580,0
+-70.920020,42.311710,0
+-70.936640,42.308210,0
+-70.938840,42.307800,0
+-70.938840,42.307800,0
+-70.951440,42.305490,0
+-70.964340,42.305590,0
+-70.978770,42.308380,0
+-70.979620,42.308910,0
+-70.980930,42.309570,0
+-70.982730,42.310550,0
+-71.000720,42.330000,0
+-71.003530,42.336010,0
+-71.005040,42.339580,0
+-71.008850,42.343140,0
+-71.013270,42.346180,0
+-71.021200,42.349960,0
+-71.033050,42.352930,0
+-71.036850,42.353040,0
+-71.037880,42.352890,0
+-71.038190,42.352760,0
+-71.039300,42.351680,0
+-71.039840,42.351240,0
+
+        </coordinates>
+      </LineString>
+    </Placemark>		<Placemark id="788517">
+	    <ExtendedData>
+	      <SchemaData schemaUrl="#schema0">
+	        <SimpleData name="id">788517</SimpleData>
+	        <SimpleData name="user_id">3297</SimpleData>
+	        <SimpleData name="layer_id">1028</SimpleData>
+	        <SimpleData name="created">2014-06-25 15:16:58</SimpleData>
+	        <SimpleData name="sub_id">0</SimpleData>
+	        <SimpleData name="like_dislike_net"></SimpleData>
+	        <SimpleData name="survey"><![CDATA[]]></SimpleData>
+	      </SchemaData>
+	    </ExtendedData>
+		  <styleUrl>#line_style_1028_VHJhbnNpdCwgVmFuLCBGZXJyeQ</styleUrl>
+	    <name><![CDATA[Transit, Van, Ferry]]></name>
+	    <description><![CDATA[]]></description>
+      <LineString id="788517">
+        <coordinates>
+        -76.784263,37.185536,0
+-76.784290,37.185550,0
+-76.783340,37.186490,0
+-76.782580,37.187740,0
+-76.782580,37.189720,0
+-76.783070,37.192010,0
+-76.791560,37.214230,0
+-76.791980,37.215810,0
+-76.792270,37.217710,0
+-76.792180,37.218700,0
+-76.791880,37.219630,0
+-76.791510,37.220050,0
+
+        </coordinates>
+      </LineString>
+    </Placemark></Document></kml>
