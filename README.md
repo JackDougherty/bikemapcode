@@ -31,15 +31,14 @@ bikemapcode is distributed as-is with no warranty. Code contributions welcome! S
 - Flickr and/or Instagram geotagged photos layer -- see Leaflet-Instagram demo https://github.com/turban/Leaflet.Instagram
 - add Google Maps bicycling layer - see [Google map test](http://jackdougherty.github.io/bikemapcode/testG.html)
 - add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
-- ESRI-leaflet library to Symbolize Line Features http://jackdougherty.github.io/bikemapcode/testE3.html
-- add coordinates
+- ESRI-leaflet library to Symbolize Line Features http://jackdougherty.github.io/bikemapcode/testE3.html; or Style line features http://esri.github.io/esri-leaflet/examples/styling-feature-layer-polylines.html
 - share map link
 - Leaflet-OpenWeatherMap https://github.com/buche/leaflet-openweathermap
 - possibly add SeeClickFix bike-related hazards layer - see API http://help.seeclickfix.com/kb/api/api-overview
 - Wikipedia points of interest layer
 - Weather radar layer
 
-#compare
+##compare
 - [Bikemap.net](http://bikemap.net/en)
 - [East Coast Greenway, Wikimapping tool by Steve Spindler & John Zeng](http://map.greenway.org/)
 
@@ -48,3 +47,4 @@ bikemapcode is distributed as-is with no warranty. Code contributions welcome! S
 - display GPX with http://psha.org.ru/b/leaflet-plugins.html
 - display ArcGIS shapefile with http://esri.github.io/esri-leaflet/
 - search for location with https://github.com/perliedman/leaflet-control-geocoder
+- click map to view coordinates with https://github.com/zimmicz/Leaflet-Coordinates-Control (MIT license)
