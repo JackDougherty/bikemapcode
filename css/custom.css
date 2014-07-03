@@ -24,10 +24,6 @@ html, body, #map {
 .leaflet-top .leaflet-control-zoom {
 	margin-top: 5px;
 }
-/* raises Coordinates.control above source label on smartphone screens */
-.leaflet-bottom .leaflet-control {
-	margin-bottom: 40px;
-}
 
 /*.alignleft {
 	top: 0;
