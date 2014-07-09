@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+<Document>
+  <name>Columbia Greenway Rail Trail</name>
+  <description><![CDATA[Columbia Greenway Rail Trail will provide access from Westfield River Bridge crossing, traveling South through town on the elevated former NYNHRR railroad, connecting to the Farmington River Rail Trail on the Southwick Line. ]]></description>
+  <Style id="style8">
+    <LineStyle>
+      <color>80CC0066</color>
+      <width>7</width>
+    </LineStyle>
+  </Style>
+  <Style id="style3">
+    <LineStyle>
+      <color>800000CC</color>
+      <width>7</width>
+    </LineStyle>
+  </Style>
+  <Style id="style10">
+    <LineStyle>
+      <color>80990000</color>
+      <width>7</width>
+    </LineStyle>
+  </Style>
+  <Style id="style5">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/parkinglot.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style7">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/cabs.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style4">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/hiker.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style9">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/cycling.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style11">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/hiker.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style6">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/cycling.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style2">
+    <IconStyle>
+      <Icon>
+        <href>http://maps.gstatic.com/mapfiles/ms2/micons/cycling.png</href>
+      </Icon>
+    </IconStyle>
+  </Style>
+  <Style id="style1">
+    <LineStyle>
+      <color>7333FFFF</color>
+      <width>5</width>
+    </LineStyle>
+  </Style>
+  <Placemark>
+    <name>Columbia Rail Trail (Phase 1)</name>
+    <description><![CDATA[<div dir="ltr">Phase 1 - completed October 2012</div>]]></description>
+    <styleUrl>#style8</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -72.744766,42.087811,0.000000
+        -72.743996,42.089813,0.000000
+        -72.743011,42.093384,0.000000
+        -72.743484,42.101120,0.000000
+        -72.743523,42.102455,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+  <Placemark>
+    <name>Columbia Rail Trail (Phase 2)</name>
+    <description><![CDATA[<div dir="ltr">Phase II - Scheduled for late 2014 completion.  (In Progress)</div>]]></description>
+    <styleUrl>#style3</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -72.744682,42.114285,0.000000
+        -72.744339,42.112724,0.000000
+        -72.744064,42.110607,0.000000
+        -72.743782,42.106262,0.000000
+        -72.743721,42.104271,0.000000
+        -72.743546,42.102535,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+  <Placemark>
+    <name>Columbia Rail Trail (Future)</name>
+    <description><![CDATA[<div dir="ltr">Proposed path of future expansion to bring the Rail Trail North to crossing of Westfield River Bridge.</div>]]></description>
+    <styleUrl>#style10</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -72.744698,42.114300,0.000000
+        -72.746101,42.117661,0.000000
+        -72.746307,42.118530,0.000000
+        -72.746353,42.118858,0.000000
+        -72.746140,42.119999,0.000000
+        -72.746048,42.121090,0.000000
+        -72.746033,42.121891,0.000000
+        -72.746422,42.122940,0.000000
+        -72.748131,42.126148,0.000000
+        -72.748611,42.127171,0.000000
+        -72.748520,42.127651,0.000000
+        -72.748070,42.128601,0.000000
+        -72.747559,42.129051,0.000000
+        -72.746651,42.130081,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+  <Placemark>
+    <name>Shaker Farms CC Parking</name>
+    <description><![CDATA[<div dir="ltr">Rail Trail parking area located behind Shaker Farms Country Club.  Parking for 60 vehicles.<br>Currently the only designated parking area for Columbia Greenway trail access.<br>Located only yards away from Southwick line and continuous access to Farmington Canal Heritage Trail and Southwick Rail Trails.</div>]]></description>
+    <styleUrl>#style5</styleUrl>
+    <Point>
+      <coordinates>-72.744232,42.088280,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Shaker Road crossing</name>
+    <description><![CDATA[<div dir="ltr">Street level crossing of Shaker Road.<br>Please use the blinking signal box to safely cross this busy road.</div>]]></description>
+    <styleUrl>#style7</styleUrl>
+    <Point>
+      <coordinates>-72.743355,42.091846,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Neighborhood Access</name>
+    <description><![CDATA[<div dir="ltr">Ramp access to Rail Trail from Colony Circle neighborhood from the West, and Harvest Moon Circle from the East.  <br>No parking available at these entrances.<br>Completed July 2012.</div>]]></description>
+    <styleUrl>#style4</styleUrl>
+    <Point>
+      <coordinates>-72.743217,42.096397,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Little River &quot;Tin Bridge&quot;</name>
+    <description><![CDATA[<div dir="ltr">Phase II planned for spring 2013 to cross the former Tin Bridge, providing trail access to downtown Westfield.</div>]]></description>
+    <styleUrl>#style9</styleUrl>
+    <Point>
+      <coordinates>-72.743576,42.102818,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Neighborhood Access</name>
+    <description><![CDATA[<div dir="ltr">E Silver St access point.  <br>There will be no parking at this access.<br>Termination of Phase II slated for late 2014.</div>]]></description>
+    <styleUrl>#style11</styleUrl>
+    <Point>
+      <coordinates>-72.744675,42.114063,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Main St Bridge</name>
+    <description><![CDATA[<div dir="ltr">Future site of Westfield signature Rail Trail Bridge!</div>]]></description>
+    <styleUrl>#style6</styleUrl>
+    <Point>
+      <coordinates>-72.746124,42.120445,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Westfield River Bridge</name>
+    <description><![CDATA[<div dir="ltr">Westfield River train bridge crossing.  Future phase III currently planned for 2014.</div>]]></description>
+    <styleUrl>#style2</styleUrl>
+    <Point>
+      <coordinates>-72.747345,42.129040,0.000000</coordinates>
+    </Point>
+  </Placemark>
+  <Placemark>
+    <name>Southwick Rail Trail</name>
+    <description><![CDATA[<div dir="ltr">Southwick Rail Trail extends 6.2 miles to the Connecticut state line: <br>http://southwickrailtrail.org/ <br>Continues as the Farmington Canal Heritage Trail:<br>http://www.fvgreenway.org/map/maps.asp?id=7</div>]]></description>
+    <styleUrl>#style1</styleUrl>
+    <LineString>
+      <tessellate>1</tessellate>
+      <coordinates>
+        -72.744766,42.087681,0.000000
+        -72.745201,42.086472,0.000000
+        -72.745239,42.084465,0.000000
+        -72.745155,42.082424,0.000000
+        -72.745071,42.080421,0.000000
+        -72.745285,42.079590,0.000000
+        -72.745926,42.078445,0.000000
+        -72.748077,42.075577,0.000000
+        -72.750519,42.072807,0.000000
+        -72.758415,42.063313,0.000000
+        -72.758804,42.062836,0.000000
+        -72.759232,42.061783,0.000000
+        -72.761894,42.052639,0.000000
+        -72.763435,42.046200,0.000000
+        -72.763908,42.037758,0.000000
+        -72.763695,42.035271,0.000000
+        -72.763908,42.033737,0.000000
+        -72.764214,42.033325,0.000000
+        -72.768372,42.026409,0.000000
+        -72.768974,42.025387,0.000000
+        -72.769188,42.024750,0.000000
+        -72.769661,42.023636,0.000000
+        -72.769958,42.022614,0.000000
+        -72.770775,42.019680,0.000000
+        -72.771851,42.015377,0.000000
+        -72.772453,42.012665,0.000000
+        -72.772797,42.011646,0.000000
+        -72.772835,42.010178,0.000000
+        -72.772575,42.007629,0.000000
+        -72.772148,42.004917,0.000000
+        -72.771896,42.004375,0.000000
+        -72.770561,42.002621,0.000000
+      </coordinates>
+    </LineString>
+  </Placemark>
+</Document>
+</kml>
