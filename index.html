@@ -24,7 +24,7 @@
 <div id="header">
 	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
 	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<span style="font-size: 9px">beta 2014-07-03</span><br>
+	<span style="font-size: 9px">beta 2014-07-11</span><br>
 	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
 </div>
 	<script>
@@ -40,8 +40,8 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	FVTC = new L.GPX("examples/FVTCJune28loop.gpx", {async: true, display_wpt:false}),
-	ECGreenway = new L.KML("examples/CT-ECG-201406.kml", {async: true}),
+	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}),
+	ECGreenway = new L.KML("routes/CT-ECG-201406.kml", {async: true}),
 	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
 	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
 
@@ -83,7 +83,7 @@
 	map.on('click',function(e) {
 		coord.setCoordinates(e);
 	});
-	
+
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 
