@@ -41,9 +41,6 @@
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
 	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}),
-	ECGroad = new L.KML("routes/ECG20140703road.kml", {async: true}),
-	ECGtrail = new L.KML("routes/ECG20140703trail.kml", {async: true}),
-	ECGtransit = new L.KML("routes/ECG20140703transit.kml", {async: true}),
 	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
 	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
 
@@ -64,9 +61,6 @@
 
 	var overlayMaps = {
 	"FVTC June 28 loop (GPX)": FVTC,
-	"ECG road (blue)": ECGroad,
-	"ECG trail (green)": ECGtrail,
-	"ECG transit (yellow)": ECGtransit,
 	"sample lanes (ArcGIS Hartford)": arcHartford,
 	"sample routes (ArcGIS Trinity)": arcTrinity
 
