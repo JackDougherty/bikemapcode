@@ -1,7 +1,7 @@
 bikemapcode
 ===========
 
-Cycling groups and individuals can freely use this mobile-friendly code to display bicycle routes and facilities on their own web sites. Riders with smartphones can automatically find their locations and view different map layers. Anyone can edit the default OpenCycleMap/OpenStreetMap basemap, and this tool can be modified to display overlay routes in KML, GPX, and ArcGIS formats. This open-source Leaflet code is freely distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Code contributions welcome on GitHub or email feedback to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
+Free map code for your bike group's website. Cycling organizations may freely use this mobile-friendly tool to display recommended bicycle routes and facilities on their own web sites. Riders with smartphones can automatically find their locations and view different map layers. Anyone may edit bike lanes, racks, shops on the default basemap: OpenStreetMap/OpenCycleMap. Customize to display recommended rides or route networks by adding GPX, KML, or ArcGIS overlay maps. This open-source Leaflet code is freely distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Code contributions welcome on GitHub or email feedback to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
 ###Demo at [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
 
@@ -10,18 +10,17 @@ Cycling groups and individuals can freely use this mobile-friendly code to displ
 
 ##layers
 ###basemaps:
-- [OpenCycleMap](http://www.opencyclemap.org/) - draws data from OpenStreetMap, which anyone can edit to add bike lanes, bike shops, etc.
-- [OpenStreetMap](http://www.openstreetmap.org/) - the "Wikipedia of maps" that anyone can edit
+- [OpenCycleMap](http://www.opencyclemap.org/) - draws data from [OpenStreetMap](http://www.openstreetmap.org/), the "wikipedia of maps" that anyone can edit to add dedicated bike lanes, racks, shops, etc.
 - ESRI street map, and more to come
 
 ###overlay maps:
-- display any ride with a GPX layer, such as this [sample Hartford-to-Barkhamstead from bikemap.net](http://www.bikemap.net/en/route/545627-hilly-loop-from-hartford-to-barkhamsted-reservoir)
-- display any network of routes ArcGIS server shapefiles, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [routes hosted by Cameron Douglass at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer)
+- display your group's recommended rides by uploading a GPX or KML layer 
+- display a network of bike routes through an ArcGIS server, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [routes hosted by Cameron Douglass at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer)
 
 ##host this code on your own website
 - Fork or download the code from this GitHub page
 - Customize the index.html page to meet your needs (may require HTML, CSS, JavaScript skills) 
-- Host on a live website, such as GitHub Pages (like the demo), or your own domain (more details and example to come)
+- Host on a live website, such as GitHub Pages (like the demo), or the root folder of own domain (more details and example to come)
 
 ##credits
 - Leaflet tutorials http://leafletjs.com/examples.html
