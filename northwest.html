@@ -44,9 +44,7 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	NWest = new L.GPX("routes/Seattle-Shoreline-Track.gpx", {async: true, display_wpt:true}),
-	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
-	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
+	NWest = new L.GPX("routes/Seattle-Shoreline-Track.gpx", {async: true, display_wpt:true});
 
 	var map = L.map('map', {
 	center: [47.97, -122.30],
@@ -64,9 +62,7 @@
 	};
 
 	var overlayMaps = {
-	"Northwest Tour (GPX)": NWest,
-	"sample lanes (ArcGIS Hartford)": arcHartford,
-	"sample routes (ArcGIS Trinity)": arcTrinity
+	"Northwest Tour (GPX)": NWest
 
 	// "Current Weather": current,
 	//"Precip Forecast": precipitation
