@@ -78,6 +78,45 @@
 	var coord = new L.Control.Coordinates();
 	coord.addTo(map);
 
+	//from Leaflet.Flickr
+	var popupHTML = function(photo){
+		var result = "";
+                result = '<strong>'+photo.title+'</strong><br>';
+                result += '<a href="'+photo.url_m+'" target="_blank">';
+                result += '<img src="'+photo.url_t+'"></a>';      //can change to url_m if desired
+                result += '<p><small>click to enlarge<br>more info to come</small></p>';
+
+                return result;
+	}
+
+	//Use Flickr API explorer to obtain correct endpoint and insert your own API key
+	//Photos.search currently works, but error with photosets.getPhotos
+	//https://www.flickr.com/services/api/explore/flickr.photos.search
+	//https://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
+
+	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=bike&extras=geo%2Curl_t%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
+
+	//This returns error
+	//var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=25dcc9a8c7410551dcb0af48c778bde5&photoset_id=72157646371103550&extras=geo%2Curl_t%2Curl_m&format=json&nojsoncallback=1";
+
+	$.ajax({
+		url: flickrURL,
+		dataType: 'json',
+		success: function(data){
+			for (var i = 0; i < data.photos.photo.length; i++){
+				var photo_obj = data.photos.photo[i];
+				console.log(photo_obj.title, photo_obj.latitude, photo_obj.longitude); //shows titles in console for debugging
+				var photo_icon = L.icon(
+					{iconUrl: photo_obj.url_t,
+					iconSize: [photo_obj.width_t * 0.5, photo_obj.height_t * 0.5]}  //reduces thumbnails 50%
+					);
+
+				new L.marker([photo_obj.latitude, photo_obj.longitude], {icon: photo_icon})
+				.bindPopup(popupHTML(photo_obj)).addTo(map);
+    	}
+    }
+  });
+
 	/* map.on('click',function(e) {
 		coord.setCoordinates(e);
 	});
