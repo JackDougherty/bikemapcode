@@ -40,7 +40,7 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	NWest = new L.GPX("routes/Seattle-Shoreline-Track.gpx", {async: true, display_wpt:false}),
+	NWest = new L.GPX("routes/Seattle-Shoreline-Track.gpx", {async: true, display_wpt:true}),
 	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
 	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
 
@@ -48,7 +48,7 @@
 	center: [47.61, -122.64],
 	zoom: 10,
 	zoomControl: false,  // add new zoom control below after layer control
-	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriStreets, NWest]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
 	var baseMaps = {
