@@ -44,13 +44,11 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	NWest = new L.GPX("routes/Seattle-Shoreline-Track.gpx", {async: true, display_wpt:true}),
-	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
-	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
+	NWest = new L.GPX("routes/Seattle-Shoreline-Track.gpx", {async: true, display_wpt:true});
 
 	var map = L.map('map', {
-	center: [47.61, -122.64],
-	zoom: 10,
+	center: [47.97, -122.30],
+	zoom: 9,
 	zoomControl: false,  // add new zoom control below after layer control
 	layers: [esriStreets, NWest]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
@@ -64,9 +62,7 @@
 	};
 
 	var overlayMaps = {
-	"Northwest Tour (GPX)": NWest,
-	"sample lanes (ArcGIS Hartford)": arcHartford,
-	"sample routes (ArcGIS Trinity)": arcTrinity
+	"Northwest Tour (GPX)": NWest
 
 	// "Current Weather": current,
 	//"Precip Forecast": precipitation
@@ -87,8 +83,8 @@
 		var result = "";
                 result = '<strong>'+photo.title+'</strong><br>';
                 result += '<a href="'+photo.url_m+'" target="_blank">';
-                result += '<img src="'+photo.url_t+'"></a>';      //can change to url_m if desired
-                result += '<p><small>click to enlarge<br>more info to come</small></p>';
+                result += '<img src="'+photo.url_t+'"></a>';      //can change to url_m if desired, but frame needs work
+                result += '<p><small>click to enlarge</small></p>';
 
                 return result;
 	}
