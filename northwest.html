@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>bikemapcode</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<script src="src/Control.Geocoder.js"></script>
+	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
+	<script src="src/Control.Coordinates.js"></script>
+	<link rel="stylesheet" href="css/Control.Coordinates.css"/>
+	<script src="layer/vector/GPX.js"></script>
+	<script src="layer/vector/KML.js"></script>
+	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
+	<link rel="stylesheet" href="css/custom.css"/>
+	<!-- <script type="text/javascript" src="src/leaflet-openweathermap.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/>
+	<script src="layer/tile/Google.js"></script>-->
+</head>
+<body>
+<div id="map"></div>
+<div id="header">
+	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
+	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
+	<span style="font-size: 9px">NWest 2014-08-25</span><br>
+	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
+</div>
+	<script>
+	var ocmUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
+	ocmAttr = 'Map data &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+	osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+	osmAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
+
+	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
+	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
+	esriStreets = L.esri.basemapLayer("Streets"),
+	// ggl = new L.Google(),
+	// ggl2 = new L.Google('TERRAIN'),
+	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
+	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
+	NWest = new L.GPX("routes/Seattle-Shoreline-Track.gpx", {async: true, display_wpt:true}),
+	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
+	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
+
+	var map = L.map('map', {
+	center: [47.61, -122.64],
+	zoom: 10,
+	zoomControl: false,  // add new zoom control below after layer control
+	layers: [esriStreets, NWest]   //default display can be base + overlays [ocm, arcGIS, track]
+	});
+
+	var baseMaps = {
+	"OpenCycleMap": ocm,
+	"OpenStreetMap": osm,
+	// "Google Terrain": ggl2,
+	// "Google Satellite": ggl,
+	"ESRI StreetMap": esriStreets
+	};
+
+	var overlayMaps = {
+	"Northwest Tour (GPX)": NWest,
+	"sample lanes (ArcGIS Hartford)": arcHartford,
+	"sample routes (ArcGIS Trinity)": arcTrinity
+
+	// "Current Weather": current,
+	//"Precip Forecast": precipitation
+	};
+
+	// position layer control and zoom control in topleft, with margins in CSS custom
+	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
+	layerControl.addTo(map);
+	new L.Control.Zoom({position: 'topleft'}).addTo(map);
+	L.Control.geocoder({position: 'topleft'}).addTo(map);
+
+	// settings in Control.Coordinates.js
+	var coord = new L.Control.Coordinates();
+	coord.addTo(map);
+
+	/* map.on('click',function(e) {
+		coord.setCoordinates(e);
+	});
+
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("Location: within " + radius + " meters").openPopup();
+			L.circle(e.latlng, radius).addTo(map);
+		}
+
+		function onLocationError(e) {
+			alert(e.message);
+		}
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
+
+		map.locate({setView: true, maxZoom: 14}); */
+	</script>
+</body>
+</html>
