@@ -3,6 +3,32 @@
 
 <rte>
 <name>Northwest-route</name>
+<rtept lat ="47.6456664" lon="-122.33437320000002"></rtept>
+<rtept lat ="47.64576659999999" lon="-122.3338258"></rtept>
+<rtept lat ="47.6464826" lon="-122.33428730000003"></rtept>
+<rtept lat ="47.6469652" lon="-122.33380540000002"></rtept>
+<rtept lat ="47.64800779999999" lon="-122.33292510000001"></rtept>
+<rtept lat ="47.6507864" lon="-122.30720910000002"></rtept>
+<rtept lat ="47.6508213" lon="-122.30719240000002"></rtept>
+<rtept lat ="47.6511448" lon="-122.30621459999998"></rtept>
+<rtept lat ="47.6521075" lon="-122.3069102"></rtept>
+<rtept lat ="47.6522546" lon="-122.3064412"></rtept>
+<rtept lat ="47.6508601" lon="-122.30548490000001"></rtept>
+<rtept lat ="47.6643" lon="-122.30288919999998"></rtept>
+<rtept lat ="47.6619117" lon="-122.29183390000003"></rtept>
+<rtept lat ="47.662431" lon="-122.28682739999999"></rtept>
+<rtept lat ="47.6672711" lon="-122.28469630000001"></rtept>
+<rtept lat ="47.667661" lon="-122.28412230000004"></rtept>
+<rtept lat ="47.7206665" lon="-122.28116790000001"></rtept>
+<rtept lat ="47.7519125" lon="-122.28013479999998"></rtept>
+<rtept lat ="47.7525039" lon="-122.28064699999999"></rtept>
+<rtept lat ="47.7522211" lon="-122.2814816"></rtept>
+<rtept lat ="47.7563284" lon="-122.28739129999997"></rtept>
+<rtept lat ="47.7605998" lon="-122.29778299999998"></rtept>
+<rtept lat ="47.7612399" lon="-122.29902140000002"></rtept>
+<rtept lat ="47.7619268" lon="-122.29974400000003"></rtept>
+<rtept lat ="47.7659076" lon="-122.31402750000001"></rtept>
+<rtept lat ="47.76474229999999" lon="-122.31382500000001"></rtept>
 <rtept lat ="47.7559675" lon="-122.34153270000002"></rtept>
 <rtept lat ="47.7560398" lon="-122.3443866"></rtept>
 <rtept lat ="47.7608051" lon="-122.3455485"></rtept>
@@ -73,7 +99,7 @@
 </wpt>
 <wpt lat ="48.397110000000005" lon="-122.65446000000001">
   <name>Day 2 = 65 miles</name>
-  <desc>From Shoreline to Deception Pass State Park (plus 2 miles by ferry)</desc>
+  <desc>From Shoreline to Deception Pass State Park (plus 2 additional miles by ferry)</desc>
   <sym>Flag</sym>
 </wpt>
 </gpx>
