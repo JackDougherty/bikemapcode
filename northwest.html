@@ -44,13 +44,13 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	Northwest = new L.GPX("routes/Northwest-Track.gpx", {async: true, display_wpt:true});
+	Northwest = new L.GPX("routes/Northwest-Route.gpx", {async: true, display_wpt:true});
 
 	var map = L.map('map', {
 	center: [47.97, -122.30],
 	zoom: 9,
 	zoomControl: false,  // add new zoom control below after layer control
-	layers: [esriStreets, NWest]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriStreets, Northwest]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
 	var baseMaps = {

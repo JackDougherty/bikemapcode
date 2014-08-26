@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx version="1.1" creator="http://cycleroute.org web application">
+
+<rte>
+<name>Northwest-route</name>
+<rtept lat ="47.6456664" lon="-122.33437320000002"></rtept>
+<rtept lat ="47.64576659999999" lon="-122.3338258"></rtept>
+<rtept lat ="47.6464826" lon="-122.33428730000003"></rtept>
+<rtept lat ="47.6469652" lon="-122.33380540000002"></rtept>
+<rtept lat ="47.64800779999999" lon="-122.33292510000001"></rtept>
+<rtept lat ="47.6507864" lon="-122.30720910000002"></rtept>
+<rtept lat ="47.6508213" lon="-122.30719240000002"></rtept>
+<rtept lat ="47.6511448" lon="-122.30621459999998"></rtept>
+<rtept lat ="47.6521075" lon="-122.3069102"></rtept>
+<rtept lat ="47.6522546" lon="-122.3064412"></rtept>
+<rtept lat ="47.6508601" lon="-122.30548490000001"></rtept>
+<rtept lat ="47.6643" lon="-122.30288919999998"></rtept>
+<rtept lat ="47.6619117" lon="-122.29183390000003"></rtept>
+<rtept lat ="47.662431" lon="-122.28682739999999"></rtept>
+<rtept lat ="47.6672711" lon="-122.28469630000001"></rtept>
+<rtept lat ="47.667661" lon="-122.28412230000004"></rtept>
+<rtept lat ="47.7206665" lon="-122.28116790000001"></rtept>
+<rtept lat ="47.7519125" lon="-122.28013479999998"></rtept>
+<rtept lat ="47.7525039" lon="-122.28064699999999"></rtept>
+<rtept lat ="47.7522211" lon="-122.2814816"></rtept>
+<rtept lat ="47.7563284" lon="-122.28739129999997"></rtept>
+<rtept lat ="47.7605998" lon="-122.29778299999998"></rtept>
+<rtept lat ="47.7612399" lon="-122.29902140000002"></rtept>
+<rtept lat ="47.7619268" lon="-122.29974400000003"></rtept>
+<rtept lat ="47.7659076" lon="-122.31402750000001"></rtept>
+<rtept lat ="47.76474229999999" lon="-122.31382500000001"></rtept>
+<rtept lat ="47.7559675" lon="-122.34153270000002"></rtept>
+<rtept lat ="47.7560398" lon="-122.3443866"></rtept>
+<rtept lat ="47.7608051" lon="-122.3455485"></rtept>
+<rtept lat ="47.7630671" lon="-122.34559669999999"></rtept>
+<rtept lat ="47.7631513" lon="-122.34417730000001"></rtept>
+<rtept lat ="47.7672369" lon="-122.34413790000002"></rtept>
+<rtept lat ="47.7741678" lon="-122.34082219999999"></rtept>
+<rtept lat ="47.7741903" lon="-122.335174"></rtept>
+<rtept lat ="47.7777755" lon="-122.33525450000002"></rtept>
+<rtept lat ="47.78263459999999" lon="-122.33539330000002"></rtept>
+<rtept lat ="47.7987045" lon="-122.32997569999998"></rtept>
+<rtept lat ="47.80319309999999" lon="-122.32585369999998"></rtept>
+<rtept lat ="47.8038086" lon="-122.3245705"></rtept>
+<rtept lat ="47.808653" lon="-122.32443610000001"></rtept>
+<rtept lat ="47.8086254" lon="-122.32327829999997"></rtept>
+<rtept lat ="47.8104398" lon="-122.3233199"></rtept>
+<rtept lat ="47.8104635" lon="-122.32466620000002"></rtept>
+<rtept lat ="47.8285382" lon="-122.3250903"></rtept>
+<rtept lat ="47.8285249" lon="-122.32374759999999"></rtept>
+<rtept lat ="47.829137" lon="-122.32377610000003"></rtept>
+<rtept lat ="47.8325629" lon="-122.32400100000001"></rtept>
+<rtept lat ="47.8340742" lon="-122.32403520000003"></rtept>
+<rtept lat ="47.8341256" lon="-122.3250036"></rtept>
+<rtept lat ="47.8392484" lon="-122.3247758"></rtept>
+<rtept lat ="47.8464748" lon="-122.3176254"></rtept>
+<rtept lat ="47.8465935" lon="-122.3035868"></rtept>
+<rtept lat ="47.8665076" lon="-122.3033438"></rtept>
+<rtept lat ="47.8827291" lon="-122.27994130000002"></rtept>
+<rtept lat ="47.9404991" lon="-122.30572519999998"></rtept>
+<rtept lat ="47.94891699999999" lon="-122.30420889999999"></rtept>
+<rtept lat ="47.9494432" lon="-122.30476090000002"></rtept>
+<rtept lat ="47.9748053" lon="-122.3493853"></rtept>
+<rtept lat ="47.97534419999999" lon="-122.3498634"></rtept>
+<rtept lat ="48.0066208" lon="-122.48818799999998"></rtept>
+<rtept lat ="48.0099834" lon="-122.51884059999998"></rtept>
+<rtept lat ="48.0085379" lon="-122.531094"></rtept>
+<rtept lat ="48.1619107" lon="-122.60531579999997"></rtept>
+<rtept lat ="48.1713149" lon="-122.60910389999998"></rtept>
+<rtept lat ="48.1707543" lon="-122.63709399999999"></rtept>
+<rtept lat ="48.1766754" lon="-122.6688249"></rtept>
+<rtept lat ="48.2066652" lon="-122.6753266"></rtept>
+<rtept lat ="48.2081657" lon="-122.6929705"></rtept>
+<rtept lat ="48.212311" lon="-122.6930304"></rtept>
+<rtept lat ="48.2197266" lon="-122.69306360000002"></rtept>
+<rtept lat ="48.23293959999999" lon="-122.73615530000001"></rtept>
+<rtept lat ="48.2513413" lon="-122.71130260000001"></rtept>
+<rtept lat ="48.26018759999999" lon="-122.69787959999996"></rtept>
+<rtept lat ="48.27437889999999" lon="-122.66997379999998"></rtept>
+<rtept lat ="48.2853794" lon="-122.66216539999999"></rtept>
+<rtept lat ="48.2869115" lon="-122.65778090000003"></rtept>
+<rtept lat ="48.3183118" lon="-122.63026730000001"></rtept>
+<rtept lat ="48.32336" lon="-122.6289481"></rtept>
+<rtept lat ="48.3287566" lon="-122.62943949999999"></rtept>
+<rtept lat ="48.3384907" lon="-122.6277455"></rtept>
+<rtept lat ="48.3467254" lon="-122.6134798"></rtept>
+<rtept lat ="48.3580896" lon="-122.6186485"></rtept>
+<rtept lat ="48.3680137" lon="-122.65209620000002"></rtept>
+<rtept lat ="48.3911638" lon="-122.6469055"></rtept>
+<rtept lat ="48.3923403" lon="-122.64724039999999"></rtept>
+<rtept lat ="48.3925383" lon="-122.64730850000001"></rtept>
+<rtept lat ="48.3965182" lon="-122.64728489999999"></rtept>
+</rte>
+
+<wpt lat ="47.76541" lon="-122.31478000000001">
+  <name>Day 1 = 13 miles</name>
+  <desc>From Seattle Gasworks Park to Shoreline</desc>
+  <sym>Flag</sym>
+</wpt>
+<wpt lat ="48.397110000000005" lon="-122.65446000000001">
+  <name>Day 2 = 65 miles</name>
+  <desc>From Shoreline to Deception Pass State Park (plus 2 additional miles by ferry)</desc>
+  <sym>Flag</sym>
+</wpt>
+</gpx>
