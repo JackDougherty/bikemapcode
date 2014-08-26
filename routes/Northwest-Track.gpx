@@ -1270,6 +1270,8 @@
 
 <wpt lat ="47.76541" lon="-122.31478000000001">
   <name>Shoreline, 13 miles</name>
+    <cmt>comment</cmt>
+  <desc>description</desc>
   <sym>Flag</sym>
 </wpt>
 </gpx>
