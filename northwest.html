@@ -44,7 +44,7 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	NWest = new L.GPX("routes/Seattle-Shoreline-Track.gpx", {async: true, display_wpt:true});
+	Northwest = new L.GPX("routes/Northwest-Track.gpx", {async: true, display_wpt:true});
 
 	var map = L.map('map', {
 	center: [47.97, -122.30],
@@ -62,7 +62,7 @@
 	};
 
 	var overlayMaps = {
-	"Northwest Tour (GPX)": NWest
+	"Northwest Tour (GPX)": Northwest
 
 	// "Current Weather": current,
 	//"Precip Forecast": precipitation
