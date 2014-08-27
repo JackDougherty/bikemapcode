@@ -90,16 +90,65 @@
 <rtept lat ="48.3923403" lon="-122.64724039999999"></rtept>
 <rtept lat ="48.3925383" lon="-122.64730850000001"></rtept>
 <rtept lat ="48.3965182" lon="-122.64728489999999"></rtept>
+<rtept lat ="48.3971111" lon="-122.6544649"></rtept>
+<rtept lat ="48.3964422" lon="-122.64765590000002"></rtept>
+<rtept lat ="48.3965182" lon="-122.64728489999999"></rtept>
+<rtept lat ="48.3971873" lon="-122.6470736"></rtept>
+<rtept lat ="48.397236" lon="-122.64677360000002"></rtept>
+<rtept lat ="48.3973776" lon="-122.64694559999998"></rtept>
+<rtept lat ="48.403305" lon="-122.6471626"></rtept>
+<rtept lat ="48.42041469999999" lon="-122.61999450000002"></rtept>
+<rtept lat ="48.42510189999999" lon="-122.60839920000001"></rtept>
+<rtept lat ="48.4512587" lon="-122.58185400000002"></rtept>
+<rtept lat ="48.4479579" lon="-122.57288900000003"></rtept>
+<rtept lat ="48.46045280000001" lon="-122.57101499999999"></rtept>
+<rtept lat ="48.4626424" lon="-122.57098389999999"></rtept>
+<rtept lat ="48.45731259999999" lon="-122.38107539999999"></rtept>
+<rtept lat ="48.51556739999999" lon="-122.37837200000001"></rtept>
+<rtept lat ="48.5155476" lon="-122.37729260000003"></rtept>
+<rtept lat ="48.6474544" lon="-122.48691580000002"></rtept>
+<rtept lat ="48.6656907" lon="-122.483607"></rtept>
+<rtept lat ="48.6660793" lon="-122.48536860000002"></rtept>
+<rtept lat ="48.716088" lon="-122.502207"></rtept>
+<rtept lat ="48.7159158" lon="-122.5024831"></rtept>
+<rtept lat ="48.716015" lon="-122.50455169999998"></rtept>
+<rtept lat ="48.71793659999999" lon="-122.5046208"></rtept>
+<rtept lat ="48.7181376" lon="-122.50450169999999"></rtept>
+<rtept lat ="48.72750629999999" lon="-122.50488660000002"></rtept>
+<rtept lat ="48.7284084" lon="-122.50403080000001"></rtept>
+<rtept lat ="48.7323077" lon="-122.50119689999997"></rtept>
+<rtept lat ="48.73260519999999" lon="-122.5007397"></rtept>
+<rtept lat ="48.7434434" lon="-122.4855594"></rtept>
+<rtept lat ="48.7487574" lon="-122.4776089"></rtept>
+<rtept lat ="48.7504498" lon="-122.48018719999999"></rtept>
+<rtept lat ="48.7549127" lon="-122.478051"></rtept>
+<rtept lat ="48.75488379999999" lon="-122.48103980000002"></rtept>
+<rtept lat ="48.7598281" lon="-122.48837839999999"></rtept>
+<rtept lat ="48.7647993" lon="-122.48835859999997"></rtept>
+<rtept lat ="48.77563749999999" lon="-122.49715809999998"></rtept>
+<rtept lat ="48.7871314" lon="-122.51784409999999"></rtept>
+<rtept lat ="48.7894435" lon="-122.51450510000001"></rtept>
+<rtept lat ="48.84758249999999" lon="-122.57452469999998"></rtept>
+<rtept lat ="48.8483875" lon="-122.61457089999999"></rtept>
+<rtept lat ="48.84980179999999" lon="-122.70425219999998"></rtept>
+<rtept lat ="48.877478" lon="-122.70422239999999"></rtept>
+<rtept lat ="48.877797" lon="-122.74881149999999"></rtept>
+<rtept lat ="48.90325929999999" lon="-122.7486644"></rtept>
 </rte>
 
 <wpt lat ="47.76541" lon="-122.31478000000001">
   <name>Day 1 = 13 miles</name>
-  <desc>From Seattle Gasworks Park to Shoreline</desc>
+  <desc>from Seattle Gasworks Park to Shoreline</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="48.397110000000005" lon="-122.65446000000001">
   <name>Day 2 = 65 miles</name>
-  <desc>From Shoreline to Deception Pass State Park (plus 2 additional miles by ferry)</desc>
+  <desc>from Shoreline to Deception Pass State Park (plus 2 additional miles by ferry)</desc>
+  <sym>Flag</sym>
+</wpt>
+<wpt lat ="48.90325929999999" lon="-122.7486644">
+  <name>Day 3 = 64 miles</name>
+  <desc>from Deception Pass State Park to Birch Bay State Park, WA</desc>
   <sym>Flag</sym>
 </wpt>
 </gpx>
