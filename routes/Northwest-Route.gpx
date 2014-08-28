@@ -134,6 +134,34 @@
 <rtept lat ="48.877478" lon="-122.70422239999999"></rtept>
 <rtept lat ="48.877797" lon="-122.74881149999999"></rtept>
 <rtept lat ="48.90325929999999" lon="-122.7486644"></rtept>
+<rtept lat ="48.9069077" lon="-122.7627559"></rtept>
+<rtept lat ="48.9129297" lon="-122.74835129999997"></rtept>
+<rtept lat ="48.91247490000001" lon="-122.74791270000003"></rtept>
+<rtept lat ="48.9165541" lon="-122.74298729999998"></rtept>
+<rtept lat ="48.9173272" lon="-122.74267789999999"></rtept>
+<rtept lat ="48.91773939999999" lon="-122.7428382"></rtept>
+<rtept lat ="48.9176383" lon="-122.72644300000002"></rtept>
+<rtept lat ="48.9757651" lon="-122.72837779999998"></rtept>
+<rtept lat ="48.9792127" lon="-122.7295863"></rtept>
+<rtept lat ="48.9792126" lon="-122.7271035"></rtept>
+<rtept lat ="48.9905455" lon="-122.73443559999998"></rtept>
+<rtept lat ="48.9905491" lon="-122.73483390000001"></rtept>
+<rtept lat ="49.0019431" lon="-122.73533559999998"></rtept>
+<rtept lat ="49.0166867" lon="-122.73516660000001"></rtept>
+<rtept lat ="49.0168536" lon="-122.75784110000001"></rtept>
+<rtept lat ="49.0165776" lon="-122.7621236"></rtept>
+<rtept lat ="49.0275334" lon="-122.7711746"></rtept>
+<rtept lat ="49.0929125" lon="-122.81764149999998"></rtept>
+<rtept lat ="49.097278" lon="-122.81765280000002"></rtept>
+<rtept lat ="49.09443539999999" lon="-122.86968250000001"></rtept>
+<rtept lat ="49.09361759999999" lon="-122.86973209999996"></rtept>
+<rtept lat ="49.0898358" lon="-122.86105739999999"></rtept>
+<rtept lat ="49.08975479999999" lon="-122.8611608"></rtept>
+<rtept lat ="49.0902993" lon="-122.8678698"></rtept>
+<rtept lat ="49.034614" lon="-123.05408299999999"></rtept>
+<rtept lat ="49.024517" lon="-123.05850900000002"></rtept>
+<rtept lat ="49.0247369" lon="-123.06874089999997"></rtept>
+<rtept lat ="49.018015" lon="-123.06872099999998"></rtept>
 </rte>
 
 <wpt lat ="47.76541" lon="-122.31478000000001">
@@ -150,5 +178,10 @@
   <name>Day 3 = 64 miles</name>
   <desc>from Deception Pass State Park to Birch Bay State Park, WA</desc>
   <sym>Flag</sym>
+<wpt lat ="49.018015" lon="-123.06872099999998">
+  <name>Day 4 = 32 miles</name>
+  <desc>from Birch Bay State Park, WA to Tsawwassen, BC</desc>
+  <sym>Flag</sym>
+  
 </wpt>
 </gpx>
