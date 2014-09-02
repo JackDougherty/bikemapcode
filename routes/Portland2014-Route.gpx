@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx version="1.1" creator="http://cycleroute.org web application">
+
+<rte>
+<name>Portland-2014-loop</name>
+<rtept lat ="45.528741" lon="-122.6770343"></rtept>
+<rtept lat ="45.528673" lon="-122.677186"></rtept>
+<rtept lat ="45.5280503" lon="-122.67662289999998"></rtept>
+<rtept lat ="45.5280408" lon="-122.67762219999997"></rtept>
+<rtept lat ="45.5298875" lon="-122.67768639999997"></rtept>
+<rtept lat ="45.5330676" lon="-122.67196369999999"></rtept>
+<rtept lat ="45.5342092" lon="-122.66973380000002"></rtept>
+<rtept lat ="45.5343641" lon="-122.66672940000001"></rtept>
+<rtept lat ="45.54231619999999" lon="-122.6666922"></rtept>
+<rtept lat ="45.5563848" lon="-122.66672670000003"></rtept>
+<rtept lat ="45.5563894" lon="-122.66464009999999"></rtept>
+<rtept lat ="45.5690235" lon="-122.66257259999998"></rtept>
+<rtept lat ="45.5699778" lon="-122.6625831"></rtept>
+<rtept lat ="45.570032" lon="-122.6999614"></rtept>
+<rtept lat ="45.5888192" lon="-122.75724960000002"></rtept>
+<rtept lat ="45.589289" lon="-122.75649550000003"></rtept>
+<rtept lat ="45.589107" lon="-122.75633040000002"></rtept>
+<rtept lat ="45.586457" lon="-122.76216310000001"></rtept>
+<rtept lat ="45.5832791" lon="-122.768621"></rtept>
+<rtept lat ="45.5833269" lon="-122.76904990000003"></rtept>
+<rtept lat ="45.5874397" lon="-122.7738324"></rtept>
+<rtept lat ="45.58762060000001" lon="-122.77368739999997"></rtept>
+<rtept lat ="45.6442783" lon="-122.83928049999997"></rtept>
+<rtept lat ="45.64823200000001" lon="-122.84616829999999"></rtept>
+<rtept lat ="45.7695777" lon="-122.87915240000001"></rtept>
+<rtept lat ="45.81292149999999" lon="-122.85349350000001"></rtept>
+<rtept lat ="45.9100407" lon="-122.82322640000001"></rtept>
+<rtept lat ="45.9239471" lon="-122.83540240000002"></rtept>
+<rtept lat ="45.9306887" lon="-122.84286400000002"></rtept>
+<rtept lat ="46.0340194" lon="-122.89233089999999"></rtept>
+<rtept lat ="46.046497" lon="-122.8982853"></rtept>
+<rtept lat ="46.0939911" lon="-122.95342700000003"></rtept>
+<rtept lat ="46.09516929999999" lon="-122.96512430000001"></rtept>
+<rtept lat ="46.09584" lon="-122.96837670000002"></rtept>
+<rtept lat ="46.1164779" lon="-122.9504905"></rtept>
+<rtept lat ="46.12293" lon="-122.94458500000002"></rtept>
+<rtept lat ="46.1229357" lon="-122.93761899999998"></rtept>
+<rtept lat ="46.1279384" lon="-122.93524839999998"></rtept>
+</rte>
+
+<wpt lat ="45.5563894" lon="-122.66464009999999">
+  <name>Day 1 = 10 miles</name>
+  <desc>7 miles in Seattle + 3 miles in Portland (and more by train)</desc>
+  <sym>Flag</sym>
+</wpt>
+<wpt lat ="46.1279384" lon="-122.93524839999998">
+  <name>Day 2 = 52 miles</name>
+  <desc>from Portland OR to Longview WA</desc>
+  <sym>Flag</sym>
+</wpt>
+</gpx>

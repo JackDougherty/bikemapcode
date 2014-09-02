@@ -28,7 +28,7 @@
 <div id="header">
 	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
 	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<span style="font-size: 9px">NWest 2014-08-28</span><br>
+	<span style="font-size: 9px">Seattle 2014-08-28</span><br>
 	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
 </div>
 	<script>
@@ -44,13 +44,13 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	Northwest = new L.GPX("routes/Northwest-Route.gpx", {async: true, display_wpt:true});
+	Seattle2014 = new L.GPX("routes/Seattle2014-Route.gpx", {async: true, display_wpt:true});
 
 	var map = L.map('map', {
 	center: [48.29, -122.64],
 	zoom: 8,
 	zoomControl: false,  // add new zoom control below after layer control
-	layers: [esriStreets, Northwest]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriStreets, Seattle2014]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
 	var baseMaps = {
@@ -62,7 +62,7 @@
 	};
 
 	var overlayMaps = {
-	"Northwest Tour (GPX)": Northwest
+	"Seattle 2014 tour loop (GPX)": Seattle2014
 
 	// "Current Weather": current,
 	//"Precip Forecast": precipitation

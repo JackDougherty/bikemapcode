@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>bikemapcode</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<script src="src/Control.Geocoder.js"></script>
+	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
+	<script src="src/Control.Coordinates.js"></script>
+	<link rel="stylesheet" href="css/Control.Coordinates.css"/>
+	<script src="layer/vector/GPX.js"></script>
+	<script src="layer/vector/KML.js"></script>
+	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
+	<link rel="stylesheet" href="css/custom.css"/>
+	<link rel="stylesheet" href="src/Leaflet.Instagram.css" />
+	<script src="lib/reqwest.min.js"></script>
+	<script src="src/Leaflet.Instagram.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="src/leaflet-openweathermap.js"></script>
+	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/>
+	<script src="layer/tile/Google.js"></script>-->
+</head>
+<body>
+<div id="map"></div>
+<div id="header">
+	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
+	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
+	<span style="font-size: 9px">Portland loop 2014-09-02</span><br>
+	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
+</div>
+	<script>
+	var ocmUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
+	ocmAttr = 'Map data &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+	osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+	osmAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
+
+	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
+	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
+	esriStreets = L.esri.basemapLayer("Streets"),
+	// ggl = new L.Google(),
+	// ggl2 = new L.Google('TERRAIN'),
+	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
+	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
+	Portland2014 = new L.GPX("routes/Portland2014-Route.gpx", {async: true, display_wpt:true});
+
+	var map = L.map('map', {
+	center: [45.159629, -123.438121],
+	zoom: 8,
+	zoomControl: false,  // add new zoom control below after layer control
+	layers: [esriStreets, Portland2014]   //default display can be base + overlays [ocm, arcGIS, track]
+	});
+
+	var baseMaps = {
+	"OpenCycleMap": ocm,
+	"OpenStreetMap": osm,
+	// "Google Terrain": ggl2,
+	// "Google Satellite": ggl,
+	"ESRI StreetMap": esriStreets
+	};
+
+	var overlayMaps = {
+	"Portland 2014 loop tour (GPX)": Portland2014
+
+	// "Current Weather": current,
+	//"Precip Forecast": precipitation
+	};
+
+	// position layer control and zoom control in topleft, with margins in CSS custom
+	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
+	layerControl.addTo(map);
+	new L.Control.Zoom({position: 'topleft'}).addTo(map);
+	L.Control.geocoder({position: 'topleft'}).addTo(map);
+
+	// settings in Control.Coordinates.js
+	var coord = new L.Control.Coordinates();
+	coord.addTo(map);
+
+	//from Leaflet.Flickr
+	var popupHTML = function(photo){
+		var result = "";
+                result = '<strong>'+photo.title+'</strong><br>';
+                result += '<a href="'+photo.url_m+'" target="_blank">';
+                result += '<img src="'+photo.url_t+'"></a>';      //can change to url_m if desired, but frame needs work
+                result += '<p><small>click to enlarge</small></p>';
+
+                return result;
+	}
+
+	//Use Flickr API explorer to obtain correct endpoint and insert your own API key
+	//Photos.search currently works, but error with photosets.getPhotos
+	//https://www.flickr.com/services/api/explore/flickr.photos.search
+	//https://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
+
+	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=bike&extras=geo%2Curl_t%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
+
+	//This returns error
+	//var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=25dcc9a8c7410551dcb0af48c778bde5&photoset_id=72157646371103550&extras=geo%2Curl_t%2Curl_m&format=json&nojsoncallback=1";
+
+	$.ajax({
+		url: flickrURL,
+		dataType: 'json',
+		success: function(data){
+			for (var i = 0; i < data.photos.photo.length; i++){
+				var photo_obj = data.photos.photo[i];
+				console.log(photo_obj.title, photo_obj.latitude, photo_obj.longitude); //shows titles in console for debugging
+				var photo_icon = L.icon(
+					{iconUrl: photo_obj.url_t,
+					iconSize: [photo_obj.width_t * 0.5, photo_obj.height_t * 0.5]}  //reduces thumbnails 50%
+					);
+
+				new L.marker([photo_obj.latitude, photo_obj.longitude], {icon: photo_icon})
+				.bindPopup(popupHTML(photo_obj)).addTo(map);
+    	}
+    }
+  });
+
+	/* map.on('click',function(e) {
+		coord.setCoordinates(e);
+	});
+
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("Location: within " + radius + " meters").openPopup();
+			L.circle(e.latlng, radius).addTo(map);
+		}
+
+		function onLocationError(e) {
+			alert(e.message);
+		}
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
+
+		map.locate({setView: true, maxZoom: 14}); */
+	</script>
+</body>
+</html>
