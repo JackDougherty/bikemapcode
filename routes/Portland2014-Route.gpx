@@ -41,6 +41,43 @@
 <rtept lat ="46.12293" lon="-122.94458500000002"></rtept>
 <rtept lat ="46.1229357" lon="-122.93761899999998"></rtept>
 <rtept lat ="46.1279384" lon="-122.93524839999998"></rtept>
+<rtept lat ="46.1252168" lon="-122.93043790000002"></rtept>
+<rtept lat ="46.1244728" lon="-122.93101690000003"></rtept>
+<rtept lat ="46.1265914" lon="-122.94147880000003"></rtept>
+<rtept lat ="46.1293144" lon="-122.94771789999999"></rtept>
+<rtept lat ="46.1293674" lon="-122.94766850000002"></rtept>
+<rtept lat ="46.1421595" lon="-122.95264370000001"></rtept>
+<rtept lat ="46.1445332" lon="-122.9520248"></rtept>
+<rtept lat ="46.1445338" lon="-122.95234770000002"></rtept>
+<rtept lat ="46.1447594" lon="-122.9535937"></rtept>
+<rtept lat ="46.1467248" lon="-122.95758030000002"></rtept>
+<rtept lat ="46.1472317" lon="-122.95755700000001"></rtept>
+<rtept lat ="46.2047608" lon="-123.38212169999997"></rtept>
+<rtept lat ="46.2015161" lon="-123.38450030000001"></rtept>
+<rtept lat ="46.15403389999999" lon="-123.37771620000001"></rtept>
+<rtept lat ="46.1370215" lon="-123.37838440000002"></rtept>
+<rtept lat ="46.1322462" lon="-123.37614400000001"></rtept>
+<rtept lat ="46.1321841" lon="-123.37643800000001"></rtept>
+<rtept lat ="46.1667486" lon="-123.60375690000001"></rtept>
+<rtept lat ="46.1696339" lon="-123.67419480000001"></rtept>
+<rtept lat ="46.1698627" lon="-123.6753473"></rtept>
+<rtept lat ="46.1667369" lon="-123.6983338"></rtept>
+<rtept lat ="46.19220199999999" lon="-123.75946060000001"></rtept>
+<rtept lat ="46.19768089999999" lon="-123.76638300000002"></rtept>
+<rtept lat ="46.1949778" lon="-123.77643940000002"></rtept>
+<rtept lat ="46.1944589" lon="-123.78957969999999"></rtept>
+<rtept lat ="46.1955564" lon="-123.78955450000001"></rtept>
+<rtept lat ="46.1956869" lon="-123.79578079999999"></rtept>
+<rtept lat ="46.18547" lon="-123.85955860000001"></rtept>
+<rtept lat ="46.1850531" lon="-123.85885000000002"></rtept>
+<rtept lat ="46.182542" lon="-123.86168900000001"></rtept>
+<rtept lat ="46.1628415" lon="-123.89601579999999"></rtept>
+<rtept lat ="46.15560019999999" lon="-123.90860459999999"></rtept>
+<rtept lat ="46.13161179999999" lon="-123.9290671"></rtept>
+<rtept lat ="46.12302589999999" lon="-123.92657559999998"></rtept>
+<rtept lat ="46.0264651" lon="-123.91197979999998"></rtept>
+<rtept lat ="46.0002638" lon="-123.917619"></rtept>
+<rtept lat ="46.0002538" lon="-123.92070899999999"></rtept>
 </rte>
 
 <wpt lat ="45.5563894" lon="-122.66464009999999">
@@ -51,6 +88,11 @@
 <wpt lat ="46.1279384" lon="-122.93524839999998">
   <name>Day 2 = 52 miles</name>
   <desc>from Portland OR to Longview WA</desc>
+  <sym>Flag</sym>
+</wpt>
+<wpt lat ="46.0002538" lon="-123.92070899999999">
+  <name>Day 3 = 73 miles</name>
+  <desc>from Longview WA to Seaside OR</desc>
   <sym>Flag</sym>
 </wpt>
 </gpx>
