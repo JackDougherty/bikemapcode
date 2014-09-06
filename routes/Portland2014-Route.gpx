@@ -20,6 +20,11 @@
   <desc>from Seaside OR to Cape Lookout State Park (climbed 3800 feet)</desc>
   <sym>Flag</sym>
 </wpt>
+<wpt lat ="44.7288784" lon="-124.05529590000003"></rtept>
+  <name>Day 5 = 61 miles</name>
+  <desc>from Cape Lookout State Park to Beverly Beach State Park (climbed 4200 ft)</desc>
+  <sym>Flag</sym>
+</wpt>
 <rte>
 <name>Portland-2014-loop</name>
 <rtept lat ="45.528741" lon="-122.6770343"></rtept>
