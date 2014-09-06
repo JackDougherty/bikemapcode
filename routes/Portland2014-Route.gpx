@@ -25,6 +25,11 @@
   <desc>from Cape Lookout State Park to Beverly Beach State Park (climbed 4200 ft)</desc>
   <sym>Flag</sym>
 </wpt>
+<wpt lat ="44.5897343" lon="-123.35073439999996">
+  <name>Day 6 = 55 miles</name>
+  <desc>from Beverly Beach State Park to Corvallis (climbed 4300 ft)</desc>
+  <sym>Flag</sym>
+</wpt>
 <rte>
 <name>Portland-2014-loop</name>
 <rtept lat ="45.528741" lon="-122.6770343"></rtept>
@@ -165,5 +170,30 @@
 <rtept lat ="44.7264083" lon="-124.05776900000001"></rtept>
 <rtept lat ="44.7263096" lon="-124.05732590000002"></rtept>
 <rtept lat ="44.7288784" lon="-124.05529590000003"></rtept>
+<rtept lat ="44.7289146" lon="-124.05561610000001"></rtept>
+<rtept lat ="44.7288784" lon="-124.05529590000003"></rtept>
+<rtept lat ="44.7263096" lon="-124.05732590000002"></rtept>
+<rtept lat ="44.7264083" lon="-124.05776900000001"></rtept>
+<rtept lat ="44.6936478" lon="-124.06281439999998"></rtept>
+<rtept lat ="44.6795659" lon="-124.06217549999997"></rtept>
+<rtept lat ="44.66497" lon="-124.05602629999998"></rtept>
+<rtept lat ="44.6540133" lon="-124.05645730000003"></rtept>
+<rtept lat ="44.651497" lon="-124.05381590000002"></rtept>
+<rtept lat ="44.651512" lon="-124.0530119"></rtept>
+<rtept lat ="44.6453891" lon="-124.0530665"></rtept>
+<rtept lat ="44.6453879" lon="-124.04671280000002"></rtept>
+<rtept lat ="44.6382025" lon="-124.04667180000001"></rtept>
+<rtept lat ="44.6381406" lon="-124.04272739999999"></rtept>
+<rtept lat ="44.6362844" lon="-124.04271779999999"></rtept>
+<rtept lat ="44.6322336" lon="-123.9495665"></rtept>
+<rtept lat ="44.6460854" lon="-123.91946459999997"></rtept>
+<rtept lat ="44.5999486" lon="-123.5519908"></rtept>
+<rtept lat ="44.5868235" lon="-123.54452420000001"></rtept>
+<rtept lat ="44.59186" lon="-123.52862399999998"></rtept>
+<rtept lat ="44.5923409" lon="-123.5290071"></rtept>
+<rtept lat ="44.597349" lon="-123.44340829999999"></rtept>
+<rtept lat ="44.596851" lon="-123.42509870000004"></rtept>
+<rtept lat ="44.60146899999999" lon="-123.42426710000001"></rtept>
+<rtept lat ="44.5897343" lon="-123.35073439999996"></rtept>
 </rte>
 </gpx>
