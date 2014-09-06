@@ -28,7 +28,7 @@
 <div id="header">
 	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
 	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<span style="font-size: 9px">Portland loop 2014-09-04</span><br>
+	<span style="font-size: 9px">Portland loop 2014-09-06</span><br>
 	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
 </div>
 	<script>
@@ -44,14 +44,13 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	Portland2014 = new L.GPX("routes/Portland2014-Route.gpx", {async: true, display_wpt:true}),
-	Portland2014b = new L.GPX("routes/Portland2014b-Route.gpx", {async: true, display_wpt:true});
+	Portland2014 = new L.GPX("routes/Portland2014-Route.gpx", {async: true, display_wpt:true});
 
 	var map = L.map('map', {
 	center: [45.3, -123.438121],
 	zoom: 8,
 	zoomControl: false,  // add new zoom control below after layer control
-	layers: [esriStreets, Portland2014, Portland2014b]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriStreets, Portland2014]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
 	var baseMaps = {
@@ -63,8 +62,7 @@
 	};
 
 	var overlayMaps = {
-	"Portland 2014 loop tour (GPX)": Portland2014,
-	"Portland 2014b loop tour (GPX)": Portland2014b
+	"Portland 2014 loop tour (GPX)": Portland2014
 
 	// "Current Weather": current,
 	//"Precip Forecast": precipitation
