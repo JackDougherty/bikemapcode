@@ -40,6 +40,15 @@
   <desc>from Eugene to Salem (climbed 2100 ft)</desc>
   <sym>Flag</sym>
 </wpt>
+<wpt lat ="45.55079449999999" lon="-122.66730860000001">
+  <name>Day 11 = 62 miles</name>
+  <desc>from Salem to Portland (climbed 2000 ft)</desc>
+  <sym>Flag</sym>
+</wpt>
+
+
+
+
 <rte>
 <name>Portland-2014-loop</name>
 <rtept lat ="45.528741" lon="-122.6770343"></rtept>
@@ -315,5 +324,88 @@
 <rtept lat ="44.9458046" lon="-123.0494372"></rtept>
 <rtept lat ="44.950173" lon="-123.0516634"></rtept>
 <rtept lat ="44.9501491" lon="-123.0573278"></rtept>
+<rtept lat ="44.9513841" lon="-123.05729250000002"></rtept>
+<rtept lat ="44.9501491" lon="-123.0573278"></rtept>
+<rtept lat ="44.950173" lon="-123.0516634"></rtept>
+<rtept lat ="44.9458046" lon="-123.0494372"></rtept>
+<rtept lat ="44.9457897" lon="-123.04926610000001"></rtept>
+<rtept lat ="44.9476027" lon="-123.04645820000002"></rtept>
+<rtept lat ="44.9465783" lon="-123.04045919999999"></rtept>
+<rtept lat ="44.9463739" lon="-123.03931499999999"></rtept>
+<rtept lat ="44.9661999" lon="-123.03178560000003"></rtept>
+<rtept lat ="44.96767" lon="-123.02844440000001"></rtept>
+<rtept lat ="44.9732376" lon="-123.0205067"></rtept>
+<rtept lat ="44.973222" lon="-123.0208293"></rtept>
+<rtept lat ="45.0134988" lon="-122.99336470000003"></rtept>
+<rtept lat ="45.01982719999999" lon="-122.98942210000001"></rtept>
+<rtept lat ="45.0351931" lon="-122.98932560000003"></rtept>
+<rtept lat ="45.0352259" lon="-123.00044969999999"></rtept>
+<rtept lat ="45.1135987" lon="-122.97152549999998"></rtept>
+<rtept lat ="45.113874" lon="-122.9713491"></rtept>
+<rtept lat ="45.1135568" lon="-122.94540999999998"></rtept>
+<rtept lat ="45.1435008" lon="-122.93052030000001"></rtept>
+<rtept lat ="45.1436162" lon="-122.91937489999998"></rtept>
+<rtept lat ="45.1612788" lon="-122.91698070000001"></rtept>
+<rtept lat ="45.1637089" lon="-122.91716980000001"></rtept>
+<rtept lat ="45.2319051" lon="-122.88983860000002"></rtept>
+<rtept lat ="45.2452201" lon="-122.94263139999998"></rtept>
+<rtept lat ="45.2861679" lon="-122.94514529999998"></rtept>
+<rtept lat ="45.2935056" lon="-122.94944520000001"></rtept>
+<rtept lat ="45.3063739" lon="-122.9469259"></rtept>
+<rtept lat ="45.3698953" lon="-122.84314740000002"></rtept>
+<rtept lat ="45.3811649" lon="-122.76431000000002"></rtept>
+<rtept lat ="45.3842528" lon="-122.7642356"></rtept>
+<rtept lat ="45.3864805" lon="-122.7643435"></rtept>
+<rtept lat ="45.39444040000001" lon="-122.76427080000002"></rtept>
+<rtept lat ="45.3970642" lon="-122.76900339999997"></rtept>
+<rtept lat ="45.3972828" lon="-122.76869060000001"></rtept>
+<rtept lat ="45.3991845" lon="-122.7645081"></rtept>
+<rtept lat ="45.4042854" lon="-122.764565"></rtept>
+<rtept lat ="45.4060257" lon="-122.76452990000001"></rtept>
+<rtept lat ="45.4443348" lon="-122.76563249999998"></rtept>
+<rtept lat ="45.4443408" lon="-122.759008"></rtept>
+<rtept lat ="45.46102" lon="-122.75943589999997"></rtept>
+<rtept lat ="45.4657197" lon="-122.75354419999996"></rtept>
+<rtept lat ="45.4656976" lon="-122.74834670000001"></rtept>
+<rtept lat ="45.4649861" lon="-122.69790009999997"></rtept>
+<rtept lat ="45.46837290000001" lon="-122.69084850000002"></rtept>
+<rtept lat ="45.4690662" lon="-122.68643609999998"></rtept>
+<rtept lat ="45.471003" lon="-122.6856027"></rtept>
+<rtept lat ="45.4712944" lon="-122.6811515"></rtept>
+<rtept lat ="45.4712359" lon="-122.67841900000002"></rtept>
+<rtept lat ="45.469283" lon="-122.67807199999999"></rtept>
+<rtept lat ="45.4692763" lon="-122.67642999999998"></rtept>
+<rtept lat ="45.4730205" lon="-122.6769506"></rtept>
+<rtept lat ="45.4730184" lon="-122.6759146"></rtept>
+<rtept lat ="45.4693268" lon="-122.672549"></rtept>
+<rtept lat ="45.4700452" lon="-122.67240240000001"></rtept>
+<rtept lat ="45.4811257" lon="-122.67381360000002"></rtept>
+<rtept lat ="45.481096" lon="-122.6719938"></rtept>
+<rtept lat ="45.49144260000001" lon="-122.67212870000003"></rtept>
+<rtept lat ="45.49316959999999" lon="-122.67201119999999"></rtept>
+<rtept lat ="45.49315499999999" lon="-122.67096100000003"></rtept>
+<rtept lat ="45.4991703" lon="-122.67175500000002"></rtept>
+<rtept lat ="45.5076324" lon="-122.6729704"></rtept>
+<rtept lat ="45.50745819999999" lon="-122.67215069999997"></rtept>
+<rtept lat ="45.5074461" lon="-122.6720932"></rtept>
+<rtept lat ="45.50767219999999" lon="-122.67197450000003"></rtept>
+<rtept lat ="45.50842" lon="-122.67234930000001"></rtept>
+<rtept lat ="45.508699" lon="-122.67244440000002"></rtept>
+<rtept lat ="45.5088292" lon="-122.67234869999999"></rtept>
+<rtept lat ="45.5116926" lon="-122.6739126"></rtept>
+<rtept lat ="45.5134541" lon="-122.6733496"></rtept>
+<rtept lat ="45.5140523" lon="-122.67320159999997"></rtept>
+<rtept lat ="45.5268563" lon="-122.67040889999998"></rtept>
+<rtept lat ="45.52786589999999" lon="-122.66701710000001"></rtept>
+<rtept lat ="45.5273301" lon="-122.6659214"></rtept>
+<rtept lat ="45.52794309999999" lon="-122.66683790000002"></rtept>
+<rtept lat ="45.5279809" lon="-122.6657677"></rtept>
+<rtept lat ="45.52848909999999" lon="-122.66597630000001"></rtept>
+<rtept lat ="45.5286554" lon="-122.66574739999999"></rtept>
+<rtept lat ="45.52942549999999" lon="-122.66588260000003"></rtept>
+<rtept lat ="45.5330642" lon="-122.66678309999998"></rtept>
+<rtept lat ="45.54231619999999" lon="-122.6666922"></rtept>
+<rtept lat ="45.5507983" lon="-122.66670640000001"></rtept>
+<rtept lat ="45.55079449999999" lon="-122.66730860000001"></rtept>
 </rte>
 </gpx>
