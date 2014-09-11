@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <gpx version="1.1" creator="http://cycleroute.org web application">
 <wpt lat ="45.5563894" lon="-122.66464009999999">
-  <name>Day 9 = 10 miles</name>
+  <name>Day 8 = 10 miles</name>
   <desc>7 miles in Seattle + 3 miles in Portland (and more by train)</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="46.1279384" lon="-122.93524839999998">
-  <name>Day 10 = 52 miles</name>
+  <name>Day 9 = 52 miles</name>
   <desc>from Portland OR to Longview WA</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="46.0002538" lon="-123.92070899999999">
-  <name>Day 11 = 73 miles</name>
+  <name>Day 10 = 73 miles</name>
   <desc>from Longview WA to Seaside OR</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="45.36215989999999" lon="-123.96817579999998">
-  <name>Day 12 = 62 miles</name>
+  <name>Day 11 = 62 miles</name>
   <desc>from Seaside OR to Cape Lookout State Park (climbed 3800 feet)</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="44.7288784" lon="-124.05529590000003">
-  <name>Day 13 = 61 miles</name>
+  <name>Day 12 = 61 miles</name>
   <desc>from Cape Lookout State Park to Beverly Beach State Park (climbed 4200 ft)</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="44.5897343" lon="-123.35073439999996">
-  <name>Day 14 = 55 miles</name>
-  <desc>from Beverly Beach State Park to Corvallis (climbed 4300 ft), rested Day 15</desc>
+  <name>Day 13 = 55 miles</name>
+  <desc>from Beverly Beach State Park to Corvallis (climbed 4300 ft), rested Day 14</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="44.0324785" lon="-123.0883809">
-  <name>Day 16 = 55 miles</name>
-  <desc>from Corvallis to Eugene (a flat, mellow ride), rested Day 17</desc>
+  <name>Day 15 = 55 miles</name>
+  <desc>from Corvallis to Eugene (a flat, mellow ride), rested Day 16</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="44.9501491" lon="-123.0573278">
-  <name>Day 18 = 76 miles</name>
+  <name>Day 17 = 76 miles</name>
   <desc>from Eugene to Salem (climbed 2100 ft)</desc>
   <sym>Flag</sym>
 </wpt>
 <wpt lat ="45.55079449999999" lon="-122.66730860000001">
-  <name>Day 19 = 62 miles</name>
+  <name>Day 18 = 62 miles</name>
   <desc>from Salem to Portland (climbed 2000 ft)</desc>
   <sym>Flag</sym>
 </wpt>
