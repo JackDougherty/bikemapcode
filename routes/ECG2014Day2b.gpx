@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd" version="1.0" creator="http://ridewithgps.com/">
+  <author>RideWithGPS LLC</author>
+  <url>http://ridewithgps.com/routes/5956997</url>
+  <time>2014-09-09T15:17:41Z</time>
+  <trk>
+    <name>Day 2 Havre de grace</name>
+    <trkseg>
+      <trkpt lat="39.55498" lon="-76.09286">
+        <ele>3.8</ele>
+      </trkpt>
+      <trkpt lat="39.55446" lon="-76.09244">
+        <ele>4</ele>
+      </trkpt>
+      <trkpt lat="39.55442" lon="-76.09241">
+        <ele>4.4</ele>
+      </trkpt>
+      <trkpt lat="39.55402" lon="-76.09216">
+        <ele>5.4</ele>
+      </trkpt>
+      <trkpt lat="39.5539" lon="-76.09208">
+        <ele>4.6</ele>
+      </trkpt>
+      <trkpt lat="39.55342" lon="-76.09182">
+        <ele>3.9</ele>
+      </trkpt>
+      <trkpt lat="39.55325" lon="-76.09174">
+        <ele>3.8</ele>
+      </trkpt>
+      <trkpt lat="39.55314" lon="-76.0917">
+        <ele>4.6</ele>
+      </trkpt>
+      <trkpt lat="39.55304" lon="-76.09168">
+        <ele>5.6</ele>
+      </trkpt>
+      <trkpt lat="39.55298" lon="-76.09169">
+        <ele>6.2</ele>
+      </trkpt>
+      <trkpt lat="39.55292" lon="-76.09171">
+        <ele>6.9</ele>
+      </trkpt>
+      <trkpt lat="39.55286" lon="-76.09174">
+        <ele>7.6</ele>
+      </trkpt>
+      <trkpt lat="39.55278" lon="-76.09179">
+        <ele>8.9</ele>
+      </trkpt>
+      <trkpt lat="39.55278" lon="-76.09179">
+        <ele>8.9</ele>
+      </trkpt>
+      <trkpt lat="39.55282" lon="-76.09193">
+        <ele>8.8</ele>
+      </trkpt>
+      <trkpt lat="39.55284" lon="-76.09209">
+        <ele>8.6</ele>
+      </trkpt>
+      <trkpt lat="39.55285" lon="-76.09223">
+        <ele>8.4</ele>
+      </trkpt>
+      <trkpt lat="39.55284" lon="-76.09236">
+        <ele>8.6</ele>
+      </trkpt>
+      <trkpt lat="39.55282" lon="-76.09274">
+        <ele>9</ele>
+      </trkpt>
+      <trkpt lat="39.55282" lon="-76.09362">
+        <ele>11.9</ele>
+      </trkpt>
+      <trkpt lat="39.55279" lon="-76.0945">
+        <ele>13.5</ele>
+      </trkpt>
+      <trkpt lat="39.55278" lon="-76.09536">
+        <ele>12.4</ele>
+      </trkpt>
+      <trkpt lat="39.55275" lon="-76.09722">
+        <ele>8.3</ele>
+      </trkpt>
+      <trkpt lat="39.55273" lon="-76.09827">
+        <ele>11</ele>
+      </trkpt>
+      <trkpt lat="39.55271" lon="-76.09985">
+        <ele>14.4</ele>
+      </trkpt>
+      <trkpt lat="39.5527" lon="-76.10023">
+        <ele>13.3</ele>
+      </trkpt>
+      <trkpt lat="39.55268" lon="-76.10129">
+        <ele>17.2</ele>
+      </trkpt>
+      <trkpt lat="39.55267" lon="-76.10183">
+        <ele>17.5</ele>
+      </trkpt>
+      <trkpt lat="39.55271" lon="-76.10203">
+        <ele>19.4</ele>
+      </trkpt>
+      <trkpt lat="39.55271" lon="-76.10203">
+        <ele>19.4</ele>
+      </trkpt>
+      <trkpt lat="39.55265" lon="-76.10208">
+        <ele>19</ele>
+      </trkpt>
+      <trkpt lat="39.5526" lon="-76.10214">
+        <ele>18.5</ele>
+      </trkpt>
+      <trkpt lat="39.5524" lon="-76.10228">
+        <ele>16</ele>
+      </trkpt>
+      <trkpt lat="39.55191" lon="-76.10265">
+        <ele>17.9</ele>
+      </trkpt>
+      <trkpt lat="39.55136" lon="-76.10304">
+        <ele>20.5</ele>
+      </trkpt>
+      <trkpt lat="39.55101" lon="-76.1033">
+        <ele>21.5</ele>
+      </trkpt>
+      <trkpt lat="39.55071" lon="-76.10353">
+        <ele>20.8</ele>
+      </trkpt>
+      <trkpt lat="39.55043" lon="-76.10373">
+        <ele>22.8</ele>
+      </trkpt>
+      <trkpt lat="39.55024" lon="-76.10386">
+        <ele>24.1</ele>
+      </trkpt>
+      <trkpt lat="39.5499" lon="-76.10413">
+        <ele>24.1</ele>
+      </trkpt>
+      <trkpt lat="39.54974" lon="-76.10425">
+        <ele>23.1</ele>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
