@@ -28,7 +28,7 @@
 <div id="header">
 	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
 	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<span style="font-size: 9px">ECG 2014-09-30</span><br>
+	<span style="font-size: 9px">ECG 2014-10-02</span><br>
 	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
 </div>
 	<script>
@@ -44,13 +44,18 @@
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
 	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	Day1 = new L.GPX("routes/ECG2014Day1.gpx", {async: true, display_wpt:true});
+	Day1 = new L.GPX("routes/ECG2014Day1.gpx", {async: true, display_wpt:true}),
+	Day2a = new L.GPX("routes/ECG2014Day2.gpx", {async: true, display_wpt:true}),
+	Day2b = new L.GPX("routes/ECG2014Day2b.gpx", {async: true, display_wpt:true}),
+	Day3 = new L.GPX("routes/ECG2014Day3.gpx", {async: true, display_wpt:true}),
+	Day4 = new L.GPX("routes/ECG2014Day4.gpx", {async: true, display_wpt:true}),
+	Day5 = new L.GPX("routes/ECG2014Day5.gpx", {async: true, display_wpt:true});
 
 	var map = L.map('map', {
 	center: [39.571949, -76.117789],
 	zoom: 8,
 	zoomControl: false,  // add new zoom control below after layer control
-	layers: [esriStreets, Day1]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriStreets, Day1, Day2a, Day2b, Day3, Day4, Day5]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
 	var baseMaps = {
@@ -62,7 +67,12 @@
 	};
 
 	var overlayMaps = {
-	"ECG 2014 Day 1": Day1
+	"ECG 2014 Day 1": Day1,
+	"ECG 2014 Day 2a": Day2a,
+	"ECG 2014 Day 2b": Day2b,
+	"ECG 2014 Day 3": Day3,
+	"ECG 2014 Day 4": Day4,
+	"ECG 2014 Day 5": Day5
 
 	// "Current Weather": current,
 	//"Precip Forecast": precipitation
