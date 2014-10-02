@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd" version="1.0" creator="http://ridewithgps.com/">
-  <author>RideWithGPS LLC</author>
+<wpt lat="39.54974" lon="-76.10425">
+  <name>Day 2 = 56 miles</name>
+  <desc>Wilmington DE to Havre de Grace MD (with a barge ride across the Susquehanna River)</desc>
+  <sym>Flag</sym>
+</wpt>
+    <author>RideWithGPS LLC</author>
   <url>http://ridewithgps.com/routes/5956997</url>
   <time>2014-09-09T15:17:41Z</time>
   <trk>

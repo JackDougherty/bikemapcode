@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd" version="1.0" creator="http://ridewithgps.com/">
-  <author>RideWithGPS LLC</author>
+<wpt lat="38.97785" lon="-76.49768">
+  <name>Day 4 = 47 miles</name>
+  <desc>Towson to Annapolis, MD</desc>
+  <sym>Flag</sym>
+</wpt>
+    <author>RideWithGPS LLC</author>
   <url>http://ridewithgps.com/routes/5957199</url>
   <time>2014-09-09T15:40:51Z</time>
   <trk>

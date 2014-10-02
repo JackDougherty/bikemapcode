@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd" version="1.0" creator="http://ridewithgps.com/">
+<wpt lat="38.81373" lon="-77.03954">
+  <name>Day 5 = 61 miles</name>
+  <desc>Annapolis, MD to Alexandria, VA</desc>
+  <sym>Flag</sym>
+</wpt>
   <author>RideWithGPS LLC</author>
   <url>http://ridewithgps.com/routes/6099583</url>
   <time>2014-09-24T16:52:51Z</time>

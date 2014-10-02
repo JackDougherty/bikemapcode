@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xmlns="http://www.topografix.com/GPX/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd" version="1.0" creator="http://ridewithgps.com/">
-  <author>RideWithGPS LLC</author>
+<wpt lat="38.58342" lon="-77.32869">
+  <name>Day 6 = 43 miles</name>
+  <desc>Alexandria to Dumfries, VA</desc>
+  <sym>Flag</sym>
+</wpt>
+    <author>RideWithGPS LLC</author>
   <url>http://ridewithgps.com/routes/6042002</url>
   <time>2014-09-18T08:46:43Z</time>
   <trk>
