@@ -24,6 +24,7 @@ Free map code for your bike group's website. Cycling organizations may freely us
 
 ##credits
 - Leaflet tutorials http://leafletjs.com/examples.html
+- click to show your location with https://github.com/domoritz/leaflet-locatecontrol (MIT license)
 - display GPX with http://psha.org.ru/b/leaflet-plugins.html
 - display ArcGIS shapefile with http://esri.github.io/esri-leaflet/
 - search for location with https://github.com/perliedman/leaflet-control-geocoder
@@ -35,7 +36,6 @@ Free map code for your bike group's website. Cycling organizations may freely us
 
 ##to do list - code contributions welcome!
 - add screenshot and YouTube video on how to add bike-related content to OpenStreetMap (which takes a few days to appear on OpenCycleMap)
-- change auto-locate to locate button https://github.com/domoritz/leaflet-locatecontrol so that view resizes to fit routes
 - Flickr and/or Instagram geotagged photos layer -- [see this example](http://jackdougherty.github.io/Leaflet.Instagram/examples/)-- based on Leaflet-Instagram demo https://github.com/turban/Leaflet.Instagram
 - add Google Maps bicycling layer - see [Google map test](http://jackdougherty.github.io/bikemapcode/testG.html)
 - add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
