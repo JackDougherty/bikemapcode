@@ -68,10 +68,10 @@
 	"sample routes (ArcGIS Trinity)": arcTrinity
 	};
 
-	// position layer control and zoom control in topleft, with margins in CSS custom
+	// position layer control in topleft, zoom control in topright, with margins in CSS custom
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
-	new L.Control.Zoom({position: 'topleft'}).addTo(map);
+	new L.Control.Zoom({position: 'topright'}).addTo(map);
 	
 	L.control.locate().addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
