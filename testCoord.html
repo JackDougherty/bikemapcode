@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<script src="src/Control.Geocoder.js"></script>
 	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
+	<script src="src/Control.Coordinates.js"></script>
+	<link rel="stylesheet" href="css/Control.Coordinates.css"/>
 	<script src="layer/vector/GPX.js"></script>
 	<script src="layer/vector/KML.js"></script>
 	<!-- trying to make Google tile work <script src="layer/tile/Google.js"></script>-->
@@ -48,7 +50,7 @@
 	var map = L.map('map', {
 	center: [41.77, -72.69],
 	zoom: 14,
-	zoomControl: false,  // add new zoom control further below, after layer control
+	zoomControl: false,  // add new zoom control below after layer control
 	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
@@ -70,10 +72,17 @@
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
 	new L.Control.Zoom({position: 'topright'}).addTo(map);
-
+	
 	L.control.locate().addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
 
+	// settings in Control.Coordinates.js
+	var coord = new L.Control.Coordinates();
+	coord.addTo(map);
+
+	map.on('click',function(e) {
+		coord.setCoordinates(e);
+	});
 	</script>
 </body>
 </html>
