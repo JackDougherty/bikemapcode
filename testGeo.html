@@ -39,10 +39,14 @@
   }).addTo(map);
 
   var searchControl = new L.esri.Controls.Geosearch().addTo(map);
-  
-  L.control.locate().addTo(map);
 
   var results = new L.LayerGroup().addTo(map);
+  
+  L.control.locate().addTo(map);
+  
+  // position layer control and zoom control in topleft, with margins in CSS custom
+	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
+	layerControl.addTo(map);
 
   searchControl.on('results', function(data){
     results.clearLayers();
