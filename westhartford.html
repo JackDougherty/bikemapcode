@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!DOC<!DOCTYPE html>
 <html lang='en'>
 <head>
-	<title>BikeWestHartford Map</title>
+	<title>West Hartford bike map</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -13,18 +13,22 @@
 	<link rel="stylesheet" href="css/Control.Coordinates.css"/>
 	<script src="layer/vector/GPX.js"></script>
 	<script src="layer/vector/KML.js"></script>
+	<!-- trying to make Google tile work <script src="layer/tile/Google.js"></script>-->
 	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
-	<link rel="stylesheet" href="css/westhartford.css"/>
-	<!-- <script type="text/javascript" src="src/leaflet-openweathermap.js"></script>
-	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/>
-	<script src="layer/tile/Google.js"></script>-->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="src/L.Control.Locate.js"></script>
+	<link rel="stylesheet" href="css/L.Control.Locate.css"/>
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
+		<link rel="stylesheet" href="css/L.Control.Locate.ie.css"/>
+		<![endif]-->
+	<link rel="stylesheet" href="css/custom.css"/>
 </head>
 <body>
 <div id="map"></div>
 <div id="header">
-	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
-	<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<!--<span style="font-size: 9px">beta 2014-07-14</span><br> -->
+	<a href="https://github.com/jackdougherty/bikemapcode"><strong>West Hartford</strong></a><br>
+	<span style="font-size: 9px">bikemapcode 2014</span><br>
 	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
 </div>
 	<script>
@@ -38,8 +42,6 @@
 	esriStreets = L.esri.basemapLayer("Streets"),
 	// ggl = new L.Google(),
 	// ggl2 = new L.Google('TERRAIN'),
-	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
-	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
 	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}),
 	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
 	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
@@ -63,15 +65,14 @@
 	"FVTC June 28 loop (GPX)": FVTC,
 	"sample lanes (ArcGIS Hartford)": arcHartford,
 	"sample routes (ArcGIS Trinity)": arcTrinity
-
-	// "Current Weather": current,
-	//"Precip Forecast": precipitation
 	};
 
-	// position layer control and zoom control in topleft, with margins in CSS custom
+	// position layer control in topleft, zoom control in topright, with margins in CSS custom
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
-	new L.Control.Zoom({position: 'topleft'}).addTo(map);
+	new L.Control.Zoom({position: 'topright'}).addTo(map);
+
+	L.control.locate().addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
 
 	// settings in Control.Coordinates.js
@@ -81,22 +82,6 @@
 	map.on('click',function(e) {
 		coord.setCoordinates(e);
 	});
-
-	function onLocationFound(e) {
-		var radius = e.accuracy / 2;
-
-		L.marker(e.latlng).addTo(map)
-			.bindPopup("Location: within " + radius + " meters").openPopup();
-			L.circle(e.latlng, radius).addTo(map);
-		}
-
-		function onLocationError(e) {
-			alert(e.message);
-		}
-		map.on('locationfound', onLocationFound);
-		map.on('locationerror', onLocationError);
-
-		map.locate({setView: true, maxZoom: 14});
 	</script>
 </body>
 </html>
