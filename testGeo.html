@@ -39,6 +39,8 @@
   }).addTo(map);
 
   var searchControl = new L.esri.Controls.Geosearch().addTo(map);
+  
+  L.control.locate().addTo(map);
 
   var results = new L.LayerGroup().addTo(map);
 
