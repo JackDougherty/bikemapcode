@@ -92,11 +92,14 @@
 	// position layer control and zoom control in topleft, with margins in CSS custom
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
+	
+	L.esri.Controls.Geosearch().addTo(map);
+		
 	new L.Control.Zoom({position: 'topleft'}).addTo(map);
 	<!--[if lt IE 9]>
 	L.control.locate().addTo(map);
 	
-	L.esri.Controls.Geosearch().addTo(map);
+
 
 	// settings in Control.Coordinates.js
 	var coord = new L.Control.Coordinates();
