@@ -57,9 +57,9 @@ L.Control.Locate = L.Control.extend({
         keepCurrentZoomLevel: false,
         showPopup: true, // display a popup when the user click on the inner marker
         strings: {
-            title: "Show me where I am",
-            popup: "You are within {distance} {unit} from this point",
-            outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
+            title: "Show my location",
+            popup: "You are within {distance} {unit} of this point",
+            outsideMapBoundsMsg: "Your location is outside the map boundaries"
         },
         locateOptions: {
             maxZoom: Infinity,
