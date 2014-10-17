@@ -6,7 +6,7 @@ Free map code for your bike group's website. Cycling organizations may freely us
 ###Demo at [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
 
 ##legend
-![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/images/legend.png "legend")
+![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/legend.png "legend")
 
 ##layers
 ###basemaps:
@@ -14,12 +14,12 @@ Free map code for your bike group's website. Cycling organizations may freely us
 - ESRI street map, and more to come
 
 ###overlay maps:
-- display your group's recommended rides by uploading a GPX or KML layer 
+- display your group's recommended rides by uploading a GPX or KML layer
 - display a network of bike routes through an ArcGIS server, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [routes hosted by Cameron Douglass at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer)
 
 ##host this code on your own website
 - Fork or download the code from this GitHub page
-- Customize the index.html page to meet your needs (may require HTML, CSS, JavaScript skills) 
+- Customize the index.html page to meet your needs (may require HTML, CSS, JavaScript skills)
 - Host on a live website, such as GitHub Pages (like the demo), or the root folder of own domain (more details and example to come)
 
 ##credits
@@ -45,4 +45,3 @@ Free map code for your bike group's website. Cycling organizations may freely us
 - possibly add SeeClickFix bike-related hazards layer - see API http://help.seeclickfix.com/kb/api/api-overview
 - Wikipedia points of interest layer
 - Weather radar layer
-
