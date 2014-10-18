@@ -24,6 +24,10 @@ html, body, #map {
 .leaflet-top .leaflet-control-zoom {
 	margin-top: 5px;
 }
+/* sidebar modification */
+.sidebar-tabs {
+  height: 40px;
+}
 /* compass positioning */
 .leaflet-control.leaflet-compass {
 	position:relative;
