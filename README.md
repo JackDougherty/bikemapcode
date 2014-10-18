@@ -17,18 +17,24 @@ Free map code for your bike group's website. Cycling organizations may freely us
 - display your group's recommended rides by uploading a GPX or KML layer
 - display a network of bike routes through an ArcGIS server, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [routes hosted by Cameron Douglass at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer)
 
+##Code credits and open-source licenses
+- Leaflet: an open-source JavaScript library for mobile-friendly interactive maps at http://leafletjs.com/ (BSD license)
+- Leaflet.Locate to show your map location at https://github.com/domoritz/leaflet-locatecontrol (MIT license)
+- Leaflet-control-geocoder to search and locate places at https://github.com/perliedman/leaflet-control-geocoder (BSD license)
+- Leaflet-plugins to display GPX, KML, Google layers at https://github.com/shramov/leaflet-plugins (BSD license)
+- ESRI-leaflet to display ArcGIS shapefiles at https://github.com/Esri/esri-leaflet (Apache license)
+
+Testing or available only in selected versions:
+- Leaflet-Coordinates-Control to display latitude & longitude at https://github.com/zimmicz/Leaflet-Coordinates-Control (MIT license)
+- Leaflet-sidebar to display slide-in instructions at https://github.com/turbo87/leaflet-sidebar/ (MIT license)
+- Leaflet.Control.Fullscreen to add a full-screen button at https://github.com/brunob/leaflet.fullscreen (BSD license)
+- Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed)
+- Leaflet.EasyButton to add control buttons with Font Awesome Icons at Permission is hereby granted, free of charge, to any person obtaining a copy of this software (MIT license)
+
 ##Host this code on your own website
 - Fork to your GitHub, or clone to desktop, or download the zipped code from this page
 - Customize the index.html page to meet your needs (may require HTML, CSS, JavaScript skills)
 - Host on a live website, such as GitHub Pages (like the demo), or the root folder of own domain (more details and example to come)
-
-##Credits and Licenses
-- Leaflet tutorials http://leafletjs.com/examples.html
-- Show your location with https://github.com/domoritz/leaflet-locatecontrol (MIT license)
-- Display GPX route with http://psha.org.ru/b/leaflet-plugins.html
-- Display ArcGIS shapefile with http://esri.github.io/esri-leaflet/
-- Search for other locations with https://github.com/perliedman/leaflet-control-geocoder [copyright & license](https://github.com/perliedman/leaflet-control-geocoder/blob/master/LICENSE)
-- Testing version: Click map to view coordinates with https://github.com/zimmicz/Leaflet-Coordinates-Control (MIT license)
 
 ##Compare with related tools
 - [Bikemap.net](http://bikemap.net/en)
