@@ -29,12 +29,12 @@
 	<link rel="stylesheet" href="css/custom.css"/>
 </head>
 <body>
-	<div id="sidebar">
+<div id="sidebar">
 			<h1>leaflet-sidebar</h1>
 				<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
 				<span style="font-size: 9px">beta 2014-10-16</span><br>
 				<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
-	</div>
+</div>
 <div id="map"></div>
 	<script>
 	var ocmUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
@@ -84,7 +84,7 @@
 	// side bar control
 	var sidebar = L.control.sidebar('sidebar', {
 			closeButton: true,
-			position: 'right'
+			position: 'left'
 	});
 	map.addControl(sidebar);
 
