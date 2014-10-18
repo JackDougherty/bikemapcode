@@ -28,6 +28,20 @@ html, body, #map {
 .sidebar-tabs {
   height: 40px;
 }
+.sidebar {
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+  .sidebar.leaflet-touch {
+    box-shadow: none;
+    border-right: 2px solid rgba(0, 0, 0, 0.2); }
+  @media (min-width: 768px) {
+    .sidebar {
+      border-radius: 4px; }
+      .sidebar.leaflet-touch {
+        border: 2px solid rgba(0, 0, 0, 0.2); }
+      .sidebar.collapsed ~ .sidebar-map .leaflet-left {
+        left: 50px; } }
+
+
 /* compass positioning */
 .leaflet-control.leaflet-compass {
 	position:relative;
