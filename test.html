@@ -19,8 +19,8 @@
 	<link rel="stylesheet" href="css/L.Control.Locate.css"/>
 	<script src="src/leaflet-compass.js"></script>
 	<link rel="stylesheet" href="css/leaflet-compass.css"/>
-	<script src="src/L.Control.Sidebar.js"></script>
-	<link rel="stylesheet" href="src/L.Control.Sidebar.css" />
+	<script src="src/leaflet-sidebar.js"></script>
+	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
@@ -29,12 +29,37 @@
 	<link rel="stylesheet" href="css/custom.css"/>
 </head>
 <body>
-<div id="sidebar">
-			<h1>leaflet-sidebar</h1>
-				<a href="https://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-				<span style="font-size: 9px">beta 2014-10-16</span><br>
-				<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
-</div>
+
+		<div id="sidebar" class="sidebar collapsed">
+				<!-- Nav tabs -->
+				<ul class="sidebar-tabs" role="tablist">
+						<li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
+						<li><a href="#profile" role="tab"><i class="fa fa-user"></i></a></li>
+						<li><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li>
+						<li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+				</ul>
+
+				<!-- Tab panes -->
+				<div class="sidebar-content active">
+						<div class="sidebar-pane" id="home">
+								<h1>sidebar-v2</h1>
+
+								<p>A responsive sidebar for mapping libraries like <a href="http://leafletjs.com/">Leaflet</a> or <a href="http://openlayers.org/">OpenLayers</a>.</p>
+
+								<p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+								<p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+								<p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+								<p class="lorem">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+						</div>
+						<div class="sidebar-pane" id="profile"><h1>Profile</h1></div>
+						<div class="sidebar-pane" id="messages"><h1>Messages</h1></div>
+						<div class="sidebar-pane" id="settings"><h1>Settings</h1></div>
+				</div>
+		</div>
+
 <div id="map"></div>
 	<script>
 	var ocmUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
@@ -72,7 +97,9 @@
 	"sample routes (ArcGIS Trinity)": arcTrinity
 	};
 
-	// position layer control in topleft, zoom control in topright, with margins in CSS custom
+	// position various controls, with margins in CSS custom
+	var sidebar = L.control.sidebar('sidebar').addTo(map);
+
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
 	new L.Control.Zoom({position: 'topright'}).addTo(map);
@@ -80,45 +107,6 @@
 	L.control.locate().addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
 	map.addControl( new L.Control.Compass() );
-
-	// side bar control
-	var sidebar = L.control.sidebar('sidebar', {
-			closeButton: true,
-			position: 'left'
-	});
-	map.addControl(sidebar);
-
-	setTimeout(function () {
-			sidebar.show();
-	}, 500);
-
-	var marker = L.marker([41.76, -72.69]).addTo(map).on('click', function () {
-			sidebar.toggle();
-	});
-
-	map.on('click', function () {
-			sidebar.hide();
-	})
-
-	sidebar.on('show', function () {
-			console.log('Sidebar will be visible.');
-	});
-
-	sidebar.on('shown', function () {
-			console.log('Sidebar is visible.');
-	});
-
-	sidebar.on('hide', function () {
-			console.log('Sidebar will be hidden.');
-	});
-
-	sidebar.on('hidden', function () {
-			console.log('Sidebar is hidden.');
-	});
-
-	L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
-			console.log('Close button clicked.');
-	});
 
 	</script>
 </body>
