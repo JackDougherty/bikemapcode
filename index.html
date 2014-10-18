@@ -4,6 +4,7 @@
 	<title>bikemapcode</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="shortcut icon" href="favicon.ico">
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -14,9 +15,11 @@
 	<script src="layer/vector/KML.js"></script>
 	<!-- trying to make Google tile work <script src="layer/tile/Google.js"></script>-->
 	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="src/L.Control.Locate.js"></script>
 	<link rel="stylesheet" href="css/L.Control.Locate.css"/>
+	<script src="src/leaflet-compass.js"></script>
+	<link rel="stylesheet" href="css/leaflet-compass.css"/>
+
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
 		<link rel="stylesheet" href="css/L.Control.Locate.ie.css"/>
@@ -74,6 +77,7 @@
 
 	L.control.locate().addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
+	map.addControl( new L.Control.Compass() );
 
 	</script>
 </body>

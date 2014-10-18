@@ -16,13 +16,35 @@ html, body, #map {
 	padding: 3px;
 	background-color: #ffffff;
 }
-	
+
 /* lowers layer control below logo */
 .leaflet-top .leaflet-control {
-	margin-top: 50px; 
-	} 
+	margin-top: 50px;
+	}
 .leaflet-top .leaflet-control-zoom {
 	margin-top: 5px;
+}
+/* compass positioning */
+.leaflet-control.leaflet-compass {
+	position:relative;
+	float:right;
+	color:#1978cf;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	/*background-color: rgba(0, 0, 0, 0.25);*/
+	background-color: rgba(255, 255, 255, 0.8);
+	/*background: none;*/
+	box-shadow: 0 1px 7px rgba(0,0,0,0.65);
+	margin-left:10px;
+	margin-top:10px;
+}
+.leaflet-compass .compass-button {
+	display:block;
+	float:right;
+	width:36px;
+	height:36px;
+	border-radius:4px;
 }
 
 /*.alignleft {
@@ -31,7 +53,7 @@ html, body, #map {
 	float: left;
 	text-align:left;
 	width: 30%;
-	background-color: #ffffff; 
+	background-color: #ffffff;
 	}
 .alignright {
 	top: 0;
@@ -39,8 +61,8 @@ html, body, #map {
 	 float: left;
 	 text-align:right;
 	 width: 30%;
-	background-color: #ffffff; 
+	background-color: #ffffff;
 	}
-	
+
 { color: #4B58A6; }
 a:hover { color: #4B58A6; }*/
