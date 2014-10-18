@@ -30,7 +30,7 @@
 </head>
 <body>
 
-	<div id="sidebar" class="sidebar-content active">
+	<div id="sidebar" class="sidebar collapsed">
 		<!-- Nav tabs -->
 		<ul class="sidebar-tabs" role="tablist">
 			<li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
@@ -45,6 +45,10 @@
 			</div>
 		</div>
 	</div>
+<!-- try sidebar show here, but unsure if this works with v2 -->	
+setTimeout(function () {
+    sidebar.show();
+}, 500);
 
 <div id="map"></div>
 	<script>
