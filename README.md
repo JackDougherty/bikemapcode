@@ -26,7 +26,7 @@ Free map code for your bike group's website. Cycling organizations may freely us
 
 Testing or available only in selected versions:
 - Leaflet-Coordinates-Control to display latitude & longitude at https://github.com/zimmicz/Leaflet-Coordinates-Control (MIT license)
-- Leaflet-sidebar to display slide-in instructions at https://github.com/turbo87/leaflet-sidebar/ (MIT license)
+- Leaflet sidebar-v2 to display slide-in instructions at https://github.com/Turbo87/sidebar-v2 (MIT license)
 - Leaflet.Control.Fullscreen to add a full-screen button at https://github.com/brunob/leaflet.fullscreen (BSD license)
 - Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed)
 - Leaflet.EasyButton to add control buttons with Font Awesome Icons at Permission is hereby granted, free of charge, to any person obtaining a copy of this software (MIT license)
