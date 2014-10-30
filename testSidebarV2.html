@@ -85,6 +85,7 @@
 
 	// position various controls, with margins in CSS custom
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
+	sidebar.open('home');
 
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
