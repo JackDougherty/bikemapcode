@@ -109,7 +109,7 @@
 	new L.Control.Zoom({position: 'topright'}).addTo(map);
 	L.control.locate().addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
-	map.addControl( new L.Control.FullScreen() );
+	new L.Control.FullScreen().addTo(map);
 	map.addControl( new L.Control.Compass() );
 	
 	TrinGISPrimaryRoutes.bindPopup(function (feature) {
