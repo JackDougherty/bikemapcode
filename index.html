@@ -22,6 +22,7 @@
 	<link rel="stylesheet" href="css/leaflet-compass.css"/>
 	<script src="src/leaflet-sidebar.js"></script>
 	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
+	<script src="src/Control.FullScreen.js"></script>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
@@ -83,6 +84,8 @@
 	center: [41.77, -72.69],
 	zoom: 14,
 	zoomControl: false,  // add new zoom control further below, after layer control
+	fullscreenControl: true,
+	fullscreenControlOptions: {title:"Show fullscreen"},
 	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 	var baseMaps = {
@@ -112,6 +115,14 @@
 	TrinGISPrimaryRoutes.bindPopup(function (feature) {
     	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
   	});
+  	
+  	// detect fullscreen toggling
+	map.on('enterFullscreen', function(){
+	if(window.console) window.console.log('enterFullscreen');
+	});
+	map.on('exitFullscreen', function(){
+	if(window.console) window.console.log('exitFullscreen');
+	});
 	</script>
 </body>
 </html>
