@@ -65,12 +65,12 @@
 	}),
 	TrinGISPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/PrimaryRoutes/FeatureServer/0',{
 		style: function () {
-          	return { color: "#4BACC6", weight: 4 };
+          	return { color: "#4BACC6", opacity: 0.7, weight: 5};
         	}
 	}),
 	TrinGISMuniBikeLanes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes/FeatureServer/0',{
 		style: function () {
-          	return { color: "#00FF00", weight: 4 };
+          	return { color: "#00FF00", opacity: 0.7, weight: 5 };
         	}
 	}),
 	TrinGISMuniBikeLanes_Connex = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes_Connex/FeatureServer/0',{
