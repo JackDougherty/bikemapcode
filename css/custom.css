@@ -39,7 +39,7 @@ html, body, #map {
 	margin-top: 50px;
 	}
 .leaflet-top .leaflet-control-zoom {
-	margin-top: 59px;
+	margin-top: 5px;
 }
 /* leaflet control locate modifications */
 .leaflet-bar a, .leaflet-bar a:hover {
