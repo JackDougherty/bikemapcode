@@ -110,7 +110,7 @@
 	map.addControl( new L.Control.Compass() );
 	
 	TrinGISPrimaryRoutes.bindPopup(function (feature) {
-    	return L.Util.template('<p>{ID}</p>', feature.properties);
+    	return L.Util.template('<p>{FID}</p>', feature.properties);
   	});
 	</script>
 </body>
