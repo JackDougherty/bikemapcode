@@ -14,13 +14,15 @@
 	<script src="layer/vector/GPX.js"></script>
 	<script src="layer/vector/KML.js"></script>
 	<!-- trying to make Google tile work <script src="layer/tile/Google.js"></script>-->
-	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
+	<!-- Load Esri Leaflet from CDN, rather than local: <script src="lib/esri-leaflet/esri-leaflet.js"></script>-->
+  	<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script>
 	<script src="src/L.Control.Locate.js"></script>
 	<link rel="stylesheet" href="css/L.Control.Locate.css"/>
 	<script src="src/leaflet-compass.js"></script>
 	<link rel="stylesheet" href="css/leaflet-compass.css"/>
 	<script src="src/leaflet-sidebar.js"></script>
 	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
+	<script src="src/Control.FullScreen.js"></script>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
@@ -42,6 +44,8 @@
 			<h2>bikemapcode</h2>
 			<p>Free map code for your bike group's website. Cycling organizations may freely use this mobile-friendly tool to display recommended bicycle routes and facilities on their own web sites. Riders with smartphones can automatically find their locations and view different map layers. Anyone may edit bike lanes, racks, shops on the default basemap: OpenStreetMap/OpenCycleMap. Customize to display recommended rides or route networks by adding GPX, KML, or ArcGIS overlay maps.</p>
 			<h3>legend - to come</h3>
+			<iframe src="README.md" width="300"></iframe>
+			<h3>end of legend test</h3>
 			</div>
 		</div>
 	</div>
@@ -52,23 +56,39 @@
 	ocmAttr = 'Map data &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 	osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 	osmAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
-
 	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
 	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
 	esriStreets = L.esri.basemapLayer("Streets"),
 	// ggl = new L.Google(),
 	// ggl2 = new L.Google('TERRAIN'),
 	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}),
-	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
-	arcTrinity = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer/2');
-
+	HartfordGISBikeRoutes = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9',{
+		style: function () {
+          	return { color: "#70ca49", opacity: 0.7, weight: 5};
+        	}
+	}),
+	TrinGISPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/PrimaryRoutes/FeatureServer/0',{
+		style: function () {
+          	return { color: "#4BACC6", opacity: 0.7, weight: 5};
+        	}
+	}),
+	TrinGISMuniBikeLanes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes/FeatureServer/0',{
+		style: function () {
+          	return { color: "#00FF00", opacity: 0.7, weight: 5 };
+        	}
+	}),
+	TrinGISMuniBikeLanes_Connex = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes_Connex/FeatureServer/0',{
+		style: function () {
+          	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
+        	}
+	});
 	var map = L.map('map', {
 	center: [41.77, -72.69],
 	zoom: 14,
 	zoomControl: false,  // add new zoom control further below, after layer control
+	fullscreenControl: false, // add full screen control further below, after others
 	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
-
 	var baseMaps = {
 	"OpenCycleMap": ocm,
 	"OpenStreetMap": osm,
@@ -76,25 +96,35 @@
 	// "Google Satellite": ggl,
 	"ESRI StreetMap": esriStreets
 	};
-
 	var overlayMaps = {
 	"FVTC June 28 loop (GPX)": FVTC,
-	"sample lanes (ArcGIS Hartford)": arcHartford,
-	"sample routes (ArcGIS Trinity)": arcTrinity
+	"Hartford city bike lanes (City of Hartford ArcGIS)": HartfordGISBikeRoutes,
+	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
+	"Hartford city bike lanes (Trinity ArcGIS)": TrinGISMuniBikeLanes,
+	"Hartford city bike lanes connex (Trinity ArcGIS)": TrinGISMuniBikeLanes_Connex
 	};
-
 	// position various controls, with margins in CSS custom
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
 	sidebar.open('home');
-
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
 	new L.Control.Zoom({position: 'topright'}).addTo(map);
-
 	L.control.locate().addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
+	new L.Control.FullScreen().addTo(map);
 	map.addControl( new L.Control.Compass() );
 
+	TrinGISPrimaryRoutes.bindPopup(function (feature) {
+    	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
+  	});
+
+  	// detect fullscreen toggling
+	map.on('enterFullscreen', function(){
+	if(window.console) window.console.log('enterFullscreen');
+	});
+	map.on('exitFullscreen', function(){
+	if(window.console) window.console.log('exitFullscreen');
+	});
 	</script>
 </body>
 </html>
