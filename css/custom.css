@@ -19,7 +19,7 @@ html, body, #map {
 
 /* lowers layer control below logo */
 .leaflet-top .leaflet-control {
-	margin-top: 50px;
+	margin-top: 20px;
 	}
 .leaflet-top .leaflet-control-zoom {
 	margin-top: 5px;
