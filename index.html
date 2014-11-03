@@ -84,8 +84,7 @@
 	center: [41.77, -72.69],
 	zoom: 14,
 	zoomControl: false,  // add new zoom control further below, after layer control
-	fullscreenControl: true,
-	fullscreenControlOptions: {title:"Show fullscreen"},
+	fullscreenControl: false, // add full screen control further below, after others
 	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 	var baseMaps = {
@@ -110,6 +109,7 @@
 	new L.Control.Zoom({position: 'topright'}).addTo(map);
 	L.control.locate().addTo(map);
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
+	new L.Control.FullScreen().addTo(map);
 	map.addControl( new L.Control.Compass() );
 	
 	TrinGISPrimaryRoutes.bindPopup(function (feature) {
