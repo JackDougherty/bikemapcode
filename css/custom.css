@@ -34,6 +34,10 @@ html, body, #map {
         border: 0 solid rgba(0, 0, 0, 0); }
       .sidebar.collapsed ~ .sidebar-map .leaflet-left {
         left: 50px; } }
+        
+.sidebar-pane {
+      width: 420px; } 
+      
 /* lowers layer control below logo */
 .leaflet-top .leaflet-control {
 	margin-top: 50px;
