@@ -24,11 +24,14 @@ html, body, #map {
 .leaflet-top .leaflet-control-zoom {
 	margin-top: 5px;
 }
-/* leaflet control locate modification */
+/* leaflet control locate modifications */
 .leaflet-bar a, .leaflet-bar a:hover {
 width: 30px;
 height: 30px;
 line-height: 30px;
+}
+.leaflet-control-locate a {
+font-size: 1.8em;
 }
 /* sidebar modification */
 .sidebar-tabs {
