@@ -58,8 +58,10 @@
 	// ggl = new L.Google(),
 	// ggl2 = new L.Google('TERRAIN'),
 	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}),
-	arcHartford = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
-	arcTrinPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/PrimaryRoutes/FeatureServer/0');
+	HartfordGISBikeRoutes = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9'),
+	TrinGISPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/PrimaryRoutes/FeatureServer/0');
+	TrinGISMuniBikeLanes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes/FeatureServer/0');
+	TrinGISMuniBikeLanes_Connex = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes_Connex/FeatureServer/0');
 	var map = L.map('map', {
 	center: [41.77, -72.69],
 	zoom: 14,
@@ -75,8 +77,10 @@
 	};
 	var overlayMaps = {
 	"FVTC June 28 loop (GPX)": FVTC,
-	"sample lanes (ArcGIS Hartford)": arcHartford,
-	"Hartford Area Primary Routes (ArcGIS Trinity)": arcTrinPrimaryRoutes
+	"Hartford city bike lanes (City of Hartford ArcGIS)": HartfordGISBikeRoutes,
+	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
+	"Hartford city bike lanes (Trinity ArcGIS)": TrinGISMuniBikeLanes,
+	"Hartford city bike lanes connex (Trinity ArcGIS)": TrinGisMuniBikeLanes_Connex
 	};
 	// position various controls, with margins in CSS custom
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
