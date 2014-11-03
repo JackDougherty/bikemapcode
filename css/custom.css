@@ -18,7 +18,7 @@ html, body, #map {
 }
 /* sidebar modification */
 .sidebar-tabs {
-  height: 35px;
+  height: 75px;
 }
 .sidebar {
   z-index: 1;
@@ -46,10 +46,6 @@ html, body, #map {
 width: 30px;
 height: 30px;
 line-height: 30px;
-}
-.leaflet-control-locate, .leaflet-control-locate a {
-font-size: 1.8em;
-margin-top: 10px;
 }
 
 
