@@ -60,7 +60,7 @@
 	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}),
 	HartfordGISBikeRoutes = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9',{
 		style: function () {
-          	return { color: "#70ca49", weight: 2 };
+          	return { color: "#70ca49", opacity: 0.7, weight: 5};
         	}
 	}),
 	TrinGISPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/PrimaryRoutes/FeatureServer/0',{
@@ -75,7 +75,7 @@
 	}),
 	TrinGISMuniBikeLanes_Connex = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes_Connex/FeatureServer/0',{
 		style: function () {
-          	return { color: "#9BBB59", weight: 2 };
+          	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
         	}
 	});
 	var map = L.map('map', {
@@ -108,11 +108,9 @@
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
 	map.addControl( new L.Control.Compass() );
 	
-	var popupTemplate = "<h3>{NAME}</h3>{ACRES} Acres<br><small>Property ID: {PROPERTYID}<small>";
-
-      parks.bindPopup(function(feature){
-        return L.Util.template(popupTemplate, feature.properties)
-      });
+	TrinGISPrimaryRoutes.bindPopup(function (feature) {
+    	return L.Util.template('<p>{NAME}<br>{ID}</p>', feature.properties);
+  	});
 	</script>
 </body>
 </html>
