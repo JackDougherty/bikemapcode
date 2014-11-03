@@ -49,6 +49,7 @@ line-height: 30px;
 }
 .leaflet-control-locate a {
 font-size: 1.8em;
+margin-top: 5px;
 }
 
 
