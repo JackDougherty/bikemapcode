@@ -16,23 +16,6 @@ html, body, #map {
 	padding: 3px;
 	background-color: #ffffff;
 }
-
-/* lowers layer control below logo */
-.leaflet-top .leaflet-control {
-	margin-top: 50px;
-	}
-.leaflet-top .leaflet-control-zoom {
-	margin-top: 5px;
-}
-/* leaflet control locate modifications */
-.leaflet-bar a, .leaflet-bar a:hover {
-width: 30px;
-height: 30px;
-line-height: 30px;
-}
-.leaflet-control-locate a {
-font-size: 1.8em;
-}
 /* sidebar modification */
 .sidebar-tabs {
   height: 35px;
@@ -51,6 +34,23 @@ font-size: 1.8em;
         border: 0 solid rgba(0, 0, 0, 0); }
       .sidebar.collapsed ~ .sidebar-map .leaflet-left {
         left: 50px; } }
+/* lowers layer control below logo */
+.leaflet-top .leaflet-control {
+	margin-top: 50px;
+	}
+.leaflet-top .leaflet-control-zoom {
+	margin-top: 5px;
+}
+/* leaflet control locate modifications */
+.leaflet-bar a, .leaflet-bar a:hover {
+width: 30px;
+height: 30px;
+line-height: 30px;
+}
+.leaflet-control-locate a {
+font-size: 1.8em;
+}
+
 
 
 /* compass positioning */
