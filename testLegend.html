@@ -101,7 +101,7 @@
 	"Hartford city bike lanes connex (Trinity ArcGIS)": TrinGISMuniBikeLanes_Connex
 	};
 	// position various controls, with margins in CSS custom
-	var L.control.sidebar('sidebar').addTo(map);
+	var sidebar = L.control.sidebar('sidebar').addTo(map);
 	sidebar.open('home');
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
