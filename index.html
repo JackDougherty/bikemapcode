@@ -104,7 +104,6 @@
 	//var sidebar = L.control.sidebar('sidebar').addTo(map);
 	//sidebar.open('home');
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
-	sidebar.open('home');
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
 	L.control.locate().addTo(map);
@@ -124,7 +123,7 @@
 	});
 	// test if sidebar timer works
 	setTimeout(function () {
-    		sidebar.show('home');
+    		sidebar.open('home');
 	}, 500);
 	</script>
 </body>
