@@ -5,17 +5,7 @@ body {
 html, body, #map {
 	height: 100%;
 	}
-#header {
-	z-index: 1;
-	position: absolute;
-	top: 0;
-	left: 0;
-	font-size: 13px;
-	text-align: center;
-	line-height: 12px;
-	padding: 3px;
-	background-color: #ffffff;
-}
+
 /* sidebar modification */
 .sidebar-tabs {
   height: 35px;
@@ -38,9 +28,9 @@ html, body, #map {
 font-size: 1.4em;
 }
         
-/* lowers layer control below logo */
+/* position layer control */
 .leaflet-top .leaflet-control {
-	margin-top: 50px;
+	margin-top: 15px;
 	}
 .leaflet-top .leaflet-control-zoom {
 	margin-top: 5px;
