@@ -3,7 +3,8 @@ bikemapcode
 
 Free map code for your bike group's website. Cycling organizations may freely use this mobile-friendly tool to display recommended bicycle routes and facilities on their own web sites. Riders with smartphones can automatically find their locations and view different map layers. Anyone may edit bike lanes, racks, shops on the default basemap: OpenStreetMap/OpenCycleMap. Customize to display recommended rides or route networks by adding GPX, KML, or ArcGIS overlay maps. This open-source Leaflet code is freely distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Code contributions welcome on GitHub or email feedback to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
-###Demo at [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
+###Demo
+[bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
 
 ##Legend
 ![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/legend.png "legend")
