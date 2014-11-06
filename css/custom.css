@@ -30,7 +30,7 @@ font-size: 1.4em;
         
 /* FIX THIS position layer control */
 .leaflet-top .leaflet-control {
-	margin-top: 45px;
+	margin-top: 50px;
 	}
 .leaflet-top .leaflet-control-zoom {
 	margin-top: 5px;
