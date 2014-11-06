@@ -1,9 +1,9 @@
 bikemapcode
 ===========
 
-Free map code for your bike group's website. Cycling organizations may freely use this mobile-friendly tool to display recommended bicycle routes and facilities on their own web sites. Riders with smartphones can automatically find their locations and view different map layers. Anyone may edit bike lanes, racks, shops on the default basemap: OpenStreetMap/OpenCycleMap. Customize to display recommended rides or route networks by adding GPX, KML, or ArcGIS overlay maps. This open-source Leaflet code is freely distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Code contributions welcome on GitHub or email feedback to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
+Display mobile-friendly bike maps on your own website with free and easy-to-modify open-source code, created with Leaflet.js. Distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Feedback and code contributions welcome on GitHub or email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
-###Demo
+##Demo
 [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
 
 ##Legend
@@ -13,6 +13,7 @@ Free map code for your bike group's website. Cycling organizations may freely us
 ###Basemaps:
 - [OpenCycleMap](http://www.opencyclemap.org/) - draws data from [OpenStreetMap](http://www.openstreetmap.org/), the "wikipedia of maps" that anyone can edit to add dedicated bike lanes, racks, shops, etc.
 - ESRI street map, and more to come
+- Riders with smartphones can automatically find their locations and view different map layers. Anyone may edit bike lanes, racks, shops on the default basemap: OpenStreetMap/OpenCycleMap. Customize to display recommended rides or route networks by adding GPX, KML, or ArcGIS overlay maps. 
 
 ###Overlay maps:
 - display your group's recommended rides by uploading a GPX or KML layer
@@ -32,10 +33,10 @@ Testing or available only in selected versions:
 - Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed)
 - Leaflet.EasyButton to add control buttons with Font Awesome Icons at Permission is hereby granted, free of charge, to any person obtaining a copy of this software (MIT license)
 
-##Host this code on your own website
-- Fork to your GitHub, or clone to desktop, or download the zipped code from this page
-- Customize the index.html page to meet your needs (may require HTML, CSS, JavaScript skills)
-- Host on a live website, such as GitHub Pages (like the demo), or the root folder of own domain (more details and example to come)
+##Create your version of this code to host on own website
+1) Fork to your GitHub, or clone to desktop, or download the zipped code from this page
+2) Customize the index.html page to meet your needs (may require HTML, CSS, JavaScript skills)
+3) Host on a live website, such as GitHub Pages (like the demo), or the root folder of own domain (more details and example to come)
 
 ##Compare with related tools
 - [Bikemap.net](http://bikemap.net/en)
