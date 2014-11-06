@@ -28,7 +28,7 @@ html, body, #map {
 font-size: 1.4em;
 }
         
-/* FIX THIS position layer control */
+/* TO DO -- FIX THIS position layer control */
 .leaflet-top .leaflet-control {
 	margin-top: 50px;
 	}
@@ -41,12 +41,6 @@ width: 30px;
 height: 30px;
 line-height: 30px;
 }
-
-/*Control full screen */
-.leaflet-control-zoom-fullscreen { background-image: url(images/icon-fullscreen.png); }
-.leaflet-retina .leaflet-control-zoom-fullscreen { background-image: url(images/icon-fullscreen-2x.png); background-size: 26px 26px; }
-.leaflet-container:-webkit-full-screen { width: 100% !important; height: 100% !important; z-index: 99999; }
-.leaflet-pseudo-fullscreen { position: fixed !important; width: 100% !important; height: 100% !important; top: 0px !important; left: 0px !important; z-index: 99999; }
 
 /* compass positioning */
 .leaflet-control.leaflet-compass {
@@ -70,22 +64,3 @@ line-height: 30px;
 	height:36px;
 	border-radius:4px;
 }
-
-/*.alignleft {
-	top: 0;
-	left: 0;
-	float: left;
-	text-align:left;
-	width: 30%;
-	background-color: #ffffff;
-	}
-.alignright {
-	top: 0;
-	right: 0;
-	 float: left;
-	 text-align:right;
-	 width: 30%;
-	background-color: #ffffff;
-	}
-{ color: #4B58A6; }
-a:hover { color: #4B58A6; }*/
