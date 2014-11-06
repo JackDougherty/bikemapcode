@@ -9,47 +9,80 @@ Display mobile-friendly bike maps on your own website with free and easy-to-modi
 ##Legend
 ![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/legend.png "legend")
 
-##Layers
+##Map layer control
 ###Basemaps:
-- [OpenCycleMap](http://www.opencyclemap.org/) - draws data from [OpenStreetMap](http://www.openstreetmap.org/), the "wikipedia of maps" that anyone can edit to add dedicated bike lanes, racks, shops, etc.
-- ESRI street map, and more to come
-- Riders with smartphones can automatically find their locations and view different map layers. Anyone may edit bike lanes, racks, shops on the default basemap: OpenStreetMap/OpenCycleMap. Customize to display recommended rides or route networks by adding GPX, KML, or ArcGIS overlay maps. 
+- [OpenCycleMap](http://www.opencyclemap.org/) displays marked bike routes and lane, bike racks, bike shops, and restrooms from [OpenStreetMap](http://www.openstreetmap.org/), which anyone may edit (like a Wikipedia for maps)
+- ESRI street map layer (and other options)
 
 ###Overlay maps:
-- display your group's recommended rides by uploading a GPX or KML layer
-- display a network of bike routes through an ArcGIS server, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [routes hosted by Cameron Douglass at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/04212014online/FeatureServer)
+- Display your group's recommended bike rides by uploading a GPX or KML file.
+- Display your group's network of bike routes through an ArcGIS server, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [HartfordAreaBikeMap layers hosted by Cameron Douglass and Alex Perez at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/arcgis/rest/services/)
+
+##What the tool does NOT do:
+- It does not provide routing directions to bike from point A to B
+- It does not work without internet access.
+
+##How to create and host your own version:
+Requires a bit of coding skill (or willingness to learn) and a way to host your code on the live web (such as a free GitHub account, using GitHub Pages). For a basic tutorial see http://epress.trincoll.edu/dataviz/chapter/host-html-github/
+1) Fork this repository to your free GitHub account, or clone to your desktop, or download the zipped code from this page. To learn basics of hosting and editing code in GitHub.
+2) Edit the index.html page as desired. 
+a) For example, set a new center point and zoom level:
+```
+var map = L.map('map', {
+	center: [41.77, -72.69],
+	zoom: 14,
+```
+b) Modify the source file, color, opacity, and weight of overlay maps:
+```
+TrinGISPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/PrimaryRoutes/FeatureServer/0',{
+		style: function () {
+          	return { color: "#4BACC6", opacity: 0.7, weight: 5};
+        	}
+	}),
+	```
+c) Change the listing of an overlay map in the layer control:
+```
+var overlayMaps = {
+	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
+```
+Make sure that names for new layers (such as TrinGISPrimaryRoutes) match perfectly in 2b and 2c.
+
+3) Host the entire folder of code on the live web. Consider these options:
+a) Use the free GitHub Pages service, which runs this demo at http://jackdougherty.github.io/bikemapcode
+b) If you have access to a web server, host the entire folder at the root level, such as this self-hosted WordPress site http://JackBikes.org/maps/
+c) If you do not have access to a web server, but wish to display the map in your organization's web page, try hosting the code in GitHub Pages, and embedding an iframe in your website. For example:
+- the Bike West Hartford organization uses a free Weebly account and created this page http://www.bikewesthartford.org/map.html
+- I host this file (and everything in the folder) on my GitHub Pages account http://jackdougherty.github.io/bikemapcode/westhartford.html
+- On the Bike West Hartford website, using the admin access, I inserted this simple HTML iframe code, which displays the westhartford.html page inside the map.html page:
+```
+<iframe src="http://jackdougherty.github.io/bikemapcode/westhartford.html" width="600" height="625" seamless></iframe>
+```
+For option c, one disadvantage is that the user sees only a small map inside an iframe, and to my knowledge there is no easy way to make it appear full-screen, except for adding code to give the viewer the option to go directly to the GitHub Pages file.
 
 ##Code credits and open-source licenses
 - Leaflet: an open-source JavaScript library for mobile-friendly interactive maps at http://leafletjs.com/ (BSD license)
 - Leaflet.Locate to show your map location at https://github.com/domoritz/leaflet-locatecontrol (MIT license)
-- Leaflet-control-geocoder to search and locate places at https://github.com/perliedman/leaflet-control-geocoder (BSD license)
+- Leaflet-control-geocoder to search for a place at https://github.com/perliedman/leaflet-control-geocoder (BSD license)
 - Leaflet-plugins to display GPX, KML, Google layers at https://github.com/shramov/leaflet-plugins (BSD license)
-- ESRI-leaflet to display ArcGIS shapefiles at https://github.com/Esri/esri-leaflet (Apache license)
-
-Testing or available only in selected versions:
-- Leaflet-Coordinates-Control to display latitude & longitude at https://github.com/zimmicz/Leaflet-Coordinates-Control (MIT license)
+- Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
 - Leaflet sidebar-v2 to display slide-in instructions at https://github.com/Turbo87/sidebar-v2 (MIT license)
-- Leaflet.Control.Fullscreen to add a full-screen button at https://github.com/brunob/leaflet.fullscreen (BSD license)
 - Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed)
-- Leaflet.EasyButton to add control buttons with Font Awesome Icons at Permission is hereby granted, free of charge, to any person obtaining a copy of this software (MIT license)
 
-##Create your version of this code to host on own website
-1) Fork to your GitHub, or clone to desktop, or download the zipped code from this page
-2) Customize the index.html page to meet your needs (may require HTML, CSS, JavaScript skills)
-3) Host on a live website, such as GitHub Pages (like the demo), or the root folder of own domain (more details and example to come)
+##To Do List
+This is an amateur coding project. Constructive suggestions and code contributions are welcome on GitHub or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
+- Clean up custom.css code to fix appearance of controls (I could use help with CSS!)
+- Look for better "show my location" plugin or method, since this version is adequate but not respond quickly to turns, etc. Is this a limitation of web apps versus native apps for iOS/Android?
+- Improve display of Trinity ArcGIS layer http://bit.ly/1CQvRpk with styling lines http://esri.github.io/esri-leaflet/examples/styling-feature-layer-polylines.html and custom pop-up http://esri.github.io/esri-leaflet/examples/feature-layer-popups.html. Coding this would be easier if all bike routes were in one shapefile with differentiated features, similar to Esri's Portland bike map example.
+- Add instructions and screenshots/screencast to explain how anyone can add marked bike lanes etc. to OpenStreetMap, and explain how it takes a few days for this content to appear on OpenCycleMap.
+- Add code to display an overlay of Flickr geotagged photos with "bike" in title, such as this demo http://jackdougherty.github.io/bikemapcode/portland2014.html
+- Add code to display an overlay of Instagram geotagged photos/videos from a user or group account, with marker clustering, using Leaflet-Instagram plugin (https://github.com/turban/Leaflet.Instagram) - see demo: http://blog.thematicmapping.org/2014/06/showing-instagram-photos-and-videos-on.html
+- Add a close button to leaflet-sidebarV2
+- Look at Leaflet-Plugins for code sample that automatically resizes map to fit bounded area of GPX layer
+- Add Google Maps bicycling layer (which did not work for me in summer 2014; need to try again)
+- Add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
+- Possibly add SeeClickFix bike-related hazards layer - see API http://help.seeclickfix.com/kb/api/api-overview
 
 ##Compare with related tools
 - [Bikemap.net](http://bikemap.net/en)
 - [East Coast Greenway, Wikimapping tool by Steve Spindler & John Zeng](http://map.greenway.org/)
-
-##To Do list - code contributions welcome!
-- add screenshot and YouTube video on how to add bike-related content to OpenStreetMap (which takes a few days to appear on OpenCycleMap)
-- Flickr and/or Instagram geotagged photos layer -- [see this example](http://jackdougherty.github.io/Leaflet.Instagram/examples/)-- based on Leaflet-Instagram demo https://github.com/turban/Leaflet.Instagram
-- add Google Maps bicycling layer - see [Google map test](http://jackdougherty.github.io/bikemapcode/testG.html)
-- add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
-- ESRI-leaflet library to Symbolize Line Features http://jackdougherty.github.io/bikemapcode/testE3.html
-- share map link
-- Leaflet-OpenWeatherMap https://github.com/buche/leaflet-openweathermap
-- possibly add SeeClickFix bike-related hazards layer - see API http://help.seeclickfix.com/kb/api/api-overview
-- Wikipedia points of interest layer
-- Weather radar layer
+- and many more
