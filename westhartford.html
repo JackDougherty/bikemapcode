@@ -22,7 +22,8 @@
 	<link rel="stylesheet" href="css/leaflet-compass.css"/>
 	<script src="src/leaflet-sidebar.js"></script>
 	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
-	<script src="src/Control.FullScreen.js"></script>
+	<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/Leaflet.fullscreen.min.js'></script>
+	<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.2/leaflet.fullscreen.css' rel='stylesheet' />
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
@@ -114,13 +115,7 @@
 	TrinGISPrimaryRoutes.bindPopup(function (feature) {
     	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
   	});
-  	// detect fullscreen toggling
-	map.on('enterFullscreen', function(){
-	if(window.console) window.console.log('enterFullscreen');
-	});
-	map.on('exitFullscreen', function(){
-	if(window.console) window.console.log('exitFullscreen');
-	});
+  	
 	</script>
 </body>
 </html>
