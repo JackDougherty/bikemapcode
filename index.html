@@ -104,7 +104,8 @@
 	//sidebar.open('home');   -- option to open on startup
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
-	L.control.locate().addTo(map);
+	// L.control.locate().addTo(map);
+	map.addControl(L.control.locate({locateOptions: {maxZoom: 10}}));
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
 	new L.Control.Zoom({position: 'topleft'}).addTo(map);
 	map.addControl( new L.Control.Compass() );
