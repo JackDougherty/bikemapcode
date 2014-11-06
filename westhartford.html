@@ -22,7 +22,6 @@
 	<link rel="stylesheet" href="css/leaflet-compass.css"/>
 	<script src="src/leaflet-sidebar.js"></script>
 	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
-	<script src="src/Control.FullScreen.js"></script>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
@@ -56,9 +55,9 @@
 	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
 	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
 	esriStreets = L.esri.basemapLayer("Streets"),
+	// TO DO: add this Google layer
 	// ggl = new L.Google(),
 	// ggl2 = new L.Google('TERRAIN'),
-	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}),
 	HartfordGISBikeRoutes = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9',{
 		style: function () {
           	return { color: "#70ca49", opacity: 0.7, weight: 5};
@@ -78,12 +77,13 @@
 		style: function () {
           	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
         	}
-	});
+	}),
+	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}); // semicolor for last variable
+	
 	var map = L.map('map', {
-	center: [41.762, -72.737566],
+	center: [41.77, -72.69],
 	zoom: 14,
 	zoomControl: false,  // add new zoom control further below, after layer control
-	fullscreenControl: false, // add full screen control further below, after others
 	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 	var baseMaps = {
@@ -98,29 +98,21 @@
 	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
 	"Hartford city bike lanes (Trinity ArcGIS)": TrinGISMuniBikeLanes,
 	"Hartford city bike lanes connex (Trinity ArcGIS)": TrinGISMuniBikeLanes_Connex,
-	"Farmington Valley Canal Trail loop (GPX)": FVTC 	// no comma after last layer
+	"Farmington Valley Canal Trail loop (GPX)": FVTC   //no comma after last layer
 	};
-	// position various controls, with margins in CSS custom
-	//var sidebar = L.control.sidebar('sidebar').addTo(map);
-	//sidebar.open('home');
+	// TO DO: improve positioning of controls with custom.css  
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
+	//sidebar.open('home');   -- option to open on startup
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
-	L.control.locate().addTo(map);
+	map.addControl(L.control.locate({locateOptions: {maxZoom: 16}}));
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
-	new L.Control.FullScreen().addTo(map);
 	new L.Control.Zoom({position: 'topleft'}).addTo(map);
 	map.addControl( new L.Control.Compass() );
+	//esri-leaflet popup 
 	TrinGISPrimaryRoutes.bindPopup(function (feature) {
     	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
   	});
-  	// detect fullscreen toggling
-	map.on('enterFullscreen', function(){
-	if(window.console) window.console.log('enterFullscreen');
-	});
-	map.on('exitFullscreen', function(){
-	if(window.console) window.console.log('exitFullscreen');
-	});
 	</script>
 </body>
 </html>
