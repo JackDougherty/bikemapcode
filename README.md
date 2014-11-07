@@ -39,7 +39,7 @@ TrinGISPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKL
           	return { color: "#4BACC6", opacity: 0.7, weight: 5};
         	}
 	}),
-	```
+```
 c) Change the listing of an overlay map in the layer control:
 ```
 var overlayMaps = {
