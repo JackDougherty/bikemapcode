@@ -6,9 +6,6 @@ Display mobile-friendly bike maps on your own website with free and easy-to-modi
 ##Demo
 [bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
 
-##Legend
-![legend](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/legend.png "legend")
-
 ##Map layer control
 ###Basemaps:
 - [OpenCycleMap](http://www.opencyclemap.org/) displays marked bike routes and lane, bike racks, bike shops, and restrooms from [OpenStreetMap](http://www.openstreetmap.org/), which anyone may edit (like a Wikipedia for maps)
@@ -25,7 +22,7 @@ Display mobile-friendly bike maps on your own website with free and easy-to-modi
 ##How to create and host your own version:
 Requires a bit of coding skill (or willingness to learn) and a way to host your code on the live web (such as a free GitHub account, using GitHub Pages). For a basic tutorial see http://epress.trincoll.edu/dataviz/chapter/host-html-github/
 1) Fork this repository to your free GitHub account, or clone to your desktop, or download the zipped code from this page. To learn basics of hosting and editing code in GitHub.
-2) Edit the index.html page as desired. 
+2) Edit the index.html page as desired.
 a) For example, set a new center point and zoom level:
 ```
 var map = L.map('map', {
