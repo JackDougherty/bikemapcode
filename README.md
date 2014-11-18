@@ -48,16 +48,19 @@ var overlayMaps = {
 Make sure that names for new layers (such as TrinGISPrimaryRoutes) match perfectly in 2b and 2c.
 
 3) Host the entire folder of code on the live web. Consider these options:
+
 a) Use the free GitHub Pages service, which runs this demo at http://jackdougherty.github.io/bikemapcode
+
 b) If you have access to a web server, host the entire folder at the root level, such as this self-hosted WordPress site http://JackBikes.org/maps/
+
 c) If you do not have access to a web server, but wish to display the map in your organization's web page, try hosting the code in GitHub Pages, and embedding an iframe in your website. For example:
-- the Bike West Hartford organization uses a free Weebly account and created this page http://www.bikewesthartford.org/map.html
+- the Bike West Hartford organization uses a free Weebly account and created this page http://www.bikewesthartford.org/interactive-map.html
 - I host this file (and everything in the folder) on my GitHub Pages account http://jackdougherty.github.io/bikemapcode/westhartford.html
 - On the Bike West Hartford website, using the admin access, I inserted this simple HTML iframe code, which displays the westhartford.html page inside the map.html page:
 ```
-<iframe src="http://jackdougherty.github.io/bikemapcode/westhartford.html" width="600" height="625" seamless></iframe>
+<iframe src="http://jackdougherty.github.io/bikemapcode/westhartford.html" width="960" height="660" frameborder="0"></iframe>
 ```
-For option c, one disadvantage is that the user sees only a small map inside an iframe, and to my knowledge there is no easy way to make it appear full-screen, except for adding code to give the viewer the option to go directly to the GitHub Pages file.
+- in the Weebly editor box above the iframe, insert description and link to full-screen version (on GitHub Pages)
 
 ##Code credits and open-source licenses
 - Leaflet: an open-source JavaScript library for mobile-friendly interactive maps at http://leafletjs.com/ (BSD license)
