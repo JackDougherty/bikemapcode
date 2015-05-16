@@ -41,6 +41,7 @@
 	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
 	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
 	esriStreets = L.esri.basemapLayer("Streets"),
+	esriTopo = L.esri.basemapLayer("Topographic"),
 	// ggl = new L.Google(),
 	// ggl2 = new L.Google('TERRAIN'),
 	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
@@ -49,9 +50,9 @@
 
 	var map = L.map('map', {
 	center: [39.65, -78.65],
-	zoom: 8,
+	zoom: 9,
 	zoomControl: false,  // add new zoom control below after layer control
-	layers: [esriStreets, COGAP]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriTopo, COGAP]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
 	var baseMaps = {
@@ -59,7 +60,8 @@
 	"OpenStreetMap": osm,
 	// "Google Terrain": ggl2,
 	// "Google Satellite": ggl,
-	"ESRI StreetMap": esriStreets
+	"ESRI StreetMap": esriStreets,
+	"ESRI TopoMap": esriTopo
 	};
 
 	var overlayMaps = {
