@@ -5,6 +5,9 @@
   <time>2015-05-03T17:31:04Z</time>
   <trk>
     <name>WeHa 11-mile route</name>
+    <line>
+      <color>FF0000</color>
+    </line>
     <trkseg>
       <trkpt lat="41.75942" lon="-72.73466">
         <ele>41.2</ele>
