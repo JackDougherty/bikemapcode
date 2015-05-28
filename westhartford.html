@@ -90,9 +90,9 @@
           	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
         	}
 	}), */
-	WeHa11 = new L.GPX("routes/WeHa_11-mile_route.gpx", {async: true, color: '#0000FF'}),
-	WeHa25 = new L.GPX("routes/WeHa_25-mile_route.gpx", {async: true, color: '#006600', imperial: true, display_wpt:true}),
-	WeHa50 = new L.GPX("routes/WeHa_50-mile_route.gpx", {async: true, color: '#FF33CC', imperial: true, display_wpt:true}); // semicolon for last variable
+	WeHa11 = new L.GPX("routes/WeHa_11-mile_route.gpx", {async: true, color: '#0000FF', display_wpt:true}),
+	WeHa25 = new L.GPX("routes/WeHa_25-mile_route.gpx", {async: true, color: '#006600', display_wpt:true}),
+	WeHa50 = new L.GPX("routes/WeHa_50-mile_route.gpx", {async: true, color: '#FF33CC', display_wpt:true}); // semicolon for last variable
 
 	var map = L.map('map', {
 	center: [41.762696, -72.738679],
