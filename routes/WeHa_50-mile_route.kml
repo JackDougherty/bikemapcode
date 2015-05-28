@@ -5,7 +5,7 @@
     <name>WeHa 50-mile route</name>
     <Style id="default_style">
       <LineStyle>
-        <color>ff0000ff</color>
+        <color>500078F0</color>
         <width>2</width>
       </LineStyle>
     </Style>

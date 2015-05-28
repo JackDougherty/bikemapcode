@@ -90,9 +90,9 @@
           	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
         	}
 	}), */
-	WeHa11 = new L.GPX("routes/WeHa_11-mile_route.gpx", {async: true, display_wpt:false}),
-	WeHa25 = new L.GPX("routes/WeHa_25-mile_route.gpx", {async: true, display_wpt:false}),
-	WeHa50 = new L.GPX("routes/WeHa_50-mile_route.gpx", {async: true, display_wpt:false}); // semicolon for last variable
+	WeHa11 = new L.KML("routes/WeHa_11-mile_route.kml", {async: true),
+	WeHa25 = new L.KML("routes/WeHa_25-mile_route.kml", {async: true),
+	WeHa50 = new L.KML("routes/WeHa_50-mile_route.kml", {async: true); // semicolon for last variable
 
 	var map = L.map('map', {
 	center: [41.760130, -72.723],
@@ -112,9 +112,9 @@
 	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
 	"Hartford city bike lanes (Trinity ArcGIS)": TrinGISMuniBikeLanes,
 	"Hartford city bike lanes connex (Trinity ArcGIS)": TrinGISMuniBikeLanes_Connex, */
-	"WeHa 11 mile route": WeHa11,
-	"WeHa 25 mile route": WeHa25,
-	"WeHa 50 mile route": WeHa50  //no comma after last layer
+	"WeHa 11 mile (blue)": WeHa11,
+	"WeHa 25 mile (green)": WeHa25,
+	"WeHa 50 mile (orange)": WeHa50  //no comma after last layer
 	};
 	// TO DO: improve positioning of controls with custom.css
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
