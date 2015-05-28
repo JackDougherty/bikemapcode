@@ -70,8 +70,8 @@
 	// TO DO: add this Google layer
 	// ggl = new L.Google(),
 	// ggl2 = new L.Google('TERRAIN'),
-	HartfordGISBikeRoutes = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9',{
-		style: function () {
+	/* HartfordGISBikeRoutes = L.esri.featureLayer('http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9',{
+	//	style: function () {
           	return { color: "#70ca49", opacity: 0.7, weight: 5};
         	}
 	}),
@@ -89,14 +89,16 @@
 		style: function () {
           	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
         	}
-	}),
-	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}); // semicolor for last variable
-	
+	}), */
+	WeHa11 = new L.GPX("routes/WeHa_11-mile_route.gpx", {async: true, display_wpt:false}),
+	WeHa25 = new L.GPX("routes/WeHa_25-mile_route.gpx", {async: true, display_wpt:false}),
+	WeHa50 = new L.GPX("routes/WeHa_50-mile_route.gpx", {async: true, display_wpt:false}); // semicolon for last variable
+
 	var map = L.map('map', {
 	center: [41.760130, -72.723],
-	zoom: 14,
+	zoom: 12,
 	zoomControl: false,  // add new zoom control further below, after layer control
-	layers: [ocm]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriStreets, WeHa11, WeHa25, WeHa50]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 	var baseMaps = {
 	"OpenCycleMap": ocm,
@@ -106,13 +108,15 @@
 	"ESRI StreetMap": esriStreets
 	};
 	var overlayMaps = {
-	"Hartford city bike lanes (City of Hartford ArcGIS)": HartfordGISBikeRoutes,
+	/* "Hartford city bike lanes (City of Hartford ArcGIS)": HartfordGISBikeRoutes,
 	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
 	"Hartford city bike lanes (Trinity ArcGIS)": TrinGISMuniBikeLanes,
-	"Hartford city bike lanes connex (Trinity ArcGIS)": TrinGISMuniBikeLanes_Connex,
-	"Farmington Valley Canal Trail loop (GPX)": FVTC   //no comma after last layer
+	"Hartford city bike lanes connex (Trinity ArcGIS)": TrinGISMuniBikeLanes_Connex, */
+	"WeHa 11 mile route": WeHa11,
+	"WeHa 25 mile route": WeHa25,
+	"WeHa 50 mile route": WeHa50  //no comma after last layer
 	};
-	// TO DO: improve positioning of controls with custom.css  
+	// TO DO: improve positioning of controls with custom.css
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
 	//sidebar.open('home');   -- option to open on startup
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
@@ -121,7 +125,7 @@
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
 	new L.Control.Zoom({position: 'topleft'}).addTo(map);
 	map.addControl( new L.Control.Compass() );
-	//esri-leaflet popup 
+	//esri-leaflet popup
 	TrinGISPrimaryRoutes.bindPopup(function (feature) {
     	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
   	});
