@@ -103,18 +103,18 @@ L.Google = L.Class.extend({
 		if (!this._ready) return;
 		this._google_center = new google.maps.LatLng(0, 0);
 		var map = new google.maps.Map(this._container, {
-		    center: this._google_center,
-		    zoom: 0,
-		    tilt: 0,
-		    mapTypeId: google.maps.MapTypeId[this._type],
-		    disableDefaultUI: true,
-		    keyboardShortcuts: false,
-		    draggable: false,
-		    disableDoubleClickZoom: true,
-		    scrollwheel: false,
-		    streetViewControl: false,
-		    styles: this.options.mapOptions.styles,
-		    backgroundColor: this.options.mapOptions.backgroundColor
+			center: this._google_center,
+			zoom: 0,
+			tilt: 0,
+			mapTypeId: google.maps.MapTypeId[this._type],
+			disableDefaultUI: true,
+			keyboardShortcuts: false,
+			draggable: false,
+			disableDoubleClickZoom: true,
+			scrollwheel: false,
+			streetViewControl: false,
+			styles: this.options.mapOptions.styles,
+			backgroundColor: this.options.mapOptions.backgroundColor
 		});
 
 		var _this = this;
@@ -154,7 +154,7 @@ L.Google = L.Class.extend({
 		var _center = new google.maps.LatLng(center.lat, center.lng);
 
 		this._google.setCenter(_center);
-		this._google.setZoom(this._map.getZoom());
+		this._google.setZoom(Math.round(this._map.getZoom()));
 
 		this._checkZoomLevels();
 	},
@@ -162,7 +162,7 @@ L.Google = L.Class.extend({
 	_resize: function() {
 		var size = this._map.getSize();
 		if (this._container.style.width === size.x &&
-		    this._container.style.height === size.y)
+				this._container.style.height === size.y)
 			return;
 		this.setElementSize(this._container, size);
 		this.onReposition();
