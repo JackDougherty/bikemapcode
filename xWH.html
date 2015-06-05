@@ -6,16 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="shortcut icon" href="favicon.ico">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<script src="src/Control.Geocoder.js"></script>
 	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
 	<script src="layer/vector/GPX.js"></script>
 	<script src="layer/vector/KML.js"></script>
-	<link rel="stylesheet" href="css/leaflet-distance-marker.css" media="screen"/>
-	<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
-	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
 	<!-- trying to make Google tile work <script src="layer/tile/Google.js"></script>-->
 	<!-- Load Esri Leaflet from CDN, rather than local: <script src="lib/esri-leaflet/esri-leaflet.js"></script>-->
   	<script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script>
@@ -25,10 +22,6 @@
 	<link rel="stylesheet" href="css/leaflet-compass.css"/>
 	<script src="src/leaflet-sidebar.js"></script>
 	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
-
-	<script src="routes/WeHa11_coords.js" type="text/javascript"></script>
-	<script src="routes/WeHa25_coords.js" type="text/javascript"></script>
-	<script src="routes/WeHa50_coords.js" type="text/javascript"></script>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
@@ -47,20 +40,20 @@
 		<!-- Tab panes -->
 		<div class="sidebar-content active">
 			<div class="sidebar-pane" id="home">
-			<strong>bikemapcode</strong> displays mobile-friendly cycling maps on your website with easy-to-modify <a href="https://github.com/JackDougherty/bikemapcode#bikemapcode" target="_blank">open-source code</a>.</p>
-			<p><img src="images/layers-icon.png"> Choose map layers:</p>
+			<strong>bikemapcode</strong> displays mobile-friendly cycling maps on your website with easy-to-modify <a href="https://github.com/JackDougherty/bikemapcode#bikemapcode" target="_blank">open-source code</a>. Distributed as-is with no warranty under an MIT license. Feedback and code contributions welcome on <a href="https://github.com/JackDougherty/bikemapcode" target="_blank">GitHub</a> or email to <a href="mailto:jack.dougherty@trincoll.edu">jack.dougherty@trincoll.edu</a></p>
+			</br>
+			<p><img src="images/layers-icon.png"> Select map layers:</p>
 			<ul>
-			<li>Basemaps: <a href="http://opencyclemap.org/" target="_blank">Open Cycle Map</a>, <a href="http://www.openstreetmap.org/" target="_blank">Open Street Map</a>, ESRI Streets</li>
-			<li>Overlays: add bike routes (KML, GPX, ArcGIS) </li>
+			<li>Basemaps include <a href="http://opencyclemap.org/" target="_blank">Open Cycle Map</a>, a user-edited layer to show marked bike lanes and facilities from <a href="http://www.openstreetmap.org/" target="_blank">Open Street Map</a>; and ESRI Streets.</li>
+			<li>Overlay maps can show bike rides from GPX or KML files, or route networks from ArcGIS server. </li>
 			</ul>
 			</p>
 			<p><img src="images/location-icon.png"> Show your current location</p>
 			<p><img src="images/search-icon.png"> Search for any place </p>
-			<p><img src="images/compass-icon.png"> Compass arrow (with mobile devices)</p>
+			<p><img src="images/compass-icon.png"> Compass directions (with mobile devices)</p>
 		  </br>
 			<p>Key for <a href="http://www.opencyclemap.org/docs/" target="_blank">OpenCycleMap</a></p>
 			<img src="images/OpenCycleMapKey.png">
-			<p>bikemapcode is distributed as-is with no warranty under an MIT license. Feedback and code contributions welcome on <a href="https://github.com/JackDougherty/bikemapcode" target="_blank">GitHub</a> or email to <a href="mailto:jack.dougherty@trincoll.edu">jack.dougherty@trincoll.edu</a></p>
 			</div>
 		</div>
 	</div>
@@ -97,17 +90,23 @@
           	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
         	}
 	}), */
-
-	WeHa11 = L.polyline(WeHa11, {color: 'blue'}),
-	WeHa25 = L.polyline(WeHa25, {color: 'green'}),
-	WeHa50 = L.polyline(WeHa50, {color: 'magenta'}); // semicolon after last line
+	WeHa11 = new L.GPX("routes/WeHa_11-mile_route.gpx", {async: true, color: '#0000FF', display_wpt:true}),
+	WeHa25 = new L.GPX("routes/WeHa_25-mile_route.gpx", {async: true, color: '#006600', display_wpt:true}),
+	WeHa50 = new L.GPX("routes/WeHa_50-mile_route.gpx", {async: true, color: '#FF33CC', display_wpt:true}); // semicolon for last variable
 
 	var map = L.map('map', {
 	center: [41.762696, -72.738679],
 	zoom: 13,
 	zoomControl: false,  // add new zoom control further below, after layer control
-	layers: [esriStreets, WeHa25]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriStreets, WeHa11, WeHa25, WeHa50]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
+	var baseMaps = {
+	"OpenCycleMap": ocm,
+	"OpenStreetMap": osm,
+	// "Google Terrain": ggl2,
+	// "Google Satellite": ggl,
+	"ESRI StreetMap": esriStreets
+	};
 	var overlayMaps = {
 	/* "Hartford city bike lanes (City of Hartford ArcGIS)": HartfordGISBikeRoutes,
 	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
@@ -117,14 +116,6 @@
 	"WeHa 25 mile (green)": WeHa25,
 	"WeHa 50 mile (magenta)": WeHa50  //no comma after last layer
 	};
-	var baseMaps = {
-	"OpenCycleMap": ocm,
-	"OpenStreetMap": osm,
-	// "Google Terrain": ggl2,
-	// "Google Satellite": ggl,
-	"ESRI StreetMap": esriStreets
-	};
-
 	// TO DO: improve positioning of controls with custom.css
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
 	//sidebar.open('home');   -- option to open on startup
@@ -135,9 +126,9 @@
 	new L.Control.Zoom({position: 'topleft'}).addTo(map);
 	map.addControl( new L.Control.Compass() );
 	//esri-leaflet popup
-	//TrinGISPrimaryRoutes.bindPopup(function (feature) {
-  //  	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
-  //	});
+	TrinGISPrimaryRoutes.bindPopup(function (feature) {
+    	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
+  	});
 	</script>
 </body>
 </html>
