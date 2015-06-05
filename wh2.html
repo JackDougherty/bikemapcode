@@ -108,13 +108,6 @@
 	zoomControl: false,  // add new zoom control further below, after layer control
 	layers: [esriStreets, WeHa11, WeHa25, WeHa50]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
-	var baseMaps = {
-	"OpenCycleMap": ocm,
-	"OpenStreetMap": osm,
-	// "Google Terrain": ggl2,
-	// "Google Satellite": ggl,
-	"ESRI StreetMap": esriStreets
-	};
 	var overlayMaps = {
 	/* "Hartford city bike lanes (City of Hartford ArcGIS)": HartfordGISBikeRoutes,
 	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
@@ -124,6 +117,14 @@
 	"WeHa 25 mile (green)": WeHa25,
 	"WeHa 50 mile (magenta)": WeHa50  //no comma after last layer
 	};
+	var baseMaps = {
+	"OpenCycleMap": ocm,
+	"OpenStreetMap": osm,
+	// "Google Terrain": ggl2,
+	// "Google Satellite": ggl,
+	"ESRI StreetMap": esriStreets
+	};
+
 	// TO DO: improve positioning of controls with custom.css
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
 	//sidebar.open('home');   -- option to open on startup
