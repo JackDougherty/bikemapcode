@@ -26,9 +26,9 @@
 	<script src="src/leaflet-sidebar.js"></script>
 	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
 
-	<script src="WeHa11_coords.js" type="text/javascript"></script>
-	<script src="WeHa25_coords.js" type="text/javascript"></script>
-	<script src="WeHa50_coords.js" type="text/javascript"></script>
+	<script src="routes/WeHa11_coords.js" type="text/javascript"></script>
+	<script src="routes/WeHa25_coords.js" type="text/javascript"></script>
+	<script src="routes/WeHa50_coords.js" type="text/javascript"></script>
 
 	<!--[if lt IE 9]>
 		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
@@ -97,13 +97,10 @@
           	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
         	}
 	}), */
-	WeHa11 = new L.GPX("routes/WeHa_11-mile_route.gpx", {async: true, color: '#0000FF', display_wpt:true}),
-	WeHa25 = new L.GPX("routes/WeHa_25-mile_route.gpx", {async: true, color: '#006600', display_wpt:true}),
-	WeHa50 = new L.GPX("routes/WeHa_50-mile_route.gpx", {async: true, color: '#FF33CC', display_wpt:true}); // semicolon for last variable
 
 	WeHa11 = L.polyline(WeHa11, {color: 'blue'}),
 	WeHa25 = L.polyline(WeHa25, {color: 'green'}),
-	WeHa50 = L.polyline(WeHa50, {color: 'magenta'});
+	WeHa50 = L.polyline(WeHa50, {color: 'magenta'}); // semicolon after last line
 
 	var map = L.map('map', {
 	center: [41.762696, -72.738679],
@@ -137,8 +134,8 @@
 	new L.Control.Zoom({position: 'topleft'}).addTo(map);
 	map.addControl( new L.Control.Compass() );
 	//esri-leaflet popup
-	TrinGISPrimaryRoutes.bindPopup(function (feature) {
-    	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
+	//TrinGISPrimaryRoutes.bindPopup(function (feature) {
+  //  	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
   	});
 	</script>
 </body>
