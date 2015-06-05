@@ -25,8 +25,6 @@
 	<link rel="stylesheet" href="css/leaflet-compass.css"/>
 	<script src="src/leaflet-sidebar.js"></script>
 	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
-	<link rel="stylesheet" href="css/Control.FullScreen.css" />
- 	<script src="src/Control.FullScreen.js"></script>
 
 	<script src="routes/WeHa11_coords.js" type="text/javascript"></script>
 	<script src="routes/WeHa25_coords.js" type="text/javascript"></script>
@@ -133,7 +131,6 @@
 	//sidebar.open('home');   -- option to open on startup
 	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
 	layerControl.addTo(map);
-	L.control.fullscreen({position: 'topleft'}).addTo(map);
 	map.addControl(L.control.locate({locateOptions: {maxZoom: 16}}));
 	L.Control.geocoder({position: 'topleft'}).addTo(map);
 	new L.Control.Zoom({position: 'topleft'}).addTo(map);
