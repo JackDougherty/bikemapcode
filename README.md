@@ -66,6 +66,7 @@ c) If you do not have access to a web server, but wish to display the map in you
 - Leaflet-plugins to display GPX, KML, Google layers at https://github.com/shramov/leaflet-plugins (BSD license)
 - Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
 - Leaflet sidebar-v2 to display slide-in instructions at https://github.com/Turbo87/sidebar-v2 (MIT license)
+- Leaflet-distance-markers to display mileage icons at https://github.com/adoroszlai/leaflet-distance-markers (MIT license)
 - Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed)
 
 ##To Do List
