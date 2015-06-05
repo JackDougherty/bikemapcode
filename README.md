@@ -73,6 +73,7 @@ c) If you do not have access to a web server, but wish to display the map in you
 This is an amateur coding project. Constructive suggestions and code contributions are welcome on GitHub or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 - Clean up custom.css code to fix appearance of controls (I could use help with CSS!)
 - Look for better "show my location" plugin or method, since this version is adequate but not respond quickly to turns, etc. Is this a limitation of web apps versus native apps for iOS/Android?
+- Figure out how to make full screen button (https://github.com/brunob/leaflet.fullscreen) work inside Weebly site (http://www.bikewesthartford.org/interactive-map.html), or try more responsive theme?
 - Improve display of Trinity ArcGIS layer http://bit.ly/1CQvRpk with styling lines http://esri.github.io/esri-leaflet/examples/styling-feature-layer-polylines.html and custom pop-up http://esri.github.io/esri-leaflet/examples/feature-layer-popups.html. Coding this would be easier if all bike routes were in one shapefile with differentiated features, similar to Esri's Portland bike map example.
 - Add instructions and screenshots/screencast to explain how anyone can add marked bike lanes etc. to OpenStreetMap, and explain how it takes a few days for this content to appear on OpenCycleMap.
 - Add code to display an overlay of Flickr geotagged photos with "bike" in title, such as this demo http://jackdougherty.github.io/bikemapcode/portland2014.html
