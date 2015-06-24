@@ -52,7 +52,7 @@
 	center: [42.275605, -79.271988],
 	zoom: 8,
 	zoomControl: false,  // add new zoom control below after layer control
-	layers: [esriTopo, COGAP]   //default display can be base + overlays [ocm, arcGIS, track]
+	layers: [esriStreets, Oberlin2012]   //default display can be base + overlays [ocm, arcGIS, track]
 	});
 
 	var baseMaps = {
@@ -97,7 +97,7 @@
 	//https://www.flickr.com/services/api/explore/flickr.photos.search
 	//https://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
 
-	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=Oberlin2012&extras=geo%2Curl_t%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
+	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=Oberlin2012&text=map&extras=geo%2Curl_t%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
 
 	//This returns error
 	//var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=25dcc9a8c7410551dcb0af48c778bde5&photoset_id=72157646371103550&extras=geo%2Curl_t%2Curl_m&format=json&nojsoncallback=1";
