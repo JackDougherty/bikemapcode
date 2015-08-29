@@ -4,22 +4,28 @@ bikemapcode
 Display mobile-friendly bike maps on your own website with free and easy-to-modify open-source code, created with Leaflet.js. Distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Feedback and code contributions welcome on GitHub or email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
 ##Demo
-[bit.ly/bikemapcode](http://jackdougherty.github.io/bikemapcode)
+http://jackdougherty.github.io/bikemapcode
 
-##Map layer control
-###Basemaps:
+# Shortlinks to custom versions
+- http://bit.ly/bikemapcode (index.html, same as above)
+- http://bit.ly/bikemapwh (westhartford.html)
+- http://bit.ly/bikemapnb (newbritain.html)
+
+
+## Map layer control
+### Basemaps:
 - [OpenCycleMap](http://www.opencyclemap.org/) displays marked bike routes and lane, bike racks, bike shops, and restrooms from [OpenStreetMap](http://www.openstreetmap.org/), which anyone may edit (like a Wikipedia for maps)
 - ESRI street map layer (and other options)
 
-###Overlay maps:
+### Overlay maps:
 - Display your group's recommended bike rides by uploading a GPX or KML file.
 - Display your group's network of bike routes through an ArcGIS server, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [HartfordAreaBikeMap layers hosted by Cameron Douglass and Alex Perez at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/arcgis/rest/services/)
 
-##What the tool does NOT do:
+## What the tool does NOT do:
 - It does not provide routing directions to bike from point A to B
 - It does not work without internet access.
 
-##How to create and host your own version:
+## How to create and host your own version:
 Requires a bit of coding skill (or willingness to learn) and a way to host your code on the live web (such as a free GitHub account, using GitHub Pages). For a basic tutorial see http://epress.trincoll.edu/dataviz/chapter/host-html-github/
 1) Fork this repository to your free GitHub account, or clone to your desktop, or download the zipped code from this page. To learn basics of hosting and editing code in GitHub.
 2) Edit the index.html page as desired.
@@ -59,18 +65,29 @@ c) If you do not have access to a web server, but wish to display the map in you
 ```
 - in the Weebly editor box above the iframe, insert description and link to full-screen version (on GitHub Pages)
 
-##Code credits and open-source licenses
+## Code credits and open-source licenses
 - Leaflet: an open-source JavaScript library for mobile-friendly interactive maps at http://leafletjs.com/ (BSD license)
 - Leaflet.Locate to show your map location at https://github.com/domoritz/leaflet-locatecontrol (MIT license)
 - Leaflet-control-geocoder to search for a place at https://github.com/perliedman/leaflet-control-geocoder (BSD license)
 - Leaflet-plugins to display GPX, KML, Google layers at https://github.com/shramov/leaflet-plugins (BSD license)
 - Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
 - Leaflet sidebar-v2 to display slide-in instructions at https://github.com/Turbo87/sidebar-v2 (MIT license)
-- Leaflet-distance-markers to display mileage icons at https://github.com/adoroszlai/leaflet-distance-markers (MIT license)
 - Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed)
+- Leaflet-distance-markers to display mileage icons at https://github.com/adoroszlai/leaflet-distance-markers (MIT license)
+  - requires converting route data into polyline format, find better method than this:
+	- download route into KML
+	- open KML with text editor, delete all but coordinates and elevation, save as .txt
+	- open .txt with spreadsheet, select comma delimited, erase elevations
+	- switch lat and lng columns, concatenate this way: ="L.latLng("& LAT &", "& LNG & "),"
+	- save as .txt, open in text editor
+	- at top add:   var routeCoords = [
+	- at bottom remove last command and add:  ];
+	- rename as route.js
 
-##To Do List
+
+## To Do
 This is an amateur coding project. Constructive suggestions and code contributions are welcome on GitHub or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
+- ** REBUILD CODE, using newbritain.html as model **
 - Clean up custom.css code to fix appearance of controls (I could use help with CSS!)
 - Look for better "show my location" plugin or method, since this version is adequate but not respond quickly to turns, etc. Is this a limitation of web apps versus native apps for iOS/Android?
 - Figure out how to make full screen button (https://github.com/brunob/leaflet.fullscreen) work inside Weebly site (http://www.bikewesthartford.org/interactive-map.html), or try more responsive theme?
