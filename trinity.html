@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>Trinity Bike Commute</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico">
+	<script type="text/javascript" src="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Load Esri Leaflet from CDN -->
+ <script src="http://cdn.jsdelivr.net/leaflet.esri/1.0.0/esri-leaflet.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
+		<link rel="stylesheet" href="css/L.Control.Locate.ie.css"/>
+		<![endif]-->
+	<script src="src/Control.Geocoder.js"></script>
+	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
+	<script src="layer/vector/GPX.js"></script>
+	<script src="layer/vector/KML.js"></script>
+	<link rel="stylesheet" href="css/leaflet-distance-marker.css" media="screen"/>
+	<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
+	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
+	<!-- trying to make Google tile work <script src="layer/tile/Google.js"></script>-->
+	<!-- Load Esri Leaflet from CDN, rather than local: <script src="lib/esri-leaflet/esri-leaflet.js"></script>-->
+  	<!-- <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script> -->
+	<script src="src/L.Control.Locate.js"></script>
+	<link rel="stylesheet" href="css/L.Control.Locate.css"/>
+	<script src="src/leaflet-compass.js"></script>
+	<link rel="stylesheet" href="css/leaflet-compass.css"/>
+	<!-- <script src="src/leaflet-sidebar.js"></script>
+	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
+	<link rel="stylesheet" href="css/Control.FullScreen.css" />
+ 	<script src="src/Control.FullScreen.js"></script> -->
+
+	<style>
+	  body { margin:0; padding:0; }
+	  #map { position:absolute; top:0; bottom:0; width:100%; }
+	</style>
+	<!-- Do not use custom.css here *TO DO* create new style.css for new template later
+	<link rel="stylesheet" href="css/custom.css"/> -->
+
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+	var map = L.map('map', { zoomControl: false })
+	.setView([41.75, -72.69], 14); // remove this if mapbounds works later
+
+	// optional : customize link to view source code; add your own GitHub repository
+	map.attributionControl
+	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, created with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
+
+	var Esri_WorldStreetMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri from multiple sources'
+	}).addTo(map);
+
+	var controlLayers = L.control.layers( null, null, {
+	  position: "topleft",
+	  collapsed: false
+	}).addTo(map);
+
+	// *TO DO* Update this plugin from https://github.com/domoritz/leaflet-locatecontrol
+	L.control.locate({
+	  follow: true,
+	  icon: 'fa fa-map-marker', // *TO DO* change to custom marker, same size as compass, with text or css "Show my location" to appear
+	  strings: {title: "Show my location"}
+	}).addTo(map);
+
+	// position zoom control further down
+	new L.control.zoom({position: "topleft",}).addTo(map);
+
+	map.addControl( new L.Control.Compass() );  //*TO DO* move below show my location after resizing
+
+	// *TO DO* Redo sidebar-v2 to place on right side
+
+	var TrinityCommute = new L.GPX("routes/TrinityCommute.gpx", {color: 'blue'}).addTo(map);
+	controlLayers.addOverlay(TrinityCommute, "Jack's WH-Trinity commute (blue)");
+
+	// Code format works, but mistakenly displays route length in network nodes
+	// var HartfordGISBikeRoutes = L.esri.featureLayer({
+	// 	url: 'http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9',
+	// 	style: function (feature) {
+  //         	return { color: "#70ca49", opacity: 0.7, weight: 5};
+  //   }
+	// })
+	// controlLayers.addOverlay(HartfordGISBikeRoutes, 'Hartford GIS bike routes');
+
+	// *TO DO* Continue testing to fix fitBounds issue
+	// $.getJSON("routes/NewBritain10.json", function (data) {
+	// 	var NB10 = new L.polyline(NB10coords, {color: 'blue'}).addTo(map);
+	// 	map.fitBounds(NB10.getBounds());
+	// 	controlLayers.addOverlay(NB10, 'New Britain 10 mile (blue)');
+	// });
+	//
+	// $.getJSON("routes/NewBritain25.json", function (data) {
+	// 	var NB25 = new L.polyline(NB25coords, {color: 'green'});
+	// 	map.fitBounds(NB25.getBounds());
+	// 	controlLayers.addOverlay(NB25, 'New Britain 25 mile (green)');
+	// });
+	//
+	// $.getJSON("routes/NewBritain50.json", function (data) {
+	// 	var NB50 = new L.polyline(NB10coords, {color: 'magenta'});
+	// 	map.fitBounds(NB50.getBounds());
+	// 	controlLayers.addOverlay(NB50, 'New Britain 50 mile (magenta)');
+	// });
+	</script>
+</body>
+</html>
