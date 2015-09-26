@@ -62,7 +62,9 @@
 
 	// *TO DO* Update this plugin from https://github.com/domoritz/leaflet-locatecontrol
 	L.control.locate({
-	  follow: true,
+	  follow: false, // default = false
+		// keepCurrentZoomLevel: true,
+		locateOptions: {maxZoom: 17}, // zoom level for show location default = 18
 	  icon: 'fa fa-map-marker', // *TO DO* change to custom marker, same size as compass, with text or css "Show my location" to appear
 	  strings: {title: "Show my location"}
 	}).addTo(map);
