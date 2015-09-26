@@ -33,10 +33,6 @@
 	<link rel="stylesheet" href="css/Control.FullScreen.css" />
  	<script src="src/Control.FullScreen.js"></script> -->
 
-	<script src="routes/NewBritain10.js" type="text/javascript"></script>
-	<script src="routes/NewBritain25.js" type="text/javascript"></script>
-	<script src="routes/NewBritain50.js" type="text/javascript"></script>
-
 	<style>
 	  body { margin:0; padding:0; }
 	  #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -78,13 +74,16 @@
 
 	// *TO DO* Redo sidebar-v2 to place on right side
 
-	var NB10 = new L.polyline(NB10coords, {color: 'blue'}).addTo(map);
+	// var NB10 = new L.polyline(NB10coords, {color: 'blue'}).addTo(map);
+	// controlLayers.addOverlay(NB10, 'New Britain 10 mile (blue)');
+
+	var NB10 = new L.GPX("routes/NewBritain10.gpx", {color: 'blue'}).addTo(map);
 	controlLayers.addOverlay(NB10, 'New Britain 10 mile (blue)');
 
-	var NB25 = new L.polyline(NB25coords, {color: 'green'})
+	var NB25 = new L.GPX("routes/NewBritain25.gpx", {color: 'green'})
 	controlLayers.addOverlay(NB25, 'New Britain 25 mile (green)');
 
-	var NB50 = new L.polyline(NB50coords, {color: 'magenta'})
+	var NB50 = new L.GPX("routes/NewBritain50.gpx", {color: 'magenta'})
 	controlLayers.addOverlay(NB50, 'New Britain 50 mile (magenta)');
 
 	var WHNB = new L.GPX("routes/WeHa-NewBritain.gpx", {color: 'black'})
