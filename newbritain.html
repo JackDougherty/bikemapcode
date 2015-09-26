@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="shortcut icon" href="favicon.ico">
-	<script type="text/javascript" src="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.js"></script>
-	<link rel="stylesheet" href="http://cdn.jsdelivr.net/leaflet/0.7.3/leaflet.css" />
+	<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<!--[if lt IE 9]>
@@ -64,7 +64,7 @@
 	L.control.locate({
 	  follow: false, // default = false
 		// keepCurrentZoomLevel: true,
-		locateOptions: {maxZoom: 17}, // zoom level for show location default = 18
+		locateOptions: {maxZoom: 16}, // zoom level for show location default = 18
 	  icon: 'fa fa-map-marker', // *TO DO* change to custom marker, same size as compass, with text or css "Show my location" to appear
 	  strings: {title: "Show my location"}
 	}).addTo(map);
