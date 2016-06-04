@@ -91,7 +91,8 @@
           	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
         	}
 	}),
-	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}); // semicolor for last variable
+	WWEH = new L.GPX("routes/WWEH.gpx", {async: true, display_wpt:false}),
+	FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false}); // semicolon for last variable
 
 	var map = L.map('map', {
 	center: [41.77, -72.69],
@@ -111,6 +112,7 @@
 	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
 	"Hartford city bike lanes (Trinity ArcGIS)": TrinGISMuniBikeLanes,
 	"Hartford city bike lanes connex (Trinity ArcGIS)": TrinGISMuniBikeLanes_Connex,
+	"WeHa-Willimantic-East Hampton": WWEH,
 	"Farmington Valley Canal Trail loop (GPX)": FVTC   //no comma after last layer
 	};
 	// TO DO: improve positioning of controls with custom.css
