@@ -24,6 +24,8 @@
       zoom: 14
     });
 
+    L.control.scale().addTo(map);
+
     // customize below to display link to YOUR GitHub repository
     map.attributionControl
     .setPrefix('View <a href="http://github.com/jackdougherty/bikemapcode">code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
@@ -56,7 +58,9 @@
     }
 
     function onEachFeature(feature, layer) {
-      layer.bindPopup(feature.properties.name)
+      var popupText = "Route: " + feature.properties.name
+      + "<br>Mileage: " + feature.properties.mileage;
+      layer.bindPopup(popupText);
     }
 
     $.getJSON("routes/ECG-HopRiver-trail.geojson", function (data){
