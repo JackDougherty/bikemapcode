@@ -64,7 +64,7 @@
         style: style,
         onEachFeature: onEachFeature
       }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'ECG Hop River ECG');
+      controlLayers.addOverlay(geoJsonLayer, 'ECG Hop River');
     });
 
     $.getJSON("routes/ECG-Willimantic-west-road.geojson", function (data){
@@ -96,7 +96,7 @@
         style: style,
         onEachFeature: onEachFeature
       }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'ECG Airline north');
+      controlLayers.addOverlay(geoJsonLayer, 'ECG Air Line north');
     });
 
     $.getJSON("routes/Airline-south-trail.geojson", function (data){
@@ -104,7 +104,7 @@
         style: style,
         onEachFeature: onEachFeature
       }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'Airline south');
+      controlLayers.addOverlay(geoJsonLayer, 'Air Line south');
     });
 
     // Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
