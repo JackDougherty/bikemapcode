@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>bikemapcode</title>
+    <!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-rc.1/leaflet.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.0-rc.1/leaflet.js"></script>
+    <!-- jQuery dependency; using v1.x to support older IE -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- These lines of Cascading Style Sheet (CSS) code position the map -->
+    <style>
+      body { margin:0; padding:0; }
+      #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+    </style>
+  </head>
+  <body>
+    <!-- This section displays the map using HTML code-->
+    <div id="map"></div>
+    <!-- This section creates the map using JavaScript (.js) code -->
+    <script>
+    // set up the map center and zoom level
+    var map = L.map('map', {
+      center: [41.53, -72.910],
+      zoom: 13,
+      scrollWheelZoom: false
+    });
+
+    L.control.scale().addTo(map);
+
+    // customize below to display link to YOUR GitHub repository
+    map.attributionControl
+    .setPrefix('View <a href="http://github.com/jackdougherty/bikemapcode">code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+
+    // optional: add legend to toggle any baselayers and/or overlays
+    // global variable with (null, null) allows indiv layers to be added inside functions below
+    var controlLayers = L.control.layers( null, null, {
+      position: "bottomright", // position can be modified
+      collapsed: false // false = open by default
+    }).addTo(map);
+
+
+    /* BASELAYER */
+    var lightAll = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+    }).addTo(map);
+
+    /* OVERLAYS */
+    function getColor(d) {
+      return  d == "trail" ? 'green' :
+              d == "road"  ? 'blue' :
+              'red';
+    }
+
+    function style(feature) {
+      return {
+        color: getColor(feature.properties.type),
+        weight: 3,
+      };
+    }
+
+    function onEachFeature(feature, layer) {
+      var popupText = "Route: " + feature.properties.name
+      + "<br>Mileage: " + feature.properties.mileage;
+      layer.bindPopup(popupText);
+    }
+
+    $.getJSON("routes/ECG-Cheshire-4mile-2016.geojson", function (data){
+      var geoJsonLayer = L.geoJson(data, {
+        style: style,
+        onEachFeature: onEachFeature
+      }).addTo(map);
+      controlLayers.addOverlay(geoJsonLayer, 'ECG new Cheshire trail (green)');
+    });
+
+    $.getJSON("routes/ECG-2014.geojson", function (data){
+      var geoJsonLayer = L.geoJson(data, {
+        style: style,
+        onEachFeature: onEachFeature
+      }).addTo(map);
+      controlLayers.addOverlay(geoJsonLayer, 'ECG existing route (red)');
+    });
+
+    </script>
+  </body>
+</html>
