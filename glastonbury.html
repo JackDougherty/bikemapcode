@@ -3,7 +3,7 @@
 <head>
 	<title>Glastonbury 2016</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="shortcut icon" href="favicon.ico">
 	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
 	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
 	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
@@ -46,10 +46,10 @@
 
 	// optional : customize link to view source code; add your own GitHub repository
 	map.attributionControl
-	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, created with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
+	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
 
 	var Esri_WorldStreetMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri from multiple sources'
+		attribution: 'Tiles &copy; Esri'
 	}).addTo(map);
 
 	var controlLayers = L.control.layers( null, null, {
