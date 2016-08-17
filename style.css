@@ -2,13 +2,13 @@ body { margin:0; padding:0; }
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
 .dist-marker {
-	font-size: 12px;
+	font-size: 14px;
 	border: 1px solid #777;
-	border-radius: 10px;
+	border-radius: 12px;
 	text-align: center;
 	color: #000;
 	background: #fff;
-	padding: 1px 3px 4px 1px;
+	padding: 1px 19px 19px 3px;
 }
 
 /* from old css sidebar modification */
