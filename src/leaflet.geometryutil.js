@@ -226,6 +226,45 @@ L.GeometryUtil = L.extend(L.GeometryUtil || {}, {
     },
 
     /**
+     * Returns all layers within a radius of the given position, in an ascending order of distance.
+       @param {L.Map} map
+       @param {Array<ILayer>} layers - A list of layers.
+       @param {L.LatLng} latlng - The position to search.
+       @param {?Number} [radius=Infinity] - Search radius in pixels
+       @return {object[]} an array of object including layer within the radius, closest latlng, and distance
+     */
+    layersWithin: function(map, layers, latlng, radius) {
+      radius = typeof radius == 'number' ? radius : Infinity;
+
+      var results = [];
+      var ll = null;
+      var distance = 0;
+
+      for (var i = 0, n = layers.length; i < n; i++) {
+        var layer = layers[i];
+
+        if (typeof layer.getLatLng == 'function') {
+            ll = layer.getLatLng();
+            distance = L.GeometryUtil.distance(map, latlng, ll);
+        }
+        else {
+            ll = L.GeometryUtil.closest(map, layer, latlng);
+            if (ll) distance = ll.distance;  // Can return null if layer has no points.
+        }
+
+        if (ll && distance < radius) {
+            results.push({layer: layer, latlng: ll, distance: distance});
+        }
+      }
+
+      var sortedResults = results.sort(function(a, b) {
+          return a.distance - b.distance;
+      });
+
+      return sortedResults;
+    },
+
+    /**
         Returns the closest position from specified {LatLng} among specified layers,
         with a maximum tolerance in pixels, providing snapping behaviour.
         @param {L.Map} map
@@ -283,6 +322,9 @@ L.GeometryUtil = L.extend(L.GeometryUtil || {}, {
             return null;
         }
 
+        // ensure the ratio is between 0 and 1;
+        ratio = Math.max(Math.min(ratio, 1), 0);
+
         if (ratio === 0) {
             return {
                 latLng: latLngs[0] instanceof L.LatLng ? latLngs[0] : L.latLng(latLngs[0]),
@@ -295,9 +337,6 @@ L.GeometryUtil = L.extend(L.GeometryUtil || {}, {
                 predecessor: latLngs.length - 2
             };
         }
-
-        // ensure the ratio is between 0 and 1;
-        ratio = Math.max(Math.min(ratio, 1), 0);
 
         // project the LatLngs as Points,
         // and compute total planar length of the line at max precision
@@ -501,7 +540,7 @@ L.GeometryUtil = L.extend(L.GeometryUtil || {}, {
 
     /**
        Returns the bearing in degrees clockwise from north (0 degrees)
-       from the first L.LatLng to the second, at the first LatLng 
+       from the first L.LatLng to the second, at the first LatLng
        @param {L.LatLng} latlng1: origin point of the bearing
        @param {L.LatLng} latlng2: destination point of the bearing
        @returns {float} degrees clockwise from north.

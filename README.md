@@ -10,6 +10,7 @@ http://jackdougherty.github.io/bikemapcode
 - http://bit.ly/bikemapcode (index.html, same as above)
 - http://bit.ly/bikemapwh (westhartford.html)
 - http://bit.ly/bikemapnb (newbritain.html)
+- http://bit.ly/bikemapgb (glastonbury.html)
 
 
 ## Map layer control
@@ -67,13 +68,12 @@ c) If you do not have access to a web server, but wish to display the map in you
 
 ## Code credits and open-source licenses
 - Leaflet: an open-source JavaScript library for mobile-friendly interactive maps at http://leafletjs.com/ (BSD license)
-- Leaflet.Locate to show your map location at https://github.com/domoritz/leaflet-locatecontrol (MIT license)
-- Leaflet-control-geocoder to search for a place at https://github.com/perliedman/leaflet-control-geocoder (BSD license)
+- Leaflet.Locate to show your map location at https://github.com/domoritz/leaflet-locatecontrol (MIT license, v52)
 - Leaflet-plugins to display GPX, KML, Google layers at https://github.com/shramov/leaflet-plugins (BSD license)
-- Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
-- Leaflet sidebar-v2 to display slide-in instructions at https://github.com/Turbo87/sidebar-v2 (MIT license)
-- Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed)
-- Leaflet-distance-markers to display mileage icons at https://github.com/adoroszlai/leaflet-distance-markers (MIT license)
+- Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed, June 2016)
+- Leaflet-distance-markers to display mileage icons at https://github.com/adoroszlai/leaflet-distance-markers (MIT license, June 2016)
+  - requires https://github.com/makinacorpus/Leaflet.GeometryUtil
+  - works with GPX (so IGNORE notes below)
   - requires converting route data into polyline format, find better method than this:
 	- download route into KML
 	- open KML with text editor, delete all but coordinates and elevation, save as .txt
@@ -84,10 +84,18 @@ c) If you do not have access to a web server, but wish to display the map in you
 	- at bottom remove last command and add:  ];
 	- rename as route.js
 
+	// var NB10 = new L.polyline(NB10coords, {color: 'blue'}).addTo(map);
+	// controlLayers.addOverlay(NB10, 'New Britain 10 mile (blue)');
+
+- UPDATE THESE
+- Leaflet-control-geocoder to search for a place at https://github.com/perliedman/leaflet-control-geocoder (BSD license)
+- Leaflet sidebar-v2 to display slide-in instructions at https://github.com/Turbo87/sidebar-v2 (MIT license)
+- Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
 
 ## To Do
 This is an amateur coding project. Constructive suggestions and code contributions are welcome on GitHub or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 - ** REBUILD CODE, using newbritain.html as model **
+- Redo sidebar-v2 to place on right side
 - Clean up custom.css code to fix appearance of controls (I could use help with CSS!)
 - Look for better "show my location" plugin or method, since this version is adequate but not respond quickly to turns, etc. Is this a limitation of web apps versus native apps for iOS/Android?
 - Figure out how to make full screen button (https://github.com/brunob/leaflet.fullscreen) work inside Weebly site (http://www.bikewesthartford.org/interactive-map.html), or try more responsive theme?
