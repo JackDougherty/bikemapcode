@@ -10,25 +10,3 @@ body { margin:0; padding:0; }
 	background: #fff;
 	padding: 1px 19px 19px 3px;
 }
-
-/* from old css sidebar modification */
-.sidebar-tabs {
-  height: 35px;
-}
-.sidebar {
-  z-index: 1;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-}
-  .sidebar.leaflet-touch {
-    box-shadow: none;
-    border-right: 0 solid rgba(0, 0, 0, 0); }
-  @media (min-width: 768px) {
-    .sidebar {
-      border-radius: 0; }
-      .sidebar.leaflet-touch {
-        border: 0 solid rgba(0, 0, 0, 0); }
-      .sidebar.collapsed ~ .sidebar-map .leaflet-left {
-        left: 50px; } }
-.fa-question-circle{
-font-size: 1.4em;
-}

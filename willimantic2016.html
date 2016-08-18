@@ -1,150 +1,171 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>bikemapcode</title>
-    <!-- These lines load code from LeafletJS.com and JQuery.com online libraries to run the map -->
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.0.0-rc.1/leaflet.css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://cdn.leafletjs.com/leaflet/v1.0.0-rc.1/leaflet.js"></script>
-    <!-- These lines of Cascading Style Sheet (CSS) code position the map -->
-    <style>
-      body { margin:0; padding:0; }
-      #map { position: absolute; top:0; bottom:0; right:0; left:0; }
-    </style>
-  </head>
-  <body>
-    <!-- This section displays the map using HTML code-->
-    <div id="map"></div>
-    <!-- This section creates the map using JavaScript (.js) code -->
-    <script>
-    // set up the map center and zoom level
-    var map = L.map('map', {
-      center: [41.712, -72.235],
-      zoom: 14,
-      scrollWheelZoom: false
-    });
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bikemapcode</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- load Bootstrap CSS for mobile devices -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
+	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
+	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<!-- load jQuery  -->
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<!-- Load Esri Leaflet -->
+	<script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.2/esri-leaflet.js"></script>
+	<!-- load Font-Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<!-- load Leaflet.locatecontrol -->
+	<script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.css"/>
+	<!-- load Leaflet-plugins to read GPX and KML -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/GPX.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/KML.min.js"></script>
+	<!-- Load leaflet-geocoder to search locations-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.js"></script>
+	<!-- load compass from local directory -->
+	<link rel="stylesheet" href="src/leaflet-compass.min.css"/>
+	<script src="src/leaflet-compass.min.js"></script>
+	<!-- load distance markers with geometry from local directory; see also style.css -->
+	<!-- <script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
+	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script> -->
+	<!-- load leaflet-sidebar from local directory -->
+	<link rel="stylesheet" href="src/L.Control.Sidebar.css" />
+	<script src="src/L.Control.Sidebar.js"></script>
+	<!-- load custom css -->
+	<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
 
-    L.control.scale().addTo(map);
+	var map = L.map('map', {
+		center: [41.712, -72.235],
+		zoom: 14,
+	  zoomControl: false, // add later to reposition
+	  scrollWheelZoom: false
+	});
 
-    // customize below to display link to YOUR GitHub repository
-    map.attributionControl
-    .setPrefix('View <a href="http://github.com/jackdougherty/bikemapcode">code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+	map.attributionControl
+	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, made with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
 
-    // optional: add legend to toggle any baselayers and/or overlays
-    // global variable with (null, null) allows indiv layers to be added inside functions below
-    var controlLayers = L.control.layers( null, null, {
-      position: "bottomright", // position can be modified
-      collapsed: false // false = open by default
+	var controlLayers = L.control.layers( null, null, {
+	  position: "topleft",
+	  collapsed: false
+	}).addTo(map);
+
+	new L.control.zoom({position: "topleft",}).addTo(map);
+
+	L.control.scale().addTo(map);
+
+  var lightAll = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+  }).addTo(map);
+
+  /* OVERLAYS */
+  function getColor(d) {
+    return  d == "trail" ? 'green' :
+            d == "road"  ? 'blue' :
+            'white';
+  }
+
+  function style(feature) {
+    return {
+      color: getColor(feature.properties.type),
+      weight: 3,
+    };
+  }
+
+  function onEachFeature(feature, layer) {
+    var popupText = "Route: " + feature.properties.name
+    + "<br>Mileage: " + feature.properties.mileage;
+    layer.bindPopup(popupText);
+  }
+
+  $.getJSON("routes/ECG-HopRiver-trail.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
     }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'ECG 2016 Hop River');
+  });
 
-
-    /* BASELAYER */
-    var lightAll = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+  $.getJSON("routes/ECG-Willimantic-west-road.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
     }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'ECG Willimantic west');
+  });
 
-    /* OVERLAYS */
-    function getColor(d) {
-      return  d == "trail" ? 'green' :
-              d == "road"  ? 'blue' :
-              'white';
+  $.getJSON("routes/ECG-Willimantic-trail.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'ECG Willimantic trail');
+  });
+
+  $.getJSON("routes/ECG-Willimantic-downtown-road.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'ECG Willimantic downtown');
+  });
+
+  $.getJSON("routes/ECG-Willimantic-Airline-north-trail.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'ECG Air Line north');
+  });
+
+  $.getJSON("routes/Airline-south-trail.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'Air Line south');
+  });
+
+  // Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
+  var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&tags=Willimantic2016&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
+
+  // Define the flickr popup display
+  var popupHTML = function(photo){
+    var result = "";
+        result = '<strong>'+photo.title+'</strong><br>';
+        result += '<a href="'+photo.url_m+'" target="_blank">';
+        result += '<img src="'+photo.url_s+'"></a>';      //was url_t; want url_s; can change to url_m if desired, but frame needs work
+        result += '<br><small>click image to enlarge in new tab</small>';
+        return result;
+  }
+
+  // Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
+  $.getJSON(flickrURL, function (data) {
+    // Create new layerGroup for the markers, with option to append ".addTo(map);" to display by default
+    var layerGroup = new L.LayerGroup().addTo(map);
+    // Add layerGroup to your layer control and insert your label to appear in legend
+    controlLayers.addOverlay(layerGroup, 'Flickr photo icons');
+    // Start a loop to insert flickr photo data into photoContent
+    for (var i = 0; i < data.photos.photo.length; i++) {
+      var photoContent = data.photos.photo[i];
+      var photoIcon = L.icon(
+        {iconUrl: photoContent.url_t,
+        iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
+      );
+      var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
+      marker.bindPopup(popupHTML(photoContent));
+      // Add the marker to the layerGroup
+      marker.addTo(layerGroup);
     }
+  });
 
-    function style(feature) {
-      return {
-        color: getColor(feature.properties.type),
-        weight: 3,
-      };
-    }
-
-    function onEachFeature(feature, layer) {
-      var popupText = "Route: " + feature.properties.name
-      + "<br>Mileage: " + feature.properties.mileage;
-      layer.bindPopup(popupText);
-    }
-
-    $.getJSON("routes/ECG-HopRiver-trail.geojson", function (data){
-      var geoJsonLayer = L.geoJson(data, {
-        style: style,
-        onEachFeature: onEachFeature
-      }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'ECG Hop River');
-    });
-
-    $.getJSON("routes/ECG-Willimantic-west-road.geojson", function (data){
-      var geoJsonLayer = L.geoJson(data, {
-        style: style,
-        onEachFeature: onEachFeature
-      }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'ECG Willimantic west');
-    });
-
-    $.getJSON("routes/ECG-Willimantic-trail.geojson", function (data){
-      var geoJsonLayer = L.geoJson(data, {
-        style: style,
-        onEachFeature: onEachFeature
-      }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'ECG Willimantic trail');
-    });
-
-    $.getJSON("routes/ECG-Willimantic-downtown-road.geojson", function (data){
-      var geoJsonLayer = L.geoJson(data, {
-        style: style,
-        onEachFeature: onEachFeature
-      }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'ECG Willimantic downtown');
-    });
-
-    $.getJSON("routes/ECG-Willimantic-Airline-north-trail.geojson", function (data){
-      var geoJsonLayer = L.geoJson(data, {
-        style: style,
-        onEachFeature: onEachFeature
-      }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'ECG Air Line north');
-    });
-
-    $.getJSON("routes/Airline-south-trail.geojson", function (data){
-      var geoJsonLayer = L.geoJson(data, {
-        style: style,
-        onEachFeature: onEachFeature
-      }).addTo(map);
-      controlLayers.addOverlay(geoJsonLayer, 'Air Line south');
-    });
-
-    // Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
-    var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&tags=Willimantic2016&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
-
-    // Define the flickr popup display
-    var popupHTML = function(photo){
-      var result = "";
-          result = '<strong>'+photo.title+'</strong><br>';
-          result += '<a href="'+photo.url_m+'" target="_blank">';
-          result += '<img src="'+photo.url_s+'"></a>';      //was url_t; want url_s; can change to url_m if desired, but frame needs work
-          result += '<br><small>click image to enlarge in new tab</small>';
-          return result;
-    }
-
-    // Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
-    $.getJSON(flickrURL, function (data) {
-      // Create new layerGroup for the markers, with option to append ".addTo(map);" to display by default
-      var layerGroup = new L.LayerGroup().addTo(map);
-      // Add layerGroup to your layer control and insert your label to appear in legend
-      controlLayers.addOverlay(layerGroup, 'Flickr photos');
-      // Start a loop to insert flickr photo data into photoContent
-      for (var i = 0; i < data.photos.photo.length; i++) {
-        var photoContent = data.photos.photo[i];
-        var photoIcon = L.icon(
-          {iconUrl: photoContent.url_t,
-          iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
-        );
-        var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
-        marker.bindPopup(popupHTML(photoContent));
-        // Add the marker to the layerGroup
-        marker.addTo(layerGroup);
-      }
-    });
-
-    </script>
-  </body>
+  </script>
+</body>
 </html>
