@@ -94,6 +94,11 @@
 	}).addTo(map);
 	controlLayers.addBaseLayer(EsriStreets, 'Esri Streets');
 
+	var EsriTopo = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	});
+	controlLayers.addBaseLayer(EsriTopo, 'Esri Topographic');
+
 	var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'

@@ -1,113 +1,130 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>New Britain 2015</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="shortcut icon" href="favicon.ico">
-	<script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<!--[if lt IE 9]>
-		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
-		<link rel="stylesheet" href="css/L.Control.Locate.ie.css"/>
-		<![endif]-->
-	<script src="src/Control.Geocoder.js"></script>
-	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
-	<script src="layer/vector/GPX.js"></script>
-	<!-- <script src="layer/vector/KML.js"></script> -->
-	<link rel="stylesheet" href="css/leaflet-distance-marker.css" media="screen"/>
+	<!-- load Bootstrap CSS for mobile devices -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
+	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
+	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<!-- load jQuery  -->
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<!-- Load Esri Leaflet -->
+	<script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.2/esri-leaflet.js"></script>
+	<!-- load Font-Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<!-- load Leaflet.locatecontrol -->
+	<script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.css"/>
+	<!-- load Leaflet-plugins to read GPX and KML -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/GPX.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/KML.min.js"></script>
+	<!-- Load leaflet-geocoder to search locations-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.js"></script>
+	<!-- load compass from local directory -->
+	<link rel="stylesheet" href="src/leaflet-compass.min.css"/>
+	<script src="src/leaflet-compass.min.js"></script>
+	<!-- load distance markers with geometry from local directory; see also style.css -->
 	<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
 	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
-	<!-- trying to make Google tile work <script src="layer/tile/Google.js"></script>-->
-	<!-- Load Esri Leaflet from CDN, rather than local: <script src="lib/esri-leaflet/esri-leaflet.js"></script>-->
-  	<!-- <script src="http://cdn-geoweb.s3.amazonaws.com/esri-leaflet/1.0.0-rc.2/esri-leaflet.js"></script> -->
-	<script src="src/L.Control.Locate.js"></script>
-	<link rel="stylesheet" href="css/L.Control.Locate.css"/>
-	<script src="src/leaflet-compass.js"></script>
-	<link rel="stylesheet" href="css/leaflet-compass.css"/>
-	<!-- <script src="src/leaflet-sidebar.js"></script>
-	<link rel="stylesheet" href="css/leaflet-sidebar.css" />
-	<link rel="stylesheet" href="css/Control.FullScreen.css" />
- 	<script src="src/Control.FullScreen.js"></script> -->
-
-	<style>
-	  body { margin:0; padding:0; }
-	  #map { position:absolute; top:0; bottom:0; width:100%; }
-	</style>
-	<!-- Do not use custom.css here *TO DO* create new style.css for new template later
-	<link rel="stylesheet" href="css/custom.css"/> -->
-
+	<!-- load leaflet-sidebar from local directory -->
+	<link rel="stylesheet" href="src/L.Control.Sidebar.css" />
+	<script src="src/L.Control.Sidebar.js"></script>
+	<!-- load custom css -->
+	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 	<div id="map"></div>
 	<script>
-	var map = L.map('map', { zoomControl: false })
-	.setView([41.663981, -72.791292], 13); // remove this if mapbounds works later
 
-	// optional : customize link to view source code; add your own GitHub repository
+	var map = L.map('map', {
+	  center: [41.663981, -72.791292],
+	  zoom: 13,
+	  zoomControl: false, // add later to reposition
+	  scrollWheelZoom: false
+	});
+
 	map.attributionControl
-	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, created with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a> | Routes: <a href='http://ridewithgps.com/find?search%5Buser_id%5D=590504'>RideWithGPS</a>");
-
-	var Esri_WorldStreetMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri from multiple sources'
-	}).addTo(map);
+	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, made with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a> | Download GPX routes <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-10.gpx'>10 mi</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-25.gpx'>25 mi</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-50.gpx'>50 mi</a>");
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
 	  collapsed: false
 	}).addTo(map);
 
-	// *TO DO* Update this plugin from https://github.com/domoritz/leaflet-locatecontrol
 	L.control.locate({
-	  follow: true, // default = false
-		locateOptions: {maxZoom: 16}, // zoom level for show location default = 18
-	  icon: 'fa fa-map-marker', // *TO DO* change to custom marker, same size as compass, with text or css "Show my location" to appear
-	  strings: {title: "Show my location"}
+		locateOptions: {maxZoom: 16}, // default = 18
+	  strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
 	}).addTo(map);
 
-	// position zoom control further down
 	new L.control.zoom({position: "topleft",}).addTo(map);
 
-	map.addControl( new L.Control.Compass() );  //*TO DO* move below show my location after resizing
+	L.control.scale().addTo(map);
 
-	// *TO DO* Redo sidebar-v2 to place on right side
+	map.addControl( new L.Control.Compass() );
 
-	// var NB10 = new L.polyline(NB10coords, {color: 'blue'}).addTo(map);
-	// controlLayers.addOverlay(NB10, 'New Britain 10 mile (blue)');
+	var Esri_WorldStreetMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	}).addTo(map);
 
-	var NB10 = new L.GPX("routes/NewBritain10.gpx", {color: 'blue'}).addTo(map);
-	controlLayers.addOverlay(NB10, 'New Britain 10 mile (blue)');
+	var nb10 = new L.GPX("routes/nb2015-10.gpx", {
+		color: 'blue',
+		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+	}).addTo(map);
+	controlLayers.addOverlay(nb10, 'New Britain 10 mile (blue)');
 
-	var NB25 = new L.GPX("routes/NewBritain25.gpx", {color: 'green'})
-	controlLayers.addOverlay(NB25, 'New Britain 25 mile (green)');
+	var nb25 = new L.GPX("routes/nb2015-25.gpx", {
+		color: 'green',
+		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+	});
+	controlLayers.addOverlay(nb25, 'New Britain 25 mile (green)');
 
-	var NB50 = new L.GPX("routes/NewBritain50.gpx", {color: 'magenta'})
-	controlLayers.addOverlay(NB50, 'New Britain 50 mile (magenta)');
+	var nb50 = new L.GPX("routes/nb2015-50.gpx", {
+		color: '#ff3399',
+		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+	});
+	controlLayers.addOverlay(nb50, 'New Britain 50 mile (pink)');
 
-	var WHNB = new L.GPX("routes/WeHa-NewBritain.gpx", {color: 'black'})
-	controlLayers.addOverlay(WHNB, 'unofficial WH-NB 9 mile (black)');
+	var whnb = new L.GPX("routes/WeHa-NewBritain.gpx", {
+		color: 'black',
+		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+	});
+	controlLayers.addOverlay(whnb, 'unofficial WH-NB 9 mile (black)');
 
-	// *TO DO* Continue testing to fix fitBounds issue
-	// $.getJSON("routes/NewBritain10.json", function (data) {
-	// 	var NB10 = new L.polyline(NB10coords, {color: 'blue'}).addTo(map);
-	// 	map.fitBounds(NB10.getBounds());
-	// 	controlLayers.addOverlay(NB10, 'New Britain 10 mile (blue)');
-	// });
-	//
-	// $.getJSON("routes/NewBritain25.json", function (data) {
-	// 	var NB25 = new L.polyline(NB25coords, {color: 'green'});
-	// 	map.fitBounds(NB25.getBounds());
-	// 	controlLayers.addOverlay(NB25, 'New Britain 25 mile (green)');
-	// });
-	//
-	// $.getJSON("routes/NewBritain50.json", function (data) {
-	// 	var NB50 = new L.polyline(NB10coords, {color: 'magenta'});
-	// 	map.fitBounds(NB50.getBounds());
-	// 	controlLayers.addOverlay(NB50, 'New Britain 50 mile (magenta)');
-	// });
+	// Thanks @ilyankou for gatherBounds function; update layer names
+	function gatherBounds() {
+		var checkedLayers = [];
+		var allLayers = [
+			nb10,
+			nb25,
+			nb50,
+			whnb
+		];
+
+		for (l in allLayers) {
+			if (map.hasLayer(allLayers[l])) {
+				checkedLayers.push(allLayers[l]);
+			}
+		}
+
+		if (checkedLayers.length > 0) {
+			map.fitBounds(L.featureGroup(checkedLayers).getBounds());
+		}
+	}
+
+	map.on('layeradd', function() {
+		gatherBounds();
+	});
+
+	map.on('layerremove', function() {
+		gatherBounds();
+	});
+
 	</script>
 </body>
 </html>

@@ -1,142 +1,111 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>bikemapcode</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<link rel="shortcut icon" href="favicon.ico">
-	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<script src="src/Control.Geocoder.js"></script>
-	<link rel="stylesheet" href="css/Control.Geocoder.css"/>
-	<script src="src/Control.Coordinates.js"></script>
-	<link rel="stylesheet" href="css/Control.Coordinates.css"/>
-	<script src="layer/vector/GPX.js"></script>
-	<script src="layer/vector/KML.js"></script>
-	<script src="lib/esri-leaflet/esri-leaflet.js"></script>
-	<link rel="stylesheet" href="css/custom.css"/>
-	<link rel="stylesheet" href="src/Leaflet.Instagram.css" />
-	<script src="lib/reqwest.min.js"></script>
-	<script src="src/Leaflet.Instagram.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="src/leaflet-openweathermap.js"></script>
-	<link type="text/css" rel="stylesheet" href="css/leaflet-openweathermap.css"/>
-	<script src="layer/tile/Google.js"></script>-->
+	<!-- load Bootstrap CSS for mobile devices -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
+	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
+	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<!-- load jQuery  -->
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<!-- Load Esri Leaflet -->
+	<script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.2/esri-leaflet.js"></script>
+	<!-- load Font-Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<!-- load Leaflet.locatecontrol -->
+	<script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.css"/>
+	<!-- load Leaflet-plugins to read GPX and KML -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/GPX.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/KML.min.js"></script>
+	<!-- Load leaflet-geocoder to search locations-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.js"></script>
+	<!-- load compass from local directory -->
+	<link rel="stylesheet" href="src/leaflet-compass.min.css"/>
+	<script src="src/leaflet-compass.min.js"></script>
+	<!-- load distance markers with geometry from local directory; see also style.css -->
+	<!-- <script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
+	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script> -->
+	<!-- load leaflet-sidebar from local directory -->
+	<link rel="stylesheet" href="src/L.Control.Sidebar.css" />
+	<script src="src/L.Control.Sidebar.js"></script>
+	<!-- load custom css -->
+	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<div id="map"></div>
-<div id="header">
-	<!-- optional image here  <img src="images/bikemap-opencode-logo-250x30.jpg"> -->
-	<a href="http://github.com/jackdougherty/bikemapcode"><strong>bikemapcode</strong></a><br>
-	<span style="font-size: 9px">Portland loop 2014-09-09</span><br>
-	<a href="https://github.com/JackDougherty/bikemapcode/blob/master/README.md#legend" style="font-size: 12px">legend</a>
-</div>
+	<div id="map"></div>
 	<script>
-	var ocmUrl = 'http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png',
-	ocmAttr = 'Map data &copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-	osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-	osmAttr = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>';
-
-	var ocm   = L.tileLayer(ocmUrl, {attribution: ocmAttr}),
-	osm   = L.tileLayer(osmUrl, {attribution: osmAttr}),
-	esriStreets = L.esri.basemapLayer("Streets"),
-	// ggl = new L.Google(),
-	// ggl2 = new L.Google('TERRAIN'),
-	// precipitation = L.OWM.precipitationClassic({showLegend: true, opacity: 0.5}),
-	// current = L.OWM.current({appID: '3823237b7ab8715435053cffaf6317b2', intervall: 15, imageWidth: 25, imageHeight: 25, temperatureDigits: 0, temperatureUnit: 'F', speedUnit: 'mph'}),
-	Portland2014 = new L.GPX("routes/Portland2014-Route.gpx", {async: true, display_wpt:true});
 
 	var map = L.map('map', {
-	center: [45.3, -123.438121],
-	zoom: 8,
-	zoomControl: false,  // add new zoom control below after layer control
-	layers: [esriStreets, Portland2014]   //default display can be base + overlays [ocm, arcGIS, track]
+		center: [45.3, -123.438121],
+		zoom: 8,
+	  zoomControl: false, // add later to reposition
+	  scrollWheelZoom: false
 	});
 
-	var baseMaps = {
-	"OpenCycleMap": ocm,
-	"OpenStreetMap": osm,
-	// "Google Terrain": ggl2,
-	// "Google Satellite": ggl,
-	"ESRI StreetMap": esriStreets
-	};
+	map.attributionControl
+	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, made with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
 
-	var overlayMaps = {
-	"Portland 2014 loop tour (GPX)": Portland2014
+	var controlLayers = L.control.layers( null, null, {
+	  position: "topleft",
+	  collapsed: false
+	}).addTo(map);
 
-	// "Current Weather": current,
-	//"Precip Forecast": precipitation
-	};
+	new L.control.zoom({position: "topleft",}).addTo(map);
 
-	// position layer control and zoom control in topleft, with margins in CSS custom
-	layerControl = L.control.layers(baseMaps, overlayMaps, {position: 'topleft'});
-	layerControl.addTo(map);
-	new L.Control.Zoom({position: 'topleft'}).addTo(map);
-	L.Control.geocoder({position: 'topleft'}).addTo(map);
+	L.control.scale().addTo(map);
 
-	// settings in Control.Coordinates.js
-	var coord = new L.Control.Coordinates();
-	coord.addTo(map);
+	var Esri_WorldTopoMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	}).addTo(map);
 
-	//from Leaflet.Flickr
+	var Portland2014 = new L.GPX("routes/Portland2014.gpx", {
+		color: 'blue'
+	}).addTo(map);
+	controlLayers.addOverlay(Portland2014, 'Portland 2014 loop');
+
+	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
+	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=Portland2014&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
+
+	// Define the flickr popup display
+	// ** TO DO: Rewrite link to view original source photo directly on Flickr
+	// ** POSSIBLY include this code directly in the functions below for easier sequencing by novices
 	var popupHTML = function(photo){
-		var result = "";
-                result = '<strong>'+photo.title+'</strong><br>';
-                result += '<a href="'+photo.url_m+'" target="_blank">';
-                result += '<img src="'+photo.url_t+'"></a>';      //can change to url_m if desired, but frame needs work
-                result += '<p><small>click to enlarge</small></p>';
-
-                return result;
+	  var result = "";
+	      result = '<strong>'+photo.title+'</strong><br>';
+	      result += '<a href="'+photo.url_m+'" target="_blank">';
+	      result += '<img src="'+photo.url_s+'"></a>';      //was url_t; want url_s; can change to url_m if desired, but frame needs work
+	      result += '<br/><small>click image to enlarge in new tab</small>';
+	      return result;
 	}
 
-	//Use Flickr API explorer to obtain correct endpoint and insert your own API key
-	//Photos.search currently works, but error with photosets.getPhotos
-	//https://www.flickr.com/services/api/explore/flickr.photos.search
-	//https://www.flickr.com/services/api/explore/flickr.photosets.getPhotos
-
-	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=Portland2014&extras=geo%2Curl_t%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
-
-	//This returns error
-	//var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key=25dcc9a8c7410551dcb0af48c778bde5&photoset_id=72157646371103550&extras=geo%2Curl_t%2Curl_m&format=json&nojsoncallback=1";
-
-	$.ajax({
-		url: flickrURL,
-		dataType: 'json',
-		success: function(data){
-			for (var i = 0; i < data.photos.photo.length; i++){
-				var photo_obj = data.photos.photo[i];
-				console.log(photo_obj.title, photo_obj.latitude, photo_obj.longitude); //shows titles in console for debugging
-				var photo_icon = L.icon(
-					{iconUrl: photo_obj.url_t,
-					iconSize: [photo_obj.width_t * 0.5, photo_obj.height_t * 0.5]}  //reduces thumbnails 50%
-					);
-
-				new L.marker([photo_obj.latitude, photo_obj.longitude], {icon: photo_icon})
-				.bindPopup(popupHTML(photo_obj)).addTo(map);
-    	}
-    }
-  });
-
-	/* map.on('click',function(e) {
-		coord.setCoordinates(e);
+	// Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
+	$.getJSON(flickrURL, function (data) {
+	  // Create new layerGroup for the markers, with option to append ".addTo(map);" to display by default
+	  var layerGroup = new L.LayerGroup().addTo(map);
+	  // Add layerGroup to your layer control and insert your label to appear in legend
+	  controlLayers.addOverlay(layerGroup, 'Flickr photo icons');
+	  // Start a loop to insert flickr photo data into photoContent
+	  for (var i = 0; i < data.photos.photo.length; i++) {
+	    var photoContent = data.photos.photo[i];
+	    var photoIcon = L.icon(
+	      {iconUrl: photoContent.url_t,
+	      iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
+	    );
+	    var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
+	    marker.bindPopup(popupHTML(photoContent));
+	    // Add the marker to the layerGroup
+	    marker.addTo(layerGroup);
+	  }
 	});
 
-	function onLocationFound(e) {
-		var radius = e.accuracy / 2;
 
-		L.marker(e.latlng).addTo(map)
-			.bindPopup("Location: within " + radius + " meters").openPopup();
-			L.circle(e.latlng, radius).addTo(map);
-		}
-
-		function onLocationError(e) {
-			alert(e.message);
-		}
-		map.on('locationfound', onLocationFound);
-		map.on('locationerror', onLocationError);
-
-		map.locate({setView: true, maxZoom: 14}); */
 	</script>
 </body>
 </html>
