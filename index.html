@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang='en'>
 <head>
-	<title>bikemapcode</title>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Glastonbury 2016</title>
 	<link rel="shortcut icon" href="favicon.ico">
+	<!-- load Bootstrap CSS for mobile devices -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
 	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
 	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
@@ -36,35 +40,10 @@
 </head>
 <body>
 
-	<div id="sidebar" class="sidebar collapsed">
-		<ul class="sidebar-tabs" role="tablist">
-			<li><a href="#home" role="tab"><i class="fa fa-question-circle"></i></a></li>
-		</ul>
-		<div class="sidebar-content active">
-			<div class="sidebar-pane" id="home">
-			<strong>bikemapcode</strong> displays mobile-friendly cycling maps on your website with easy-to-modify <a href="https://github.com/JackDougherty/bikemapcode#bikemapcode" target="_blank">open-source code</a>.</p>
-			<p><img src="images/layers-icon.png"> Choose map layers:</p>
-			<ul>
-			<li>Basemaps: <a href="http://opencyclemap.org/" target="_blank">Open Cycle Map</a>, <a href="http://www.openstreetmap.org/" target="_blank">Open Street Map</a>, etc.</li>
-			<li>Overlays: add bike routes (KML, GPX, ArcGIS) </li>
-			</ul>
-			</p>
-			<p><img src="images/location-icon.png"> Show your current location</p>
-			<p><img src="images/search-icon.png"> Search for any place </p>
-			<p><img src="images/compass-icon.png"> Compass arrow (with mobile devices)</p>
-		  </br>
-			<p>Key for <a href="http://www.opencyclemap.org/docs/" target="_blank">OpenCycleMap</a></p>
-			<img src="images/OpenCycleMapKey.png">
-		  </br>
-			<p>bikemapcode is distributed as-is with no warranty under an MIT license. Feedback and code contributions welcome on <a href="https://github.com/JackDougherty/bikemapcode" target="_blank">GitHub</a> or email to <a href="mailto:jack.dougherty@trincoll.edu">jack.dougherty@trincoll.edu</a></p>
-			</div>
-		</div>
-	</div>
-
 <div id="map"></div>
 	<script>
 	var map = L.map('map', {
-	  center: [41.76,-72.69],
+	  center: [41.762696, -72.738679],
 	  zoom: 13,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
@@ -89,15 +68,13 @@
 
 	map.addControl( new L.Control.Compass() );
 
-	var EsriStreets = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri'
-	}).addTo(map);
-	controlLayers.addBaseLayer(EsriStreets, 'Esri Streets');
+	// SAMPLE BASELAYERS
 
-	var EsriTopo = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri'
-	});
-	controlLayers.addBaseLayer(EsriTopo, 'Esri Topographic');
+	// get your own Open Cycle Map API key
+	var OCM = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=1d12526533cd4f0f9f1e166c7bb855d7', {
+		attribution: 'Maps &copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+	}).addTo(map);
+	controlLayers.addBaseLayer(OCM, 'Open Cycle Map');
 
 	var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
@@ -105,51 +82,69 @@
 	});
 	controlLayers.addBaseLayer(OSM, 'Open Street Map');
 
-	var OCM = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=1d12526533cd4f0f9f1e166c7bb855d7', {
-		attribution: 'Maps &copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+	var lightAll = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	});
-	controlLayers.addBaseLayer(OCM, 'Open Cycle Map');
+	controlLayers.addBaseLayer(lightAll, 'CartoDB Light Map');
 
-	var HartGISBike = L.esri.featureLayer({
-    url: 'http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9',
-		style: function () {
-			return { color: "#70ca49", opacity: 0.7, weight: 5};
+	var EsriStreets = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	});
+	controlLayers.addBaseLayer(EsriStreets, 'Esri Streets');
+
+	var EsriTopo = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	});
+	controlLayers.addBaseLayer(EsriTopo, 'Esri Topographic');
+
+	// SAMPLE OVERLAYS
+
+	var WeHa11 = new L.GPX("routes/WeHa2015-11.gpx", {
+		color: 'blue',
+		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+	}).addTo(map);
+	controlLayers.addOverlay(WeHa11, 'West Hartford 11 mile (blue)');
+
+	var WeHa25 = new L.GPX("routes/WeHa2015-25.gpx", {
+		color: 'green',
+		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+	});
+	controlLayers.addOverlay(WeHa25, 'West Hartford 25 mile (green)');
+
+	var WeHa50 = new L.GPX("routes/WeHa2015-50.gpx", {
+		color: '#ff3399',
+		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+	});
+	controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile (pink)');
+
+	// Thanks @ilyankou for gatherBounds function; update layer names
+	function gatherBounds() {
+		var checkedLayers = [];
+		var allLayers = [
+			WeHa11,
+			WeHa25,
+			WeHa50
+		];
+
+		for (l in allLayers) {
+			if (map.hasLayer(allLayers[l])) {
+				checkedLayers.push(allLayers[l]);
+			}
 		}
+
+		if (checkedLayers.length > 0) {
+			map.fitBounds(L.featureGroup(checkedLayers).getBounds());
+		}
+	}
+
+	map.on('layeradd', function() {
+		gatherBounds();
 	});
-	controlLayers.addOverlay(HartGISBike, 'City of Hartford bike lanes');
 
-	// var TrinGISPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/PrimaryRoutes/FeatureServer/0',{
-	// 	style: function () {
-  //         	return { color: "#4BACC6", opacity: 0.7, weight: 5};
-  //       	}
-	// });
-	// controlLayers.addOverlay(gb10, 'Glastonbury 10 mile (blue)');
-	//
-	// var TrinGISMuniBikeLanes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes/FeatureServer/0',{
-	// 	style: function () {
-  //         	return { color: "#00FF00", opacity: 0.7, weight: 5 };
-  //       	}
-	// });
-	// controlLayers.addOverlay(gb10, 'Glastonbury 10 mile (blue)');
-	//
-	// var TrinGISMuniBikeLanes_Connex = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/HartfordMuniBikeLanes_Connex/FeatureServer/0',{
-	// 	style: function () {
-  //         	return { color: "#9BBB59", opacity: 0.7, weight: 5 };
-  //       	}
-	// });
-	// controlLayers.addOverlay(gb10, 'Glastonbury 10 mile (blue)');
+	map.on('layerremove', function() {
+		gatherBounds();
+	});
 
-	var FVTC = new L.GPX("routes/FVTCJune28loop.gpx", {async: true, display_wpt:false});
-	controlLayers.addOverlay(FVTC, 'Farmington Valley Canal Trail loop');
-
-	// TO DO: improve positioning of controls
-	var sidebar = L.control.sidebar('sidebar').addTo(map);
-	//sidebar.open('home');   -- option to open on startup
-
-	//esri-leaflet popup
-	// TrinGISPrimaryRoutes.bindPopup(function (feature) {
-  //   	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
-  // 	});
 	</script>
 </body>
 </html>

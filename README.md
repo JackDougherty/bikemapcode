@@ -1,117 +1,123 @@
 bikemapcode
 ===========
 
-Display mobile-friendly bike maps on your own website with free and easy-to-modify open-source code, created with Leaflet.js. Distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Feedback and code contributions welcome on GitHub or email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
+Mobile-friendly bike maps, for desktop or smartphone. Share multiple routes or tours (GPX or KML), with optional geotagged Flickr photos, on your own website with free and easy-to-modify open-source code, created with Leaflet.js.
 
-##Demo
-http://jackdougherty.github.io/bikemapcode
+Distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Feedback and code contributions welcome on GitHub or email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
-# Shortlinks to custom versions
-- http://bit.ly/bikemapcode (index.html, same as above)
+## Demo
+- http://jackdougherty.github.io/bikemapcode/index.html
+
+### Shortlinks for bike events
 - http://bit.ly/bikemapwh (westhartford.html)
 - http://bit.ly/bikemapnb (newbritain.html)
 - http://bit.ly/bikemapgb (glastonbury.html)
+- http://bit.ly/bikemapcode (index.html)
 
-
-## Map layer control
-### Basemaps:
-- [OpenCycleMap](http://www.opencyclemap.org/) displays marked bike routes and lane, bike racks, bike shops, and restrooms from [OpenStreetMap](http://www.openstreetmap.org/), which anyone may edit (like a Wikipedia for maps)
-- ESRI street map layer (and other options)
-
-### Overlay maps:
-- Display your group's recommended bike rides by uploading a GPX or KML file.
-- Display your group's network of bike routes through an ArcGIS server, such as [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [HartfordAreaBikeMap layers hosted by Cameron Douglass and Alex Perez at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/arcgis/rest/services/)
+### Bike tours
+- http://jackdougherty.github.io/bikemapcode/quebec2015.html
+- http://jackdougherty.github.io/bikemapcode/COGAP2015.html
+- http://jackdougherty.github.io/bikemapcode/ECG2014.html
+- http://jackdougherty.github.io/bikemapcode/portland2014.html
+- http://jackdougherty.github.io/bikemapcode/seattle2014.html
+- http://jackdougherty.github.io/bikemapcode/oberlin2012.html
 
 ## What the tool does NOT do:
 - It does not provide routing directions to bike from point A to B
 - It does not work without internet access.
 
-## How to create and host your own version:
-Requires a bit of coding skill (or willingness to learn) and a way to host your code on the live web (such as a free GitHub account, using GitHub Pages). For a basic tutorial see http://epress.trincoll.edu/dataviz/chapter/host-html-github/
-1) Fork this repository to your free GitHub account, or clone to your desktop, or download the zipped code from this page. To learn basics of hosting and editing code in GitHub.
-2) Edit the index.html page as desired.
-a) For example, set a new center point and zoom level:
-```
-var map = L.map('map', {
-	center: [41.77, -72.69],
-	zoom: 14,
-```
-b) Modify the source file, color, opacity, and weight of overlay maps:
-```
-TrinGISPrimaryRoutes = L.esri.featureLayer('http://services1.arcgis.com/5rblLCKLgS4Td60j/ArcGIS/rest/services/PrimaryRoutes/FeatureServer/0',{
-		style: function () {
-          	return { color: "#4BACC6", opacity: 0.7, weight: 5};
-        	}
-	}),
-```
-c) Change the listing of an overlay map in the layer control:
-```
-var overlayMaps = {
-	"Hartford area primary routes (Trinity ArcGIS)": TrinGISPrimaryRoutes,
-```
-Make sure that names for new layers (such as TrinGISPrimaryRoutes) match perfectly in 2b and 2c.
-
-3) Host the entire folder of code on the live web. Consider these options:
-
-a) Use the free GitHub Pages service, which runs this demo at http://jackdougherty.github.io/bikemapcode
-
-b) If you have access to a web server, host the entire folder at the root level, such as this self-hosted WordPress site http://JackBikes.org/maps/
-
-c) If you do not have access to a web server, but wish to display the map in your organization's web page, try hosting the code in GitHub Pages, and embedding an iframe in your website. For example:
-- the Bike West Hartford organization uses a free Weebly account and created this page http://www.bikewesthartford.org/interactive-map.html
-- I host this file (and everything in the folder) on my GitHub Pages account http://jackdougherty.github.io/bikemapcode/westhartford.html
-- On the Bike West Hartford website, using the admin access, I inserted this simple HTML iframe code, which displays the westhartford.html page inside the map.html page:
-```
-<iframe src="http://jackdougherty.github.io/bikemapcode/westhartford.html" width="960" height="660" frameborder="0"></iframe>
-```
-- in the Weebly editor box above the iframe, insert description and link to full-screen version (on GitHub Pages)
-
 ## Code credits and open-source licenses
 - Leaflet: an open-source JavaScript library for mobile-friendly interactive maps at http://leafletjs.com/ (BSD license)
-- Leaflet.Locate to show your map location at https://github.com/domoritz/leaflet-locatecontrol (MIT license, v52)
-- Leaflet-plugins to display GPX, KML, Google layers at https://github.com/shramov/leaflet-plugins (BSD license)
+- Leaflet.Locate to show your map location at https://github.com/domoritz/leaflet-locatecontrol (MIT license, v52, 2016)
+- Leaflet-plugins to display GPX, KML, Google layers at https://github.com/shramov/leaflet-plugins (BSD license, 2016)
 - Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed, June 2016)
-- Leaflet-distance-markers to display mileage icons at https://github.com/adoroszlai/leaflet-distance-markers (MIT license, June 2016)
+- Leaflet-distance-markers to display mileage icons for GPX at https://github.com/adoroszlai/leaflet-distance-markers (MIT license, June 2016)
   - requires https://github.com/makinacorpus/Leaflet.GeometryUtil
-  - works with GPX (so IGNORE notes below)
-  - requires converting route data into polyline format, find better method than this:
-	- download route into KML
-	- open KML with text editor, delete all but coordinates and elevation, save as .txt
-	- open .txt with spreadsheet, select comma delimited, erase elevations
-	- switch lat and lng columns, concatenate this way: ="L.latLng("& LAT &", "& LNG & "),"
-	- save as .txt, open in text editor
-	- at top add:   var routeCoords = [
-	- at bottom remove last command and add:  ];
-	- rename as route.js
+- Mapzen leaflet-geocoder to search locations (requires free API key) https://github.com/mapzen/leaflet-geocoder (MIT license)
+- Thanks @ilyankou for gatherBounds function
 
-	// var NB10 = new L.polyline(NB10coords, {color: 'blue'}).addTo(map);
-	// controlLayers.addOverlay(NB10, 'New Britain 10 mile (blue)');
-
-- UPDATE THESE
-- Leaflet-control-geocoder to search for a place at https://github.com/perliedman/leaflet-control-geocoder (BSD license)
-- Leaflet sidebar-v2 to display slide-in instructions at https://github.com/Turbo87/sidebar-v2 (MIT license)
+### to be added
 - Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
+- Leaflet sidebar to display slide-in instructions at https://github.com/Turbo87/sidebar (MIT license)
+
 
 ## To Do
-This is an amateur coding project. Constructive suggestions and code contributions are welcome on GitHub or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
+- Code contributions welcome via GitHub dev branch or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
-
-- ** REBUILD CODE, using newbritain.html as model **
-- Redo sidebar-v2 to place on right side
-- Improve style.css, especially dist-marker
-- Look for better "show my location" plugin or method, since this version is adequate but not respond quickly to turns, etc. Is this a limitation of web apps versus native apps for iOS/Android?
-- Figure out how to make full screen button (https://github.com/brunob/leaflet.fullscreen) work inside Weebly site (http://www.bikewesthartford.org/interactive-map.html), or try more responsive theme?
-- Improve display of Trinity ArcGIS layer http://bit.ly/1CQvRpk with styling lines http://esri.github.io/esri-leaflet/examples/styling-feature-layer-polylines.html and custom pop-up http://esri.github.io/esri-leaflet/examples/feature-layer-popups.html. Coding this would be easier if all bike routes were in one shapefile with differentiated features, similar to Esri's Portland bike map example.
-- Add instructions and screenshots/screencast to explain how anyone can add marked bike lanes etc. to OpenStreetMap, and explain how it takes a few days for this content to appear on OpenCycleMap.
-- Add code to display an overlay of Flickr geotagged photos with "bike" in title, such as this demo http://jackdougherty.github.io/bikemapcode/portland2014.html
-- Add code to display an overlay of Instagram geotagged photos/videos from a user or group account, with marker clustering, using Leaflet-Instagram plugin (https://github.com/turban/Leaflet.Instagram) - see demo: http://blog.thematicmapping.org/2014/06/showing-instagram-photos-and-videos-on.html
-- Add a close button to leaflet-sidebarV2
-- Look at Leaflet-Plugins for code sample that automatically resizes map to fit bounded area of GPX layer
-- Add Google Maps bicycling layer (which did not work for me in summer 2014; need to try again)
+- Explain how users can copy, edit, and host their own version on GitHub. See basics at http://DataVizForAll.org
+- Improve index.html version
+- Redo sidebar, with question mark icon, to place on right side
+- Improve style.css, especially dist-marker; Bootstrap
+- Add Google Maps bicycling layer via Leaflet, if licensing allows
 - Add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
-- Possibly add SeeClickFix bike-related hazards layer - see API http://help.seeclickfix.com/kb/api/api-overview
+- Decide about routes via Arcgisonline: [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [HartfordAreaBikeMap layers hosted by Cameron Douglass and Alex Perez at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/arcgis/rest/services/)
 
-##Compare with related tools
-- [Bikemap.net](http://bikemap.net/en)
-- [East Coast Greenway, Wikimapping tool by Steve Spindler & John Zeng](http://map.greenway.org/)
-- and many more
+old esri layer and feature label
+```
+var HartGISBike = L.esri.featureLayer({
+	url: 'http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9',
+	style: function () {
+		return { color: "#70ca49", opacity: 0.7, weight: 5};
+	}
+});
+controlLayers.addOverlay(HartGISBike, 'City of Hartford bike lanes');
+
+//esri-leaflet popup
+TrinGISPrimaryRoutes.bindPopup(function (feature) {
+   	return L.Util.template('<p>Primary Route<br>FID: {FID}</p>', feature.properties);
+});
+```
+
+old sidebar html to revise
+```
+<div id="sidebar" class="sidebar collapsed">
+	<ul class="sidebar-tabs" role="tablist">
+		<li><a href="#home" role="tab"><i class="fa fa-question-circle"></i></a></li>
+	</ul>
+	<div class="sidebar-content active">
+		<div class="sidebar-pane" id="home">
+		<strong>bikemapcode</strong> displays mobile-friendly cycling maps on your website with easy-to-modify <a href="https://github.com/JackDougherty/bikemapcode#bikemapcode" target="_blank">open-source code</a>.</p>
+		<p><img src="images/layers-icon.png"> Choose map layers:</p>
+		<ul>
+		<li>Basemaps: <a href="http://opencyclemap.org/" target="_blank">Open Cycle Map</a>, <a href="http://www.openstreetmap.org/" target="_blank">Open Street Map</a>, etc.</li>
+		<li>Overlays: add bike routes (KML, GPX, ArcGIS) </li>
+		</ul>
+		</p>
+		<p><img src="images/location-icon.png"> Show your current location</p>
+		<p><img src="images/search-icon.png"> Search for any place </p>
+		<p><img src="images/compass-icon.png"> Compass arrow (with mobile devices)</p>
+		</br>
+		<p>Key for <a href="http://www.opencyclemap.org/docs/" target="_blank">OpenCycleMap</a></p>
+		<img src="images/OpenCycleMapKey.png">
+		</br>
+		<p>bikemapcode is distributed as-is with no warranty under an MIT license. Feedback and code contributions welcome on <a href="https://github.com/JackDougherty/bikemapcode" target="_blank">GitHub</a> or email to <a href="mailto:jack.dougherty@trincoll.edu">jack.dougherty@trincoll.edu</a></p>
+		</div>
+	</div>
+</div>
+
+var sidebar = L.control.sidebar('sidebar').addTo(map);
+sidebar.open('home');   -- option to open on startup
+
+/* old sidebar modification */
+.sidebar-tabs {
+  height: 35px;
+}
+.sidebar {
+  z-index: 1;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
+  .sidebar.leaflet-touch {
+    box-shadow: none;
+    border-right: 0 solid rgba(0, 0, 0, 0); }
+  @media (min-width: 768px) {
+    .sidebar {
+      border-radius: 0; }
+      .sidebar.leaflet-touch {
+        border: 0 solid rgba(0, 0, 0, 0); }
+      .sidebar.collapsed ~ .sidebar-map .leaflet-left {
+        left: 50px; } }
+.fa-question-circle{
+font-size: 1.4em;
+}
+
+```
