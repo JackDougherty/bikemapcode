@@ -45,13 +45,13 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 
 ## To Do
 
-1. Geolocation button causes error in Chrome for typical page (https://bit.ly/bikemapnb)
-- Error message: "Geolocation error: Only secure
+- Geolocation button causes error in Chrome for typical page (https://bit.ly/bikemapnb)
+  - Error message: "Geolocation error: Only secure
 origins are allowed(see: https://goo.gl/Y0ZkNV)"
-- Problem seems to be caused by http vs. https issue in https://github.com/domoritz/leaflet-locatecontrol, but I cannot find non-secure http references in my code or in current release of this plugin (v52)
-- Possible solution: if this plugin is flawed, Leaflet natively supports geolocation (http://leafletjs.com/reference-1.0.0.html#map-locate), but I don't know how to create a similar font-awesome button to trigger it
+  - Problem seems to be caused by http vs. https issue in https://github.com/domoritz/leaflet-locatecontrol, but I cannot find non-secure http references in my code or in current release of this plugin (v52)
+  - Possible solution: if this plugin is flawed, Leaflet natively supports geolocation (http://leafletjs.com/reference-1.0.0.html#map-locate), but I don't know how to create a similar font-awesome button to trigger it
 
-2. Improve appearance of dist-marker in style.css while using Bootstrap, and add color matching (as you did on the old test site)
+- Improve appearance of dist-marker in style.css while using Bootstrap, and add color matching (as you did on the old test site)
 
 ## Do later
 - Explain how users can copy, edit, and host their own version on GitHub. See basics at http://DataVizForAll.org
