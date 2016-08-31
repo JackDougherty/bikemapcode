@@ -36,14 +36,24 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 - Mapzen leaflet-geocoder to search locations (requires free API key) https://github.com/mapzen/leaflet-geocoder (MIT license)
 - Thanks @ilyankou for gatherBounds function
 
-### to be added
+- Code contributions welcome via GitHub dev branch or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
+
+### add credits later
 - Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
 - Leaflet sidebar to display slide-in instructions at https://github.com/Turbo87/sidebar (MIT license)
 
 
 ## To Do
-- Code contributions welcome via GitHub dev branch or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
+1. Geolocation button causes error in Chrome for typical page (https://bit.ly/bikemapnb)
+- Error message: "Geolocation error: Only secure
+origins are allowed(see: https://goo.gl/Y0ZkNV)"
+- Problem seems to be caused by http vs. https issue in https://github.com/domoritz/leaflet-locatecontrol, but I cannot find non-secure http references in my code or in current release of this plugin (v52)
+- Possible solution: if this plugin is flawed, Leaflet natively supports geolocation (http://leafletjs.com/reference-1.0.0.html#map-locate), but I don't know how to create a similar font-awesome button to trigger it
+
+2. Improve appearance of dist-marker in style.css while using Bootstrap, and add color matching (as you did on the old test site)
+
+## Do later
 - Explain how users can copy, edit, and host their own version on GitHub. See basics at http://DataVizForAll.org
 - Improve index.html version
 - Redo sidebar, with question mark icon, to place on right side
@@ -52,6 +62,8 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 - Add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
 - Decide about routes via Arcgisonline: [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [HartfordAreaBikeMap layers hosted by Cameron Douglass and Alex Perez at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/arcgis/rest/services/)
 
+
+## old notes to self
 old esri layer and feature label
 ```
 var HartGISBike = L.esri.featureLayer({
