@@ -6,21 +6,21 @@ Mobile-friendly bike maps, for desktop or smartphone. Share multiple routes or t
 Distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Feedback and code contributions welcome on GitHub or email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
 ## Demo
-- http://jackdougherty.github.io/bikemapcode/index.html
+- https://jackdougherty.github.io/bikemapcode/index.html
 
-### Shortlinks for bike events
-- http://bit.ly/bikemapwh (westhartford.html)
-- http://bit.ly/bikemapnb (newbritain.html)
-- http://bit.ly/bikemapgb (glastonbury.html)
-- http://bit.ly/bikemapcode (index.html)
+### Shortlinks for bike events (all point to secure https)
+- bit.ly/bikeweha (https://jackdougherty.github.io/bikemapcode/westhartford.html)
+- bit.ly/bikenewbrit (https://jackdougherty.github.io/bikemapcode/newbritain.html)
+- bit.ly/bikegbury (https://jackdougherty.github.io/bikemapcode/glastonbury.html)
+- bit.ly/bikemapjack (https://jackdougherty.github.io/bikemapcode/index.html)
 
 ### Bike tours
-- http://jackdougherty.github.io/bikemapcode/quebec2015.html
-- http://jackdougherty.github.io/bikemapcode/COGAP2015.html
-- http://jackdougherty.github.io/bikemapcode/ECG2014.html
-- http://jackdougherty.github.io/bikemapcode/portland2014.html
-- http://jackdougherty.github.io/bikemapcode/seattle2014.html
-- http://jackdougherty.github.io/bikemapcode/oberlin2012.html
+- https://jackdougherty.github.io/bikemapcode/quebec2015.html
+- https://jackdougherty.github.io/bikemapcode/COGAP2015.html
+- https://jackdougherty.github.io/bikemapcode/ECG2014.html
+- https://jackdougherty.github.io/bikemapcode/portland2014.html
+- https://jackdougherty.github.io/bikemapcode/seattle2014.html
+- https://jackdougherty.github.io/bikemapcode/oberlin2012.html
 
 ## What the tool does NOT do:
 - It does not provide routing directions to bike from point A to B
@@ -34,26 +34,14 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 - Leaflet-distance-markers to display mileage icons for GPX at https://github.com/adoroszlai/leaflet-distance-markers (MIT license, June 2016)
   - requires https://github.com/makinacorpus/Leaflet.GeometryUtil
 - Mapzen leaflet-geocoder to search locations (requires free API key) https://github.com/mapzen/leaflet-geocoder (MIT license)
-- Thanks @ilyankou for gatherBounds function
+- Thanks @ilyankou for gatherBounds function and marker styling
 
 - Code contributions welcome via GitHub dev branch or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
-### add credits later
-- Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
-- Leaflet sidebar to display slide-in instructions at https://github.com/Turbo87/sidebar (MIT license)
-
 
 ## To Do
-
-- Geolocation button causes error in Chrome for typical page (https://bit.ly/bikemapnb)
-  - Error message: "Geolocation error: Only secure
-origins are allowed(see: https://goo.gl/Y0ZkNV)"
-  - Problem seems to be caused by http vs. https issue in https://github.com/domoritz/leaflet-locatecontrol, but I cannot find non-secure http references in my code or in current release of this plugin (v52)
-  - Possible solution: if this plugin is flawed, Leaflet natively supports geolocation (http://leafletjs.com/reference-1.0.0.html#map-locate), but I don't know how to create a similar font-awesome button to trigger it
-
-- Improve appearance of dist-marker in style.css while using Bootstrap, and add color matching (as you did on the old test site)
-
-## Do later
+- Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
+- Leaflet sidebar to display slide-in instructions at https://github.com/Turbo87/sidebar (MIT license)
 - Explain how users can copy, edit, and host their own version on GitHub. See basics at http://DataVizForAll.org
 - Improve index.html version
 - Redo sidebar, with question mark icon, to place on right side
