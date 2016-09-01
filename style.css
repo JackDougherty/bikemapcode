@@ -29,6 +29,14 @@ body {
   background: green;
 }
 
+.bg-black {
+  background: black;
+}
+
+.bg-yellow {
+  background: #ffcc00;
+}
+
 .bg-pink {
   background: #f39;
 }

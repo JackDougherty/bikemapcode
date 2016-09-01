@@ -74,25 +74,25 @@
 
 	var nb10 = new L.GPX("routes/nb2015-10.gpx", {
 		color: 'blue',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(nb10, 'New Britain 10 mile (blue)');
 
 	var nb25 = new L.GPX("routes/nb2015-25.gpx", {
 		color: 'green',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(nb25, 'New Britain 25 mile (green)');
 
 	var nb50 = new L.GPX("routes/nb2015-50.gpx", {
 		color: '#ff3399',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(nb50, 'New Britain 50 mile (pink)');
 
 	var whnb = new L.GPX("routes/WeHa-NewBritain.gpx", {
 		color: 'black',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-black'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(whnb, 'unofficial WH-NB 9 mile (black)');
 

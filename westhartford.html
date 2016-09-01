@@ -81,19 +81,19 @@
 
 	var WeHa11 = new L.GPX("routes/WeHa2015-11.gpx", {
 		color: 'blue',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(WeHa11, 'West Hartford 11 mile (blue)');
 
 	var WeHa25 = new L.GPX("routes/WeHa2015-25.gpx", {
 		color: 'green',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(WeHa25, 'West Hartford 25 mile (green)');
 
 	var WeHa50 = new L.GPX("routes/WeHa2015-50.gpx", {
 		color: '#ff3399',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile (pink)');
 
