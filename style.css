@@ -10,6 +10,36 @@ body {
   width: 100%;
 }
 
+/*slide menu question circle icon*/
+.leaflet-control-slidemenu a {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 2em;
+}
+
+/*size and color of leaflet-control-locate*/
+/*.leaflet-bar a, .leaflet-bar a:hover {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+}*/
+
+.leaflet-control-locate a {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 2em;
+  color: #0000ff;
+}
+.leaflet-control-locate.active a {
+  color: #0000ff;
+}
+.leaflet-control-locate.active.following a {
+  color: #0000ff;
+}
+
+/*line mileage distance markers and colors*/
 .dist-marker {
 	font-size: 14px;
   line-height: 18px;

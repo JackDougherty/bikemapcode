@@ -24,7 +24,8 @@
 .leaflet-menu-close-button{
     background-color: transparent;
     border: none;
-    font-size: 14pt;
+    font-size: 2em;
+    margin: 5px;
     color: #777;
     cursor: pointer;
 }
@@ -34,5 +35,5 @@
 }
 
 .leaflet-menu-contents{
-      margin: 10px;
+      margin: 16px 10px 10px 10px;
 }

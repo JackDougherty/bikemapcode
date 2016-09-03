@@ -3,7 +3,7 @@ L.Control.SlideMenu = L.Control.extend({
         position: 'topleft',
         width: '300px',
         height: '100%',
-        delay: '10'
+        delay: '1'
     },
 
     initialize: function (innerHTML, options) {
@@ -11,7 +11,7 @@ L.Control.SlideMenu = L.Control.extend({
         this._innerHTML = innerHTML;
         this._startPosition = -(parseInt(this.options.width, 10));
         this._isLeftPosition = this.options.position == 'topleft' ||
-            this.options.position == 'buttomleft' ? true : false;
+            this.options.position == 'bottomleft' ? true : false;
     },
 
     onAdd: function (map) {
@@ -30,12 +30,12 @@ L.Control.SlideMenu = L.Control.extend({
         if (this._isLeftPosition) {
             this._menu.style.left = '-' + this.options.width;
             closeButton.style.float = 'right';
-            L.DomUtil.addClass(closeButton, 'fa-chevron-left');
+            L.DomUtil.addClass(closeButton, 'fa-times-circle');
         }
         else {
             this._menu.style.right = '-' + this.options.width;
             closeButton.style.float = 'left';
-            L.DomUtil.addClass(closeButton, 'fa-chevron-right');
+            L.DomUtil.addClass(closeButton, 'fa-times-circle');
         }
 
         this._contents = L.DomUtil.create('div', 'leaflet-menu-contents', this._menu);
