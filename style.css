@@ -10,22 +10,23 @@ body {
   width: 100%;
 }
 
-/*slide menu question circle icon*/
-.leaflet-control-slidemenu a {
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-  font-size: 2em;
-}
-
-/*size and color of leaflet-control-locate*/
+/*controls some/all leaflet buttons*/
 /*.leaflet-bar a, .leaflet-bar a:hover {
     width: 36px;
     height: 36px;
     line-height: 36px;
 }*/
 
-.leaflet-control-locate a {
+/* slide menu button with question circle */
+.leaflet-control-slidemenu a, .leaflet-control-slidemenu a:hover {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 2em;
+}
+
+/* leaflet-control-locate button*/
+.leaflet-control-locate a, leaflet-control-locate a:hover {
   width: 36px;
   height: 36px;
   line-height: 36px;

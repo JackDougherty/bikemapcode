@@ -1,20 +1,32 @@
 bikemapcode
 ===========
 
-Mobile-friendly bike maps, for desktop or smartphone. Share multiple routes or tours (GPX or KML), with optional geotagged Flickr photos, on your own website with free and easy-to-modify open-source code, created with Leaflet.js.
+Mobile-friendly web maps created with open-source Leaflet templates.
+- Show multiple color-coded routes (uploaded as GPX files)
+- Allow users to find their location on desktops or smartphones
+- Display geotagged Flickr photos from your journeys
+- Host your map on a free GitHub Pages site or your own website
 
 Distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Feedback and code contributions welcome on GitHub or email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
-## Demo
+## Demos
+
+Direct link
 - https://jackdougherty.github.io/bikemapcode/index.html
 
-### Shortlinks for bike events (all point to secure https)
+Simplified with a link shortener to wide distribution (* to come)
+
+Web map embedded in a WordPress.org site (* to come)
+
+Web map embedded in a Weebly site (* to come)
+
+### Sample short links for bike events
 - bit.ly/bikeweha (https://jackdougherty.github.io/bikemapcode/westhartford.html)
 - bit.ly/bikenewbrit (https://jackdougherty.github.io/bikemapcode/newbritain.html)
 - bit.ly/bikegbury (https://jackdougherty.github.io/bikemapcode/glastonbury.html)
 - bit.ly/bikemapjack (https://jackdougherty.github.io/bikemapcode/index.html)
 
-### Bike tours
+### Sample links to bike tours with photos
 - https://jackdougherty.github.io/bikemapcode/quebec2015.html
 - https://jackdougherty.github.io/bikemapcode/COGAP2015.html
 - https://jackdougherty.github.io/bikemapcode/ECG2014.html
@@ -43,7 +55,7 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 ## To Do
 - Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
 - Explain how users can copy, edit, and host their own version on GitHub. See basics at http://DataVizForAll.org
-- Improve index.html version
+- Add reminder: always point to secure https (required by Chrome for geolocation)
 - Add Google Maps bicycling layer via Leaflet, if licensing allows
 - Add Strava popular bike routes layer http://labs.strava.com/heatmap/#13/-72.69000/41.76000/blue/bike
 - Decide about routes via Arcgisonline: [City of Hartford bike lanes](http://gis1.hartford.gov/arcgis/rest/services/OpenData_Community/MapServer/9) and [HartfordAreaBikeMap layers hosted by Cameron Douglass and Alex Perez at Trinity College](http://services1.arcgis.com/5rblLCKLgS4Td60j/arcgis/rest/services/)
