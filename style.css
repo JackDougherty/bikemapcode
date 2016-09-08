@@ -17,8 +17,7 @@ body {
     line-height: 36px;
 }*/
 
-/* slide menu button with question circle
-   and locate button */
+/* Slide menu button with question circle and locate button */
 .leaflet-control-slidemenu a,
 .leaflet-control-locate a,
 .leaflet-control-layers a {
@@ -28,16 +27,17 @@ body {
   font-size: 2em;
 }
 
-/* locate button */
+/* Locate button color */
 .leaflet-control-locate a {
   color: #00f !important;
 }
 
+/* Gray outline to compass icon for mobile devices */
 .leaflet-touch .leaflet-compass {
-  border: 2px solid rgba(0,0,0,0.2);
+  border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
-/*line mileage distance markers and colors*/
+/* Line mileage distance markers and colors */
 .dist-marker {
 	font-size: 14px;
   line-height: 18px;
@@ -49,15 +49,21 @@ body {
   border-radius: 9px;
 }
 
-/* Remove borders around controls in mobile view
-.leaflet-touch .leaflet-bar {
-    box-shadow: none;
-    border: 2px solid green;
-} */
-
 /* Background colors of distance markers */
-.bg-blue { background: blue; }
-.bg-green { background: green; }
+.bg-blue { background: blue; color: blue}
+.bg-green { background: green; color: green;}
 .bg-black { background: black; }
 .bg-yellow { background: #fc0; }
 .bg-pink { background: #f39; }
+
+/* Colored line in layer control title */
+.color-line {
+  display: inline-block;
+  vertical-align: middle;
+  height: 5px;
+  width: 50px;
+}
+
+#mapTitle {
+  margin: 5px 0 5px 0;
+}

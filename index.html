@@ -74,6 +74,7 @@
 	contents += '<p>Distributed as-is with no warranty</p>';
 	contents += '<p>Stop your bike in a safe place before using</p>';
 	contents += '<p>Requires internet access to view maps and location</p>';
+  contents += '<p><a href="https://github.com/JackDougherty/bikemapcode">This is a link!</a></p>';
 	contents += '<p>Allow smartphone browser to show your location<br> - iPhone > Settings > Privacy > Location Services (On) > Safari (While Using)<br> - Android (to come)</p>';
 	contents += '<p>Click OK if browser asks permission to show your location</p>';
 	contents += '<img src="images/AllowCurrentLocation.png" alt="Allow Current Location screen" width="200" height="123">';
@@ -117,19 +118,19 @@
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(WeHa11, 'West Hartford 11 mile (blue)');
+	controlLayers.addOverlay(WeHa11, 'West Hartford 11 mile <i class="color-line bg-blue"></i>');
 
 	var WeHa25 = new L.GPX("routes/WeHa2015-25.gpx", {
 		color: 'green',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
 	});
-	controlLayers.addOverlay(WeHa25, 'West Hartford 25 mile (green)');
+	controlLayers.addOverlay(WeHa25, 'West Hartford 25 mile <i class="color-line bg-green"></i>');
 
 	var WeHa50 = new L.GPX("routes/WeHa2015-50.gpx", {
 		color: '#ff3399',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
 	});
-	controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile (pink)');
+	controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile <i class="color-line bg-pink"></i>');
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
 	function gatherBounds() {
@@ -157,7 +158,10 @@
 
 	map.on('layerremove', function() {
 		gatherBounds();
+
 	});
+
+  $('<h3 id="mapTitle">Putin</h3>').insertBefore('div.leaflet-control-layers-base');
 
 	</script>
 </body>
