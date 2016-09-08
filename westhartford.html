@@ -9,8 +9,8 @@
 	<!-- load Bootstrap CSS for mobile devices -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
-	<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
-	<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
+	<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
 	<!-- load jQuery  -->
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 	<!-- Load Esri Leaflet -->
@@ -27,8 +27,8 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.js"></script>
 	<!-- load compass from local directory -->
-	<link rel="stylesheet" href="src/leaflet-compass.min.css"/>
-	<script src="src/leaflet-compass.min.js"></script>
+	<link rel="stylesheet" href="src/leaflet-compass.css"/>
+	<script src="src/leaflet-compass.js"></script>
 	<!-- load distance markers with geometry from local directory; see also style.css -->
 	<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
 	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
@@ -81,19 +81,19 @@
 
 	var WeHa11 = new L.GPX("routes/WeHa2015-11.gpx", {
 		color: 'blue',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(WeHa11, 'West Hartford 11 mile (blue)');
 
 	var WeHa25 = new L.GPX("routes/WeHa2015-25.gpx", {
 		color: 'green',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(WeHa25, 'West Hartford 25 mile (green)');
 
 	var WeHa50 = new L.GPX("routes/WeHa2015-50.gpx", {
 		color: '#ff3399',
-		distanceMarkers: { showAll: 11, offset: 1609} // meters per mile
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile (pink)');
 

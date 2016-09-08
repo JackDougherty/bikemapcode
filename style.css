@@ -10,6 +10,37 @@ body {
   width: 100%;
 }
 
+/*controls some/all leaflet buttons*/
+/*.leaflet-bar a, .leaflet-bar a:hover {
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+}*/
+
+/* slide menu button with question circle */
+.leaflet-control-slidemenu a, .leaflet-control-slidemenu a:hover {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 2em;
+}
+
+/* leaflet-control-locate button*/
+.leaflet-control-locate a, leaflet-control-locate a:hover {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 2em;
+  color: #0000ff;
+}
+.leaflet-control-locate.active a {
+  color: #0000ff;
+}
+.leaflet-control-locate.active.following a {
+  color: #0000ff;
+}
+
+/*line mileage distance markers and colors*/
 .dist-marker {
 	font-size: 14px;
   line-height: 18px;
@@ -27,6 +58,14 @@ body {
 
 .bg-green {
   background: green;
+}
+
+.bg-black {
+  background: black;
+}
+
+.bg-yellow {
+  background: #ffcc00;
 }
 
 .bg-pink {
