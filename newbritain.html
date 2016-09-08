@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html>
 <head>
+	<title>Discover New Britain 2015</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>New Britain 2015</title>
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- load Bootstrap CSS for mobile devices -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Load Leaflet from a https CDN, not http. Look for updates at https://leafletjs.com/download.html -->
+	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
 	<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
 	<!-- load jQuery  -->
@@ -32,9 +31,9 @@
 	<!-- load distance markers with geometry from local directory; see also style.css -->
 	<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
 	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
-	<!-- load leaflet-sidebar from local directory -->
-	<link rel="stylesheet" href="src/L.Control.Sidebar.css" />
-	<script src="src/L.Control.Sidebar.js"></script>
+	<!-- load Leaflet.SlideMenu from local directory -->
+	<link rel="stylesheet" href="src/L.Control.SlideMenu.css" />
+	<script src="src/L.Control.SlideMenu.js"></script>
 	<!-- load custom css -->
 	<link rel="stylesheet" href="style.css"/>
 </head>
@@ -43,14 +42,14 @@
 	<script>
 
 	var map = L.map('map', {
-	  center: [41.663981, -72.791292],
-	  zoom: 13,
+	  center: [41.678616, -72.786799],
+	  zoom: 14,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
 	});
 
 	map.attributionControl
-	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, made with <a href='https://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a> | Download GPX routes <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-10.gpx'>10 mi</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-25.gpx'>25 mi</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-50.gpx'>50 mi</a>");
+	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | Download GPX routes <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-10.gpx' target='_blank'>10 mi</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-25.gpx' target='_blank'>25 mi</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/nb2015-50.gpx' target='_blank'>50 mi</a>");
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
@@ -59,19 +58,36 @@
 
 	L.control.locate({
 		locateOptions: {maxZoom: 16}, // default = 18
-	  strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
+		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
 	}).addTo(map);
+
+	map.addControl( new L.Control.Compass({position: "topleft"}) );
 
 	new L.control.zoom({position: "topleft",}).addTo(map);
 
 	L.control.scale().addTo(map);
 
-	map.addControl( new L.Control.Compass() );
+	// slide menu contents and position
+	var contents = '<h4>BikeMapCode</h4>';
+	contents += '<h5>Mobile-friendly web maps<br>with open-source templates</h5>';
+	contents += '<img src="images/BikeMapCodeKey.png" alt="BikeMapCode key" width="196" height="299">';
+	contents += '<p>Distributed as-is with no warranty</p>';
+	contents += '<p>Stop your bike in a safe place before using</p>';
+	contents += '<p>Requires internet access to view maps and location</p>';
+	contents += '<p>Allow smartphone browser to show your location<br> - iPhone > Settings > Privacy > Location Services (On) > Safari (While Using)<br> - Android (to come)</p>';
+	contents += '<p>Click OK if browser asks permission to show your location</p>';
+	contents += '<img src="images/AllowCurrentLocation.png" alt="Allow Current Location screen" width="200" height="123">';
+	// contents += '<h5>Open Cycle Map layer legend</h5>';
+	// contents += '<img src="images/OpenCycleMapKey.png" alt="OpenCycleMap key" width="290" height="438">';
+	var slideMenu = L.control.slideMenu('', {position: 'topright', width: '300px', height: '100%', delay: '1'}).addTo(map);
+	slideMenu.setContents(contents);
 
+	// baselayer
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri'
 	}).addTo(map);
 
+	// route overlays
 	var nb10 = new L.GPX("routes/nb2015-10.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css

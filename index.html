@@ -49,7 +49,7 @@
 	});
 
 	map.attributionControl
-	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a> with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
+	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
@@ -74,8 +74,9 @@
 	contents += '<p>Distributed as-is with no warranty</p>';
 	contents += '<p>Stop your bike in a safe place before using</p>';
 	contents += '<p>Requires internet access to view maps and location</p>';
-	contents += '<p>Allow your browser to show your location<br> - iPhone > Settings > Privacy > Location Services (On) > Safari (While Using)<br> - Android (to come)</p>';
-	contents += '<img src="images/AllowCurrentLocation.png" alt="Allow Current Location screen" width="290" height="178">';
+	contents += '<p>Allow smartphone browser to show your location<br> - iPhone > Settings > Privacy > Location Services (On) > Safari (While Using)<br> - Android (to come)</p>';
+	contents += '<p>Click OK if browser asks permission to show your location</p>';
+	contents += '<img src="images/AllowCurrentLocation.png" alt="Allow Current Location screen" width="200" height="123">';
 	contents += '<h5>Open Cycle Map layer legend</h5>';
 	contents += '<img src="images/OpenCycleMapKey.png" alt="OpenCycleMap key" width="290" height="438">';
 	var slideMenu = L.control.slideMenu('', {position: 'topright', width: '300px', height: '100%', delay: '1'}).addTo(map);
