@@ -17,27 +17,19 @@ body {
     line-height: 36px;
 }*/
 
-/* slide menu button with question circle */
-.leaflet-control-slidemenu a, .leaflet-control-slidemenu a:hover {
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
+/* slide menu button with question circle
+   and locate button */
+.leaflet-control-slidemenu a,
+.leaflet-control-locate a {
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
   font-size: 2em;
 }
 
-/* leaflet-control-locate button*/
-.leaflet-control-locate a, leaflet-control-locate a:hover {
-  width: 36px;
-  height: 36px;
-  line-height: 36px;
-  font-size: 2em;
-  color: #0000ff;
-}
-.leaflet-control-locate.active a {
-  color: #0000ff;
-}
-.leaflet-control-locate.active.following a {
-  color: #0000ff;
+/* locate button */
+.leaflet-control-locate a {
+  color: #00f !important;
 }
 
 /*line mileage distance markers and colors*/
@@ -52,22 +44,9 @@ body {
   border-radius: 9px;
 }
 
-.bg-blue {
-  background: blue;
-}
-
-.bg-green {
-  background: green;
-}
-
-.bg-black {
-  background: black;
-}
-
-.bg-yellow {
-  background: #ffcc00;
-}
-
-.bg-pink {
-  background: #f39;
-}
+/* Background colors of distance markers */
+.bg-blue { background: blue; }
+.bg-green { background: green; }
+.bg-black { background: black; }
+.bg-yellow { background: #fc0; }
+.bg-pink { background: #f39; }
