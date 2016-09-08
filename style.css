@@ -50,8 +50,8 @@ body {
 }
 
 /* Background colors of distance markers */
-.bg-blue { background: blue; color: blue}
-.bg-green { background: green; color: green;}
+.bg-blue { background: blue; }
+.bg-green { background: green; }
 .bg-black { background: black; }
 .bg-yellow { background: #fc0; }
 .bg-pink { background: #f39; }
