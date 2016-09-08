@@ -45,6 +45,11 @@ body {
   border-radius: 9px;
 }
 
+/* Remove borders around controls in mobile view */
+.leaflet-touch .leaflet-bar {
+    border: none;
+}
+
 /* Background colors of distance markers */
 .bg-blue { background: blue; }
 .bg-green { background: green; }
