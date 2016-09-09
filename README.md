@@ -14,11 +14,15 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 Direct link
 - https://jackdougherty.github.io/bikemapcode/index.html
 
-Simplified with a link shortener to wide distribution (* to come)
+Simplified with a link shortener for easy print distribution
+- http://bit.ly/bikeweha
 
-Web map embedded in a WordPress.org site (* to come)
+Web map embedded in a WordPress.org site
+- http://jackbikes.org/2015/08/join-new-britain-ride/
 
-Web map embedded in a Weebly site (* to come)
+Web map embedded in a Weebly site
+- http://www.bikewesthartford.org/interactive-map.html
+- http://www.bikewalkct.org/discover-ct-ride-series-20161.html
 
 ### Sample short links for bike events
 - bit.ly/bikeweha (https://jackdougherty.github.io/bikemapcode/westhartford.html)
@@ -47,7 +51,7 @@ Web map embedded in a Weebly site (* to come)
 - Leaflet-distance-markers to display mileage icons for GPX at https://github.com/adoroszlai/leaflet-distance-markers (MIT license, June 2016)
   - requires https://github.com/makinacorpus/Leaflet.GeometryUtil
 - Mapzen leaflet-geocoder to search locations (requires free API key) https://github.com/mapzen/leaflet-geocoder (MIT license)
-- Thanks @ilyankou for gatherBounds function and marker styling
+- Thanks @ilyankou for gatherBounds function, marker styling, CSS improvements
 
 - Code contributions welcome via GitHub dev branch or via email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
