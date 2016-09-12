@@ -70,6 +70,7 @@
 	// slide menu contents and position
 	var contents = '<h4>BikeMapCode</h4>';
 	contents += '<h5>Mobile-friendly web maps<br>with open-source templates</h5>';
+	contents += '<p>Link to <a href="https://github.com/JackDougherty/bikemapcode">code and instructions on GitHub</a></p>';
 	contents += '<img src="images/BikeMapCodeKey.png" alt="BikeMapCode key" width="196" height="299">';
 	contents += '<p>Distributed as-is with no warranty</p>';
 	contents += '<p>Stop your bike in a safe place before using</p>';
@@ -82,8 +83,11 @@
 	var slideMenu = L.control.slideMenu('', {position: 'topright', width: '300px', height: '100%', delay: '1'}).addTo(map);
 	slideMenu.setContents(contents);
 
-	// basemap
-	var Esri_WorldStreetMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+	// insert map title at top of layer control
+	$('<h6 id="mapTitle">Discover Glastonbury 2016</h6>').insertBefore('div.leaflet-control-layers-base');
+
+	// baselayer
+	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri'
 	}).addTo(map);
 
@@ -95,19 +99,19 @@
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; see also style.css
 	}).addTo(map);
-	controlLayers.addOverlay(gb10, 'Glastonbury 10 mile (blue)');
+	controlLayers.addOverlay(gb10, '10 mile route  <i class="color-line bg-blue"></i>');
 
 	var gb25 = new L.GPX("routes/gb2016-25.gpx", {
 		color: '#ffcc00',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-yellow'} // meters per miles; see also style.css
 	});
-	controlLayers.addOverlay(gb25, 'Glastonbury 25 mile (yellow)');
+	controlLayers.addOverlay(gb25, '25 mile route <i class="color-line bg-yellow"></i>');
 
 	var gb50 = new L.GPX("routes/gb2016-50.gpx", {
 		color: '#ff3399',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; see also style.css
 	});
-	controlLayers.addOverlay(gb50, 'Glastonbury 50 mile (pink)');
+	controlLayers.addOverlay(gb50, '50 mile route <i class="color-line bg-pink"></i>');
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
 	function gatherBounds() {

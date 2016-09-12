@@ -10,13 +10,6 @@ body {
   width: 100%;
 }
 
-/*controls some/all leaflet buttons*/
-/*.leaflet-bar a, .leaflet-bar a:hover {
-    width: 36px;
-    height: 36px;
-    line-height: 36px;
-}*/
-
 /* Slide menu button with question circle and locate button */
 .leaflet-control-slidemenu a,
 .leaflet-control-locate a,
@@ -49,21 +42,22 @@ body {
   border-radius: 9px;
 }
 
-/* Background colors of distance markers */
+/* Background colors of distance markers and colored lines */
+/* Match with route colors defined in html */
 .bg-blue { background: blue; }
 .bg-green { background: green; }
 .bg-black { background: black; }
 .bg-yellow { background: #fc0; }
 .bg-pink { background: #f39; }
 
-/* Colored line in layer control title */
+/* title and colored lines in layer control */
+#mapTitle {
+  margin: 5px 0 5px 0;
+}
+
 .color-line {
   display: inline-block;
   vertical-align: middle;
   height: 5px;
-  width: 50px;
-}
-
-#mapTitle {
-  margin: 5px 0 5px 0;
+  width: 25px;
 }
