@@ -142,12 +142,7 @@
 
       var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + photoContent.id + '&format=json&nojsoncallback=1';
       $.getJSON(flickrGetOwner, function(info) {
-        console.log('*************');
-        console.log(info);
-        console.log(info.photo.owner);
-
         var photoContent = photos[info.photo.id];
-
         var photoIcon = L.icon(
           {iconUrl: photoContent.url_t,
           iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
@@ -155,29 +150,8 @@
         var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
         marker.bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + info.photo.owner.nsid + '">' + info.photo.owner.username + '</a></small>');
         marker.addTo(layerGroup)
-      }
-
-
-        //popups[info.photo.id] += '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + info.photo.owner.nsid + '">' + info.photo.owner.username + '</a></small>';
-
-        //var marker = L.marker(markers[info.photo.id]);
-        //marker.bindPopup(popups[info.photo.id]).addTo(layerGroup);
-
-        //markers.shift().bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">' + owner + '</a></small>').addTo(layerGroup);
-        //marker.addTo(layerGroup);
-        //markers.shift().bindPopup().addTo(layerGroup);
-      //});
-
-      //marker.bindPopup(popupHTML(photoContent));
-      // Add the marker to the layerGroup
-      //marker.addTo(layerGroup);
+      });
     }
-/*
-    for (var i = 0; i < markers.length; i++) {
-      var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + ids[i].id + '&format=json&nojsoncallback=1';
-      markers[0]._popup.setContent();
-    }*/
-
   });
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
