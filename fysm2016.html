@@ -125,16 +125,15 @@
 
         var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=25dcc9a8c7410551dcb0af48c778bde5&photo_id=' + photo.id + '&format=json&nojsoncallback=1';
         var owner = '';
-        var ownerPath = '';
         $.getJSON(flickrGetOwner, function(data) {
           console.log('*************');
           console.log(data);
+          console.log(data.photo.owner);
           owner = data.photo.owner.username;
-          ownerPath = data.photo.owner.path_alias;
         });
 
 
-        result += '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + ownerPath + '">' + owner + '</a></small>';
+        result += '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">-' + owner + '</a></small>';
 
         return result;
   }
