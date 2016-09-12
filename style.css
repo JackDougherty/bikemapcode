@@ -61,3 +61,7 @@ body {
   height: 5px;
   width: 25px;
 }
+
+.leaflet-popup-content img {
+  width: 100%;
+}
