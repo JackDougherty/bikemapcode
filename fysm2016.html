@@ -117,6 +117,8 @@
 
   var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + flickrApiKey + '&user_id=56513965%40N06&tags=fysm2016&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1';
 
+  var markers = [];
+
   // Define the flickr popup display
   var popupHTML = function(photo) {
     var result = '';
@@ -142,14 +144,17 @@
       );
       var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
 
+      markers.push(marker);
+
       var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + photoContent.id + '&format=json&nojsoncallback=1';
-      $.getJSON(flickrGetOwner, function(data) {
+      $.getJSON(flickrGetOwner, function(zzz) {
         console.log('*************');
-        console.log(data);
-        console.log(data.photo.owner);
-        var owner = data.photo.owner.username;
+        console.log(zzz);
+        console.log(zzz.photo.owner);
+        var owner = zzz.photo.owner.username;
         marker.bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">-' + owner + '</a></small>');
         marker.addTo(layerGroup);
+        markers.shift().addTo(layerGroup);
       });
 
       //marker.bindPopup(popupHTML(photoContent));
