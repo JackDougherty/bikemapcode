@@ -143,20 +143,19 @@
         {iconUrl: photoContent.url_t,
         iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
       );
-      var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
+      //var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
 
-      markers[photoContent.id.toString()] = marker;
+      markers[photoContent.id.toString()] = {[photoContent.latitude, photoContent.longitude], {icon: photoIcon}};
       popups[photoContent.id.toString()] = photoContent;
 
       var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + photoContent.id + '&format=json&nojsoncallback=1';
-      $.getJSON(flickrGetOwner, function(zzz) {
+      $.getJSON(flickrGetOwner, function(info) {
         console.log('*************');
-        console.log(zzz);
-        console.log(zzz.photo.owner);
-        var owner = zzz.photo.owner.username;
-
-        popups[zzz.photo.id] += '<br>ZZZPhoto Credit: <a href="https://www.flickr.com/photos/' + owner + '">' + owner + '</a></small>';
-        markers[zzz.photo.id].bindPopup(popups[zzz.photo.id]).addTo(layerGroup);
+        console.log(info);
+        console.log(info.photo.owner);
+        popups[info.photo.id] += '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + info.photo.owner.nsid + '">' + info.photo.owner.username + '</a></small>';
+        var marker = L.marker(markers[info.photo.id]);
+        marker.bindPopup(popups[info.photo.id]).addTo(layerGroup);
 
         //markers.shift().bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">' + owner + '</a></small>').addTo(layerGroup);
         //marker.addTo(layerGroup);
