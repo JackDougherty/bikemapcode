@@ -117,13 +117,13 @@
 
   // Define the flickr popup display
   var popupHTML = function(photo){
-    var result = "";
-        result = '<strong>'+photo.title+'</strong><br>';
-        result += '<a href="'+photo.url_m+'" target="_blank">';
-        result += '<img src="'+photo.url_s+'"></a>';      //was url_t; want url_s; can change to url_m if desired, but frame needs work
+    var result = '';
+        result = '<strong>' + photo.title + '</strong><br>';
+        result += '<a href="' + photo.url_m + '" target="_blank">';
+        result += '<img src="' + photo.url_s + '"></a>';  //was url_t; want url_s; can change to url_m if desired, but frame needs work
         result += '<br><small>click image to enlarge in new tab';
 
-        var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=25dcc9a8c7410551dcb0af48c778bde5&photo_id=' + photo.id;
+        var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=25dcc9a8c7410551dcb0af48c778bde5&photo_id=' + photo.id + '&format=json';
         var owner = 'zzzzz';
         $.getJSON(flickrGetOwner, function(data) {
           console.log(data);
