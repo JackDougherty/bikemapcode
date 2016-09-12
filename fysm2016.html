@@ -131,7 +131,7 @@
         return result;
   }
 
-  var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=25dcc9a8c7410551dcb0af48c778bde5&photo_id=' + 24879182140 + '&format=json&nojsoncallback=1&api_sig=a30b2840b6140af1d1e88ee31fe6c907';
+  var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=25dcc9a8c7410551dcb0af48c778bde5&photo_id=' + 24879182140 + '&format=json&nojsoncallback=1';
   var owner = 'zzzzz';
   $.getJSON(flickrGetOwner, function(data) {
     console.log('*************');
