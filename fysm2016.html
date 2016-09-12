@@ -123,7 +123,7 @@
         result += '<img src="' + photo.url_s + '"></a>';  //was url_t; want url_s; can change to url_m if desired, but frame needs work
         result += '<br><small>click image to enlarge in new tab';
         console.log("photo id: " + photo.id);
-        var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=25dcc9a8c7410551dcb0af48c778bde5&photo_id=' + photo.id + '&format=json';
+        var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=25dcc9a8c7410551dcb0af48c778bde5&photo_id=' + photo.id + '&format=json&nojsoncallback=1&api_sig=a30b2840b6140af1d1e88ee31fe6c907';
         var owner = 'zzzzz';
         $.getJSON(flickrGetOwner, function(data) {
           console.log('*************');
