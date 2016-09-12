@@ -155,7 +155,7 @@
         console.log(zzz.photo.owner);
         var owner = zzz.photo.owner.username;
 
-        popups[zzz.photo.id] += '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">' + owner + '</a></small>';
+        popups[zzz.photo.id] += '<br>ZZZPhoto Credit: <a href="https://www.flickr.com/photos/' + owner + '">' + owner + '</a></small>';
         markers[zzz.photo.id].bindPopup(popups[zzz.photo.id]).addTo(layerGroup);
 
         //markers.shift().bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">' + owner + '</a></small>').addTo(layerGroup);
