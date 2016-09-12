@@ -152,7 +152,7 @@
         console.log(zzz);
         console.log(zzz.photo.owner);
         var owner = zzz.photo.owner.username;
-        markers.bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">-' + owner + '</a></small>').addTo(layerGroup);
+        markers.shift().bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">-' + owner + '</a></small>').addTo(layerGroup);
         //marker.addTo(layerGroup);
         //markers.shift().bindPopup().addTo(layerGroup);
       });
