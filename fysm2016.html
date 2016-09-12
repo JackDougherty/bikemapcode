@@ -141,12 +141,15 @@
       photos[photoContent.id.toString()] = photoContent;
 
       var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + photoContent.id + '&format=json&nojsoncallback=1';
+      // Another API request to get the author's name by photo id
       $.getJSON(flickrGetOwner, function(info) {
         var photoContent = photos[info.photo.id];
+        // Create an icon (a small photo)
         var photoIcon = L.icon(
           {iconUrl: photoContent.url_t,
           iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
         );
+        // Create and add marker to the map
         var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
         marker.bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + info.photo.owner.nsid + '">' + info.photo.owner.username + '</a></small>');
         marker.addTo(layerGroup)
