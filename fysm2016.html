@@ -113,28 +113,17 @@
 	// controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile <i class="color-line bg-pink"></i>');
 
 	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
-  var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&tags=fysm2016&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1';
+  var flickrApiKey = '25dcc9a8c7410551dcb0af48c778bde5';
+
+  var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + flickrApiKey + '&user_id=56513965%40N06&tags=fysm2016&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1';
 
   // Define the flickr popup display
-  var popupHTML = function(photo){
+  var popupHTML = function(photo) {
     var result = '';
         result = '<strong>' + photo.title + '</strong><br>';
         result += '<a href="' + photo.url_m + '" target="_blank">';
         result += '<img src="' + photo.url_s + '"></a>';  //was url_t; want url_s; can change to url_m if desired, but frame needs work
         result += '<br><small>click image to enlarge in new tab';
-
-        var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=25dcc9a8c7410551dcb0af48c778bde5&photo_id=' + photo.id + '&format=json&nojsoncallback=1';
-        var owner = '';
-        $.getJSON(flickrGetOwner, function(data) {
-          console.log('*************');
-          console.log(data);
-          console.log(data.photo.owner);
-          owner = data.photo.owner.username;
-        });
-
-
-        result += '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">-' + owner + '</a></small>';
-
         return result;
   }
 
@@ -152,9 +141,20 @@
         iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
       );
       var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
-      marker.bindPopup(popupHTML(photoContent));
+
+      var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + photoContent.id + '&format=json&nojsoncallback=1';
+      $.getJSON(flickrGetOwner, function(data) {
+        console.log('*************');
+        console.log(data);
+        console.log(data.photo.owner);
+        var owner = data.photo.owner.username;
+        marker.bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">-' + owner + '</a></small>');
+        marker.addTo(layerGroup);
+      });
+
+      //marker.bindPopup(popupHTML(photoContent));
       // Add the marker to the layerGroup
-      marker.addTo(layerGroup);
+      //marker.addTo(layerGroup);
     }
   });
 
