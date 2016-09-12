@@ -117,8 +117,6 @@
 
   var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + flickrApiKey + '&user_id=56513965%40N06&tags=fysm2016&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1';
 
-  var markers = [];
-
   // Define the flickr popup display
   var popupHTML = function(photo) {
     var result = '';
@@ -128,6 +126,9 @@
         result += '<br><small>click image to enlarge in new tab';
         return result;
   }
+
+  var markers = {};
+  var popups = {};
 
   // Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
   $.getJSON(flickrURL, function (data) {
@@ -144,7 +145,8 @@
       );
       var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
 
-      markers.push(marker);
+      markers[photoContent.id.toString()] = marker;
+      popups[photoContent.id.toString()] = photoContent;
 
       var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + photoContent.id + '&format=json&nojsoncallback=1';
       $.getJSON(flickrGetOwner, function(zzz) {
@@ -152,7 +154,11 @@
         console.log(zzz);
         console.log(zzz.photo.owner);
         var owner = zzz.photo.owner.username;
-        markers.shift().bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">-' + owner + '</a></small>').addTo(layerGroup);
+
+        popups[zzz.photo.id] += '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">' + owner + '</a></small>';
+        markers[zzz.photo.id].bindPopup(popups[zzz.photo.id]).addTo(layerGroup);
+
+        //markers.shift().bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + owner + '">' + owner + '</a></small>').addTo(layerGroup);
         //marker.addTo(layerGroup);
         //markers.shift().bindPopup().addTo(layerGroup);
       });
@@ -161,6 +167,12 @@
       // Add the marker to the layerGroup
       //marker.addTo(layerGroup);
     }
+
+    for (var i = 0; i < markers.length; i++) {
+      var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + ids[i].id + '&format=json&nojsoncallback=1';
+      markers[0]._popup.setContent();
+    }
+
   });
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
