@@ -17,7 +17,7 @@
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
 	<!-- Load Esri Leaflet -->
-	<script src="https://unpkg.com/esri-leaflet@2.0.6"></script>
+	<!-- <script src="https://unpkg.com/esri-leaflet@2.0.6"></script> -->
 	<!-- load Font-Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<!-- load Leaflet.locatecontrol -->
@@ -47,7 +47,7 @@
 
 	var map = L.map('map', {
 		center: [25.598192, -80.903098],
-		zoom: 9,
+		zoom: 8,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
 	});
@@ -64,14 +64,31 @@
 
 	L.control.scale().addTo(map);
 
-	var Esri_WorldTopoMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri'
+	var lightAll = new L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map);
+	// controlLayers.addBaseLayer(lightAll, 'Streets Gray');
 
-	var florida2017 = new L.GPX("routes/florida2017.gpx", {
-		color: 'blue'
-	}).addTo(map);
-	controlLayers.addOverlay(florida2017, "Southern Florida 2016-17");
+  function style(feature) {
+    return {
+      color: "blue",
+      weight: 3,
+    };
+  }
+
+  function onEachFeature(feature, layer) {
+    var popupText = feature.properties.name
+    + "<br>Distance: " + feature.properties.desc;
+    layer.bindPopup(popupText);
+  }
+
+  $.getJSON("routes/florida2017.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'Florida tour 2017');
+  });
 
 	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
 	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=Florida2017&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
