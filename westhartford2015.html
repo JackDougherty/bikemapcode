@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Bike West Hartford</title>
+	<title>Discover West Hartford 2015</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- load Bootstrap CSS for mobile devices -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Load Leaflet - http://leafletjs.com/download.html -->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-	  integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-	  crossorigin=""/>
-	<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
-	  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-	  crossorigin=""></script>
-	<!-- load jQuery https://code.jquery.com/ -->
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-	<!-- Load Esri Leaflet https://esri.github.io/esri-leaflet/download/-->
-	<script src="https://unpkg.com/esri-leaflet@2.1.1/dist/esri-leaflet.js"
-    integrity="sha512-ECQqaYZke9cSdqlFG08zSkudgrdF6I1d8ViSa7I3VIszJyVqw4ng1G8sehEXlumdMnFYfzY0tMgdQa4WCs9IUw=="
-    crossorigin=""></script>
+	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
+	<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<!-- load jQuery  -->
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<!-- Load Esri Leaflet -->
+	<script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.2/esri-leaflet.js"></script>
 	<!-- load Font-Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-	<!-- load Leaflet.locatecontrol https://github.com/domoritz/leaflet-locatecontrol -->
-	<link rel="stylesheet" href="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.css" />
-	<script src="https://domoritz.github.io/leaflet-locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
-	<!-- load Leaflet-plugins to read GPX and KML https://github.com/shramov/leaflet-plugins-->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.0.0/layer/vector/GPX.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.0.0/layer/vector/KML.min.js"></script>
+	<!-- load Leaflet.locatecontrol -->
+	<script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.css"/>
+	<!-- load Leaflet-plugins to read GPX and KML -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/GPX.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/KML.min.js"></script>
 	<!-- Load leaflet-geocoder to search locations-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.9.3/leaflet-geocoder-mapzen.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.9.3/leaflet-geocoder-mapzen.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.js"></script>
 	<!-- load compass from local directory -->
 	<link rel="stylesheet" href="src/leaflet-compass.css"/>
 	<script src="src/leaflet-compass.js"></script>
@@ -58,7 +49,7 @@
 	});
 
 	map.attributionControl
-	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, made with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a> | Download GPX tracks <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/wh-beechland-park.gpx'>Beechland Park</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/wh-hall-high-school.gpx'>Hall HS</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/wh-westmoor-park.gpx'>Westmoor Park</a>");
+	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, made with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a> | Download GPX routes <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/WeHa2015-11.gpx'>11 mi</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/WeHa2015-25.gpx'>25 mi</a> - <a href='https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/routes/WeHa2015-50.gpx'>50 mi</a>");
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
@@ -93,7 +84,7 @@
 	slideMenu.setContents(contents);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Bike West Hartford loops</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Discover West Hartford 2015</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayer
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -107,23 +98,23 @@
 	});
 	controlLayers.addBaseLayer(OCM, 'Open Cycle Map');
 
-	var beechland = new L.GPX("routes/beechland-park.gpx", {
+	var WeHa11 = new L.GPX("routes/WeHa2015-11.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(beechland, 'Beechland Park <i class="color-line bg-blue"></i>');
+	controlLayers.addOverlay(WeHa11, '11 mile route <i class="color-line bg-blue"></i>');
 
-	var hallhs = new L.GPX("routes/wh-hall-high-school.gpx", {
+	var WeHa25 = new L.GPX("routes/WeHa2015-25.gpx", {
 		color: 'green',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
 	});
-	controlLayers.addOverlay(hallhs, 'Hall High School <i class="color-line bg-green"></i>');
+	controlLayers.addOverlay(WeHa25, '25 mile route <i class="color-line bg-green"></i>');
 
-	var westmoor = new L.GPX("routes/wh-westmoor-park.gpx", {
+	var WeHa50 = new L.GPX("routes/WeHa2015-50.gpx", {
 		color: '#ff3399',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
 	});
-	controlLayers.addOverlay(westmoor, 'Westmoor Park <i class="color-line bg-pink"></i>');
+	controlLayers.addOverlay(WeHa50, '50 mile route <i class="color-line bg-pink"></i>');
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
 	function gatherBounds() {
