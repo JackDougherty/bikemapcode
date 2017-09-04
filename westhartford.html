@@ -107,31 +107,32 @@
 	});
 	controlLayers.addBaseLayer(OCM, 'Open Cycle Map');
 
-	var beechland = new L.GPX("routes/beechland-park.gpx", {
-		color: 'blue',
-		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
-	}).addTo(map);
-	controlLayers.addOverlay(beechland, 'Beechland Park <i class="color-line bg-blue"></i>');
-
 	var hallhs = new L.GPX("routes/wh-hall-high-school.gpx", {
 		color: 'green',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
-	});
+	}).addTo(map);
 	controlLayers.addOverlay(hallhs, 'Hall High School <i class="color-line bg-green"></i>');
 
 	var westmoor = new L.GPX("routes/wh-westmoor-park.gpx", {
 		color: '#ff3399',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
-	});
+	}).addTo(map);
 	controlLayers.addOverlay(westmoor, 'Westmoor Park <i class="color-line bg-pink"></i>');
+
+	var beechland = new L.GPX("routes/wh-beechland-park.gpx", {
+		color: 'blue',
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
+	}).addTo(map);
+	controlLayers.addOverlay(beechland, 'Beechland Park <i class="color-line bg-blue"></i>');
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
 	function gatherBounds() {
 		var checkedLayers = [];
 		var allLayers = [
-			WeHa11,
-			WeHa25,
-			WeHa50
+			hallhs,
+			westmoor,
+			beechland
+
 		];
 
 		for (l in allLayers) {
