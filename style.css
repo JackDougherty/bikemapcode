@@ -47,8 +47,9 @@ body {
 .bg-blue { background: blue; }
 .bg-green { background: green; }
 .bg-black { background: black; }
-.bg-yellow { background: #ff9900; } 
+.bg-yellow { background: #ff9900; }
 .bg-pink { background: #f39; }
+.bg-orange { background: orange;}
 
 /* title and colored lines in layer control */
 #mapTitle {
