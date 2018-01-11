@@ -93,7 +93,7 @@
 	slideMenu.setContents(contents);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">West Hartford Wheels loops</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">West Hartford Neighborhood Bike Routes</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayer
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -111,19 +111,19 @@
 		color: 'green',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(hallhs, 'Hall High School <i class="color-line bg-green"></i>');
+	controlLayers.addOverlay(hallhs, 'Green <i class="color-line bg-green"></i>');
 
 	var westmoor = new L.GPX("routes/wh-westmoor-park.gpx", {
 		color: 'orange',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-orange'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(westmoor, 'Westmoor Park <i class="color-line bg-orange"></i>');
+	controlLayers.addOverlay(westmoor, 'Orange <i class="color-line bg-orange"></i>');
 
 	var beechland = new L.GPX("routes/wh-beechland-park.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(beechland, 'Beechland Park <i class="color-line bg-blue"></i>');
+	controlLayers.addOverlay(beechland, 'Blue <i class="color-line bg-blue"></i>');
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
 	function gatherBounds() {
