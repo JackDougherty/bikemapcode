@@ -42,7 +42,7 @@
 <div id="map"></div>
 	<script>
 	var map = L.map('map', {
-	  center: [41.762696, -72.738679],
+	  center: [41.748073, -72.680129],
 	  zoom: 13,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
@@ -53,7 +53,7 @@
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
-	  collapsed: true
+	  collapsed: false
 	}).addTo(map);
 
 	L.control.locate({
@@ -84,64 +84,85 @@
 	slideMenu.setContents(contents);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">BikeMapCode sample</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Trinity FYSM 2016</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// SAMPLE BASELAYERS
 
-	// get your own Open Cycle Map API key
-	var OCM = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=1d12526533cd4f0f9f1e166c7bb855d7', {
-		attribution: 'Maps &copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-	}).addTo(map);
-	controlLayers.addBaseLayer(OCM, 'Open Cycle Map');
-
-	var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	});
-	controlLayers.addBaseLayer(OSM, 'Open Street Map');
-
-	var lightAll = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-	});
-	controlLayers.addBaseLayer(lightAll, 'CartoDB Light Map');
-
 	var EsriStreets = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri'
-	});
-	controlLayers.addBaseLayer(EsriStreets, 'Esri Streets');
-
-	var EsriTopo = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri'
-	});
-	controlLayers.addBaseLayer(EsriTopo, 'Esri Topographic');
+	}).addTo(map);
 
 	// SAMPLE OVERLAYS
 
-	var WeHa11 = new L.GPX("routes/WeHa2015-11.gpx", {
+	var fysm20160911 = new L.GPX("routes/fysm-2016-09-11.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(WeHa11, 'West Hartford 11 mile <i class="color-line bg-blue"></i>');
+	controlLayers.addOverlay(fysm20160911, 'Hartford loop 11 Sept 2016 <i class="color-line bg-blue"></i>');
 
-	var WeHa25 = new L.GPX("routes/WeHa2015-25.gpx", {
-		color: 'green',
-		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(WeHa25, 'West Hartford 25 mile <i class="color-line bg-green"></i>');
+	// var WeHa25 = new L.GPX("routes/WeHa2015-25.gpx", {
+	// 	color: 'green',
+	// 	distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
+	// });
+	// controlLayers.addOverlay(WeHa25, 'West Hartford 25 mile <i class="color-line bg-green"></i>');
+	//
+	// var WeHa50 = new L.GPX("routes/WeHa2015-50.gpx", {
+	// 	color: '#ff3399',
+	// 	distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
+	// });
+	// controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile <i class="color-line bg-pink"></i>');
 
-	var WeHa50 = new L.GPX("routes/WeHa2015-50.gpx", {
-		color: '#ff3399',
-		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile <i class="color-line bg-pink"></i>');
+	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
+  var flickrApiKey = '25dcc9a8c7410551dcb0af48c778bde5';
+
+  var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + flickrApiKey + '&user_id=56513965%40N06&tags=fysm2016&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1';
+
+  // Define the flickr popup display
+  var popupHTML = function(photo) {
+    var result = '';
+        result = '<strong>' + photo.title + '</strong><br>';
+        result += '<a href="' + photo.url_m + '" target="_blank">';
+        result += '<img src="' + photo.url_s + '"></a>';  //was url_t; want url_s; can change to url_m if desired, but frame needs work
+        result += '<br><small>click image to enlarge in new tab';
+        return result;
+  }
+
+  var photos = {};
+
+  // Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
+  $.getJSON(flickrURL, function (data) {
+    // Create new layerGroup for the markers, with option to append ".addTo(map);" to display by default
+    var layerGroup = new L.LayerGroup().addTo(map);
+    // Add layerGroup to your layer control and insert your label to appear in legend
+    controlLayers.addOverlay(layerGroup, 'Photos');
+    // Start a loop to insert flickr photo data into photoContent
+    for (var i = 0; i < data.photos.photo.length; i++) {
+      var photoContent = data.photos.photo[i];
+      photos[photoContent.id.toString()] = photoContent;
+
+      var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + photoContent.id + '&format=json&nojsoncallback=1';
+      // Another API request to get the author's name by photo id
+      $.getJSON(flickrGetOwner, function(info) {
+        var photoContent = photos[info.photo.id];
+        // Create an icon (a small photo)
+        var photoIcon = L.icon(
+          {iconUrl: photoContent.url_t,
+          iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
+        );
+        // Create and add marker to the map
+        var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
+        marker.bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + info.photo.owner.nsid + '">' + info.photo.owner.username + '</a></small>');
+        marker.addTo(layerGroup)
+      });
+    }
+  });
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
 	function gatherBounds() {
 		var checkedLayers = [];
 		var allLayers = [
-			WeHa11,
-			WeHa25,
-			WeHa50
+			fysm20160911
+			// add comma before others
 		];
 
 		for (l in allLayers) {

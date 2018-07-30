@@ -9,12 +9,15 @@
 	<!-- load Bootstrap CSS for mobile devices -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
-	<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 	<!-- load jQuery  -->
-	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
 	<!-- Load Esri Leaflet -->
-	<script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.2/esri-leaflet.js"></script>
+	<!-- <script src="https://unpkg.com/esri-leaflet@2.0.6"></script> -->
 	<!-- load Font-Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<!-- load Leaflet.locatecontrol -->
@@ -43,17 +46,17 @@
 	<script>
 
 	var map = L.map('map', {
-		center: [48.29, -122.64],
+		center: [42.344784, -74.211066],
 		zoom: 8,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
 	});
 
 	map.attributionControl
-	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode'>code on GitHub</a>, made with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
+	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a>, made with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
 
 	var controlLayers = L.control.layers( null, null, {
-	  position: "topleft",
+	  position: "topright",
 	  collapsed: false
 	}).addTo(map);
 
@@ -61,17 +64,34 @@
 
 	L.control.scale().addTo(map);
 
-	var Esri_WorldTopoMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri'
+	var lightAll = new L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+	    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
 	}).addTo(map);
+	// controlLayers.addBaseLayer(lightAll, 'Streets Gray');
 
-	var Seattle2014 = new L.GPX("routes/Seattle2014-Route.gpx", {
-		color: 'blue'
-	}).addTo(map);
-	controlLayers.addOverlay(Seattle2014, 'Seattle 2014 loop');
+  function style(feature) {
+    return {
+      color: "blue",
+      weight: 3,
+    };
+  }
+
+  function onEachFeature(feature, layer) {
+    var popupText = feature.properties.name
+    + "<br>Distance: " + feature.properties.desc;
+    layer.bindPopup(popupText);
+  }
+
+  $.getJSON("routes/morrisville2017.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'Morrisville NY to West Hartford CT 2017');
+  });
 
 	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
-	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=Seattle2014&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
+	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&text=Morrisville2017&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
 
 	// Define the flickr popup display
 	// ** TO DO: Rewrite link to view original source photo directly on Flickr

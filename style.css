@@ -1,12 +1,68 @@
-body { margin:0; padding:0; }
-#map { position:absolute; top:0; bottom:0; width:100%; }
+body {
+  margin: 0;
+  padding: 0;
+}
 
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Slide menu button with question circle and locate button */
+.leaflet-control-slidemenu a,
+.leaflet-control-locate a,
+.leaflet-control-layers a {
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  font-size: 2em;
+}
+
+/* Locate button color */
+.leaflet-control-locate a {
+  color: #00f !important;
+}
+
+/* Gray outline to compass icon for mobile devices */
+.leaflet-touch .leaflet-compass {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Line mileage distance markers and colors */
 .dist-marker {
 	font-size: 14px;
-	border: 1px solid #777;
-	border-radius: 12px;
+  line-height: 18px;
+  font-weight: bold;
 	text-align: center;
-	color: #000;
-	background: #fff;
-	padding: 1px 19px 19px 3px;
+	color: #fff;
+  height: 18px !important;
+  width: 18px !important;
+  border-radius: 9px;
+}
+
+/* Background colors of distance markers and colored lines */
+/* Match with route colors defined in html */
+.bg-blue { background: blue; }
+.bg-green { background: green; }
+.bg-black { background: black; }
+.bg-yellow { background: #ff9900; }
+.bg-pink { background: #f39; }
+.bg-orange { background: orange;}
+
+/* title and colored lines in layer control */
+#mapTitle {
+  margin: 5px 0 5px 0;
+}
+
+.color-line {
+  display: inline-block;
+  vertical-align: middle;
+  height: 5px;
+  width: 25px;
+}
+
+.leaflet-popup-content img {
+  width: 100%;
 }
