@@ -50,6 +50,7 @@ Web map embedded in a Weebly site
 - Leaflet.SlideMenu to display sidebar at https://github.com/unbam/Leaflet.SlideMenu (BSD license)
 - Leaflet-distance-markers to display mileage icons for GPX at https://github.com/adoroszlai/leaflet-distance-markers (MIT license, June 2016)
   - requires https://github.com/makinacorpus/Leaflet.GeometryUtil
+- Leaflet.Textpath to display arrows on complex routes https://github.com/makinacorpus/Leaflet.TextPath (MIT license)
 - Mapzen leaflet-geocoder to search locations (requires free API key) https://github.com/mapzen/leaflet-geocoder (MIT license)
 - Thanks @ilyankou for gatherBounds function, marker styling, CSS improvements
 
