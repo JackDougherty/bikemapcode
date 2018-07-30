@@ -34,6 +34,10 @@
 	<!-- Load leaflet-geocoder to search locations-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.9.3/leaflet-geocoder-mapzen.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.9.3/leaflet-geocoder-mapzen.js"></script>
+
+  <!-- Load text-path Leaflet plugin to add arrows to polylines -->
+  <script src="src/polyline-textpath.js"></script>
+
 	<!-- load compass from local directory -->
 	<link rel="stylesheet" href="src/leaflet-compass.css"/>
 	<script src="src/leaflet-compass.js"></script>
@@ -110,19 +114,20 @@
 	var hallhs = new L.GPX("routes/wh-hall-high-school.gpx", {
 		color: 'green',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
-	}).addTo(map);
+	}).setText('>', {repeat: true, attributes: {fill: 'white'}}).addTo(map);
 	controlLayers.addOverlay(hallhs, 'Green <i class="color-line bg-green"></i>');
 
 	var westmoor = new L.GPX("routes/wh-westmoor-park.gpx", {
 		color: 'orange',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-orange'} // meters per mile; bgcolor defined in style.css
-	}).addTo(map);
+	}).setText('>', {repeat: true, attributes: {fill: 'white'} }).addTo(map);
+
 	controlLayers.addOverlay(westmoor, 'Orange <i class="color-line bg-orange"></i>');
 
 	var beechland = new L.GPX("routes/wh-beechland-park.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
-	}).addTo(map);
+	}).setText('>', {repeat: true, attributes: {fill: 'white'}}).addTo(map);
 	controlLayers.addOverlay(beechland, 'Blue <i class="color-line bg-blue"></i>');
 
 	// Thanks @ilyankou for gatherBounds function; update layer names
