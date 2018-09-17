@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Discover New Britain 2016</title>
+	<title>Discover New Britain 2018</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico">
@@ -51,7 +51,7 @@
 
 	// option: add links to download GPX files
 	map.attributionControl
-	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | Cue sheets and GPX <a href='https://ridewithgps.com/routes/9992612' target='_blank'>10 mi</a> - <a href='https://ridewithgps.com/routes/9992109' target='_blank'>25 mi</a> - <a href='https://ridewithgps.com/routes/9977409' target='_blank'>50 mi</a>");
+	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | Cue sheets and GPX <a href='https://ridewithgps.com/routes/28572312' target='_blank'>10 mi</a> - <a href='https://ridewithgps.com/routes/28572135' target='_blank'>25 mi</a> - <a href='https://ridewithgps.com/routes/28518844' target='_blank'>50 mi</a>");
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
@@ -86,7 +86,7 @@
 	slideMenu.setContents(contents);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Discover New Britain 2016</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Discover New Britain 2018</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayer
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -94,19 +94,19 @@
 	}).addTo(map);
 
 	// route overlays
-	var nb10 = new L.GPX("routes/nb2016-10.gpx", {
+	var nb10 = new L.GPX("routes/nb2018-10.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(nb10, '10 mile route <i class="color-line bg-blue"></i>');
 
-	var nb25 = new L.GPX("routes/nb2016-25.gpx", {
+	var nb25 = new L.GPX("routes/nb2018-25.gpx", {
 		color: '#ff9900',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-yellow'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(nb25, '25 mile route <i class="color-line bg-yellow"></i>');
 
-	var nb50 = new L.GPX("routes/nb2016-50.gpx", {
+	var nb50 = new L.GPX("routes/nb2018-50.gpx", {
 		color: '#ff3399',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
 	});
