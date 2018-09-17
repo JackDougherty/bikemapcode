@@ -103,22 +103,22 @@
 
 	// route overlays
 	var nb10 = new L.GPX("routes/nb2018-10.gpx", {
-		color: 'blue',
-		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
+		color: '#ff3399',
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(nb10, '10 mile route <i class="color-line bg-blue"></i>');
+	controlLayers.addOverlay(nb10, '10 mile route <i class="color-line bg-pink"></i>');
 
 	var nb25 = new L.GPX("routes/nb2018-25.gpx", {
+		color: 'blue',
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
+	});
+	controlLayers.addOverlay(nb25, '25 mile route <i class="color-line bg-blue"></i>');
+
+	var nb50 = new L.GPX("routes/nb2018-50.gpx", {
 		color: '#ff9900',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-yellow'} // meters per mile; bgcolor defined in style.css
 	});
-	controlLayers.addOverlay(nb25, '25 mile route <i class="color-line bg-yellow"></i>');
-
-	var nb50 = new L.GPX("routes/nb2018-50.gpx", {
-		color: '#ff3399',
-		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(nb50, '50 mile route <i class="color-line bg-pink"></i>');
+	controlLayers.addOverlay(nb50, '50 mile route <i class="color-line bg-yellow"></i>');
 
 	var whnb = new L.GPX("routes/WeHa-NewBritain.gpx", {
 		color: 'black',
