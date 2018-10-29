@@ -25,6 +25,7 @@ Web map embedded in a Weebly site
 - http://www.bikewalkct.org/discover-ct-ride-series-20161.html
 
 ### Sample short links for bike events
+- bit.ly/pedal2medal (https://jackdougherty.github.io/bikemapcode/pedal2medal.html)
 - bit.ly/bikeweha (https://jackdougherty.github.io/bikemapcode/westhartford.html)
 - bit.ly/bikenewbrit (https://jackdougherty.github.io/bikemapcode/newbritain.html)
 - bit.ly/bikegbury (https://jackdougherty.github.io/bikemapcode/glastonbury.html)
