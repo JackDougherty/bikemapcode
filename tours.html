@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>bikemapcode tours</title>
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- load Bootstrap CSS for mobile devices -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Load Leaflet from a https CDN, not http. Look for updates at https://leafletjs.com/download.html -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
+	<!-- load jQuery  -->
+	<script
+  src="https://code.jquery.com/jquery-3.4.0.min.js"
+  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  crossorigin="anonymous"></script>
+	<!-- Load Esri Leaflet -->
+	<!-- <script src="https://unpkg.com/esri-leaflet@2.0.6"></script> -->
+	<!-- load Font-Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<!-- load Leaflet.locatecontrol -->
+	<script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.css"/>
+	<!-- load Leaflet-plugins to read GPX and KML -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/GPX.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/KML.min.js"></script>
+	<!-- Load leaflet-geocoder to search locations-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.js"></script>
+	<!-- load compass from local directory -->
+	<link rel="stylesheet" href="src/leaflet-compass.css"/>
+	<script src="src/leaflet-compass.js"></script>
+	<!-- load distance markers with geometry from local directory; see also style.css -->
+	<!-- <script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
+	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script> -->
+	<!-- load leaflet-sidebar from local directory -->
+	<link rel="stylesheet" href="src/L.Control.Sidebar.css" />
+	<script src="src/L.Control.Sidebar.js"></script>
+	<!-- load custom css -->
+	<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+
+	var dropdownLocations = [
+	  {
+	    name: 'Portland OR to Walla Walla WA 2019',
+	    coords: [45.749474, -120.532779],
+	    zoom: 10
+	  },
+		{
+	    name: 'Morrisville NY to Hartford CT 2017',
+	    coords: [42.344784, -74.211066],
+	    zoom: 8
+	  },
+		{
+			name: 'Florida loop 2017',
+			coords: [25.598192, -80.903098],
+			zoom: 8
+		},
+	  {
+	    name: 'P Tit Train du Nord, Quebec 2015',
+	    coords: [46.122481, -74.78],
+	    zoom: 8
+	  },
+		{
+			name: 'C&O - GAP Trail 2015',
+			coords: [39.65, -78.65],
+			zoom: 8
+		},
+		{
+			name: 'Portland loop 2014',
+			coords: [45.3, -123.438121],
+			zoom: 8
+		},
+		{
+			name: 'Seattle loop 2014',
+			coords: [48.29, -122.64],
+			zoom: 8
+		},
+		{
+			name: 'Oberlin OH to Central NY 2012',
+			coords: [42.275605, -79.271988],
+			zoom: 7
+		},
+	];
+
+	var map = L.map('map', {
+		center: [45.749474, -120.532779],
+		zoom: 8,
+	  zoomControl: false, // add later to reposition
+	  scrollWheelZoom: false
+	});
+
+	map.attributionControl
+	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a>, made with <a href='https://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
+
+	var controlLayers = L.control.layers( null, null, {
+	  position: "topright",
+	  collapsed: false
+	}).addTo(map);
+
+	new L.control.zoom({position: "bottomleft",}).addTo(map);
+
+	L.control.scale().addTo(map);
+
+	function disableMapInteractions() {
+	  map._handlers.forEach(function(handler) {
+	    handler.disable();
+	  });
+	}
+
+	function enableMapInteractions() {
+	  map._handlers.forEach(function(handler) {
+	    handler.enable();
+	  });
+	}
+
+	var dropdown = L.control({
+	  position: 'topleft'
+	});
+
+	var EsriStreets = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	}).addTo(map);
+
+  function style(feature) {
+    return {
+      color: "blue",
+      weight: 3,
+    };
+  }
+
+  function onEachFeature(feature, layer) {
+    var popupText = feature.properties.name
+    + "<br>Distance: " + feature.properties.desc;
+    layer.bindPopup(popupText);
+  }
+
+  $.getJSON("routes/pdx-ww2019.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: style,
+      onEachFeature: onEachFeature
+    }).addTo(map);
+    controlLayers.addOverlay(geoJsonLayer, 'PDX-WallaWalla 2019');
+  });
+
+	$.getJSON("routes/morrisville2017.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
+		controlLayers.addOverlay(geoJsonLayer, 'Morrisville NY to West Hartford CT 2017');
+	});
+
+	$.getJSON("routes/florida2017.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
+		controlLayers.addOverlay(geoJsonLayer, 'Florida tour 2017');
+	});
+
+	var quebec2015 = new L.GPX("routes/quebec2015.gpx", {
+		color: 'blue'
+	}).addTo(map);
+	controlLayers.addOverlay(quebec2015, "P'Tit Train du Nord, Quebec 2015");
+
+	var COGAP2015 = new L.GPX("routes/COGAP2015.gpx", {
+		color: 'blue'
+	}).addTo(map);
+	controlLayers.addOverlay(COGAP2015, 'C&O - GAP Trail 2015');
+
+	var Portland2014 = new L.GPX("routes/Portland2014.gpx", {
+		color: 'blue'
+	}).addTo(map);
+	controlLayers.addOverlay(Portland2014, 'Portland 2014 loop');
+
+	var Seattle2014 = new L.GPX("routes/Seattle2014-Route.gpx", {
+		color: 'blue'
+	}).addTo(map);
+	controlLayers.addOverlay(Seattle2014, 'Seattle 2014 loop');
+
+	var Oberlin2012 = new L.KML("routes/Oberlin2012.kml").addTo(map);
+	controlLayers.addOverlay(Oberlin2012, 'Oberlin OH to NYS 2012');
+
+	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
+	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&tag=pdxww2019&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
+
+	// Define the flickr popup display
+	// ** TO DO: Rewrite link to view original source photo directly on Flickr
+	// ** POSSIBLY include this code directly in the functions below for easier sequencing by novices
+	var popupHTML = function(photo){
+	  var result = "";
+	      result = '<strong>'+photo.title+'</strong><br>';
+	      result += '<a href="'+photo.url_m+'" target="_blank">';
+	      result += '<img src="'+photo.url_s+'"></a>';      //was url_t; want url_s; can change to url_m if desired, but frame needs work
+	      result += '<br/><small>click image to enlarge in new tab</small>';
+	      return result;
+	}
+
+	// Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
+	$.getJSON(flickrURL, function (data) {
+	  // Create new layerGroup for the markers, with option to append ".addTo(map);" to display by default
+	  var layerGroup = new L.LayerGroup().addTo(map);
+	  // Add layerGroup to your layer control and insert your label to appear in legend
+	  controlLayers.addOverlay(layerGroup, 'Flickr photo icons');
+	  // Start a loop to insert flickr photo data into photoContent
+	  for (var i = 0; i < data.photos.photo.length; i++) {
+	    var photoContent = data.photos.photo[i];
+	    var photoIcon = L.icon(
+	      {iconUrl: photoContent.url_t,
+	      iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
+	    );
+	    var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
+	    marker.bindPopup(popupHTML(photoContent));
+	    // Add the marker to the layerGroup
+	    marker.addTo(layerGroup);
+	  }
+	});
+
+	function fly() {
+	  disableMapInteractions();
+	  var index = document.getElementById('dropdown').selectedIndex;
+	  var place = dropdownLocations[index];
+	  map.flyTo(place.coords, place.zoom);
+	  map.on('zoomend', function() {
+	    enableMapInteractions();
+	  });
+	}
+
+	dropdown.onAdd = function(map) {
+	    var div = L.DomUtil.create('div', 'dropdown-container');
+	    var options = '';
+	    for (i in dropdownLocations) {
+	      options += '<option value=' + i + '>' + dropdownLocations[i].name + '</option>'
+	    }
+	    div.innerHTML = '<select id="dropdown" onchange="fly()">' + options + '</select>';
+	    div.innerHTML += '<i class="fa fa-caret-down"></i>';
+	    return div;
+	};
+	dropdown.addTo(map);
+
+	</script>
+</body>
+</html>

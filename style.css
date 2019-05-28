@@ -66,3 +66,30 @@ body {
 .leaflet-popup-content img {
   width: 100%;
 }
+
+.dropdown-container i {
+  position: absolute;
+  font-size: 16px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-7px);
+  color: #777;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+#dropdown {
+  background: white;
+  padding: 7px 14px;
+  padding-right: 30px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
+}
+
+#dropdown:hover {
+  cursor: pointer;
+  background: #f4f4f4;
+}
