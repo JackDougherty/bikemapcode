@@ -51,6 +51,8 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 - ask Ilya about way to include Dropdown menu name in URL, similar to leaflet-hash
 - ask Ilya about automatically detecting bounds to limit Flickr photos via bbox, similar to fitBounds
 - see https://www.flickr.com/services/api/flickr.photos.search.htm
+- remove all Mapzen refs
+- update all dependencies
 
 ## Reminders
 - Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)
