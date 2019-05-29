@@ -3,8 +3,9 @@ bikemapcode
 
 Mobile-friendly web maps created with open-source Leaflet templates.
 - Show multiple color-coded routes (uploaded as GPX or GeoJSON files)
-- Allow users to find their location on desktops or smartphones
-- Display geotagged Flickr photos from your journeys
+- Two templates:
+  - Dropdown menu of bike tours, with geotagged Flickr photos (index.html)
+  - Checkbox menu of bike routes, with find-your-location on smartphones or desktop (westhartford.html)
 - Host your map on a free GitHub Pages site or your own website (see http://DataVizForAll.org)
 
 ## What the tool does NOT do:
@@ -13,28 +14,20 @@ Mobile-friendly web maps created with open-source Leaflet templates.
 
 Distributed as-is with no warranty under [an MIT license](https://raw.githubusercontent.com/JackDougherty/bikemapcode/master/LICENSE). Feedback and code contributions welcome on GitHub or email to [jack.dougherty@trincoll.edu](mailto:jack.dougherty@trincoll.edu)
 
-## Link(s) to Bike tours with Flickr photos
-- https://jackdougherty.github.io/bikemapcode/   PENDING, make index.html
-- https://jackdougherty.github.io/bikemapcode/quebec2015.html
-- https://jackdougherty.github.io/bikemapcode/COGAP2015.html
-- https://jackdougherty.github.io/bikemapcode/ECG2014.html
-- https://jackdougherty.github.io/bikemapcode/portland2014.html
-- https://jackdougherty.github.io/bikemapcode/seattle2014.html
-- https://jackdougherty.github.io/bikemapcode/oberlin2012.html
+# Demos
 
-### Sample shortened links for Hartford-area bike events
+## Dropdrown menu of bike tours
+- https://jackdougherty.github.io/bikemapcode/index.html
+
+## Checkbox menu of bike routes (with shortened links)
 - bit.ly/pedal2medal (https://jackdougherty.github.io/bikemapcode/pedal2medal.html)
 - bit.ly/bikeweha (https://jackdougherty.github.io/bikemapcode/westhartford.html)
 - bit.ly/bikenewbrit (https://jackdougherty.github.io/bikemapcode/newbritain.html)
 - bit.ly/bikegbury (https://jackdougherty.github.io/bikemapcode/glastonbury.html)
 - bit.ly/bikemapjack (https://jackdougherty.github.io/bikemapcode/index.html)
 
-### Web map embedded in a WordPress.org site
+## Web map embedded in a WordPress.org site
 - http://jackbikes.org/2015/08/join-new-britain-ride/
-
-### Web map embedded in a Weebly site
-- http://www.bikewesthartford.org/interactive-map.html
-- http://www.bikewalkct.org/discover-ct-ride-series-20161.html
 
 ## Code credits and open-source licenses
 - Thanks @ilyankou for gatherBounds function, marker styling, CSS improvements, dropdown menu, and teaching me how to code
@@ -52,16 +45,12 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 
 
 ## To Do
-- finish testing https://jackdougherty.github.io/bikemapcode/tours.html
-- change tours.html to index.html (?)
-- update all Flickr photo tags to "bikemap" and change tag in code to match
-- remove control layer route labels and basemap layer label
-- vary route colors in same location
-- ask Ilya about way to include Dropdown menu name in URL, or simply use leaflet-hash to point to specific area on map (but dropdown menu would not match?)
-- add fitBounds for tours?
-- update README to show two different templates
-  - bike tour with photos
-  - local rides with multiple routes
+- condense bike tour routes into GPX files
+- vary colors
+- add start marker, with link to WordPress page
+- ask Ilya about way to include Dropdown menu name in URL, similar to leaflet-hash
+- ask Ilya about automatically detecting bounds to limit Flickr photos via bbox, similar to fitBounds
+- see https://www.flickr.com/services/api/flickr.photos.search.htm
 
 ## Reminders
 - Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)

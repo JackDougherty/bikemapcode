@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>bikemapcode</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- load Bootstrap CSS for mobile devices -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css"/>
+	<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+	<!-- load jQuery  -->
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<!-- Load Esri Leaflet -->
+	<script src="https://cdn.jsdelivr.net/leaflet.esri/2.0.2/esri-leaflet.js"></script>
+	<!-- load Font-Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+	<!-- load Leaflet.locatecontrol -->
+	<script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.css"/>
+	<!-- load Leaflet-plugins to read GPX and KML -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/GPX.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/KML.min.js"></script>
+	<!-- Load leaflet-geocoder to search locations-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.js"></script>
+	<!-- load compass from local directory -->
+	<link rel="stylesheet" href="src/leaflet-compass.css"/>
+	<script src="src/leaflet-compass.js"></script>
+	<!-- load distance markers with geometry from local directory; see also style.css -->
+	<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
+	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
+	<!-- load Leaflet.SlideMenu from local directory -->
+	<link rel="stylesheet" href="src/L.Control.SlideMenu.css" />
+	<script src="src/L.Control.SlideMenu.js"></script>
+	<!-- load custom css -->
+	<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="map"></div>
+	<script>
+	var map = L.map('map', {
+	  center: [41.762696, -72.738679],
+	  zoom: 13,
+	  zoomControl: false, // add later to reposition
+	  scrollWheelZoom: false
+	});
+
+	map.attributionControl
+	.setPrefix("View <a href='http://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> with <a href='http://leafletjs.com' title='A JS library for interactive maps'>Leaflet</a>");
+
+	var controlLayers = L.control.layers( null, null, {
+	  position: "topleft",
+	  collapsed: true
+	}).addTo(map);
+
+	L.control.locate({
+		locateOptions: {maxZoom: 16}, // default = 18
+		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
+	}).addTo(map);
+
+	map.addControl( new L.Control.Compass({position: "topleft"}) );
+
+	new L.control.zoom({position: "topleft",}).addTo(map);
+
+	L.control.scale().addTo(map);
+
+	// slide menu contents and position
+	var contents = '<h4>BikeMapCode</h4>';
+	contents += '<h5>Mobile-friendly web maps<br>with open-source templates</h5>';
+	contents += '<p>Link to <a href="https://github.com/JackDougherty/bikemapcode">code and instructions on GitHub</a></p>';
+	contents += '<img src="images/BikeMapCodeKey.png" alt="BikeMapCode key" width="196" height="299">';
+	contents += '<p>Distributed as-is with no warranty</p>';
+	contents += '<p>Stop your bike in a safe place before using</p>';
+	contents += '<p>Requires internet access to view maps and location</p>';
+	contents += '<p>Allow smartphone browser to show your location<br> - iPhone > Settings > Privacy > Location Services (On) > Safari (While Using)<br> - Android (to come)</p>';
+	contents += '<p>Click OK if browser asks permission to show your location</p>';
+	contents += '<img src="images/AllowCurrentLocation.png" alt="Allow Current Location screen" width="200" height="123">';
+	contents += '<h5>Open Cycle Map layer legend</h5>';
+	contents += '<img src="images/OpenCycleMapKey.png" alt="OpenCycleMap key" width="290" height="438">';
+	var slideMenu = L.control.slideMenu('', {position: 'topright', width: '300px', height: '100%', delay: '1'}).addTo(map);
+	slideMenu.setContents(contents);
+
+	// insert map title at top of layer control
+	$('<h6 id="mapTitle">BikeMapCode sample</h6>').insertBefore('div.leaflet-control-layers-base');
+
+	// SAMPLE BASELAYERS
+
+	// get your own Open Cycle Map API key
+	var OCM = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey=1d12526533cd4f0f9f1e166c7bb855d7', {
+		attribution: 'Maps &copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+	}).addTo(map);
+	controlLayers.addBaseLayer(OCM, 'Open Cycle Map');
+
+	var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	});
+	controlLayers.addBaseLayer(OSM, 'Open Street Map');
+
+	var lightAll = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+	});
+	controlLayers.addBaseLayer(lightAll, 'CartoDB Light Map');
+
+	var EsriStreets = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	});
+	controlLayers.addBaseLayer(EsriStreets, 'Esri Streets');
+
+	var EsriTopo = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	});
+	controlLayers.addBaseLayer(EsriTopo, 'Esri Topographic');
+
+	// SAMPLE OVERLAYS
+
+	var WeHa11 = new L.GPX("routes/WeHa2015-11.gpx", {
+		color: 'blue',
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
+	}).addTo(map);
+	controlLayers.addOverlay(WeHa11, 'West Hartford 11 mile <i class="color-line bg-blue"></i>');
+
+	var WeHa25 = new L.GPX("routes/WeHa2015-25.gpx", {
+		color: 'green',
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-green'} // meters per mile; bgcolor defined in style.css
+	});
+	controlLayers.addOverlay(WeHa25, 'West Hartford 25 mile <i class="color-line bg-green"></i>');
+
+	var WeHa50 = new L.GPX("routes/WeHa2015-50.gpx", {
+		color: '#ff3399',
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
+	});
+	controlLayers.addOverlay(WeHa50, 'West Hartford 50 mile <i class="color-line bg-pink"></i>');
+
+	// Thanks @ilyankou for gatherBounds function; update layer names
+	function gatherBounds() {
+		var checkedLayers = [];
+		var allLayers = [
+			WeHa11,
+			WeHa25,
+			WeHa50
+		];
+
+		for (l in allLayers) {
+			if (map.hasLayer(allLayers[l])) {
+				checkedLayers.push(allLayers[l]);
+			}
+		}
+
+		if (checkedLayers.length > 0) {
+			map.fitBounds(L.featureGroup(checkedLayers).getBounds());
+		}
+	}
+
+	map.on('layeradd', function() {
+		gatherBounds();
+	});
+
+	map.on('layerremove', function() {
+		gatherBounds();
+	});
+
+	</script>
+</body>
+</html>
