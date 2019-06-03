@@ -22,6 +22,7 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 ## Checkbox menu of bike routes (with shortened links)
 - bit.ly/pedal2medal (https://jackdougherty.github.io/bikemapcode/pedal2medal.html)
 - bit.ly/bikeweha (https://jackdougherty.github.io/bikemapcode/westhartford.html)
+- bit.ly/bikefv2019 (http://jackdougherty.github.io/bikemapcode/fallsvillage.html)
 - bit.ly/bikenewbrit (https://jackdougherty.github.io/bikemapcode/newbritain.html)
 - bit.ly/bikegbury (https://jackdougherty.github.io/bikemapcode/glastonbury.html)
 - bit.ly/bikemapjack (https://jackdougherty.github.io/bikemapcode/index.html)
