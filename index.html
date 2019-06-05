@@ -51,7 +51,7 @@
 
 	var dropdownLocations = [
 		{
-			name: 'Select a bike tour',
+			name: 'Select a bike tour and click marker/route',
 			coords: [40.1,-95.9],
 			zoom: 4
 		},
@@ -71,7 +71,7 @@
 			zoom: 8
 		},
 	  {
-	    name: 'P Tit Train du Nord, Quebec 2015',
+	    name: "Le P'tit Train du Nord, Quebec 2015",
 	    coords: [46.122481, -74.78],
 	    zoom: 8
 	  },
@@ -86,7 +86,7 @@
 			zoom: 8
 		},
 		{
-			name: 'Oregon loop 2014',
+			name: 'Portland Oregon Coast loop 2014',
 			coords: [45.3, -123.438121],
 			zoom: 8
 		},
@@ -141,66 +141,74 @@
 		attribution: 'Tiles &copy; Esri'
 	}).addTo(map);
 
-  function style(feature) {
-    return {
-      color: "blue",
-      weight: 3,
-    };
-  }
-
   function onEachFeature(feature, layer) {
     var popupText = feature.properties.name
-    + "<br>Distance: " + feature.properties.desc;
+    + "<br><a href='" + feature.properties.desc +"' target='_blank'>Read blog post</a> (opens new tab)";
     layer.bindPopup(popupText);
   }
 
   $.getJSON("routes/pdx-ww2019.geojson", function (data){
     var geoJsonLayer = L.geoJson(data, {
-      style: style,
+      style: {color: "red", weight: 3 },
       onEachFeature: onEachFeature
     }).addTo(map);
   });
 
 	$.getJSON("routes/morrisville2017.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
-			style: style,
+			style: {color: "blue", weight: 3 },
 			onEachFeature: onEachFeature
 		}).addTo(map);
 	});
 
-	$.getJSON("routes/florida2017.geojson", function (data){
+	$.getJSON("routes/florida-tour-2017.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
-			style: style,
+			style: {color: "blue", weight: 3 },
 			onEachFeature: onEachFeature
 		}).addTo(map);
 	});
 
-	var quebec2015 = new L.GPX("routes/quebec2015.gpx", {
-		color: 'blue'
-	}).addTo(map);
+	$.getJSON("routes/quebec2015.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "blue", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
-	var COGAP2015 = new L.GPX("routes/COGAP2015.gpx", {
-		color: 'blue'
-	}).addTo(map);
+	$.getJSON("routes/COGAP2015.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "blue", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
-	var Day1 = new L.GPX("routes/ECG2014Day1.gpx").addTo(map);
-	var Day2a = new L.GPX("routes/ECG2014Day2a.gpx").addTo(map);
-	var Day2b = new L.GPX("routes/ECG2014Day2b.gpx").addTo(map);
-	var Day3 = new L.GPX("routes/ECG2014Day3.gpx").addTo(map);
-	var Day4 = new L.GPX("routes/ECG2014Day4.gpx").addTo(map);
-	var Day5 = new L.GPX("routes/ECG2014Day5.gpx").addTo(map);
-	var Day6 = new L.GPX("routes/ECG2014Day6.gpx").addTo(map);
-	var Day7 = new L.GPX("routes/ECG2014Day7.gpx").addTo(map);
+	$.getJSON("routes/ecg-philly-dc-2014.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "red", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
-	var Portland2014 = new L.GPX("routes/Portland2014.gpx", {
-		color: 'blue'
-	}).addTo(map);
+	$.getJSON("routes/portland-or-loop-2014.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "blue", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
-	var Seattle2014 = new L.GPX("routes/Seattle2014-Route.gpx", {
-		color: 'blue'
-	}).addTo(map);
+	$.getJSON("routes/seattle-loop-2014.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: {color: "green", weight: 3 },
+      onEachFeature: onEachFeature
+    }).addTo(map);
+  });
 
-	var Oberlin2012 = new L.KML("routes/Oberlin2012.kml").addTo(map);
+	$.getJSON("routes/oberlin-cny-2012.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "red", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
 	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results
 	var flickrURL = "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=25dcc9a8c7410551dcb0af48c778bde5&user_id=56513965%40N06&tag=bikemap&per_page=500&extras=geo%2Curl_t%2Curl_s%2Curl_m%2Ctitle&format=json&nojsoncallback=1";
