@@ -61,6 +61,16 @@
 	    zoom: 8
 	  },
 		{
+			name: 'Hartford to Cambridge MA 2018',
+			coords: [42.275562,-71.9478181],
+			zoom: 8
+		},
+		{
+			name: 'Hartford to Cape Cod 2018',
+			coords: [41.817699,-71.6067407],
+			zoom: 8
+		},
+		{
 	    name: 'Morrisville NY to Hartford CT 2017',
 	    coords: [42.344784, -74.211066],
 	    zoom: 8
@@ -153,6 +163,20 @@
       onEachFeature: onEachFeature
     }).addTo(map);
   });
+
+	$.getJSON("routes/htfd-cambridge-2018.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "green", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
+
+	$.getJSON("routes/htfd-falmouth-2018.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "red", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
 	$.getJSON("routes/morrisville2017.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
