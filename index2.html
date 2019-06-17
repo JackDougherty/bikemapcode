@@ -237,39 +237,50 @@
 		}).addTo(map);
 	});
 
-	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results; increase limit to 500 images; pull geo and thumbnail, small, large image links and title
-	var flickrApiKey = '25dcc9a8c7410551dcb0af48c778bde5';
-	var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + flickrApiKey + '&user_id=56513965%40N06&tag=bikemap&per_page=500&extras=geo%2Curl_t%2Curl_s%2Curl_l%2Ctitle&format=json&nojsoncallback=1';
+	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results; increase limit to 500 images
+  var flickrApiKey = '25dcc9a8c7410551dcb0af48c778bde5';
 
-	// Define the flickr popup display
-	var popupHTML = function(photo){
-	  var result = '';
-	      result = '<strong>'+photo.title+'</strong><br>';
-	      result += '<a href="'+photo.url_l+'" target="_blank">';
-	      result += '<img src="'+photo.url_s+'"></a>';
-	      result += '<br/><small>click image to enlarge in new tab</small>';
-	      return result;
-	}
+  var flickrURL = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=' + flickrApiKey + '&user_id=56513965%40N06&tag=bikemap&per_page=500&extras=geo%2Curl_t%2Curl_s%2Curl_l%2Ctitle&format=json&nojsoncallback=1';
 
-	// Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
-	$.getJSON(flickrURL, function (data) {
-	  // Create new layerGroup for the markers, with option to append ".addTo(map);" to display by default
-	  var layerGroup = new L.LayerGroup();
-	  // Add layerGroup to your layer control and insert your label to appear in legend
-	  controlLayers.addOverlay(layerGroup, 'Photos');
-	  // Start a loop to insert flickr photo data into photoContent
-	  for (var i = 0; i < data.photos.photo.length; i++) {
-	    var photoContent = data.photos.photo[i];
-	    var photoIcon = L.icon(
-	      {iconUrl: photoContent.url_t,
-	      iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
-	    );
-	    var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
-	    marker.bindPopup(popupHTML(photoContent));
-	    // Add the marker to the layerGroup
-	    marker.addTo(layerGroup);
-	  }
-	});
+  // Define the flickr popup display
+  var popupHTML = function(photo) {
+    var result = '';
+        result = '<strong>' + photo.title + '</strong><br>';
+        result += '<a href="' + photo.url_l + '" target="_blank">';
+        result += '<img src="' + photo.url_s + '"></a>';  //was url_t; want url_s; can change to url_m if desired, but frame needs work
+        result += '<br><small>click image to enlarge in new tab';
+        return result;
+  }
+
+  var photos = {};
+
+  // Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
+  $.getJSON(flickrURL, function (data) {
+    // Create new layerGroup for the markers, with option to append ".addTo(map);" to display by default
+    var layerGroup = new L.LayerGroup();
+    // Add layerGroup to your layer control and insert your label to appear in legend
+    controlLayers.addOverlay(layerGroup, 'Photos');
+    // Start a loop to insert flickr photo data into photoContent
+    for (var i = 0; i < data.photos.photo.length; i++) {
+      var photoContent = data.photos.photo[i];
+      photos[photoContent.id.toString()] = photoContent;
+
+      var flickrGetOwner = 'https://api.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=' + flickrApiKey + '&photo_id=' + photoContent.id + '&format=json&nojsoncallback=1';
+      // Another API request to get the author's name by photo id
+      $.getJSON(flickrGetOwner, function(info) {
+        var photoContent = photos[info.photo.id];
+        // Create an icon (a small photo)
+        var photoIcon = L.icon(
+          {iconUrl: photoContent.url_t,
+          iconSize: [photoContent.width_t * 0.5, photoContent.height_t * 0.5]}  //reduces thumbnails 50%
+        );
+        // Create and add marker to the map
+        var marker = new L.marker([photoContent.latitude, photoContent.longitude], {icon: photoIcon});
+        marker.bindPopup(popupHTML(photoContent) + '<br>Photo Credit: <a href="https://www.flickr.com/photos/' + info.photo.owner.nsid + '">' + info.photo.owner.username + '</a></small>');
+        marker.addTo(layerGroup)
+      });
+    }
+  });
 
 	function fly() {
 	  disableMapInteractions();
