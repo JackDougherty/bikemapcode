@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Discover New Britain 2018</title>
+	<title>Discover New Britain 2019</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- load Bootstrap CSS for mobile devices -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Load Leaflet from a https CDN, not http. Look for updates at http://leafletjs.com/download.html -->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
-  	integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-  	crossorigin=""/>
-	<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
-  	integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
-  	crossorigin=""></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+		  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+		  crossorigin=""></script>
 	<!-- load jQuery  -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-  	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    	crossorigin="anonymous"></script>
 	<!-- Load Esri Leaflet -->
-	<script src="https://unpkg.com/esri-leaflet@2.2.3/dist/esri-leaflet.js"
-    integrity="sha512-YZ6b5bXRVwipfqul5krehD9qlbJzc6KOGXYsDjU9HHXW2gK57xmWl2gU6nAegiErAqFXhygKIsWPKbjLPXVb2g=="
-    crossorigin=""></script>
+	<script src="https://unpkg.com/esri-leaflet@2.2.4/dist/esri-leaflet.js"
+       integrity="sha512-tyPum7h2h36X52O2gz+Pe8z/3l+Y9S1yEUscbVs5r5aEY5dFmP1WWRY/WLLElnFHa+k1JBQZSCDGwEAnm2IxAQ=="
+       crossorigin=""></script>
 	<!-- load Font-Awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<!-- load Leaflet.locatecontrol https://github.com/domoritz/leaflet-locatecontrol -->
@@ -59,7 +59,7 @@
 
 	// option: add links to download GPX files
 	map.attributionControl
-	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | Cue sheets and GPX <a href='https://ridewithgps.com/routes/28572312' target='_blank'>10 mi</a> - <a href='https://ridewithgps.com/routes/28572135' target='_blank'>25 mi</a> - <a href='https://ridewithgps.com/routes/28518844' target='_blank'>50 mi</a>");
+	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | Cue sheets and GPX <a href='https://ridewithgps.com/routes/30768400' target='_blank'>10 mi</a> - <a href='https://ridewithgps.com/routes/30768306' target='_blank'>25 mi</a> - <a href='https://ridewithgps.com/routes/30768143' target='_blank'>50 mi</a>");
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
@@ -94,7 +94,7 @@
 	slideMenu.setContents(contents);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Discover New Britain 2018</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Discover New Britain 2019</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayer
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -102,23 +102,23 @@
 	}).addTo(map);
 
 	// route overlays
-	var nb10 = new L.GPX("routes/nb2018-10.gpx", {
-		color: '#ff3399',
-		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
+	var nb10 = new L.GPX("routes/nb2019-10.gpx", {
+		color: '#ff9900',
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-yellow'} // meters per mile; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(nb10, '10 mile route <i class="color-line bg-pink"></i>');
+	controlLayers.addOverlay(nb10, '10 mile route <i class="color-line bg-yellow"></i>');
 
-	var nb25 = new L.GPX("routes/nb2018-25.gpx", {
+	var nb25 = new L.GPX("routes/nb2019-25.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-blue'} // meters per mile; bgcolor defined in style.css
 	});
 	controlLayers.addOverlay(nb25, '25 mile route <i class="color-line bg-blue"></i>');
 
-	var nb50 = new L.GPX("routes/nb2018-50.gpx", {
-		color: '#ff9900',
-		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-yellow'} // meters per mile; bgcolor defined in style.css
+	var nb50 = new L.GPX("routes/nb2019-50.gpx", {
+		color: '#ff3399',
+		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-pink'} // meters per mile; bgcolor defined in style.css
 	});
-	controlLayers.addOverlay(nb50, '50 mile route <i class="color-line bg-yellow"></i>');
+	controlLayers.addOverlay(nb50, '50 mile route <i class="color-line bg-pink"></i>');
 
 	var whnb = new L.GPX("routes/WeHa-NewBritain.gpx", {
 		color: 'black',
