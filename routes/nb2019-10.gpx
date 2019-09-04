@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd" version="1.1" creator="http://ridewithgps.com/">
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xmlns:gpxdata="http://www.cluetrust.com/XML/GPXDATA/1/0" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.cluetrust.com/XML/GPXDATA/1/0 http://www.cluetrust.com/Schemas/gpxdata10.xsd" version="1.1" creator="http://ridewithgps.com/">
   <metadata>
     <name>DiscoverCT "10"  mi. route 2019</name>
     <link href="https://ridewithgps.com/routes/30768400">
@@ -826,41 +826,32 @@
       <trkpt lat="41.68351" lon="-72.79369">
         <ele>101.8</ele>
       </trkpt>
+      <trkpt lat="41.683471" lon="-72.793572">
+        <ele>101.8</ele>
+      </trkpt>
+      <trkpt lat="41.68347" lon="-72.79357">
+        <ele>101.8</ele>
+      </trkpt>
       <trkpt lat="41.68344" lon="-72.79348">
         <ele>101.7</ele>
       </trkpt>
-      <trkpt lat="41.68343" lon="-72.79337">
-        <ele>101.6</ele>
+      <trkpt lat="41.68344" lon="-72.79348">
+        <ele>101.7</ele>
       </trkpt>
-      <trkpt lat="41.68343" lon="-72.79328">
-        <ele>101.6</ele>
+      <trkpt lat="41.68274" lon="-72.7936">
+        <ele>102.4</ele>
       </trkpt>
-      <trkpt lat="41.68343" lon="-72.79321">
-        <ele>101.5</ele>
+      <trkpt lat="41.68224" lon="-72.79368">
+        <ele>103.4</ele>
       </trkpt>
-      <trkpt lat="41.68344" lon="-72.7930499">
-        <ele>101.4</ele>
+      <trkpt lat="41.68224" lon="-72.79368">
+        <ele>103.4</ele>
       </trkpt>
-      <trkpt lat="41.68345" lon="-72.7928699">
-        <ele>101.3</ele>
+      <trkpt lat="41.68224" lon="-72.79255">
+        <ele>101.0</ele>
       </trkpt>
-      <trkpt lat="41.68348" lon="-72.79268">
-        <ele>101.2</ele>
-      </trkpt>
-      <trkpt lat="41.68348" lon="-72.79268">
-        <ele>101.2</ele>
-      </trkpt>
-      <trkpt lat="41.6831699" lon="-72.79253">
-        <ele>100.5</ele>
-      </trkpt>
-      <trkpt lat="41.683" lon="-72.79247">
-        <ele>100.4</ele>
-      </trkpt>
-      <trkpt lat="41.68285" lon="-72.79245">
-        <ele>100.5</ele>
-      </trkpt>
-      <trkpt lat="41.68268" lon="-72.79245">
-        <ele>100.6</ele>
+      <trkpt lat="41.68224" lon="-72.79255">
+        <ele>101.0</ele>
       </trkpt>
       <trkpt lat="41.68224" lon="-72.79255">
         <ele>101.0</ele>
@@ -1774,8 +1765,14 @@
       <trkpt lat="41.66804" lon="-72.77764">
         <ele>51.9</ele>
       </trkpt>
+      <trkpt lat="41.668067" lon="-72.777756">
+        <ele>51.9</ele>
+      </trkpt>
       <trkpt lat="41.66807" lon="-72.77777">
         <ele>51.9</ele>
+      </trkpt>
+      <trkpt lat="41.667731" lon="-72.777887">
+        <ele>51.8</ele>
       </trkpt>
       <trkpt lat="41.667721" lon="-72.77789">
         <ele>51.8</ele>
