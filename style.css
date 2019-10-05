@@ -50,6 +50,7 @@ body {
 .bg-yellow { background: #ff9900; }
 .bg-pink { background: #f39; }
 .bg-orange { background: orange;}
+.bg-red { background: red;}
 
 /* title and colored lines in layer control */
 #mapTitle {
