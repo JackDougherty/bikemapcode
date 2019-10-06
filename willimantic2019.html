@@ -90,7 +90,6 @@
 	var EsriStreets = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri'
 	}).addTo(map);
-	controlLayers.addBaseLayer(EsriStreets, '');
 
 	// OVERLAYS
 	var ecgCurrent = new L.GPX("routes/ecg-willimantic-2019-09.gpx", {
