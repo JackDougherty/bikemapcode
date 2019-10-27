@@ -62,7 +62,7 @@
 			zoom: 8
 		},
 		{
-			name: 'Bloomfield-Tariffville 2019',
+			name: 'Bloomfield Greenway 2019',
 			coords: [41.89,-72.7485],
 			zoom: 14
 		},
@@ -140,7 +140,7 @@
     layer.bindPopup(popupText);
   }
 
-	$.getJSON("routes/bloomfield-tariffville-2019.geojson", function (data){
+	$.getJSON("routes/bloomfield-greenway-2019.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
 			style: {color: "blue", weight: 3 },
 			onEachFeature: onEachFeature
