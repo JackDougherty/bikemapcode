@@ -66,6 +66,11 @@
 			coords: [41.89,-72.7485],
 			zoom: 14
 		},
+		{
+			name: 'ECG Willimantic 2019',
+			coords: [41.7195,-72.2478],
+			zoom: 16
+		},
 
 	];
 
@@ -145,6 +150,13 @@
 	$.getJSON("routes/ecg-ct-2019.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
 			style: {color: "green", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
+
+	$.getJSON("routes/ecg-willimantic-2019.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "red", weight: 3 },
 			onEachFeature: onEachFeature
 		}).addTo(map);
 	});
