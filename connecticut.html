@@ -57,10 +57,16 @@
 			zoom: 8
 		},
 		{
+			name: 'East Coast Greenway CT 2019',
+			coords: [41.63,-72.69],
+			zoom: 8
+		},
+		{
 			name: 'Bloomfield-Tariffville 2019',
 			coords: [41.89,-72.7485],
-			zoom: 13
+			zoom: 14
 		},
+
 	];
 
 	var map = L.map('map', {
@@ -132,6 +138,13 @@
 	$.getJSON("routes/bloomfield-tariffville-2019.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
 			style: {color: "blue", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
+
+	$.getJSON("routes/ecg-ct-2019.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "green", weight: 3 },
 			onEachFeature: onEachFeature
 		}).addTo(map);
 	});
