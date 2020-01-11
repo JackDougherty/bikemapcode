@@ -63,7 +63,7 @@
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
-	  collapsed: true
+	  collapsed: false
 	}).addTo(map);
 
 	L.control.locate({
@@ -78,7 +78,7 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Selected EuroVelo Routes</br>numbers = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Selected EuroVelo Routes</br>markers = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayers
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -102,13 +102,13 @@
 		color: '#b13176',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-eurovelo6'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(eurovelo6, "Route <a href='http://en.eurovelo.com/ev6' target='_blank'>Eurovelo 6</a> <i class='color-line bg-eurovelo6'></i>");
+	controlLayers.addOverlay(eurovelo6, "Route <a href='https://en.eurovelo.com/ev6' target='_blank'>Eurovelo 6</a> <i class='color-line bg-eurovelo6'></i>");
 
 	var eurovelo15 = new L.GPX("routes/eurovelo15.gpx", {
 		color: '#2F5093',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-eurovelo15'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(eurovelo15, "Route <a href='http://en.eurovelo.com/ev15' target='_blank'>Eurovelo 15</a> <i class='color-line bg-eurovelo15'></i>");
+	controlLayers.addOverlay(eurovelo15, "Route <a href='https://en.eurovelo.com/ev15' target='_blank'>Eurovelo 15</a> <i class='color-line bg-eurovelo15'></i>");
 
 	</script>
 </body>
