@@ -53,7 +53,7 @@
 	// center map to match initial checkbox gatherBounds
 	var map = L.map('map', {
 	  center: [50.042755, 9.856300],
-	  zoom: 7,
+	  zoom: 6,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
 	});
@@ -79,7 +79,7 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Selected EuroVelo Routes, zoom 7</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Selected EuroVelo Routes</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayer
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -89,13 +89,13 @@
 	// route overlays
 	var eurovelo6 = new L.GPX("routes/eurovelo6.gpx", {
 		color: 'blue',
-		distanceMarkers: { showAll: 9, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(eurovelo6, 'Eurovelo 6 <i class="color-line bg-blue"></i>');
 
 	var eurovelo15 = new L.GPX("routes/eurovelo15.gpx", {
 		color: 'green',
-		distanceMarkers: { showAll: 9, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(eurovelo15, 'Eurovelo 15 <i class="color-line bg-green"></i>');
 
