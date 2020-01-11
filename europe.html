@@ -53,7 +53,7 @@
 	// center map to match initial checkbox gatherBounds
 	var map = L.map('map', {
 	  center: [50.042755, 9.856300],
-	  zoom: 8,
+	  zoom: 9,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
 	});
@@ -67,10 +67,10 @@
 	  collapsed: false
 	}).addTo(map);
 
-	L.control.locate({
-		locateOptions: {maxZoom: 16}, // default = 18
-		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
-	}).addTo(map);
+	// L.control.locate({
+	// 	locateOptions: {maxZoom: 16}, // default = 18
+	// 	strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
+	// }).addTo(map);
 
 	map.addControl( new L.Control.Compass({position: "topleft"}) );
 
@@ -79,7 +79,7 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Selected EuroVelo Routes</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Selected EuroVelo Routes, zoom 9</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayer
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
