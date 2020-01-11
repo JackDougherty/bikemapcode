@@ -1,36 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JackBikes.org Europe</title>
+	<title>JackBikes Europe</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- load Bootstrap CSS for mobile devices -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- Load Leaflet from a https CDN, not http. Look for updates at https://leafletjs.com/download.html -->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-	integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-	crossorigin=""/>
-	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-	integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-	crossorigin=""></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  	integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  	crossorigin=""/>
+	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  	integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+  	crossorigin=""></script>
 	<!-- load jQuery  -->
-	<script
-	src="https://code.jquery.com/jquery-3.4.0.min.js"
-	integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-	crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+		integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+		crossorigin="anonymous"></script>
 	<!-- Load Esri Leaflet -->
-	<script src="https://unpkg.com/esri-leaflet@2.2.3/dist/esri-leaflet.js"
-  integrity="sha512-YZ6b5bXRVwipfqul5krehD9qlbJzc6KOGXYsDjU9HHXW2gK57xmWl2gU6nAegiErAqFXhygKIsWPKbjLPXVb2g=="
-  crossorigin=""></script>
+	<script src="https://unpkg.com/esri-leaflet@2.3.2/dist/esri-leaflet.js"
+    integrity="sha512-6LVib9wGnqVKIClCduEwsCub7iauLXpwrd5njR2J507m3A2a4HXJDLMiSZzjcksag3UluIfuW1KzuWVI5n/cuQ=="
+    crossorigin=""></script>
 	<!-- load Font-Awesome 4.7 -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- load Leaflet.locatecontrol -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.67.0/L.Control.Locate.min.css"/>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.67.0/L.Control.Locate.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.css"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.js"></script>
 	<!-- load Leaflet-plugins to read GPX and KML -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.2.0/layer/vector/GPX.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.2.0/layer/vector/KML.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/GPX.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/KML.min.js"></script>
 	<!-- Load leaflet-geocoder to search locations-->
 	<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script> -->
