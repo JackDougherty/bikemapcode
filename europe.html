@@ -80,10 +80,22 @@
 	// insert map title at top of layer control
 	$('<h6 id="mapTitle">Selected EuroVelo Routes</br>numbers = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
 
-	// baselayer
+	// baselayers
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri'
 	}).addTo(map);
+	controlLayers.addBaseLayer(Esri_WorldStreetMap, 'Esri street map');
+
+	var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+	});
+	controlLayers.addBaseLayer(Esri_WorldTopoMap, 'Esri topo map');
+
+	var Thunderforest_OpenCycleMap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={apikey}', {
+		attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		apikey: '1d12526533cd4f0f9f1e166c7bb855d7'
+	});
+	controlLayers.addBaseLayer(Thunderforest_OpenCycleMap, 'OpenCycleMap');
 
 	// route overlays
 	var eurovelo6 = new L.GPX("routes/eurovelo6.gpx", {
