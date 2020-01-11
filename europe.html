@@ -79,12 +79,19 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Selected EuroVelo Routes</br><small>(numbers = 100km = 62mi)</small></h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Selected EuroVelo Routes</br>each number = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayer
+
+	var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+		attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+	}).addTo(map);
+	controlLayers.addBasemap(CartoDB_Positron, 'Carto Light')
+
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri'
-	}).addTo(map);
+	});
+	controlLayers.addBasemap(Esri_WorldStreetMap, 'Esri Streets');
 
 	// route overlays
 	var eurovelo6 = new L.GPX("routes/eurovelo6.gpx", {
