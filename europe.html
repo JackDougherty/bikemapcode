@@ -60,7 +60,7 @@
 
 	// option: add links to download GPX files
 	map.attributionControl
-	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | Cue sheets and GPX <a href='https://ridewithgps.com/routes/29144475' target='_blank'>13 mi</a> - <a href='https://ridewithgps.com/routes/29581885' target='_blank'>22 mi</a> - <a href='https://ridewithgps.com/routes/29581722' target='_blank'>41 mi</a> - <a href='https://ridewithgps.com/routes/29581658' target='_blank'>48 mi</a>");
+	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | GPX routes: <a href='https://spaces.hightail.com/space/IZE587BEvy' target='_blank'></a>");
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
@@ -96,7 +96,7 @@
 	var eurovelo15 = new L.GPX("routes/eurovelo15.gpx", {
 		color: 'green',
 		distanceMarkers: { showAll: 11, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
-	})/addTo(map);
+	}).addTo(map);
 	controlLayers.addOverlay(eurovelo15, 'Eurovelo 15 <i class="color-line bg-green"></i>');
 
 	</script>
