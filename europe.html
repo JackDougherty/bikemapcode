@@ -100,7 +100,7 @@
 	// route overlays
 	var europe2020 = new L.GPX("routes/europe2020.gpx", {
 		color: 'blue',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: blue} // 1 = 100km
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(europe2020, "Eurovelo Routes 15 + 6 <i class='color-line bg-blue'></i>");
 
