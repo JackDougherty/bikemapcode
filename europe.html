@@ -78,7 +78,7 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Eurovelo 15 + Eurovelo 6 Route</br>Each marker = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Europe June 2020 Bike Route</br>Each marker = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayers
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -100,9 +100,9 @@
 	// route overlays
 	var europe2020 = new L.GPX("routes/europe2020.gpx", {
 		color: 'blue',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'blue'} // 1 = 100km
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: blue} // 1 = 100km
 	}).addTo(map);
-	controlLayers.addOverlay(europe2020, "Bike Route <i class='color-line bg-blue'></i>");
+	controlLayers.addOverlay(europe2020, "Eurovelo Routes 15 + 6 <i class='color-line bg-blue'></i>");
 
 	</script>
 </body>
