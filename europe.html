@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JackBikes Europe</title>
+	<title>JackBikes Europe 2020</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico">
@@ -78,7 +78,7 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">Selected EuroVelo Routes</br>markers = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">Eurovelo 15 + Eurovelo 6 Route</br>Each marker = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayers
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -98,17 +98,11 @@
 	controlLayers.addBaseLayer(Thunderforest_OpenCycleMap, 'OpenCycleMap');
 
 	// route overlays
-	var eurovelo6partial = new L.GPX("routes/eurovelo6-partial.gpx", {
-		color: '#b13176',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-eurovelo6'} // 1 = 100km; bgcolor defined in style.css
+	var europe2020 = new L.GPX("routes/europe2020.gpx", {
+		color: 'blue',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'blue'} // 1 = 100km
 	}).addTo(map);
-	controlLayers.addOverlay(eurovelo6partial, "Eurovelo 6 partial <i class='color-line bg-eurovelo6'></i>");
-
-	var eurovelo15partial = new L.GPX("routes/eurovelo15-partial.gpx", {
-		color: '#2F5093',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-eurovelo15'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
-	controlLayers.addOverlay(eurovelo15partial, "Eurovelo 15 partial <i class='color-line bg-eurovelo15'></i>");
+	controlLayers.addOverlay(europe2020, "Bike Route <i class='color-line bg-blue'></i>");
 
 	</script>
 </body>
