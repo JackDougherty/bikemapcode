@@ -105,6 +105,12 @@
 	}).addTo(map);
 	controlLayers.addOverlay(europe2020, "Eurovelo Routes 15 + 6 <i class='color-line bg-blue'></i>");
 
+	var euroshortcut = new L.GPX("routes/euroshortcut.gpx", {
+		color: 'red',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
+	}).addTo(map);
+	controlLayers.addOverlay(euroshortcut, "Shortcut <i class='color-line bg-red'></i>");
+
 	</script>
 </body>
 </html>
