@@ -105,11 +105,17 @@
 	}).addTo(map);
 	controlLayers.addOverlay(europe2020, "Eurovelo Routes 15 + 6 <i class='color-line bg-blue'></i>");
 
-	var euroshortcut = new L.GPX("routes/euroshortcut.gpx", {
+	var euroshortcut1 = new L.GPX("routes/euro-heidelberg-ulm.gpx", {
 		color: 'red',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(euroshortcut, "Shortcut <i class='color-line bg-red'></i>");
+	controlLayers.addOverlay(euroshortcut1, "Shortcut1 <i class='color-line bg-red'></i>");
+
+	var euroshortcut2 = new L.GPX("routes/euro-strasbourg-ev6.gpx", {
+		color: 'green',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
+	}).addTo(map);
+	controlLayers.addOverlay(euroshortcut2, "Shortcut2 <i class='color-line bg-green'></i>");
 
 	</script>
 </body>
