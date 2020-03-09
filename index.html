@@ -126,7 +126,7 @@
 	  collapsed: false
 	}).addTo(map);
 
-	new L.control.zoom({position: "bottomleft",}).addTo(map);
+	new L.control.zoom({position: "topleft"}).addTo(map);
 
 	L.control.scale().addTo(map);
 
@@ -150,19 +150,10 @@
 		attribution: 'Tiles &copy; Esri'
 	}).addTo(map);
 
-	// create the geocoding control and add it to the map
-  var searchControl = L.esri.Geocoding.geosearch().addTo(map);
-
-	// create an empty layer group to store the results and add it to the map
-  var results = L.layerGroup().addTo(map);
-
-  // listen for the results event and add every result to the map
-  searchControl.on("results", function(data) {
-    results.clearLayers();
-      for (var i = data.results.length - 1; i >= 0; i--) {
-        results.addLayer(L.marker(data.results[i].latlng));
-      }
-    });
+	// create the geocoding control, add to map, do NOT display results as markers
+  var searchControl = L.esri.Geocoding.geosearch({
+		position: 'topright'
+	}).addTo(map);
 
   function onEachFeature(feature, layer) {
     var popupText = feature.properties.name
