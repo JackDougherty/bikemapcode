@@ -6,45 +6,41 @@
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- load Bootstrap CSS for mobile devices -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<!-- Load Leaflet. See updates at https://leafletjs.com/download.html -->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-  crossorigin=""/>
-	<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-  crossorigin=""></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!-- Load Leaflet from CDN-->
+	  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+	  <script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
 	<!-- load jQuery  -->
-	<script
-  src="https://code.jquery.com/jquery-3.4.0.min.js"
-  integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-  crossorigin="anonymous"></script>
-	<!-- Load Esri Leaflet -->
-	<!-- <script src="https://unpkg.com/esri-leaflet@2.0.6"></script> -->
+		<script
+  	src="https://code.jquery.com/jquery-3.4.0.min.js"
+  	integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+  	crossorigin="anonymous"></script>
+	<!-- Load Esri Leaflet from CDN -->
+		<script src="https://unpkg.com/esri-leaflet"></script>
 	<!-- load Font-Awesome -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 	<!-- load Leaflet.locatecontrol -->
-	<script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.css"/>
+		<script src="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet.locatecontrol/0.52.0/L.Control.Locate.min.css"/>
 	<!-- load Leaflet-plugins to read GPX and KML -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/GPX.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/KML.min.js"></script>
-	<!-- Load leaflet-geocoder to search locations-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.css">
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geocoder-mapzen/1.6.3/leaflet-geocoder-mapzen.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/GPX.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/1.9.0/layer/vector/KML.min.js"></script>
+	<!-- Esri Leaflet Geocoder -->
+	  <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
+	  <script src="https://unpkg.com/esri-leaflet-geocoder"></script>
 	<!-- load compass from local directory -->
-	<link rel="stylesheet" href="src/leaflet-compass.css"/>
-	<script src="src/leaflet-compass.js"></script>
+		<link rel="stylesheet" href="src/leaflet-compass.css"/>
+		<script src="src/leaflet-compass.js"></script>
 	<!-- load leaflet-hash from local directory  -->
-	<script src="src/leaflet-hash.js"></script>
+		<script src="src/leaflet-hash.js"></script>
 	<!-- load distance markers with geometry from local directory; see also style.css -->
-	<!-- <script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
-	<script src="src/leaflet-distance-marker.js" type="text/javascript"></script> -->
+		<!-- <script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
+		<script src="src/leaflet-distance-marker.js" type="text/javascript"></script> -->
 	<!-- load leaflet-sidebar from local directory -->
-	<link rel="stylesheet" href="src/L.Control.Sidebar.css" />
-	<script src="src/L.Control.Sidebar.js"></script>
+		<link rel="stylesheet" href="src/L.Control.Sidebar.css" />
+		<script src="src/L.Control.Sidebar.js"></script>
 	<!-- load custom css -->
-	<link rel="stylesheet" href="style.css"/>
+		<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
 	<div id="map"></div>
@@ -153,6 +149,20 @@
 	var EsriStreets = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri'
 	}).addTo(map);
+
+	// create the geocoding control and add it to the map
+  var searchControl = L.esri.Geocoding.geosearch().addTo(map);
+
+	// create an empty layer group to store the results and add it to the map
+  var results = L.layerGroup().addTo(map);
+
+  // listen for the results event and add every result to the map
+  searchControl.on("results", function(data) {
+    results.clearLayers();
+      for (var i = data.results.length - 1; i >= 0; i--) {
+        results.addLayer(L.marker(data.results[i].latlng));
+      }
+    });
 
   function onEachFeature(feature, layer) {
     var popupText = feature.properties.name
