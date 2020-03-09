@@ -126,6 +126,11 @@
 	  collapsed: false
 	}).addTo(map);
 
+	// create the geocoding control, add to map, do NOT display results as markers
+	var searchControl = L.esri.Geocoding.geosearch({
+		position: 'topright'
+	}).addTo(map);
+
 	new L.control.zoom({position: "topright"}).addTo(map);
 
 	L.control.scale().addTo(map);
@@ -148,11 +153,6 @@
 
 	var EsriStreets = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
 		attribution: 'Tiles &copy; Esri'
-	}).addTo(map);
-
-	// create the geocoding control, add to map, do NOT display results as markers
-  var searchControl = L.esri.Geocoding.geosearch({
-		position: 'topright'
 	}).addTo(map);
 
   function onEachFeature(feature, layer) {
