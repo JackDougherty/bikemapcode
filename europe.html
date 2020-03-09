@@ -61,11 +61,6 @@
 	  collapsed: false
 	}).addTo(map);
 
-	// create the geocoding control, add to map, do NOT display results as markers
-  var searchControl = L.esri.Geocoding.geosearch({
-		position: 'topleft'
-	}).addTo(map);
-
 	L.control.locate({
 		locateOptions: {maxZoom: 16}, // default = 18
 		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
@@ -74,6 +69,11 @@
 	map.addControl( new L.Control.Compass({position: "topleft"}) );
 
 	new L.control.zoom({position: "topleft",}).addTo(map);
+
+	// create the geocoding control, add to map, do NOT display results as markers
+	var searchControl = L.esri.Geocoding.geosearch({
+		position: 'topleft'
+	}).addTo(map);
 
 	L.control.scale().addTo(map);
 
