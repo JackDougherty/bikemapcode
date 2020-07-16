@@ -55,6 +55,11 @@
 			zoom: 8
 		},
 		{
+			name: 'Hartford CT - Providence RI 2020',
+			coords: [41.699311, -72.082028],
+			zoom: 8
+		},
+		{
 			name: 'East Coast Greenway CT 2019',
 			coords: [41.63,-72.69],
 			zoom: 8
@@ -142,6 +147,13 @@
     + "<br><a href='" + feature.properties.desc +"' target='_blank'>Read blog post</a> (opens new tab)";
     layer.bindPopup(popupText);
   }
+
+	$.getJSON("routes/westhartford-providence-2020.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "purple", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
 	$.getJSON("routes/bloomfield-greenway-2019.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
