@@ -120,11 +120,11 @@
 	});
 	controlLayers.addBaseLayer(OCM, 'Open Cycle Map');
 
-	var slowroll2020 = new L.GPX("routes/weha-slowroll-2020.gpx", {
+	var slowroll = new L.GPX("routes/weha-slowroll-2020.gpx", {
 		color: 'red',
 		distanceMarkers: { showAll: 11, offset: 1609, bgcolor: 'bg-red'} // meters per mile; bgcolor defined in style.css
 	}).setText('>', {repeat: true, attributes: {fill: 'white'}}).addTo(map);
-	controlLayers.addOverlay(slowroll2020, 'Red Slow Roll 2020 <i class="color-line bg-red"></i>');
+	controlLayers.addOverlay(slowroll, 'Red Slow Roll 2020 <i class="color-line bg-red"></i>');
 
 	var hallhs = new L.GPX("routes/wh-hall-high-school.gpx", {
 		color: 'green',
