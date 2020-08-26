@@ -17,7 +17,13 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 # Demos
 
 ## Dropdrown menu of bike tours
-- https://jackdougherty.github.io/bikemapcode/index.html
+https://jackdougherty.github.io/bikemapcode/index.html
+
+## Map embedded as an iframe on another site
+http://jackbikes.org/2015/08/join-new-britain-ride/
+
+## Map code in a root-level folder of a self-hosted WordPress site
+https://bikewesthartford.org/map
 
 ## Checkbox menu of bike routes (with shortened links)
 - bit.ly/pedal2medal (https://jackdougherty.github.io/bikemapcode/pedal2medal.html)
@@ -26,9 +32,6 @@ Distributed as-is with no warranty under [an MIT license](https://raw.githubuser
 - bit.ly/bikenewbrit (https://jackdougherty.github.io/bikemapcode/newbritain.html)
 - bit.ly/bikegbury (https://jackdougherty.github.io/bikemapcode/glastonbury.html)
 - bit.ly/bikemapjack (https://jackdougherty.github.io/bikemapcode/index.html)
-
-## Web map embedded in a WordPress.org site
-- http://jackbikes.org/2015/08/join-new-britain-ride/
 
 ## Code credits and open-source licenses
 - Thanks @ilyankou for gatherBounds function, marker styling, CSS improvements, dropdown menu, and teaching me how to code
