@@ -121,6 +121,13 @@
 	controlLayers.addBaseLayer(Thunderforest_OpenCycleMap, 'OpenCycleMap');
 
 	// route overlays
+
+	var copenhagenHamburg = new L.GPX("routes/copenhagen-hamburg.gpx", {
+		color: 'red',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
+	}).addTo(map);
+	controlLayers.addOverlay(copenhagenHamburg, "Copenhagen-Hamburg <i class='color-line bg-red'></i>");
+
 	var eurovelo3 = new L.GPX("routes/eurovelo3-partial.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
@@ -132,12 +139,6 @@
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(eurovelo15, "EuroVelo 15 partial <i class='color-line bg-green'></i>");
-
-	var copenhagenHamburg = new L.GPX("routes/copenhagen-hamburg.gpx", {
-		color: 'red',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
-	controlLayers.addOverlay(copenhagenHamburg, "Copenhagen-Hamburg <i class='color-line bg-red'></i>");
 
 	</script>
 </body>
