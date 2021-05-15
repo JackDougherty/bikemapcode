@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JackBikes Europe 2021</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- load Bootstrap CSS for mobile devices -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+		integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+		crossorigin="anonymous">
+	<!-- load Leaflet	 -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script>
+		<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script> -->
+	<!-- load jQuery  -->
+	<script src="https://code.jquery.com/jquery-3.4.0.min.js"
+		integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
+		crossorigin="anonymous"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		crossorigin="anonymous"></script> -->
+	<!-- Load Esri Leaflet  -->
+	<script src="https://unpkg.com/esri-leaflet"></script>
+		<!-- <script src="https://unpkg.com/esri-leaflet@3.0.1/dist/esri-leaflet.js"
+		integrity="sha512-JmpptMCcCg+Rd6x0Dbg6w+mmyzs1M7chHCd9W8HPovnImG2nLAQWn3yltwxXRM7WjKKFFHOAKjjF2SC4CgiFBg=="
+		crossorigin=""></script> -->
+	<!-- load Font-Awesome 4.7 -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- load Leaflet.locatecontrol -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.js"></script>
+		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.73.0/L.Control.Locate.min.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.73.0/L.Control.Locate.min.js"></script> -->
+	<!-- load Leaflet-plugins to read GPX and KML -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/GPX.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/KML.min.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/GPX.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/KML.min.js"></script> -->
+	<!-- Esri Leaflet Geocoder -->
+	<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
+		<script src="https://unpkg.com/esri-leaflet-geocoder"></script>
+		<!-- <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.0.0/dist/esri-leaflet-geocoder.css"
+		integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+		crossorigin="">
+		<script src="https://unpkg.com/esri-leaflet-geocoder@3.0.0/dist/esri-leaflet-geocoder.js"
+		integrity="sha512-vZbMwAf1/rpBExyV27ey3zAEwxelsO4Nf+mfT7s6VTJPUbYmD2KSuTRXTxOFhIYqhajaBU+X5PuFK1QJ1U9Myg=="
+		crossorigin=""></script> -->
+	<!-- load compass from local directory -->
+		<link rel="stylesheet" href="src/leaflet-compass.css"/>
+		<script src="src/leaflet-compass.js"></script>
+	<!-- load distance markers with geometry from local directory; see also style.css -->
+		<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
+		<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
+	<!-- load Leaflet.SlideMenu from local directory -->
+		<link rel="stylesheet" href="src/L.Control.SlideMenu.css" />
+		<script src="src/L.Control.SlideMenu.js"></script>
+	<!-- load custom css -->
+		<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+
+	// center map to match initial checkbox gatherBounds
+	var map = L.map('map', {
+	  center: [50.042755, 9.856300],
+	  zoom: 6,
+	  zoomControl: false, // add later to reposition
+	  scrollWheelZoom: false
+	});
+
+	// option: add links to download GPX files
+	map.attributionControl
+	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | Download <a href='https://github.com/JackDougherty/bikemapcode/raw/master/routes/europe2020.gpx' target='_blank'>GPX route</a>");
+
+	var controlLayers = L.control.layers( null, null, {
+	  position: "topleft",
+	  collapsed: false
+	}).addTo(map);
+
+	L.control.locate({
+		locateOptions: {maxZoom: 16}, // default = 18
+		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
+	}).addTo(map);
+
+	map.addControl( new L.Control.Compass({position: "topleft"}) );
+
+	new L.control.zoom({position: "topleft",}).addTo(map);
+
+	// create the geocoding control, add to map, do NOT display results as markers
+	var searchControl = L.esri.Geocoding.geosearch({
+		position: 'topleft'
+	}).addTo(map);
+
+	L.control.scale().addTo(map);
+
+	// insert map title at top of layer control
+	$('<h6 id="mapTitle">JackBikes Europe 2021</br>Each marker = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
+
+	// baselayers
+	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri'
+	}).addTo(map);
+	controlLayers.addBaseLayer(Esri_WorldStreetMap, 'Esri street map');
+
+	var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+		attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+	});
+	controlLayers.addBaseLayer(Esri_WorldTopoMap, 'Esri topo map');
+
+	var Thunderforest_OpenCycleMap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={apikey}', {
+		attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+		apikey: '1d12526533cd4f0f9f1e166c7bb855d7'
+	});
+	controlLayers.addBaseLayer(Thunderforest_OpenCycleMap, 'OpenCycleMap');
+
+	// route overlays
+	var eurovelo3 = new L.GPX("routes/eurovelo3-partial.gpx", {
+		color: 'blue',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
+	}).addTo(map);
+	controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-blue'></i>");
+
+	// var eurovelo15 = new L.GPX("routes/eurovelo15-partial.gpx", {
+	// 	color: 'green',
+	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
+	// }).addTo(map);
+	// controlLayers.addOverlay(eurovelo6, "EuroVelo 15 partial <i class='color-line bg-green'></i>");
+
+	</script>
+</body>
+</html>
