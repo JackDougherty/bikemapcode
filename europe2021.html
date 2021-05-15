@@ -127,11 +127,11 @@
 	}).addTo(map);
 	controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-blue'></i>");
 
-	// var eurovelo15 = new L.GPX("routes/eurovelo15-partial.gpx", {
-	// 	color: 'green',
-	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
-	// }).addTo(map);
-	// controlLayers.addOverlay(eurovelo6, "EuroVelo 15 partial <i class='color-line bg-green'></i>");
+	var eurovelo15 = new L.GPX("routes/eurovelo15-partial.gpx", {
+		color: 'green',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
+	}).addTo(map);
+	controlLayers.addOverlay(eurovelo6, "EuroVelo 15 partial <i class='color-line bg-green'></i>");
 
 	</script>
 </body>
