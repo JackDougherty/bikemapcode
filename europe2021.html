@@ -143,31 +143,31 @@
 	var netherlandsLF4a = new L.GPX("routes/netherlands-lf4a.gpx", {
 		color: 'orange',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-orange'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
+	});
 	controlLayers.addOverlay(netherlandsLF4a, "Netherlands LF4a <i class='color-line bg-orange'></i>");
 
 	var eurovelo12 = new L.GPX("routes/eurovelo12-partial.gpx", {
 		color: 'black',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-black'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
+	});
 	controlLayers.addOverlay(eurovelo12, "EuroVelo 12 partial <i class='color-line bg-black'></i>");
 
-	var copenhagenHamburg = new L.GPX("routes/copenhagen-hamburg.gpx", {
+	var hamburgCopenhagen = new L.GPX("routes/hamburg-copenhagen.gpx", {
 		color: 'red',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
-	controlLayers.addOverlay(copenhagenHamburg, "Copenhagen-Hamburg <i class='color-line bg-red'></i>");
+	});
+	controlLayers.addOverlay(hamburgCopenhagen, "Hamburg-Copenhagen <i class='color-line bg-red'></i>");
 
 	var eurovelo3 = new L.GPX("routes/eurovelo3-partial.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
+	});
 	controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-blue'></i>");
 
 	var eurovelo15 = new L.GPX("routes/eurovelo15-partial.gpx", {
 		color: 'pink',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-pink'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
+	});
 	controlLayers.addOverlay(eurovelo15, "EuroVelo 15 partial <i class='color-line bg-pink'></i>");
 
 	</script>
