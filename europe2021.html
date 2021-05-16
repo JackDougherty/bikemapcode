@@ -114,6 +114,18 @@
 	});
 	controlLayers.addBaseLayer(Esri_WorldTopoMap, 'Esri topo map');
 
+	var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	});
+	controlLayers.addBaseLayer(OpenStreetMap_Mapnik, 'OpenStreetMap');
+
+	var OpenStreetMap_DE = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+	maxZoom: 18,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+	});
+	controlLayers.addBaseLayer(OpenStreetMap_DE, 'OpenStreetMap DE');
+
 	var Thunderforest_OpenCycleMap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={apikey}', {
 		attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		apikey: '1d12526533cd4f0f9f1e166c7bb855d7'
