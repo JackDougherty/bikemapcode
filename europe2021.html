@@ -134,6 +134,12 @@
 	}).addTo(map);
 	controlLayers.addOverlay(netherlandsLF4a, "Netherlands LF4a <i class='color-line bg-yellow'></i>");
 
+	var eurovelo12 = new L.GPX("routes/eurovelo12-partial.gpx", {
+		color: 'pink',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-pink'} // 1 = 100km; bgcolor defined in style.css
+	}).addTo(map);
+	controlLayers.addOverlay(eurovelo12, "EuroVelo 12 partial <i class='color-line bg-pink'></i>");
+
 	var copenhagenHamburg = new L.GPX("routes/copenhagen-hamburg.gpx", {
 		color: 'red',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
