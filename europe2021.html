@@ -155,7 +155,7 @@
 	var hamburgCopenhagen = new L.GPX("routes/hamburg-copenhagen.gpx", {
 		color: 'red',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
-	});
+	}).addTo(map);
 	controlLayers.addOverlay(hamburgCopenhagen, "Hamburg-Copenhagen <i class='color-line bg-red'></i>");
 
 	var eurovelo3 = new L.GPX("routes/eurovelo3-partial.gpx", {
