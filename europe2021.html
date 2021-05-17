@@ -140,6 +140,24 @@
 	}).addTo(map);
 	controlLayers.addOverlay(amsterdamCopenhagen, "Amsterdam-Copenhagen <i class='color-line bg-green'></i>");
 
+	var amsterdamCopenhagenN1 = new L.GPX("routes/amsterdam-copenhagen-naviki-1.gpx", {
+		color: 'blue',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
+	});
+	controlLayers.addOverlay(amsterdamCopenhagenN1, "Amsterdam-Copenhagen Naviki 1 <i class='color-line bg-blue'></i>");
+
+	var amsterdamCopenhagenN2 = new L.GPX("routes/amsterdam-copenhagen-naviki-2.gpx", {
+		color: 'red',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
+	});
+	controlLayers.addOverlay(amsterdamCopenhagenN2, "Amsterdam-Copenhagen Naviki 2 <i class='color-line bg-red'></i>");
+
+	var amsterdamCopenhagenN3 = new L.GPX("routes/amsterdam-copenhagen-naviki-3.gpx", {
+		color: 'orange',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-orange'} // 1 = 100km; bgcolor defined in style.css
+	});
+	controlLayers.addOverlay(amsterdamCopenhagenN3, "Amsterdam-Copenhagen Naviki 3 <i class='color-line bg-orange'></i>");
+
 	var netherlandsLF4a = new L.GPX("routes/netherlands-lf4a.gpx", {
 		color: 'orange',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-orange'} // 1 = 100km; bgcolor defined in style.css
