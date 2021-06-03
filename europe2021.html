@@ -101,7 +101,7 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">JackBikes Europe 2021</br>Each marker = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">JackBikes with Eva: Europe 2021</br>Each marker = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayers
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -120,12 +120,6 @@
 	});
 	controlLayers.addBaseLayer(OpenStreetMap_Mapnik, 'OpenStreetMap');
 
-	var OpenStreetMap_DE = L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
-	maxZoom: 18,
-	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-	});
-	controlLayers.addBaseLayer(OpenStreetMap_DE, 'OpenStreetMap DE');
-
 	var Thunderforest_OpenCycleMap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={apikey}', {
 		attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 		apikey: '1d12526533cd4f0f9f1e166c7bb855d7'
@@ -139,24 +133,6 @@
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(amsterdamCopenhagen, "Amsterdam-Copenhagen <i class='color-line bg-green'></i>");
-
-	var amsterdamCopenhagenN1 = new L.GPX("routes/amsterdam-copenhagen-naviki-1.gpx", {
-		color: 'blue',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(amsterdamCopenhagenN1, "Amsterdam-Copenhagen Naviki 1 <i class='color-line bg-blue'></i>");
-
-	var amsterdamCopenhagenN2 = new L.GPX("routes/amsterdam-copenhagen-naviki-2.gpx", {
-		color: 'red',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(amsterdamCopenhagenN2, "Amsterdam-Copenhagen Naviki 2 <i class='color-line bg-red'></i>");
-
-	var amsterdamCopenhagenN3 = new L.GPX("routes/amsterdam-copenhagen-naviki-3.gpx", {
-		color: 'orange',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-orange'} // 1 = 100km; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(amsterdamCopenhagenN3, "Amsterdam-Copenhagen Naviki 3 <i class='color-line bg-orange'></i>");
 
 	var netherlandsLF4a = new L.GPX("routes/netherlands-lf4a.gpx", {
 		color: 'orange',
