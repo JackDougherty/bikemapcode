@@ -69,7 +69,7 @@
 
 	// center map to match initial checkbox gatherBounds
 	var map = L.map('map', {
-	  center: [53.57863168353067, 9.99920609320685],
+	  center: [53.53849895225509, 8.513255948857097],
 	  zoom: 7,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
@@ -134,11 +134,11 @@
 	}).addTo(map);
 	controlLayers.addOverlay(amsterdamCopenhagen, "Amsterdam-Copenhagen <i class='color-line bg-green'></i>");
 
-	var amsterdamHaagLF4LF9 = new L.GPX("routes/ams-haag-lf4-lf9.gpx", {
+	var amsterdamHaagLF4LF9Bremen = new L.GPX("routes/ams-haag-lf4-lf9-bremen.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(amsterdamHaagLF4LF9, "Ams-Haag-LF4-LF9 <i class='color-line bg-blue'></i>");
+	controlLayers.addOverlay(amsterdamHaagLF4LF9Bremen, "Ams-Haag-LF4-LF9-Bremen <i class='color-line bg-blue'></i>");
 
 	var hamburgCopenhagen = new L.GPX("routes/hamburg-copenhagen.gpx", {
 		color: 'red',
