@@ -164,6 +164,12 @@
 	});
 	controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-yellow'></i>");
 
+	var hanzefietsroute = new L.GPX("routes/hanzefietsroute1original2020.gpx", {
+		color: 'black',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-black'} // 1 = 100km; bgcolor defined in style.css
+	});
+	controlLayers.addOverlay(hanzefietsroute, "Hanzefietsroute 1 <i class='color-line bg-black'></i>");
+
 	var eurovelo12 = new L.GPX("routes/eurovelo12-partial.gpx", {
 		color: 'black',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-black'} // 1 = 100km; bgcolor defined in style.css
