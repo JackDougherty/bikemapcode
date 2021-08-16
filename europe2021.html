@@ -157,7 +157,7 @@
 	// Load photos from flickr JSON (insert your flickrURL above), display with clickable photo thumbnails
 	$.getJSON(flickrURL, function (data) {
 		// Create new layerGroup for the markers, with option to append ".addTo(map);" to display by default
-		var layerGroup = new L.LayerGroup();
+		var layerGroup = new L.LayerGroup().addTo(map);
 		// Add layerGroup to your layer control and insert your label to appear in legend
 		controlLayers.addOverlay(layerGroup, 'Photos');
 		// Start a loop to insert flickr photo data into photoContent
@@ -172,7 +172,7 @@
 			// Add the marker to the layerGroup
 			marker.addTo(layerGroup);
 		}
-	}).addTo(map);
+	});
 
 	</script>
 </body>
