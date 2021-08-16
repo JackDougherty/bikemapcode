@@ -27,24 +27,24 @@
 	<!-- load Font-Awesome 4.7 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- load Leaflet.locatecontrol -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.css"/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.js"></script>
-		<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.73.0/L.Control.Locate.min.css"/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.73.0/L.Control.Locate.min.js"></script> -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.js"></script> -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.74.0/L.Control.Locate.min.css"/>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.74.0/L.Control.Locate.min.js"></script>
 	<!-- load Leaflet-plugins to read GPX and KML -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/GPX.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/KML.min.js"></script>
-		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/GPX.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/KML.min.js"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/GPX.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/KML.min.js"></script> -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/GPX.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/KML.min.js"></script>
 	<!-- Esri Leaflet Geocoder -->
-	<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
-		<script src="https://unpkg.com/esri-leaflet-geocoder"></script>
-		<!-- <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.0.0/dist/esri-leaflet-geocoder.css"
-		integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
-		crossorigin="">
-		<script src="https://unpkg.com/esri-leaflet-geocoder@3.0.0/dist/esri-leaflet-geocoder.js"
-		integrity="sha512-vZbMwAf1/rpBExyV27ey3zAEwxelsO4Nf+mfT7s6VTJPUbYmD2KSuTRXTxOFhIYqhajaBU+X5PuFK1QJ1U9Myg=="
-		crossorigin=""></script> -->
+	<!-- <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
+		<script src="https://unpkg.com/esri-leaflet-geocoder"></script> -->
+		<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.css"
+    integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
+    crossorigin="">
+  	<script src="https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.js"
+    integrity="sha512-enHceDibjfw6LYtgWU03hke20nVTm+X5CRi9ity06lGQNtC9GkBNl/6LoER6XzSudGiXy++avi1EbIg9Ip4L1w=="
+    crossorigin=""></script>
 	<!-- load compass from local directory -->
 		<link rel="stylesheet" href="src/leaflet-compass.css"/>
 		<script src="src/leaflet-compass.js"></script>
@@ -153,10 +153,10 @@
 	controlLayers.addOverlay(netherlandsLF9b, "Netherlands LF9b <i class='color-line bg-pink'></i>");
 
 	var eurovelo3 = new L.GPX("routes/eurovelo3-partial.gpx", {
-		color: '#ff9900',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-yellow'} // 1 = 100km; bgcolor defined in style.css
+		color: 'black',
+		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blck'} // 1 = 100km; bgcolor defined in style.css
 	});
-	controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-yellow'></i>");
+	controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-black'></i>");
 
 	// var hanzefietsroute = new L.GPX("routes/hanzefietsroute1original2020.gpx", {
 	// 	color: 'black',
