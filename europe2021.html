@@ -56,7 +56,7 @@
 	<div id="map"></div>
 	<script>
 
-	// center map to match initial checkbox gatherBounds
+	// center map
 	var map = L.map('map', {
 	  center: [54, 8.5],
 	  zoom: 7,
@@ -65,9 +65,13 @@
 		tap: false
 	});
 
+	// Prepend attribution
+	map.attributionControl.setPrefix('Download <a href='https://github.com/JackDougherty/bikemapcode/raw/master/routes/ams-ham-cph.gpx' target='_blank'>GPX route from GitHub,\
+  | created with ' + map.attributionControl.options.prefix);
+
 	// option: add links to download GPX files
 	map.attributionControl
-	.setPrefix("View <a href='https://github.com/jackdougherty/bikemapcode' target='_blank'>code on GitHub</a> | Download <a href='https://github.com/JackDougherty/bikemapcode/raw/master/routes/europe2020.gpx' target='_blank'>GPX route</a>");
+	.setPrefix("View <a href='' target='_blank'>code on GitHub</a> | Download <a href='https://github.com/JackDougherty/bikemapcode/raw/master/routes/.gpx' target='_blank'>GPX route</a>");
 
 	var controlLayers = L.control.layers( null, null, {
 	  position: "topleft",
@@ -116,11 +120,6 @@
 	}).addTo(map);
 	controlLayers.addBaseLayer(Esri_WorldStreetMap, 'Esri street map');
 
-	// var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-	// 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
-	// });
-	// controlLayers.addBaseLayer(Esri_WorldTopoMap, 'Esri topo map');
-
 	var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
 	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -141,32 +140,6 @@
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(amsHamCph, "Amsterdam-Hamburg-Copenhagen <i class='color-line bg-blue'></i>");
-
-	// Thanks @ilyankou for gatherBounds function; update layer names
-	function gatherBounds() {
-		var checkedLayers = [];
-		var allLayers = [
-			amsHamCph
-		];
-
-		for (l in allLayers) {
-			if (map.hasLayer(allLayers[l])) {
-				checkedLayers.push(allLayers[l]);
-			}
-		}
-
-		if (checkedLayers.length > 0) {
-			map.fitBounds(L.featureGroup(checkedLayers).getBounds());
-		}
-	}
-
-	map.on('layeradd', function() {
-		gatherBounds();
-	});
-
-	map.on('layerremove', function() {
-		gatherBounds();
-	});
 
 
 	</script>
