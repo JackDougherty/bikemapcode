@@ -39,9 +39,6 @@
   	<script src="https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.js"
     integrity="sha512-enHceDibjfw6LYtgWU03hke20nVTm+X5CRi9ity06lGQNtC9GkBNl/6LoER6XzSudGiXy++avi1EbIg9Ip4L1w=="
     crossorigin=""></script>
-	<!-- load compass from local directory -->
-		<link rel="stylesheet" href="src/leaflet-compass.css"/>
-		<script src="src/leaflet-compass.js"></script>
 	<!-- load distance markers with geometry from local directory; see also style.css -->
 		<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
 		<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
@@ -98,12 +95,11 @@
 
 	L.control.locate({
 		locateOptions: {maxZoom: 16}, // default = 18
-		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
+		strings: {title: "Show my location"}, // To do: resize icon to make text appear alongside
+		position: "topright"
 	}).addTo(map);
 
-	map.addControl( new L.Control.Compass({position: "topleft"}) );
-
-	new L.control.zoom({position: "topleft",}).addTo(map);
+	new L.control.zoom({position: "topright",}).addTo(map);
 
 	L.control.scale().addTo(map);
 

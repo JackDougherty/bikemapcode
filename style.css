@@ -25,11 +25,6 @@ body {
   color: #00f !important;
 }
 
-/* Gray outline to compass icon for mobile devices */
-.leaflet-touch .leaflet-compass {
-  border: 2px solid rgba(0, 0, 0, 0.1);
-}
-
 /* Line mileage distance markers and colors */
 .dist-marker {
 	font-size: 14px;

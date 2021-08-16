@@ -38,7 +38,6 @@ https://bikewesthartford.org/map
 - Leaflet: an open-source JavaScript library for mobile-friendly interactive maps at http://leafletjs.com/ (BSD license)
 - Leaflet.Locate to show your map location at https://github.com/domoritz/leaflet-locatecontrol (MIT license, v67, 2019)
 - Leaflet-plugins to display GPX, KML, Google layers at https://github.com/shramov/leaflet-plugins (BSD license, v 3.0.3, 2018)
-- Leaflet.Control.Compass to display rotating compass in mobile at https://github.com/stefanocudini/leaflet-compass (unlicensed, March 2019)
 - Leaflet-hash to add dynamic URL hashes to specific map locations at https://github.com/mlevans/leaflet-hash (MIT license, 2013)
 - Leaflet.SlideMenu to display sidebar at https://github.com/unbam/Leaflet.SlideMenu (BSD license)
 - Leaflet-distance-markers to display mileage icons for GPX at https://github.com/adoroszlai/leaflet-distance-markers (MIT license, 2017)
