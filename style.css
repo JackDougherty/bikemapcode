@@ -20,11 +20,6 @@ body {
   font-size: 2em;
 }
 
-/* Locate button color */
-.leaflet-control-locate a {
-  color: #00f !important;
-}
-
 /* Line mileage distance markers and colors */
 .dist-marker {
 	font-size: 14px;
