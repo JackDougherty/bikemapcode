@@ -58,7 +58,7 @@
 
 	// center map to match initial checkbox gatherBounds
 	var map = L.map('map', {
-	  center: [53.538, 8.513],
+	  center: [55, 8.513],
 	  zoom: 7,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false,
@@ -81,7 +81,7 @@
 
 	new L.control.zoom({position: "topleft",}).addTo(map);
 
-	// add geocoder at bottom to expand, set nearby search area, set API key https://developers.arcgis.com
+	// add geocoder with room to expand, set nearby search area, set API key https://developers.arcgis.com
 	var searchControl = L.esri.Geocoding.geosearch({
     position: 'topleft',
     placeholder: 'Enter an address or place',
@@ -95,7 +95,7 @@
     })]
   }).addTo(map);
 
-	// Do NOT display search results as markers
+	// Commented-out to avoid displaying geocoder search results as markers
   // var results = L.layerGroup().addTo(map);
 	//
   // searchControl.on('results', function (data) {
@@ -108,7 +108,7 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">JackBikes with Eva in Europe 2021</br><small>Each marker = 100km = 62mi</small></h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">JackBikes with Eva in Europe 2021</br><small>Distance markers = 100 km = 62 miles</small></h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayers
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -133,55 +133,13 @@
 	});
 	controlLayers.addBaseLayer(Thunderforest_OpenCycleMap, 'OpenCycleMap');
 
-	// route overlays; many EuroVelo from https://eurovelo.travelmap.net/
+	// route overlays; ams-haag-lf4a-lf9-ev3; many EuroVelo from https://eurovelo.travelmap.net/ and Naviki
 
-	var amsHaagLF4LF9Ev3 = new L.GPX("routes/ams-haag-lf4-lf9-ev3.gpx", {
+	var amsHamCph = new L.GPX("routes/ams-ham-cph.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(amsHaagLF4LF9Ev3, "Ams-Haag-LF4-LF9-Ev3 <i class='color-line bg-blue'></i>");
-
-	var hamburgCopenhagen = new L.GPX("routes/hamburg-copenhagen.gpx", {
-		color: 'green',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
-	controlLayers.addOverlay(hamburgCopenhagen, "Hamburg-Copenhagen <i class='color-line bg-green'></i>");
-
-	// var amsterdamCopenhagen = new L.GPX("routes/amsterdam-copenhagen.gpx", {
-	// 	color: 'red',
-	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
-	// });
-	// controlLayers.addOverlay(amsterdamCopenhagen, "Amsterdam-Copenhagen Alt. <i class='color-line bg-red'></i>");
-
-	// var netherlandsLF4a = new L.GPX("routes/netherlands-lf4a.gpx", {
-	// 	color: 'orange',
-	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-orange'} // 1 = 100km; bgcolor defined in style.css
-	// });
-	// controlLayers.addOverlay(netherlandsLF4a, "Netherlands LF4a <i class='color-line bg-orange'></i>");
-	//
-	// var netherlandsLF9b = new L.GPX("routes/netherlands-lf9b.gpx", {
-	// 	color: '#f39',
-	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-pink'} // 1 = 100km; bgcolor defined in style.css
-	// });
-	// controlLayers.addOverlay(netherlandsLF9b, "Netherlands LF9b <i class='color-line bg-pink'></i>");
-	//
-	// var eurovelo3 = new L.GPX("routes/eurovelo3-partial.gpx", {
-	// 	color: 'black',
-	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blck'} // 1 = 100km; bgcolor defined in style.css
-	// });
-	// controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-black'></i>");
-
-	// var hanzefietsroute = new L.GPX("routes/hanzefietsroute1original2020.gpx", {
-	// 	color: 'black',
-	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-black'} // 1 = 100km; bgcolor defined in style.css
-	// });
-	// controlLayers.addOverlay(hanzefietsroute, "Hanzefietsroute 1 <i class='color-line bg-black'></i>");
-
-	// var eurovelo12 = new L.GPX("routes/eurovelo12-partial.gpx", {
-	// 	color: 'black',
-	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-black'} // 1 = 100km; bgcolor defined in style.css
-	// });
-	// controlLayers.addOverlay(eurovelo12, "EuroVelo 12 partial <i class='color-line bg-black'></i>");
+	controlLayers.addOverlay(amsHamCph, "Amsterdam-Copenhagen <i class='color-line bg-blue'></i>");
 
 	</script>
 </body>
