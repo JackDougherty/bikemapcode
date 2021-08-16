@@ -142,6 +142,33 @@
 	}).addTo(map);
 	controlLayers.addOverlay(amsHamCph, "Amsterdam-Hamburg-Copenhagen <i class='color-line bg-blue'></i>");
 
+	// Thanks @ilyankou for gatherBounds function; update layer names
+	function gatherBounds() {
+		var checkedLayers = [];
+		var allLayers = [
+			amsHamCph
+		];
+
+		for (l in allLayers) {
+			if (map.hasLayer(allLayers[l])) {
+				checkedLayers.push(allLayers[l]);
+			}
+		}
+
+		if (checkedLayers.length > 0) {
+			map.fitBounds(L.featureGroup(checkedLayers).getBounds());
+		}
+	}
+
+	map.on('layeradd', function() {
+		gatherBounds();
+	});
+
+	map.on('layerremove', function() {
+		gatherBounds();
+	});
+
+
 	</script>
 </body>
 </html>
