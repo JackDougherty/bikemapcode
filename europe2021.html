@@ -21,14 +21,18 @@
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		crossorigin="anonymous"></script>
 	<!-- Load Esri Leaflet -->
-	<script src="https://unpkg.com/esri-leaflet@3.0.2/dist/esri-leaflet.js"
-	integrity="sha512-myckXhaJsP7Q7MZva03Tfme/MSF5a6HC2xryjAM4FxPLHGqlh5VALCbywHnzs2uPoF/4G/QVXyYDDSkp5nPfig=="
-	crossorigin=""></script>
+		<script src="https://unpkg.com/esri-leaflet@3.0.2/dist/esri-leaflet.js"
+		integrity="sha512-myckXhaJsP7Q7MZva03Tfme/MSF5a6HC2xryjAM4FxPLHGqlh5VALCbywHnzs2uPoF/4G/QVXyYDDSkp5nPfig=="
+		crossorigin=""></script>
 	<!-- load Font-Awesome 4.7 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- load Leaflet.locatecontrol -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.74.0/L.Control.Locate.min.css"/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.74.0/L.Control.Locate.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.74.0/L.Control.Locate.css"
+		integrity="sha512-nUoa9zsaX7vY+eSo9/OOsF95gvJKkcYmwfLCCr8o7ZXXj3WBgWaPYoyh3ZpDPWCN+tPb++zqCW5PlG5IoojgYA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.74.0/L.Control.Locate.min.js"
+		integrity="sha512-xkz6D/ebeYHZBiWVLfakNmXQR73CHJL2/YSZQfufAjyAwcmNEOTVtxmM1hlbzpCEcg76ohHVow8kSiF9fdaHQw=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<!-- load Leaflet-plugins to read GPX and KML -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/GPX.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/KML.min.js"></script>
@@ -69,7 +73,14 @@
 	  collapsed: false
 	}).addTo(map);
 
-	// add Esri geocoding control, set nearby area, set API key https://developers.arcgis.com
+	new L.control.locate({
+		position: "topleft",
+		strings: {title: "Show my location"}
+	}).addTo(map);
+
+	new L.control.zoom({position: "topleft",}).addTo(map);
+
+	// add geocoder at bottom to expand, set nearby search area, set API key https://developers.arcgis.com
 	var searchControl = L.esri.Geocoding.geosearch({
     position: 'topleft',
     placeholder: 'Enter an address or place',
@@ -93,18 +104,10 @@
   //   }
   // });
 
-	L.control.locate({
-		locateOptions: {maxZoom: 16}, // default = 18
-		strings: {title: "Show my location"}, // To do: resize icon to make text appear alongside
-		position: "topright"
-	}).addTo(map);
-
-	new L.control.zoom({position: "topright",}).addTo(map);
-
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">JackBikes with Eva: Europe 2021</br>Each marker = 100km = 62mi</h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">JackBikes with Eva in Europe 2021</br><small>Each marker = 100km = 62mi</small></h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayers
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -112,10 +115,10 @@
 	}).addTo(map);
 	controlLayers.addBaseLayer(Esri_WorldStreetMap, 'Esri street map');
 
-	var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-		attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
-	});
-	controlLayers.addBaseLayer(Esri_WorldTopoMap, 'Esri topo map');
+	// var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+	// 	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+	// });
+	// controlLayers.addBaseLayer(Esri_WorldTopoMap, 'Esri topo map');
 
 	var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
@@ -149,23 +152,23 @@
 	// });
 	// controlLayers.addOverlay(amsterdamCopenhagen, "Amsterdam-Copenhagen Alt. <i class='color-line bg-red'></i>");
 
-	var netherlandsLF4a = new L.GPX("routes/netherlands-lf4a.gpx", {
-		color: 'orange',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-orange'} // 1 = 100km; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(netherlandsLF4a, "Netherlands LF4a <i class='color-line bg-orange'></i>");
-
-	var netherlandsLF9b = new L.GPX("routes/netherlands-lf9b.gpx", {
-		color: '#f39',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-pink'} // 1 = 100km; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(netherlandsLF9b, "Netherlands LF9b <i class='color-line bg-pink'></i>");
-
-	var eurovelo3 = new L.GPX("routes/eurovelo3-partial.gpx", {
-		color: 'black',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blck'} // 1 = 100km; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-black'></i>");
+	// var netherlandsLF4a = new L.GPX("routes/netherlands-lf4a.gpx", {
+	// 	color: 'orange',
+	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-orange'} // 1 = 100km; bgcolor defined in style.css
+	// });
+	// controlLayers.addOverlay(netherlandsLF4a, "Netherlands LF4a <i class='color-line bg-orange'></i>");
+	//
+	// var netherlandsLF9b = new L.GPX("routes/netherlands-lf9b.gpx", {
+	// 	color: '#f39',
+	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-pink'} // 1 = 100km; bgcolor defined in style.css
+	// });
+	// controlLayers.addOverlay(netherlandsLF9b, "Netherlands LF9b <i class='color-line bg-pink'></i>");
+	//
+	// var eurovelo3 = new L.GPX("routes/eurovelo3-partial.gpx", {
+	// 	color: 'black',
+	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blck'} // 1 = 100km; bgcolor defined in style.css
+	// });
+	// controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-black'></i>");
 
 	// var hanzefietsroute = new L.GPX("routes/hanzefietsroute1original2020.gpx", {
 	// 	color: 'black',
