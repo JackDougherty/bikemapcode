@@ -58,7 +58,7 @@
 
 	// center map to match initial checkbox gatherBounds
 	var map = L.map('map', {
-	  center: [55, 8.513],
+	  center: [51, 8.513],
 	  zoom: 7,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false,
@@ -133,13 +133,14 @@
 	});
 	controlLayers.addBaseLayer(Thunderforest_OpenCycleMap, 'OpenCycleMap');
 
-	// route overlays; ams-haag-lf4a-lf9-ev3; many EuroVelo from https://eurovelo.travelmap.net/ and Naviki
+	// route overlays; ams-haag-lf4a-lf9-ev3; many EuroVelo from https://eurovelo.travelmap.net and Naviki
+	// 1142 km distance; 4375 m elevation
 
 	var amsHamCph = new L.GPX("routes/ams-ham-cph.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(amsHamCph, "Amsterdam-Copenhagen <i class='color-line bg-blue'></i>");
+	controlLayers.addOverlay(amsHamCph, "Amsterdam-Hamburg-Copenhagen <i class='color-line bg-blue'></i>");
 
 	</script>
 </body>
