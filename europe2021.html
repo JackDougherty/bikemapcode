@@ -92,6 +92,28 @@
 		position: 'topleft'
 	}).addTo(map);
 
+	var searchControl = L.esri.Geocoding.geosearch({
+    position: 'topleft',
+    placeholder: 'Enter an address or place e.g. 1 York St',
+    useMapBounds: false,
+    providers: [L.esri.Geocoding.arcgisOnlineProvider({
+      apikey: "AAPK10a72a47ca284f008836dcfa9ba8216dCrwEvdIhk73Y0sME2A6sA57Hez982HisZ_9hyA8AqAVctZ-1RKZiVR1X1cEXclqZ",
+      // nearby: {
+      //   lat: -33.8688,
+      //   lng: 151.2093
+      // }
+    })]
+  }).addTo(map);
+
+  // var results = L.layerGroup().addTo(map);
+	//
+  // searchControl.on('results', function (data) {
+  //   results.clearLayers();
+  //   for (var i = data.results.length - 1; i >= 0; i--) {
+  //     results.addLayer(L.marker(data.results[i].latlng));
+  //   }
+  // });
+
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
@@ -134,11 +156,11 @@
 	}).addTo(map);
 	controlLayers.addOverlay(hamburgCopenhagen, "Hamburg-Copenhagen <i class='color-line bg-green'></i>");
 
-	var amsterdamCopenhagen = new L.GPX("routes/amsterdam-copenhagen.gpx", {
-		color: 'red',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(amsterdamCopenhagen, "Amsterdam-Copenhagen Alt. <i class='color-line bg-red'></i>");
+	// var amsterdamCopenhagen = new L.GPX("routes/amsterdam-copenhagen.gpx", {
+	// 	color: 'red',
+	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-red'} // 1 = 100km; bgcolor defined in style.css
+	// });
+	// controlLayers.addOverlay(amsterdamCopenhagen, "Amsterdam-Copenhagen Alt. <i class='color-line bg-red'></i>");
 
 	var netherlandsLF4a = new L.GPX("routes/netherlands-lf4a.gpx", {
 		color: 'orange',
