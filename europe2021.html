@@ -27,18 +27,12 @@
 	<!-- load Font-Awesome 4.7 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- load Leaflet.locatecontrol -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.css"/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.70.0/L.Control.Locate.min.js"></script> -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.74.0/L.Control.Locate.min.css"/>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-locatecontrol/0.74.0/L.Control.Locate.min.js"></script>
 	<!-- load Leaflet-plugins to read GPX and KML -->
-	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/GPX.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.3.1/layer/vector/KML.min.js"></script> -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/GPX.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-plugins/3.4.0/layer/vector/KML.min.js"></script>
 	<!-- Esri Leaflet Geocoder -->
-	<!-- <link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css">
-		<script src="https://unpkg.com/esri-leaflet-geocoder"></script> -->
 		<link rel="stylesheet" href="https://unpkg.com/esri-leaflet-geocoder@3.1.1/dist/esri-leaflet-geocoder.css"
     integrity="sha512-IM3Hs+feyi40yZhDH6kV8vQMg4Fh20s9OzInIIAc4nx7aMYMfo+IenRUekoYsHZqGkREUgx0VvlEsgm7nCDW9g=="
     crossorigin="">
@@ -63,7 +57,7 @@
 
 	// center map to match initial checkbox gatherBounds
 	var map = L.map('map', {
-	  center: [53.53849895225509, 8.513255948857097],
+	  center: [53.538, 8.513],
 	  zoom: 7,
 	  zoomControl: false, // add later to reposition
 	  scrollWheelZoom: false
@@ -78,33 +72,21 @@
 	  collapsed: false
 	}).addTo(map);
 
-	L.control.locate({
-		locateOptions: {maxZoom: 16}, // default = 18
-		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
-	}).addTo(map);
-
-	map.addControl( new L.Control.Compass({position: "topleft"}) );
-
-	new L.control.zoom({position: "topleft",}).addTo(map);
-
-	// create the geocoding control, add to map, do NOT display results as markers
-	// var searchControl = L.esri.Geocoding.geosearch({
-	// 	position: 'topleft'
-	// }).addTo(map);
-
+	// add Esri geocoding control, set nearby area, set API key https://developers.arcgis.com
 	var searchControl = L.esri.Geocoding.geosearch({
     position: 'topleft',
     placeholder: 'Enter an address or place',
     useMapBounds: false,
     providers: [L.esri.Geocoding.arcgisOnlineProvider({
       apikey: "AAPK10a72a47ca284f008836dcfa9ba8216dCrwEvdIhk73Y0sME2A6sA57Hez982HisZ_9hyA8AqAVctZ-1RKZiVR1X1cEXclqZ",
-      // nearby: {
-      //   lat: -33.8688,
-      //   lng: 151.2093
-      // }
+      nearby: {
+        lat: 53.538,
+        lng: 8.513
+      }
     })]
   }).addTo(map);
 
+	// Do NOT display search results as markers
   // var results = L.layerGroup().addTo(map);
 	//
   // searchControl.on('results', function (data) {
@@ -113,6 +95,15 @@
   //     results.addLayer(L.marker(data.results[i].latlng));
   //   }
   // });
+
+	L.control.locate({
+		locateOptions: {maxZoom: 16}, // default = 18
+		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
+	}).addTo(map);
+
+	map.addControl( new L.Control.Compass({position: "topleft"}) );
+
+	new L.control.zoom({position: "topleft",}).addTo(map);
 
 	L.control.scale().addTo(map);
 
