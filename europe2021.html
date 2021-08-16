@@ -88,13 +88,13 @@
 	new L.control.zoom({position: "topleft",}).addTo(map);
 
 	// create the geocoding control, add to map, do NOT display results as markers
-	var searchControl = L.esri.Geocoding.geosearch({
-		position: 'topleft'
-	}).addTo(map);
+	// var searchControl = L.esri.Geocoding.geosearch({
+	// 	position: 'topleft'
+	// }).addTo(map);
 
 	var searchControl = L.esri.Geocoding.geosearch({
     position: 'topleft',
-    placeholder: 'Enter an address or place e.g. 1 York St',
+    placeholder: 'Enter an address or place',
     useMapBounds: false,
     providers: [L.esri.Geocoding.arcgisOnlineProvider({
       apikey: "AAPK10a72a47ca284f008836dcfa9ba8216dCrwEvdIhk73Y0sME2A6sA57Hez982HisZ_9hyA8AqAVctZ-1RKZiVR1X1cEXclqZ",
