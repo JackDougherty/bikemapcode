@@ -6,15 +6,10 @@
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- load Bootstrap CSS for mobile devices -->
-		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-		integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
-		crossorigin="anonymous"> -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
 		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
 		crossorigin="anonymous">
 	<!-- load Leaflet	 -->
-	<!-- <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-		<script src="https://unpkg.com/leaflet/dist/leaflet-src.js"></script> -->
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 		crossorigin=""/>
@@ -22,14 +17,10 @@
 		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 		crossorigin=""></script>
 	<!-- load jQuery  -->
-	<!-- <script src="https://code.jquery.com/jquery-3.4.0.min.js"
-		integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg="
-		crossorigin="anonymous"></script> -->
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		crossorigin="anonymous"></script>
-	<!-- Load Esri Leaflet
-	<!-- <script src="https://unpkg.com/esri-leaflet"></script> -->
+	<!-- Load Esri Leaflet -->
 	<script src="https://unpkg.com/esri-leaflet@3.0.2/dist/esri-leaflet.js"
 	integrity="sha512-myckXhaJsP7Q7MZva03Tfme/MSF5a6HC2xryjAM4FxPLHGqlh5VALCbywHnzs2uPoF/4G/QVXyYDDSkp5nPfig=="
 	crossorigin=""></script>
@@ -167,11 +158,11 @@
 	});
 	controlLayers.addOverlay(eurovelo3, "EuroVelo 3 partial <i class='color-line bg-yellow'></i>");
 
-	var hanzefietsroute = new L.GPX("routes/hanzefietsroute1original2020.gpx", {
-		color: 'black',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-black'} // 1 = 100km; bgcolor defined in style.css
-	});
-	controlLayers.addOverlay(hanzefietsroute, "Hanzefietsroute 1 <i class='color-line bg-black'></i>");
+	// var hanzefietsroute = new L.GPX("routes/hanzefietsroute1original2020.gpx", {
+	// 	color: 'black',
+	// 	distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-black'} // 1 = 100km; bgcolor defined in style.css
+	// });
+	// controlLayers.addOverlay(hanzefietsroute, "Hanzefietsroute 1 <i class='color-line bg-black'></i>");
 
 	// var eurovelo12 = new L.GPX("routes/eurovelo12-partial.gpx", {
 	// 	color: 'black',
