@@ -131,20 +131,14 @@
 	});
 	controlLayers.addBaseLayer(Thunderforest_OpenCycleMap, 'OpenCycleMap');
 
-	// route overlays; ams-haarlem-lfk-lf4a-lf9-ev3; many EuroVelo from https://eurovelo.travelmap.net and Naviki
-	// 1142 km distance; 4375 m elevation
+	// route overlays; primarily ams-haarlem-lfk-lf4a-lf9-ev3; many EuroVelo from https://eurovelo.travelmap.net and Naviki
+	// initally 1142 km distance; 4375 m elevation, but modified
 
 	var amsHamCph = new L.GPX("routes/ams-ham-cph.gpx", {
 		color: 'blue',
 		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(amsHamCph, "Amsterdam-Hamburg-Copenhagen <i class='color-line bg-blue'></i>");
-
-	var utrechtReroute = new L.GPX("routes/utrecht-reroute.gpx", {
-		color: 'green',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
-	}).addTo(map);
-	controlLayers.addOverlay(utrechtReroute, "Utrecht Reroute <i class='color-line bg-green'></i>");
 
 	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results; increase limit to 500 images; pull geo and thumbnail, small, large image links and title
 	var flickrApiKey = '25dcc9a8c7410551dcb0af48c778bde5';
