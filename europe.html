@@ -111,7 +111,7 @@
 	L.control.scale().addTo(map);
 
 	// insert map title at top of layer control
-	$('<h6 id="mapTitle">JackBikes with Eva in Europe 2021</br><small>Distance markers = 100 km = 62 miles</small></h6>').insertBefore('div.leaflet-control-layers-base');
+	$('<h6 id="mapTitle">JackBikes with Eva in Europe 2021</br></h6>').insertBefore('div.leaflet-control-layers-base');
 
 	// baselayers
 	var Esri_WorldStreetMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
@@ -136,15 +136,15 @@
 
 	var amsHamCph = new L.GPX("routes/ams-ham-cph.gpx", {
 		color: 'blue',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
+		// distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(amsHamCph, "Amsterdam-Hamburg-Copenhagen <i class='color-line bg-blue'></i>");
 
 	var train = new L.GPX("routes/zwolle-lubeck-train.gpx", {
-		color: 'orange',
-		distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-orange'} // 1 = 100km; bgcolor defined in style.css
+		color: 'green',
+		// distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
-	controlLayers.addOverlay(train, "Train Zwolle-Lubeck <i class='color-line bg-orange'></i>");
+	controlLayers.addOverlay(train, "Train from Zwolle to Lubeck <i class='color-line bg-green'></i>");
 
 
 	// Define flickrURL endpoint with API explorer: insert your key, and tags= or text= to filter results; increase limit to 500 images; pull geo and thumbnail, small, large image links and title
