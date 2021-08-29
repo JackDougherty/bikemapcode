@@ -44,8 +44,8 @@
     integrity="sha512-enHceDibjfw6LYtgWU03hke20nVTm+X5CRi9ity06lGQNtC9GkBNl/6LoER6XzSudGiXy++avi1EbIg9Ip4L1w=="
     crossorigin=""></script>
 	<!-- load distance markers with geometry from local directory; see also style.css -->
-		<script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
-		<script src="src/leaflet-distance-marker.js" type="text/javascript"></script>
+		<!-- <script src="src/leaflet.geometryutil.js" type="text/javascript"></script>
+		<script src="src/leaflet-distance-marker.js" type="text/javascript"></script> -->
 	<!-- load Leaflet.SlideMenu from local directory -->
 		<link rel="stylesheet" href="src/L.Control.SlideMenu.css" />
 		<script src="src/L.Control.SlideMenu.js"></script>
@@ -135,13 +135,13 @@
 	// initally 1142 km distance; 4375 m elevation, but modified
 
 	var amsHamCph = new L.GPX("routes/ams-ham-cph.gpx", {
-		color: 'blue',
+		color: 'blue'
 		// distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-blue'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(amsHamCph, "Amsterdam-Hamburg-Copenhagen <i class='color-line bg-blue'></i>");
 
 	var train = new L.GPX("routes/zwolle-lubeck-train.gpx", {
-		color: 'green',
+		color: 'green'
 		// distanceMarkers: { showAll: 6, offset: 100000, bgcolor: 'bg-green'} // 1 = 100km; bgcolor defined in style.css
 	}).addTo(map);
 	controlLayers.addOverlay(train, "Train from Zwolle to Lubeck <i class='color-line bg-green'></i>");
