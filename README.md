@@ -56,6 +56,10 @@ https://bikewesthartford.org/map
 - ask Ilya about automatically detecting bounds to limit Flickr photos via bbox, similar to fitBounds
 - see https://www.flickr.com/services/api/flickr.photos.search.htm
 - remove all Mapzen refs
+- add back compass?
+```
+	map.addControl( new L.Control.Compass({position: "topleft"}) );
+```
 
 ## Reminders
 - Esri-leaflet to display ArcGIS layers at https://github.com/Esri/esri-leaflet (Apache license)

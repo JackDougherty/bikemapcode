@@ -63,8 +63,6 @@
 		strings: {title: "Show my location"} // To do: resize icon to make text appear alongside
 	}).addTo(map);
 
-	map.addControl( new L.Control.Compass({position: "topleft"}) );
-
 	new L.control.zoom({position: "topleft",}).addTo(map);
 
 	// create the geocoding control, add to map, do NOT display results as markers
