@@ -52,6 +52,11 @@
 			zoom: 4
 		},
 		{
+			name: 'Palouse to Cascades Trail 2023',
+			coords: [47.19, -120.94],
+			zoom: 8
+		},
+		{
 	    name: 'Portland OR to Walla Walla WA 2019',
 	    coords: [45.749474, -120.532779],
 	    zoom: 8
@@ -160,6 +165,13 @@
     + "<br><a href='" + feature.properties.desc +"' target='_blank'>Read blog post</a> (opens new tab)";
     layer.bindPopup(popupText);
   }
+
+	$.getJSON("routes/ptct-2023.geojson", function (data){
+    var geoJsonLayer = L.geoJson(data, {
+      style: {color: "black", weight: 3 },
+      onEachFeature: onEachFeature
+    }).addTo(map);
+  });
 
   $.getJSON("routes/pdx-ww2019.geojson", function (data){
     var geoJsonLayer = L.geoJson(data, {
