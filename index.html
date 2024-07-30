@@ -47,6 +47,11 @@
 			zoom: 4
 		},
 		{
+			name: 'Vermont-Quebec 2024',
+			coords: [45.0, -73.35],
+			zoom: 7
+		},
+		{
 			name: 'Southern California 2024',
 			coords: [33.68, -118.01],
 			zoom: 7
@@ -170,6 +175,13 @@
     + "<br><a href='" + feature.properties.desc +"' target='_blank'>Read blog post</a> (opens new tab)";
     layer.bindPopup(popupText);
   }
+
+	$.getJSON("routes/vt-qc-2024.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "blue", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
 	$.getJSON("routes/california2024.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
