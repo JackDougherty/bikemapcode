@@ -176,7 +176,7 @@
     layer.bindPopup(popupText);
   }
 
-	$.getJSON("routes/vt-qc-2024.geojson", function (data){
+	$.getJSON("routes/vermont-quebec-2024.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
 			style: {color: "blue", weight: 3 },
 			onEachFeature: onEachFeature
