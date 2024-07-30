@@ -178,7 +178,7 @@
 
 	$.getJSON("routes/vermont-quebec-2024.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
-			style: {color: "blue", weight: 3 },
+			style: {color: "green", weight: 3 },
 			onEachFeature: onEachFeature
 		}).addTo(map);
 	});
