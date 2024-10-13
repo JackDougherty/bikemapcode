@@ -52,6 +52,11 @@
 			zoom: 7
 		},
 		{
+			name: 'Erie Canal 2024',
+			coords: [43.04, -74.81],
+			zoom: 7
+		},
+		{
 			name: 'Southern California 2024',
 			coords: [33.68, -118.01],
 			zoom: 7
@@ -177,6 +182,13 @@
   }
 
 	$.getJSON("routes/vermont-quebec-2024.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "green", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
+
+	$.getJSON("routes/erie-canal-2024.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
 			style: {color: "green", weight: 3 },
 			onEachFeature: onEachFeature
