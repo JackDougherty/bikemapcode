@@ -47,6 +47,11 @@
 			zoom: 4
 		},
 		{
+			name: 'Boston-New Haven 2026',
+			coords: [41.9,-71.9478181],
+			zoom: 9
+		},
+		{
 			name: 'Vermont-Quebec 2024',
 			coords: [45.0, -73.35],
 			zoom: 7
@@ -180,6 +185,13 @@
     + "<br><a href='" + feature.properties.desc +"' target='_blank'>Read blog post</a> (opens new tab)";
     layer.bindPopup(popupText);
   }
+
+	$.getJSON("routes/boston-newhaven-2026.geojson", function (data){
+		var geoJsonLayer = L.geoJson(data, {
+			style: {color: "orange", weight: 3 },
+			onEachFeature: onEachFeature
+		}).addTo(map);
+	});
 
 	$.getJSON("routes/vermont-quebec-2024.geojson", function (data){
 		var geoJsonLayer = L.geoJson(data, {
